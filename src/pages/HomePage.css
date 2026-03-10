@@ -1,0 +1,419 @@
+section,
+.section {
+  padding: 2rem;
+}
+
+.html {
+  position: relative;
+}
+
+.search,
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu svg {
+  width: 32px;
+  height: 32px;
+}
+
+.header-nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.3rem 2rem;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.466);
+  border-block-end: 0.5px solid black;
+  /* background: rgba(7, 7, 7, 0.27);*/
+  backdrop-filter: blur(5px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shopping-bag {
+  width: 24px;
+}
+
+svg {
+  display: block;
+  margin: 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+.search-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 24px;
+  height: 24px;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+li {
+  list-style: none;
+}
+
+.header-desc {
+  text-align: center;
+}
+
+/* button {
+  font-weight: 600;
+} */
+
+.category,
+.about-header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: 600; */
+  font-style: normal;
+
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.category,
+.header,
+.shop-now,
+.our-collection {
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.title,
+.price,
+.header-desc {
+  font-family: "Anonymous Pro", monospace;
+}
+
+.title {
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+  /* border-bottom: 1px solid black; */
+  min-height: 75vh;
+  background-color: #f5f5f5;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: url("../assets/soldier-reading.jpg");
+  background-size: cover;
+  background-position: center;
+  background-position-x: -24rem;
+}
+
+.hero::after {
+  position: absolute;
+  background-color: white;
+  opacity: 0.65;
+  inset: 0;
+  content: " ";
+  z-index: 1;
+}
+
+@keyframes background {
+}
+
+.hero-text {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero-text,
+.header {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  /* font-weight: 600; */
+  font-style: normal;
+}
+
+.header {
+  font-weight: 400;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.supporting-h1 {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+  text-align: justify;
+}
+
+.quick-action-btns {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+button {
+  padding: 1rem 1.5rem;
+  font-family: "Anonymous Pro", monospace;
+}
+
+.shop-now {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.our-collection {
+  /* background-color: #f5f5f5; */
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+}
+
+.marque-group {
+  display: flex;
+  gap: 2.5rem;
+  animation: spin 90s infinite linear;
+  padding-right: 2.5rem;
+}
+
+.marque:hover .marque-group {
+  animation-play-state: paused;
+}
+
+.marque:hover {
+  cursor: grabbing;
+}
+
+@keyframes spin {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -100%;
+  }
+}
+
+.marque {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-block: 0.7rem;
+  padding-left: 0.8rem;
+  overflow-x: auto;
+}
+
+.marque::-webkit-scrollbar {
+  display: none;
+}
+
+.products-container {
+  padding-inline: 0.5rem;
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  align-items: top;
+  /* background-color: red; */
+  /* height: 18rem; */
+
+  /* flex-shrink: none; */
+}
+
+.slider,
+.slider-container {
+  padding-inline: 1.5rem;
+  padding-inline-end: 0;
+}
+
+.product {
+  flex-shrink: 0;
+  width: 150px;
+}
+
+.image-container {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  padding: 0.5rem;
+  /* background-color: #f5f5f5; */
+  /* box-shadow: ; */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* background-color: aqua; */
+  display: block;
+}
+
+.add-to-cart {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  background-color: transparent;
+  border: 1px solid black;
+  font-family: "Anonymous Pro", monospace;
+  color: black;
+  background: #1a1a1a;
+  color: #f9f5ef;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grouped-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.highlight {
+  padding-inline: 0;
+  padding-block-end: 0;
+  background-color: #f5f5f5;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.highlightImg-container {
+  width: 100%;
+}
+
+.highlightImg-container img {
+  object-fit: cover;
+}
+
+.grid-container {
+  display: grid;
+  place-content: center;
+  gap: 1.5rem;
+  padding-inline: 0;
+  grid-template-columns: repeat(auto-fill, 150px);
+}
+
+/* .kids {
+  padding: 0;
+} */
+
+.grid-container .product {
+  width: 150px;
+  /* background-color: red; */
+}
+
+.community {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 6rem 2rem;
+
+  /* background-color: black;
+  color: white; */
+  background: url("../assets/bookClub2.jpg");
+  color: white;
+  background-size: cover;
+  /* background-color: black; */
+  /* border-block: 1.5px solid black; */
+  /* min-height: 50vh; */
+}
+
+.community::before {
+  position: absolute;
+  z-index: 1;
+  content: " ";
+  background-color: black;
+  inset: 0;
+  opacity: 0.56;
+}
+
+.community h3,
+.community h2,
+.community-span,
+.community-btn {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.community h2 {
+  font-weight: 600;
+  width: 70%;
+}
+
+.community-span {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 0.9rem;
+  text-align: justify;
+}
+
+.community-btn {
+  border-radius: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  background-color: white;
+
+  /* padding: 1rem 2rem; */
+  border-radius: none;
+  width: 40%;
+  text-align: center;
+  color: black;
+}
+
+.about-header {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.about {
+  padding-block-start: 2.5rem;
+}
+
+.about-text {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 0.95rem;
+  text-align: justify;
+}
+
+.bold {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+footer {
+  padding: 2rem 1.5rem;
+}

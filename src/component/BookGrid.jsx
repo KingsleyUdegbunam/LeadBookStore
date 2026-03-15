@@ -9,7 +9,7 @@ export function BookGrid({ books }) {
           key={book.id}
           image={book.coverImage}
           category={book.primaryCollection}
-          name={book.title}
+          title={book.title}
           priceInKobo={book.price.paperback}
         />
       ))}

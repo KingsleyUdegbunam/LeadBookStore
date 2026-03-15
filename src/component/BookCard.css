@@ -1,0 +1,68 @@
+.product {
+  flex-shrink: 0;
+  width: 190px;
+  gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.image-and-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-grow: 1;
+}
+
+.image-container {
+  flex-grow: 1;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  min-height: 290px;
+  padding: 0.3rem;
+}
+
+.add-to-cart {
+  align-self: center;
+  width: 85%;
+  padding: 0.8rem 1rem;
+  background-color: transparent;
+  border: 1px solid black;
+  font-family: "Anonymous Pro", monospace;
+  color: black;
+  background: #1a1a1a;
+  color: #f9f5ef;
+  font-size: 15px;
+}
+
+.title {
+  font-size: 14px;
+  text-transform: capitalize;
+  justify-self: center;
+}
+
+.category {
+  font-weight: 400;
+  color: #1a1a1a;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.title,
+.price {
+  font-family: "Anonymous Pro", monospace;
+}
+
+.price {
+  font-weight: bold;
+}

@@ -1,0 +1,13 @@
+.cart {
+  position: relative;
+}
+
+.cart-item-number {
+  font-weight: bold;
+  position: absolute;
+  color: red;
+  top: 0;
+  right: 0;
+
+  transform: translate(50%, -50%);
+}

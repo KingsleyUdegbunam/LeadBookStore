@@ -1,24 +1,21 @@
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
+import HomePage from "./Pages/HomePage";
+import ProductPage from "./Pages/ProductPage";
+import CartPage from "./Pages/CartPage";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   return (
-    <>
-      <section className="hero">
-        <div className="logo">LEAD</div>
-        <section className="hero-text">
-          <h1>Building tomorrow's leader. One book at a time.</h1>
-          <p className="suporting-h1">
-            Lead is a curated bookstore of premium reads centered around
-            leadership carefully handpicked and ready to unlock the leader in
-            you.
-          </p>
-          <div className="quick-action-btns">
-            <button className="shopnow">SHOP NOW</button>
-            <button className="our-collection">OUR COLLECTION</button>
-          </div>
-        </section>
-      </section>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage cart={cart} setCart={setCart} />} />
+      <Route
+        path="/shop"
+        element={<ProductPage cart={cart} setCart={setCart} />}
+      />
+      <Route path="/cart" element={<CartPage cart={cart} />} />
+    </Routes>
   );
 }
 

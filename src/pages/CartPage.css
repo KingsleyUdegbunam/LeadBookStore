@@ -1,0 +1,79 @@
+.cart {
+  padding-inline: 0;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+  padding-inline: 1.5rem;
+
+  font-weight: bold;
+}
+
+.product-header > * {
+  font-family: "Outfit", sans-serif;
+}
+
+.cart-items-holder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cart-product {
+  display: grid;
+  grid-template-columns: 150px 1fr 100px;
+  place-content: center;
+  width: 100%;
+  height: max-content;
+  flex-direction: row;
+  border-bottom: 0.5px solid black;
+  padding: 0.5rem;
+  padding-inline: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cart-image-container {
+  position: relative;
+  width: 80px;
+  aspect-ratio: 2/3;
+}
+
+.delete-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.cart-product-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.cart-title-and-price {
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+}
+
+.cartitem-title {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.cartitem-quantity {
+  font-size: 0.9rem;
+}
+
+.cartitem-price {
+  font-weight: bold;
+}
+
+.quantity-increment {
+  justify-self: end;
+}

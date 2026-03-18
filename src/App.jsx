@@ -14,7 +14,10 @@ function App() {
         path="/shop"
         element={<ProductPage cart={cart} setCart={setCart} />}
       />
-      <Route path="/cart" element={<CartPage cart={cart} />} />
+      <Route
+        path="/cart"
+        element={<CartPage cart={cart} setCart={setCart} />}
+      />
     </Routes>
   );
 }

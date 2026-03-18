@@ -1,20 +1,33 @@
 import { convertToNaira } from "../utilities/money";
+import "./BookCard.css";
 
-export function BookCard({ image, category, name, priceInKobo }) {
+export function BookCard({
+  addToCart,
+  book,
+  image,
+  category,
+  title,
+  priceInKobo,
+}) {
   return (
     <div className="product product-grid">
-      <div className="image-and-category-container">
-        <div className="image-container">
-          <img src={image} alt="Book image" />
+      <div className="book-details">
+        <div className="image-and-title">
+          <div className="image-container">
+            <img src={image} alt="Book image" />
+          </div>
+          <div className="category-and-title">
+            <p className="category">{category}</p>
+            <p className="title">{title}</p>
+          </div>
         </div>
-        <p className="category">{category}</p>
-        <p className="title">{name}</p>
+
         <p className="price">{convertToNaira(priceInKobo)}</p>
       </div>
-      <div className="product-details">
-        <div className="grouped-details"></div>
-        <button className="add-to-cart">ADD TO CART</button>
-      </div>
+
+      <button className="add-to-cart" onClick={() => addToCart(book)}>
+        ADD TO CART
+      </button>
     </div>
   );
 }

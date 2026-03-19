@@ -1,9 +1,63 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Header } from "../component/Header";
 import { books } from "../data/inventory";
 import { convertToNaira } from "../utilities/money";
+import { deliveryOption } from "../data/delivery";
+import {
+  getStates,
+  getCities,
+  getCitiesAndTownsByState,
+} from "nigerian-states-lgas-cities-towns";
 import "./CartPage.css";
 
 export default function CartPage({ cart, setCart }) {
+  const [address, setAddress] = useState({
+    country: "Nigeria",
+    state: "",
+    city: "",
+  });
+
+  const [selectedShipping, setSelectedShipping] = useState(null);
+  const [showForm, setShowForm] = useState(true);
+
+  const states = getStates();
+  // const cities = getCitiesAndTownsByState()
+  console.log(states);
+
+  const getShippingOptions = (state) => {
+    const isAbuja = state === "FCT (Abuja)";
+
+    return [
+      {
+        id: "DHL",
+        desc: "2-5 Working Days",
+        costInCents: isAbuja ? 1000000 : 1500000,
+      },
+      {
+        id: "KOS",
+        desc: "4-7 Working Days",
+        costInCents: isAbuja ? 350000 : 650000,
+      },
+      {
+        id: "Shipbubble",
+        desc: "7-10 Working Days",
+        costInCents: isAbuja ? 400000 : 650000,
+      },
+    ];
+  };
+
+  const shippingOptions = getShippingOptions(address.state);
+
+  const handleStateChange = (e) => {
+    setAddress((prev) => ({ ...prev, state: e.target.value, city: "" }));
+    setSelectedShipping(getShippingOptions(e.target.value)[0]);
+  };
+
+  const handleUpdate = () => {
+    setShowForm(false);
+  };
+
   const deleteIcon = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +114,7 @@ export default function CartPage({ cart, setCart }) {
     });
   };
 
-  const totalValue = cart.reduce((total, cartItem) => {
+  const cartTotalPrice = cart.reduce((total, cartItem) => {
     return cartItem.totalPrice + total;
   }, 0);
 
@@ -132,18 +186,141 @@ export default function CartPage({ cart, setCart }) {
       </section>
 
       <section className="cart-summary">
-        <p className="cart-total">Cart total</p>
-        <article>
-          <span>Delivery within Lagos and Abuja takes 1-2 working days</span>
-
-          <article className="cart-total-summary">
-            <div className="cart-subtotal-row">
-              <span className="subtotal-text">Subtotal</span>
-              <span className="subtotal-value">
-                {convertToNaira(totalValue)}
-              </span>
+        <article className="cart-total-summary">
+          <div className="cart-subtotal-row">
+            <span className="subtotal-text">Subtotal:</span>
+            <span className="subtotal-value">
+              {convertToNaira(cartTotalPrice)}
+            </span>
+          </div>
+        </article>
+        <article className="shipping">
+          <article>
+            <p className="cart-shipment">Shipment Options</p>
+            <div className="shipping-note">
+              <p>Delivery within Abuja takes 1-2 working days</p>
+              <p>
+                Book(s) <span className="emphasize-text">above 2kg</span> is
+                likely to attract extra shipping charges.
+              </p>
             </div>
+            <article className="delivery-option">
+              {/* {deliveryOption.map((option) => (
+                <div className="option">
+                  <div>
+                    <label htmlFor={option.id}></label>
+                    <input
+                      value={option.costInCents}
+                      type="radio"
+                      name={option.id}
+                      id={option.id}
+                      checked={option.id === selectedShipping.id}
+                      onChange={() => setSelectedShipping(option)}
+                    />
+                    <span>{option.id}</span>
+                    <span>({option.desc}):</span>
+                  </div>
+
+                  <span className="shipping-option-cost">
+                    {convertToNaira(option.costInCents)}
+                  </span>
+                </div>
+              ))} */}
+              {shippingOptions.map((option) => (
+                <label key={option.id}>
+                  <div>
+                    <input
+                      type="radio"
+                      name="shipping"
+                      id={option.id}
+                      checked={selectedShipping?.id === option.id}
+                      onChange={() => setSelectedShipping(option)}
+                    />
+                    <span>
+                      {option.id}({option.desc}):
+                    </span>
+                  </div>
+                  <span>{convertToNaira(option.costInCents)}</span>
+                </label>
+              ))}
+              {/* Address display */}
+              {showForm && (
+                <div>
+                  <select
+                    value={address.country}
+                    onChange={(e) => {
+                      setAddress((prev) => ({
+                        ...prev,
+                        country: e.target.value,
+                      }));
+                    }}
+                  >
+                    <option value="Nigeria">Nigeria</option>
+                  </select>
+
+                  <select value={address.state} onChange={handleStateChange}>
+                    <option value="">Select State</option>
+                    {states.map((state) => (
+                      <option value={state} key={state}>
+                        {state}
+                      </option>
+                    ))}
+                  </select>
+
+                  <select
+                    name="city"
+                    value={address.city}
+                    onChange={(e) => {
+                      setAddress((prev) => ({ ...prev, city: e.target.value }));
+                    }}
+                  >
+                    <option value="">Select City</option>
+                    {getCitiesAndTownsByState(address.state).map((city) => (
+                      <option value={city} key={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </select>
+
+                  <button onClick={handleUpdate}>Update</button>
+                </div>
+              )}
+            </article>
+
+            <article className="total-cost">
+              <div className="total-cost-child">
+                <p>Subtotal:</p>
+                <p>{convertToNaira(cartTotalPrice)}</p>
+              </div>
+              <div className="total-cost-child">
+                <p>Delivery:</p>
+                <p>
+                  {cartTotalPrice
+                    ? convertToNaira(selectedShipping.costInCents)
+                    : convertToNaira(0)}
+                </p>
+              </div>
+              <div className="total-container">
+                <p className="total-text">Total:</p>
+                <p className="total-amount">
+                  {cartTotalPrice
+                    ? convertToNaira(
+                        cartTotalPrice + selectedShipping.costInCents,
+                      )
+                    : convertToNaira(0)}
+                </p>
+              </div>
+            </article>
           </article>
+        </article>
+
+        <article className="action-btns">
+          <Link className="action-btn checkout-link">
+            <button className="checkout-btn">Checkout</button>
+          </Link>
+          <Link className="action-btn" to={"/shop"}>
+            <button className="shopping-btn">Continue Shopping</button>
+          </Link>
         </article>
       </section>
     </>

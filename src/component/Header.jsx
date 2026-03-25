@@ -4,12 +4,16 @@ import { searchIcon } from "./SearchIcon";
 // import { cartPrimary } from "../data/cart";
 import "./Header.css";
 
-export function Header() {
+export function Header({ cart }) {
+  const cartQunatity = cart.reduce(
+    (total, cartItem) => total + cartItem.quantity,
+    0,
+  );
+
+  console.log(cartQunatity);
   const menuRef = useRef(null);
   const menuOpenRef = useRef(null);
   const menuCloseRef = useRef(null);
-
-  const [cart, setCart] = useState([]);
 
   const toggleMenu = () => {
     menuRef.current.classList.toggle("view-menu");
@@ -20,7 +24,9 @@ export function Header() {
 
   const cartIcon = () => (
     <div className="cart">
-      <span className="cart-item-number">{cart.length}</span>
+      <span className="cart-item-number">
+        {cartQunatity > 0 ? cartQunatity : ""}
+      </span>
       <svg
         className="icon cart-icon"
         xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +75,9 @@ export function Header() {
     <div className="header-nav">
       <p className="logo">L</p>
       <div className="nav">
-        <div className="cartIcon">{cartIcon()}</div>
+        <Link className="link" to={"/cart"}>
+          <div className="cartIcon">{cartIcon()}</div>
+        </Link>
 
         <div className="searchIcon">{searchIcon()}</div>
         <div className="menuIcon" onClick={toggleMenu}>

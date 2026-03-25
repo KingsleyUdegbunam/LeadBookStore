@@ -32,6 +32,11 @@ input {
   font-size: 0.75rem;
   color: red;
   font-family: "Outfit", sans-serif;
+  cursor: pointer;
+}
+
+.checkout-links:hover {
+  color: rgb(255, 58, 58);
 }
 
 .checkout-item-card {
@@ -110,10 +115,13 @@ input {
 .discount-field {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .discount-field label {
   width: 70%;
+  height: fit-content;
+  /* background-color: red; */
 }
 
 /* FORM UTILITIES */
@@ -213,7 +221,8 @@ input {
   padding-block: 0.5rem;
 }
 
-.checkout-page-btn-disabled {
+.checkout-page-btn-disabled,
+.discount-btn-default {
   background-color: lightgrey;
   color: rgb(243, 243, 243);
 
@@ -236,22 +245,22 @@ input {
   color: white;
 }
 
-.discount-btn {
+.discount-btn-default {
+  padding: 0.4rem 1rem;
   flex: 1;
 }
 
-.discount-btn,
-.update-btn,
-.checkout-page-btn {
+.discount-btn-enabled {
+  background-color: red;
+}
+
+.checkout-page-btn,
+.discount-btn-enabled {
   border-color: red;
   background-color: red;
   border-style: solid;
 
   color: white;
-  border-radius: 0.3rem;
-
-  font-weight: 700;
-  font-size: 0.8rem;
 }
 
 .checkout-page-btn {

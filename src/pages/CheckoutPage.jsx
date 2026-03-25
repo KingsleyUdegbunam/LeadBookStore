@@ -1,6 +1,6 @@
 // import { Header } from "../component/Header";
-import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { use, useRef, useState } from "react";
 import Select from "react-select";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
@@ -10,6 +10,8 @@ import {
 } from "nigerian-states-lgas-cities-towns";
 import Paystack from "@paystack/inline-js";
 import { convertToNaira } from "../utilities/money";
+import { supabase } from "../supabase";
+
 import "./CheckoutPage.css";
 
 export default function CheckoutPage({
@@ -19,13 +21,26 @@ export default function CheckoutPage({
   getShippingOptions,
 }) {
   const [selectedShipping, setSelectedShipping] = useState(null);
-  const [showForm, setShowForm] = useState(true);
+  // const [showForm, setShowForm] = useState(true);
+  const [showShipDetailsForm, setShowShipDetailsForm] = useState(true);
+  const [showShippingOptForm, setShowShippingOptForm] = useState(true);
+
+  const [showSummary, setShowSummary] = useState(false);
+
+  const hideForms = () => {
+    setShowShipDetailsForm(false);
+    setShowShippingOptForm(false);
+  };
+
+  const isReadyToPay = !showShipDetailsForm && !showShippingOptForm;
+
   const [stateError, setStateError] = useState(false);
   const [cityError, setCityError] = useState(false);
 
   const [phone, setPhone] = useState();
   const [phoneError, setPhoneError] = useState(false);
 
+  const navigate = useNavigate();
   const popup = new Paystack();
   console.log(popup);
 
@@ -34,8 +49,26 @@ export default function CheckoutPage({
       key: "pk_test_87b24dad8322dd4a245702d85bd6035e9af5650b",
       email: shippingDetails.email,
       amount: cartTotalPrice + selectedShipping.costInCents,
-      onSuccess: (transaction) => {
+      onSuccess: async (transaction) => {
         console.log(transaction);
+        try {
+          const { error } = await supabase.from("orders").insert({
+            reference: transaction.reference,
+            shipping_fee: selectedShipping.costInCents,
+            amount: cartTotalPrice,
+            total: cartTotalPrice + selectedShipping.costInCents,
+            items: cart,
+            shipping_details: { ...address, ...shippingDetails },
+            status: "pending",
+            created_at: new Date(),
+          });
+          if (error) throw error;
+
+          navigate("/order-confirmation");
+        } catch (error) {
+          console.error("Error saving order:", error);
+        }
+
         alert("done");
       },
       onLoad: (response) => {
@@ -176,22 +209,24 @@ export default function CheckoutPage({
 
         <div className="shipping-details">
           {/* DISCOUNT FIELD */}
-          <div className="discount-field-container">
-            <div className="discount-field">
-              <label htmlFor="discount">
-                <input
-                  placeholder="Enter Discount Code"
-                  type="text"
-                  name="discount"
-                  id="discount"
-                />
-              </label>
-              <button className="discount-btn">APPLY</button>
+          {!isReadyToPay && (
+            <div className="discount-field-container">
+              <div className="discount-field">
+                <label htmlFor="discount">
+                  <input
+                    placeholder="Enter Discount Code"
+                    type="text"
+                    name="discount"
+                    id="discount"
+                  />
+                </label>
+                <button className="discount-btn-default">APPLY</button>
+              </div>
+              <div className="discount-display-text">
+                <p>Total Savings: {convertToNaira(0)}*</p>
+              </div>
             </div>
-            <div className="discount-display-text">
-              <p>Total Savings: {convertToNaira(0)}*</p>
-            </div>
-          </div>
+          )}
 
           {/* COST DIPSPLAY */}
           <article className="total-cost">
@@ -219,11 +254,20 @@ export default function CheckoutPage({
             </div>
           </article>
 
-          {!showForm && (
+          {showSummary && (
             <section className="forms-details-summary">
+              {/* SHIPPPING DETAILS SUMMARY */}
               <div className="summary-user-details">
                 <p className="summary-header">
-                  Shipping Details <span className="checkout-links">Edit</span>
+                  Shipping Details{" "}
+                  <span
+                    className="checkout-links"
+                    onClick={() => {
+                      setShowShipDetailsForm(true);
+                    }}
+                  >
+                    Edit
+                  </span>
                 </p>
                 <p>
                   {shippingDetails.firstName} {shippingDetails.lastName}
@@ -232,9 +276,18 @@ export default function CheckoutPage({
                 <p>{shippingDetails.tel}</p>
               </div>
 
+              {/* SHIPPING OPTIONS SUMMARY */}
               <div className="summary-user-details">
                 <p className="summary-header">
-                  Shipping Options <span className="checkout-links">Edit</span>
+                  Shipping Options{" "}
+                  <span
+                    className="checkout-links"
+                    onClick={() => {
+                      setShowShippingOptForm(true);
+                    }}
+                  >
+                    Edit
+                  </span>
                 </p>
                 <p>{convertToNaira(selectedShipping.costInCents)}</p>
                 <p>{selectedShipping.desc}</p>
@@ -242,8 +295,8 @@ export default function CheckoutPage({
             </section>
           )}
 
-          {/* FORMS */}
-          {showForm && (
+          {/*SHIPPING OPTIONS FORM */}
+          {showShippingOptForm && (
             <section className="form-section-container">
               <div className="form-header-container">
                 <p className="step1 cart-shipment">Step 1: Shipment Options</p>
@@ -346,7 +399,8 @@ export default function CheckoutPage({
             </section>
           )}
 
-          {showForm && (
+          {/* SHIPPING DETAILS FORM */}
+          {showShipDetailsForm && (
             <section className="form-section-container">
               <div className="form-header-container">
                 <p className="step1 cart-shipment">Step 2: Shipping Details</p>
@@ -527,15 +581,16 @@ export default function CheckoutPage({
             className={`checkout-page-btn-disabled cheeckout-continue-btn ${isFormValid && "btn-enabled"}`}
             onClick={() => {
               if (isFormValid) {
-                if (!showForm) {
+                if (isReadyToPay) {
                   initiatePayment();
                   return;
                 }
-                setShowForm(!showForm);
+                hideForms();
+                setShowSummary(true);
               }
             }}
           >
-            {!showForm ? "CHECKOUT" : "CONTINUE"}
+            {isReadyToPay ? "PLACE ORDER" : "CONTNUE"}
           </button>
         </div>
       </section>

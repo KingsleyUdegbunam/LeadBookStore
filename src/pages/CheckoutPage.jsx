@@ -8,6 +8,7 @@ import {
   getStates,
   getCitiesAndTownsByState,
 } from "nigerian-states-lgas-cities-towns";
+import Paystack from "@paystack/inline-js";
 import { convertToNaira } from "../utilities/money";
 import "./CheckoutPage.css";
 
@@ -22,8 +23,33 @@ export default function CheckoutPage({
   const [stateError, setStateError] = useState(false);
   const [cityError, setCityError] = useState(false);
 
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState();
   const [phoneError, setPhoneError] = useState(false);
+
+  const popup = new Paystack();
+  console.log(popup);
+
+  const initiatePayment = () => {
+    popup.checkout({
+      key: "pk_test_87b24dad8322dd4a245702d85bd6035e9af5650b",
+      email: shippingDetails.email,
+      amount: cartTotalPrice + selectedShipping.costInCents,
+      onSuccess: (transaction) => {
+        console.log(transaction);
+        alert("done");
+      },
+      onLoad: (response) => {
+        console.log("onLoad: ", response);
+      },
+      onCancel: () => {
+        alert("onCancel");
+      },
+      onError: (error) => {
+        console.log("Error: ", error.message);
+        alert("Nah");
+      },
+    });
+  };
 
   const [address, setAddress] = useState({
     country: "Nigeria",
@@ -32,13 +58,24 @@ export default function CheckoutPage({
   });
 
   const [shippingDetails, setShippingDetails] = useState({
-    country: address?.country ?? "",
-    state: address?.state ?? "",
-    city: address?.city ?? "",
+    email: "",
+    firstName: "",
+    lastName: "",
+    address: "",
+    tel: "",
   });
 
-  // console.log(isValidPhoneNumber("00003733376", "NG"));
-  // console.log(isValidPhoneNumber("08037333768", "NG"));
+  const isFormValid =
+    address.state.trim() !== "" &&
+    address.city.trim() !== "" &&
+    shippingDetails.email.trim() !== "" &&
+    shippingDetails.firstName.trim() !== "" &&
+    shippingDetails.lastName.trim() !== "" &&
+    shippingDetails.address.trim() !== "" &&
+    shippingDetails.tel.trim() !== "";
+
+  console.log(shippingDetails);
+  console.log(address);
 
   const citySelectRef = useRef(null);
   const stateOptionRef = useRef(null);
@@ -60,10 +97,6 @@ export default function CheckoutPage({
   const handleStateChange = (value) => {
     setAddress((prev) => ({ ...prev, state: value, city: "" }));
     setSelectedShipping(getShippingOptions(value)[0]);
-  };
-
-  const handleUpdate = () => {
-    setShowForm(false);
   };
 
   const doubleError = () => {
@@ -142,6 +175,7 @@ export default function CheckoutPage({
         </div>
 
         <div className="shipping-details">
+          {/* DISCOUNT FIELD */}
           <div className="discount-field-container">
             <div className="discount-field">
               <label htmlFor="discount">
@@ -159,28 +193,64 @@ export default function CheckoutPage({
             </div>
           </div>
 
-          <div className="shipping-option-container">
-            <article className="shipping">
-              <p className="cart-shipment">Shipment Options</p>
-              <div className="shipping-note">
-                <p>Delivery within Abuja takes 1-2 working days.</p>
-                <p>
-                  Book(s) <span className="emphasize-text">above 2kg</span> is
-                  likely to attract extra shipping charges.
+          {/* COST DIPSPLAY */}
+          <article className="total-cost">
+            <div className="total-cost-child">
+              <p>Subtotal:</p>
+              <p>{convertToNaira(cartTotalPrice)}</p>
+            </div>
+            <div className="total-cost-child">
+              <p>Delivery:</p>
+              <p>
+                {selectedShipping?.costInCents
+                  ? convertToNaira(selectedShipping?.costInCents)
+                  : 0}
+              </p>
+            </div>
+            <div className="total-container">
+              <p className="total-text">Total:</p>
+              <p className="total-amount">
+                {selectedShipping?.costInCents
+                  ? convertToNaira(
+                      cartTotalPrice + selectedShipping?.costInCents,
+                    )
+                  : convertToNaira(0)}
+              </p>
+            </div>
+          </article>
+
+          {!showForm && (
+            <section className="forms-details-summary">
+              <div className="summary-user-details">
+                <p className="summary-header">
+                  Shipping Details <span className="checkout-links">Edit</span>
                 </p>
+                <p>
+                  {shippingDetails.firstName} {shippingDetails.lastName}
+                </p>
+                <p>{shippingDetails.address}</p>
+                <p>{shippingDetails.tel}</p>
               </div>
 
-              <div className="address-form-container">
-                {/* Address display */}
-                {!showForm && (
-                  <p
-                    onClick={() => setShowForm(true)}
-                    className="change-address"
-                  >
-                    Change Address
-                  </p>
-                )}
-                {showForm && (
+              <div className="summary-user-details">
+                <p className="summary-header">
+                  Shipping Options <span className="checkout-links">Edit</span>
+                </p>
+                <p>{convertToNaira(selectedShipping.costInCents)}</p>
+                <p>{selectedShipping.desc}</p>
+              </div>
+            </section>
+          )}
+
+          {/* FORMS */}
+          {showForm && (
+            <section className="form-section-container">
+              <div className="form-header-container">
+                <p className="step1 cart-shipment">Step 1: Shipment Options</p>
+              </div>
+
+              <article className="primary-form-container">
+                <div className="address-form-container">
                   <div className="address-form">
                     <div className="country form-container">
                       <p>Country/Region</p>
@@ -241,136 +311,185 @@ export default function CheckoutPage({
                       ></Select>
                     </div>
                   </div>
-                )}
+                </div>
+
+                <article className="delivery-options-container">
+                  {shippingOptions.map((option) => (
+                    <label
+                      className="shipping-option-container shipping-radio-and-price"
+                      key={option.id}
+                    >
+                      <div className="shipping-opt-radio">
+                        <input
+                          type="radio"
+                          name="shipping"
+                          id={option.id}
+                          checked={selectedShipping?.id === option.id}
+                          onClick={
+                            address?.city
+                              ? () => {
+                                  return "";
+                                }
+                              : doubleError
+                          }
+                          onChange={() => setSelectedShipping(option)}
+                        />
+                        <span>
+                          {option.id}({option.desc}):
+                        </span>
+                      </div>
+                      <span>{convertToNaira(option.costInCents)}</span>
+                    </label>
+                  ))}
+                </article>
+              </article>
+            </section>
+          )}
+
+          {showForm && (
+            <section className="form-section-container">
+              <div className="form-header-container">
+                <p className="step1 cart-shipment">Step 2: Shipping Details</p>
+                <p className="account-action">
+                  <Link className="checkout-links"> Login</Link> or{" "}
+                  <Link className="checkout-links">create an account</Link> for
+                  faster checkout.
+                </p>
               </div>
-
-              <article className="delivery-options-container">
-                {shippingOptions.map((option) => (
-                  <label className="shipping-option-container" key={option.id}>
-                    <div className="shipping-opt">
-                      <input
-                        type="radio"
-                        name="shipping"
-                        id={option.id}
-                        checked={selectedShipping?.id === option.id}
-                        onClick={
-                          address?.city
-                            ? () => {
-                                return "";
-                              }
-                            : doubleError
-                        }
-                        onChange={() => setSelectedShipping(option)}
-                      />
-                      <span>
-                        {option.id}({option.desc}):
-                      </span>
-                    </div>
-                    <span>{convertToNaira(option.costInCents)}</span>
-                  </label>
-                ))}
-                <div className="btn-container">
-                  <button
-                    className={`update-btn-default  ${address.city && "update-btn"}`}
-                    onClick={() => {
-                      if (!address.state) {
-                        setStateError(true);
-                        stateOptionRef.current.focus();
-                        return;
-                      }
-
-                      if (address.city) {
-                        handleUpdate();
-                      } else {
-                        citySelectRef.current.focus();
-                        setCityError(true);
-                      }
-                    }}
-                  >
-                    Update
-                  </button>
-                </div>
-              </article>
-
-              <article className="total-cost">
-                <div className="total-cost-child">
-                  <p>Subtotal:</p>
-                  <p>{convertToNaira(cartTotalPrice)}</p>
-                </div>
-                <div className="total-cost-child">
-                  <p>Delivery:</p>
-                  <p>
-                    {selectedShipping?.costInCents
-                      ? convertToNaira(selectedShipping?.costInCents)
-                      : 0}
-                  </p>
-                </div>
-                <div className="total-container">
-                  <p className="total-text">Total:</p>
-                  <p className="total-amount">
-                    {selectedShipping?.costInCents
-                      ? convertToNaira(
-                          cartTotalPrice + selectedShipping?.costInCents,
-                        )
-                      : convertToNaira(0)}
-                  </p>
-                </div>
-              </article>
-
-              <article className="shipping-info">
-                <div className="email-container shipping-info-div">
+              <article className="primary-form-container">
+                <div className="email-container user-info-div">
                   <label htmlFor="email">Email:</label>
                   <input
                     type="email"
                     name="email"
                     id="email"
+                    value={shippingDetails.email}
+                    onChange={(e) => {
+                      setShippingDetails((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }));
+                    }}
                     required
                     placeholder="Email address"
                   />
                 </div>
 
-                <div className="user-name">
-                  <div className="first-name">
-                    <label htmlFor="first-name">First Name:</label>
-                    <input type="text" name="first-name" id="first-name" />
-                  </div>
-                  <div className="first-name">
-                    <label htmlFor="last-name">Last Name:</label>
-                    <input type="text" name="last-name" id="last-name" />
-                  </div>
-                </div>
-
-                <div className="address shipping-info-div">
-                  <label htmlFor="address">Address:</label>
-                  <input type="text" name="address" id="address" />
-                </div>
-
-                <div className="shipping-info-div">
-                  <label htmlFor="telephone">Phone:</label>
+                <div className="user-info-div">
+                  <label htmlFor="first-name">First Name:</label>
                   <input
-                    value={phone}
-                    onChange={(e) => {
-                      setPhone(e.target.value);
-                      if (phoneError) {
-                        setPhoneError(
-                          !isValidPhoneNumber(e.target.value, "NG"),
-                        );
-                      }
-                    }}
-                    onBlur={() =>
-                      setPhoneError(!isValidPhoneNumber(phone, "NG"))
+                    type="text"
+                    name="first-name"
+                    id="first-name"
+                    value={shippingDetails.firstName}
+                    required
+                    onChange={(e) =>
+                      setShippingDetails((prev) => ({
+                        ...prev,
+                        firstName: e.target.value,
+                      }))
                     }
-                    type="tel"
-                    name="telephone"
-                    id="telephone"
                   />
-                  {phoneError && (
-                    <span className="tel-error">Invalid phone number</span>
-                  )}
                 </div>
 
-                <div className="email-container shipping-info-div">
-                  <label className="email-state-label" htmlFor="">
+                <div className="user-info-div">
+                  <label htmlFor="last-name">Last Name:</label>
+                  <input
+                    type="text"
+                    name="last-name"
+                    id="last-name"
+                    value={shippingDetails.lastName}
+                    required
+                    onChange={(e) =>
+                      setShippingDetails((prev) => ({
+                        ...prev,
+                        lastName: e.target.value,
+                      }))
+                    }
+                  />
+                </div>
+
+                <div className="address user-info-div">
+                  <label htmlFor="address">Address:</label>
+                  <input
+                    required
+                    type="text"
+                    name="address"
+                    id="address"
+                    value={shippingDetails.address}
+                    onChange={(e) => {
+                      setShippingDetails((prev) => ({
+                        ...prev,
+                        address: e.target.value,
+                      }));
+                    }}
+                  />
+                </div>
+
+                <div className="tel-container">
+                  <div className="user-info-div">
+                    <label htmlFor="telephone">Phone:</label>
+                    <div className="tel-input-field-and-error-display">
+                      <input
+                        value={phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                          if (phoneError) {
+                            const valid = isValidPhoneNumber(
+                              e.target.value,
+                              "NG",
+                            );
+                            setPhoneError(!valid);
+
+                            if (valid) {
+                              setShippingDetails((prev) => ({
+                                ...prev,
+                                tel: e.target.value,
+                              }));
+                            }
+                          }
+                        }}
+                        onBlur={() => {
+                          const valid = isValidPhoneNumber(phone, "NG");
+                          setPhoneError(!valid);
+
+                          if (valid) {
+                            setShippingDetails((prev) => ({
+                              ...prev,
+                              tel: phone,
+                            }));
+                          }
+                        }}
+                        onAnimationStart={(e) => {
+                          if (e.animationName === "onAutoFillStart") {
+                            const valid = isValidPhoneNumber(
+                              e.target.value,
+                              "NG",
+                            );
+                            setPhoneError(!valid);
+                            setPhone(e.target.value);
+                            if (valid) {
+                              setShippingDetails((prev) => ({
+                                ...prev,
+                                tel: e.target.value,
+                              }));
+                            }
+                          }
+                        }}
+                        type="tel"
+                        name="telephone"
+                        id="telephone"
+                        required
+                      />
+                      {phoneError && (
+                        <span className="tel-error">Invalid phone number</span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="user-info-div">
+                  <label className="user-state-label" htmlFor="">
                     Country:
                     <Select
                       styles={selectStyles}
@@ -384,8 +503,8 @@ export default function CheckoutPage({
                   </label>
                 </div>
 
-                <div className="state-container shipping-info-div">
-                  <label className="email-state-label" htmlFor="state">
+                <div className="user-info-div">
+                  <label className="user-state-label" htmlFor="state">
                     State:
                     <Select
                       styles={selectStyles}
@@ -400,28 +519,26 @@ export default function CheckoutPage({
                   </label>
                 </div>
               </article>
-            </article>
-          </div>
+            </section>
+          )}
+
+          <button
+            disabled={!isFormValid}
+            className={`checkout-page-btn-disabled cheeckout-continue-btn ${isFormValid && "btn-enabled"}`}
+            onClick={() => {
+              if (isFormValid) {
+                if (!showForm) {
+                  initiatePayment();
+                  return;
+                }
+                setShowForm(!showForm);
+              }
+            }}
+          >
+            {!showForm ? "CHECKOUT" : "CONTINUE"}
+          </button>
         </div>
       </section>
     </section>
   );
-}
-
-{
-  /* SHIPPING OPTION  */
-}
-
-{
-  /* <article className="action-btns">
-    <Link
-      ref={checkoutRef}
-      className={`action-btn checkout-link-default ${address.city ? "checkout-link-active" : ""}`}
-    >
-      <button className="checkout-btn">Checkout</button>
-    </Link>
-    <Link className="action-btn" to={"/shop"}>
-      <button className="shopping-btn">Continue Shopping</button>
-    </Link>
-  </article> */
 }

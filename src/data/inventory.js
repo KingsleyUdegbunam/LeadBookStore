@@ -8,10 +8,10 @@ export const books = [
     title: "atomic habits",
     author: "James Clear",
     header:
-      "the #1 new york times bestseller. over 25 million copies sold! translated into 60+ languages!",
-    subheader: "tiny changes, remarkable results",
+      "The #1 New York Times Bestseller. Over 25 million copies sold! Translated into 60+ languages!",
+    subheader: "Tiny changes, remarkable results",
     description:
-      "james clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. if you're having trouble changing your habits, the problem isn't you — the problem is your system. you do not rise to the level of your goals. you fall to the level of your systems.",
+      "James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. If you're having trouble changing your habits, the problem isn't you — the problem is your system. You do not rise to the level of your goals. You fall to the level of your systems.",
     coverImage:
       "http://books.google.com/books/content?id=fFCjDQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -21,16 +21,31 @@ export const books = [
     rating: 4.8,
     reviews: 890,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Avery (Penguin Random House)",
+      isbn: "9780735211292",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 16, 2018",
+      language: "English",
+      genre: "Self Help / Personal Development",
+      storeCategory: "Self Development",
+      pages: 320,
+      awards: [
+        "#1 New York Times Bestseller",
+        "#1 Wall Street Journal Bestseller",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 2,
     title: "the 7 habits of highly effective people",
     author: "Stephen Covey",
-    header: "one of the most inspiring and impactful books ever written",
-    subheader: "powerful lessons in personal change",
+    header: "One of the most inspiring and impactful books ever written",
+    subheader: "Powerful lessons in personal change",
     description:
-      "stephen covey presents a holistic, integrated, principle-centered approach for solving personal and professional problems. with penetrating insights and pointed anecdotes, covey reveals a step-by-step pathway for living with fairness, integrity, honesty, and human dignity — principles that give us the security to adapt to change and the wisdom and power to take advantage of the opportunities that change creates.",
+      "Stephen Covey presents a holistic, integrated, principle-centered approach for solving personal and professional problems. With penetrating insights and pointed anecdotes, Covey reveals a step-by-step pathway for living with fairness, integrity, honesty, and human dignity — principles that give us the security to adapt to change and the wisdom and power to take advantage of the opportunities that change creates.",
     coverImage:
       "https://books.google.com.ng/books/content?id=upUxaNWSaRIC&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U37QH5j35EmAfPx8j2K-UvHoN64pQ&w=1280",
     primaryCollection: "lead me",
@@ -40,16 +55,30 @@ export const books = [
     rating: 4.7,
     reviews: 1200,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Free Press (Simon & Schuster)",
+      isbn: "9780743269513",
+      format: ["paperback", "hardback"],
+      publishedDate: "November 19, 1989",
+      language: "English",
+      genre: "Self Help / Business",
+      storeCategory: "Self Development",
+      pages: 381,
+      awards: [
+        "#1 Most Influential Business Book of the 20th Century (Forbes)",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 3,
     title: "mindset",
     author: "Carol Dweck",
-    header: "the new psychology of success",
-    subheader: "how we can learn to fulfill our potential",
+    header: "The new psychology of success",
+    subheader: "How we can learn to fulfill our potential",
     description:
-      "after decades of research, world-renowned stanford university psychologist carol s. dweck discovered a simple but groundbreaking idea: the power of mindset. in this book, she shows how success in school, work, sports, the arts, and almost every area of human endeavor can be dramatically influenced by how we think about our talents and abilities.",
+      "After decades of research, world-renowned Stanford University psychologist Carol S. Dweck discovered a simple but groundbreaking idea: the power of mindset. In this book, she shows how success in school, work, sports, the arts, and almost every area of human endeavor can be dramatically influenced by how we think about our talents and abilities.",
     coverImage:
       "http://books.google.com/books/content?id=rAyNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -59,6 +88,18 @@ export const books = [
     rating: 4.6,
     reviews: 980,
     tag: ["bestseller"],
+    details: {
+      publisher: "Ballantine Books (Random House)",
+      isbn: "9780345472328",
+      format: ["paperback", "hardback"],
+      publishedDate: "February 28, 2006",
+      language: "English",
+      genre: "Self Help / Psychology",
+      storeCategory: "Self Development",
+      pages: 276,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
@@ -66,10 +107,10 @@ export const books = [
     title: "think and grow rich",
     author: "Napoleon Hill",
     header:
-      "the landmark bestseller now revised and updated for the 21st century",
-    subheader: "the secret to success is in your mind",
+      "The landmark bestseller now revised and updated for the 21st century",
+    subheader: "The secret to success is in your mind",
     description:
-      "think and grow rich has been called the granddaddy of all motivational literature. it was the first book to boldly ask, what makes a winner? napoleon hill studied more than 500 of america's most successful individuals and discovered that great wealth begins with a state of mind — not with money, education, or luck.",
+      "Think and Grow Rich has been called the granddaddy of all motivational literature. It was the first book to boldly ask, what makes a winner? Napoleon Hill studied more than 500 of America's most successful individuals and discovered that great wealth begins with a state of mind — not with money, education, or luck.",
     coverImage:
       "http://books.google.com/books/content?id=6TaGbwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -79,6 +120,19 @@ export const books = [
     rating: 4.6,
     reviews: 2100,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher:
+        "The Ralston Society (original); TarcherPerigee (modern edition)",
+      isbn: "9781585424337",
+      format: ["paperback", "hardback"],
+      publishedDate: "1937",
+      language: "English",
+      genre: "Self Help / Personal Finance",
+      storeCategory: "Self Development",
+      pages: 233,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
@@ -86,10 +140,10 @@ export const books = [
     title: "the subtle art of not giving a f*ck",
     author: "Mark Manson",
     header:
-      "a #1 new york times bestseller. over 12 million copies sold worldwide.",
-    subheader: "a counterintuitive approach to living a good life",
+      "A #1 New York Times Bestseller. Over 12 million copies sold worldwide.",
+    subheader: "A counterintuitive approach to living a good life",
     description:
-      "for decades we've been told that positive thinking is the key to a happy, rich life. mark manson says this is nonsense. he makes the argument, backed by both academic research and well-timed humor, that improving our lives hinges not on turning lemons into lemonade, but on learning to stomach lemons better. the key to a good life is not giving a f*ck about more — it's giving a f*ck about less.",
+      "For decades we've been told that positive thinking is the key to a happy, rich life. Mark Manson says this is nonsense. He makes the argument, backed by both academic research and well-timed humor, that improving our lives hinges not on turning lemons into lemonade, but on learning to stomach lemons better. The key to a good life is not giving a f*ck about more — it's giving a f*ck about less.",
     coverImage:
       "http://books.google.com/books/content?id=-kmXswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -99,16 +153,28 @@ export const books = [
     rating: 4.5,
     reviews: 3200,
     tag: ["bestseller"],
+    details: {
+      publisher: "HarperOne",
+      isbn: "9780062457714",
+      format: ["paperback", "hardback"],
+      publishedDate: "September 13, 2016",
+      language: "English",
+      genre: "Self Help / Personal Development",
+      storeCategory: "Self Development",
+      pages: 224,
+      awards: ["#1 New York Times Bestseller"],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 6,
     title: "how to win friends & influence people",
     author: "Dale Carnegie",
-    header: "the most famous confidence-building book ever published",
-    subheader: "over 30 million copies sold worldwide",
+    header: "The most famous confidence-building book ever published",
+    subheader: "Over 30 million copies sold worldwide",
     description:
-      "originally published in 1936, dale carnegie's rock-solid, time-tested advice has carried countless people up the ladder of success in their professional and personal lives. this book teaches you how to communicate effectively, make people like you, get others to see your side, become a more effective leader, and successfully navigate almost any social situation.",
+      "Originally published in 1936, Dale Carnegie's rock-solid, time-tested advice has carried countless people up the ladder of success in their professional and personal lives. This book teaches you how to communicate effectively, make people like you, get others to see your side, become a more effective leader, and successfully navigate almost any social situation.",
     coverImage:
       "http://books.google.com/books/content?id=hCf-DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead me",
@@ -118,16 +184,28 @@ export const books = [
     rating: 4.7,
     reviews: 4500,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Simon & Schuster",
+      isbn: "9780671027032",
+      format: ["paperback", "hardback"],
+      publishedDate: "1936",
+      language: "English",
+      genre: "Self Help / Communication",
+      storeCategory: "Self Development",
+      pages: 291,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 7,
     title: "can't hurt me",
     author: "David Goggins",
-    header: "master your mind and defy the odds",
-    subheader: "the inspiring story of self-mastery and mental toughness",
+    header: "Master your mind and defy the odds",
+    subheader: "The inspiring story of self-mastery and mental toughness",
     description:
-      "for david goggins, childhood was a nightmare — poverty, prejudice, and physical abuse colored his days and haunted his nights. but through self-discipline, mental toughness, and hard work, goggins transformed himself from a depressed, overweight young man into a us armed forces icon and one of the world's top endurance athletes. his story shows that most of us only tap into 40% of our capabilities.",
+      "For David Goggins, childhood was a nightmare — poverty, prejudice, and physical abuse colored his days and haunted his nights. But through self-discipline, mental toughness, and hard work, Goggins transformed himself from a depressed, overweight young man into a US Armed Forces icon and one of the world's top endurance athletes. His story shows that most of us only tap into 40% of our capabilities.",
     coverImage:
       "http://books.google.com/books/content?id=IeYmEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead him",
@@ -137,16 +215,28 @@ export const books = [
     rating: 4.9,
     reviews: 3100,
     tag: ["bestseller", "top rated"],
+    details: {
+      publisher: "Lioncrest Publishing",
+      isbn: "9781544512273",
+      format: ["paperback", "hardback"],
+      publishedDate: "December 4, 2018",
+      language: "English",
+      genre: "Self Help / Memoir",
+      storeCategory: "Self Development",
+      pages: 364,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 8,
     title: "deep work",
     author: "Cal Newport",
-    header: "rules for focused success in a distracted world",
-    subheader: "the ability to focus without distraction is a superpower",
+    header: "Rules for focused success in a distracted world",
+    subheader: "The ability to focus without distraction is a superpower",
     description:
-      "deep work is the ability to focus without distraction on cognitively demanding tasks. cal newport argues that this skill is becoming increasingly rare at exactly the same time it is becoming increasingly valuable. the few who cultivate this skill and make it the core of their work life will thrive.",
+      "Deep work is the ability to focus without distraction on cognitively demanding tasks. Cal Newport argues that this skill is becoming increasingly rare at exactly the same time it is becoming increasingly valuable. The few who cultivate this skill and make it the core of their work life will thrive.",
     coverImage:
       "http://books.google.com/books/content?id=lZpFCgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -156,16 +246,28 @@ export const books = [
     rating: 4.7,
     reviews: 760,
     tag: ["staff pick"],
+    details: {
+      publisher: "Grand Central Publishing",
+      isbn: "9781455586691",
+      format: ["paperback", "hardback"],
+      publishedDate: "January 5, 2016",
+      language: "English",
+      genre: "Self Help / Productivity",
+      storeCategory: "Self Development",
+      pages: 296,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 9,
     title: "the power of habit",
     author: "Charles Duhigg",
-    header: "why we do what we do in life and business",
-    subheader: "habits can be changed if we understand how they work",
+    header: "Why we do what we do in life and business",
+    subheader: "Habits can be changed if we understand how they work",
     description:
-      "pulitzer prize-winning journalist charles duhigg takes us to the thrilling edge of scientific discoveries that explain why habits exist and how they can be changed. with penetrating intelligence, duhigg brings to life a whole new understanding of human nature and its potential for transformation.",
+      "Pulitzer Prize-winning journalist Charles Duhigg takes us to the thrilling edge of scientific discoveries that explain why habits exist and how they can be changed. With penetrating intelligence, Duhigg brings to life a whole new understanding of human nature and its potential for transformation.",
     coverImage:
       "http://books.google.com/books/content?id=oFYNngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -175,16 +277,28 @@ export const books = [
     rating: 4.6,
     reviews: 1400,
     tag: ["bestseller"],
+    details: {
+      publisher: "Random House",
+      isbn: "9781400069286",
+      format: ["paperback", "hardback"],
+      publishedDate: "February 28, 2012",
+      language: "English",
+      genre: "Self Help / Psychology",
+      storeCategory: "Self Development",
+      pages: 371,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 10,
     title: "man's search for meaning",
     author: "Viktor Frankl",
-    header: "one of the ten most influential books in america",
-    subheader: "a psychiatrist's path to a new therapy",
+    header: "One of the ten most influential books in America",
+    subheader: "A psychiatrist's path to a new therapy",
     description:
-      "psychiatrist viktor frankl survived the nazi concentration camps and emerged with a profound insight: even in the most extreme suffering, humans can find meaning. his experiences led him to develop logotherapy — the belief that the primary human motivation is the search for meaning in life. this book is both a memoir of survival and a guide to discovering your own purpose.",
+      "Psychiatrist Viktor Frankl survived the Nazi concentration camps and emerged with a profound insight: even in the most extreme suffering, humans can find meaning. His experiences led him to develop logotherapy — the belief that the primary human motivation is the search for meaning in life. This book is both a memoir of survival and a guide to discovering your own purpose.",
     coverImage:
       "http://books.google.com/books/content?id=umJ8DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead me",
@@ -194,17 +308,31 @@ export const books = [
     rating: 4.8,
     reviews: 5200,
     tag: ["classic", "top rated"],
+    details: {
+      publisher: "Beacon Press",
+      isbn: "9780807014271",
+      format: ["paperback", "hardback"],
+      publishedDate: "1946",
+      language: "English",
+      genre: "Self Help / Psychology / Memoir",
+      storeCategory: "Self Development",
+      pages: 184,
+      awards: [
+        "One of the Ten Most Influential Books in America (Library of Congress)",
+      ],
+      countryOfPublication: "Austria",
+    },
   },
 
   {
     id: 11,
     title: "a-z of personal finance",
     author: "Nimi Akinkugbe",
-    header: "nigeria's most trusted guide to personal wealth management",
+    header: "Nigeria's most trusted guide to personal wealth management",
     subheader:
-      "practical information and useful tips on matters concerning you and your money",
+      "Practical information and useful tips on matters concerning you and your money",
     description:
-      "with a professional career spanning over two decades in banking and private wealth management, nimi akinkugbe provides important practical information and useful tips on all matters concerning you and your money. whether you are just starting out, approaching retirement, or somewhere in between, this book will help you take control of your financial future — written specifically with the nigerian context in mind.",
+      "With a professional career spanning over two decades in banking and private wealth management, Nimi Akinkugbe provides important practical information and useful tips on all matters concerning you and your money. Whether you are just starting out, approaching retirement, or somewhere in between, this book will help you take control of your financial future — written specifically with the Nigerian context in mind.",
     coverImage:
       "http://books.google.com/books/content?id=Mzr-rQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
@@ -214,16 +342,28 @@ export const books = [
     rating: 4.5,
     reviews: 210,
     tag: ["staff pick"],
+    details: {
+      publisher: "Unbeatables Publishers",
+      isbn: "9789785203047",
+      format: ["paperback"],
+      publishedDate: "2014",
+      language: "English",
+      genre: "Personal Finance",
+      storeCategory: "Self Development",
+      pages: 280,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 12,
     title: "thoughts from a wealthy perspective",
-    author: "Samuel Egube",
-    header: "a nigerian guide to building wealth and financial freedom",
-    subheader: "the mindset and strategies of the financially free",
+    author: "Sam Egube",
+    header: "A Nigerian guide to building wealth and financial freedom",
+    subheader: "The mindset and strategies of the financially free",
     description:
-      "samuel egube, one of nigeria's foremost economists and financial experts, shares his insights on wealth creation, financial planning, and the mindset required to build lasting prosperity in the nigerian context. a practical and inspiring guide for anyone ready to take their finances seriously.",
+      "Sam Egube, one of Nigeria's foremost economists and financial experts, shares his insights on wealth creation, financial planning, and the mindset required to build lasting prosperity in the Nigerian context. A practical and inspiring guide for anyone ready to take their finances seriously.",
     coverImage:
       "http://books.google.com/books/content?id=6NyJDAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
@@ -233,16 +373,28 @@ export const books = [
     rating: 4.4,
     reviews: 180,
     tag: ["staff pick"],
+    details: {
+      publisher: "Molofin Nominees",
+      isbn: "9789785203054",
+      format: ["paperback"],
+      publishedDate: "2016",
+      language: "English",
+      genre: "Personal Finance",
+      storeCategory: "Self Development",
+      pages: 200,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 13,
     title: "the four agreements",
     author: "Don Miguel Ruiz",
-    header: "a practical guide to personal freedom",
-    subheader: "a toltec wisdom book",
+    header: "A practical guide to personal freedom",
+    subheader: "A Toltec wisdom book",
     description:
-      "in the four agreements, don miguel ruiz reveals the source of self-limiting beliefs that rob us of joy and create needless suffering. based on ancient toltec wisdom, the four agreements offer a powerful code of conduct that can rapidly transform our lives to a new experience of freedom, true happiness, and love.",
+      "In The Four Agreements, Don Miguel Ruiz reveals the source of self-limiting beliefs that rob us of joy and create needless suffering. Based on ancient Toltec wisdom, the four agreements offer a powerful code of conduct that can rapidly transform our lives to a new experience of freedom, true happiness, and love.",
     coverImage:
       "http://books.google.com/books/content?id=mU76DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead me",
@@ -252,16 +404,28 @@ export const books = [
     rating: 4.6,
     reviews: 3800,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Amber-Allen Publishing",
+      isbn: "9781878424310",
+      format: ["paperback", "hardback"],
+      publishedDate: "November 7, 1997",
+      language: "English",
+      genre: "Self Help / Spirituality",
+      storeCategory: "Self Development",
+      pages: 160,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 14,
     title: "getting things done",
     author: "David Allen",
-    header: "the art of stress-free productivity",
-    subheader: "the definitive guide to personal and professional productivity",
+    header: "The art of stress-free productivity",
+    subheader: "The definitive guide to personal and professional productivity",
     description:
-      "for more than twenty years, the time-tested methods of david allen's getting things done have helped countless professionals around the world manage the ever-increasing demands of their workplaces. allen reveals how to capture everything that needs to get done into a logical and trusted system, so you always have a plan for next actions.",
+      "For more than twenty years, the time-tested methods of David Allen's Getting Things Done have helped countless professionals around the world manage the ever-increasing demands of their workplaces. Allen reveals how to capture everything that needs to get done into a logical and trusted system, so you always have a plan for next actions.",
     coverImage:
       "http://books.google.com/books/content?id=7xClQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -271,16 +435,28 @@ export const books = [
     rating: 4.5,
     reviews: 890,
     tag: ["classic"],
+    details: {
+      publisher: "Penguin Books",
+      isbn: "9780143126560",
+      format: ["paperback", "hardback"],
+      publishedDate: "2001",
+      language: "English",
+      genre: "Self Help / Productivity",
+      storeCategory: "Self Development",
+      pages: 352,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 15,
     title: "thinking fast and slow",
     author: "Daniel Kahneman",
-    header: "the #1 international bestseller",
-    subheader: "a revolutionary look at the way your mind works",
+    header: "The #1 international bestseller",
+    subheader: "A revolutionary look at the way your mind works",
     description:
-      "in this work, nobel prize-winning economist daniel kahneman takes us on a groundbreaking tour of the mind, explaining the two systems that drive the way we think. system 1 is fast, intuitive, and emotional; system 2 is slower, more deliberative, and more logical. kahneman exposes the extraordinary capabilities and faults and biases of fast thinking.",
+      "In this work, Nobel Prize-winning economist Daniel Kahneman takes us on a groundbreaking tour of the mind, explaining the two systems that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical. Kahneman exposes the extraordinary capabilities and faults and biases of fast thinking.",
     coverImage:
       "http://books.google.com/books/content?id=hOmtuQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
@@ -290,6 +466,18 @@ export const books = [
     rating: 4.6,
     reviews: 2400,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Farrar, Straus and Giroux",
+      isbn: "9780374533557",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 25, 2011",
+      language: "English",
+      genre: "Psychology / Behavioral Economics",
+      storeCategory: "Self Development",
+      pages: 499,
+      awards: ["National Academy of Sciences Best Book Award (2012)"],
+      countryOfPublication: "United States",
+    },
   },
 
   // ─────────────────────────────────────────
@@ -301,10 +489,10 @@ export const books = [
     title: "africa rise and shine",
     author: "Jim Ovia",
     header:
-      "how a nigerian entrepreneur built a bank and helped build a nation",
-    subheader: "the inspiring story of zenith bank's founder",
+      "How a Nigerian entrepreneur built a bank and helped build a nation",
+    subheader: "The inspiring story of Zenith Bank's founder",
     description:
-      "jim ovia, founder of zenith bank — one of africa's most successful financial institutions — shares his extraordinary story of building a world-class bank from scratch in nigeria. from humble beginnings to becoming one of africa's most influential business leaders, ovia shares hard-won lessons about entrepreneurship, perseverance, and nation-building in emerging markets.",
+      "Jim Ovia, founder of Zenith Bank — one of Africa's most successful financial institutions — shares his extraordinary story of building a world-class bank from scratch in Nigeria. From humble beginnings to becoming one of Africa's most influential business leaders, Ovia shares hard-won lessons about entrepreneurship, perseverance, and nation-building in emerging markets.",
     coverImage:
       "http://books.google.com/books/content?id=xD_CuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -314,16 +502,28 @@ export const books = [
     rating: 4.8,
     reviews: 450,
     tag: ["staff pick"],
+    details: {
+      publisher: "ForbesBooks",
+      isbn: "9781946633408",
+      format: ["hardback"],
+      publishedDate: "July 24, 2018",
+      language: "English",
+      genre: "Business / Entrepreneurship / Memoir",
+      storeCategory: "Business & Leadership",
+      pages: 224,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 17,
     title: "the innovator's dilemma",
     author: "Clayton M. Christensen",
-    header: "the revolutionary book that will change the way you do business",
-    subheader: "when new technologies cause great firms to fail",
+    header: "The revolutionary book that will change the way you do business",
+    subheader: "When new technologies cause great firms to fail",
     description:
-      "named one of the 100 most influential books of the 20th century by time magazine, the innovator's dilemma asks why great companies can fail precisely because they do everything right. clayton christensen shows that truly revolutionary companies are not afraid to cannibalize their own products — and that the biggest threat to success is not bad management, but the very practices that made them great in the first place.",
+      "Named one of the 100 most influential books of the 20th century by Time magazine, The Innovator's Dilemma asks why great companies can fail precisely because they do everything right. Clayton Christensen shows that truly revolutionary companies are not afraid to cannibalize their own products — and that the biggest threat to success is not bad management, but the very practices that made them great in the first place.",
     coverImage:
       "https://books.google.com.ng/books/publisher/content?id=3JnBAgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73a1Wy7o0DlG6oZqV2mwDZLQu0Cn-4ah8QptMqg04gFQjfbpU_mjVOYWqrnt123EfhMIZwXTJ67T1uWnOJ3CW9t2e46631pPcA3MOowGAq1SnaCVXvammFw4OolYkNdF0Up7L25",
     primaryCollection: "lead them",
@@ -333,16 +533,30 @@ export const books = [
     rating: 4.6,
     reviews: 1100,
     tag: ["classic"],
+    details: {
+      publisher: "Harvard Business Review Press",
+      isbn: "9780062060242",
+      format: ["paperback", "hardback"],
+      publishedDate: "1997",
+      language: "English",
+      genre: "Business / Technology / Management",
+      storeCategory: "Business & Leadership",
+      pages: 288,
+      awards: [
+        "One of the 100 Most Influential Books of the 20th Century (Time Magazine)",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 18,
     title: "the girls in the boardroom",
     author: "Ibukun Awosika",
-    header: "lessons from africa's most celebrated businesswoman",
-    subheader: "breaking barriers and building legacies",
+    header: "Lessons from Africa's most celebrated businesswoman",
+    subheader: "Breaking barriers and building legacies",
     description:
-      "ibukun awosika, one of africa's most celebrated business leaders and former chairperson of first bank of nigeria, shares her remarkable journey and the lessons she has learned from decades at the top of corporate nigeria. a powerful guide for every woman who dares to lead.",
+      "Ibukun Awosika, one of Africa's most celebrated business leaders and former Chairperson of First Bank of Nigeria, shares her remarkable journey and the lessons she has learned from decades at the top of corporate Nigeria. A powerful guide for every woman who dares to lead.",
     coverImage:
       "http://books.google.com/books/content?id=yb70EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead her",
@@ -352,6 +566,18 @@ export const books = [
     rating: 4.7,
     reviews: 320,
     tag: ["staff pick"],
+    details: {
+      publisher: "SOI Publishing",
+      isbn: "9789789812707",
+      format: ["paperback"],
+      publishedDate: "July 9, 2021",
+      language: "English",
+      genre: "Business / Leadership / Women",
+      storeCategory: "Business & Leadership",
+      pages: 268,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
@@ -359,10 +585,10 @@ export const books = [
     title: "who says you can't?",
     author: "Frank Nneji",
     header:
-      "the inspiring story of one of nigeria's most successful entrepreneurs",
-    subheader: "building a business against all odds",
+      "The inspiring story of one of Nigeria's most successful entrepreneurs",
+    subheader: "Building a business against all odds",
     description:
-      "frank nneji, founder of abc transport, shares the story of how he built one of nigeria's most successful transport companies from almost nothing. this honest and inspiring memoir is a blueprint for entrepreneurs across africa who dare to dream big and refuse to accept that success is out of reach.",
+      "Frank Nneji, founder of ABC Transport, shares the story of how he built one of Nigeria's most successful transport companies from almost nothing. This honest and inspiring memoir is a blueprint for entrepreneurs across Africa who dare to dream big and refuse to accept that success is out of reach.",
     coverImage:
       "http://books.google.com/books/content?id=fXv1zQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -372,16 +598,28 @@ export const books = [
     rating: 4.5,
     reviews: 230,
     tag: ["staff pick"],
+    details: {
+      publisher: "Kraft Books",
+      isbn: "9789785203085",
+      format: ["paperback"],
+      publishedDate: "2018",
+      language: "English",
+      genre: "Business / Entrepreneurship / Memoir",
+      storeCategory: "Business & Leadership",
+      pages: 220,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 20,
     title: "africa's business revolution",
     author: "Acha Leke",
-    header: "how to succeed in the world's next big growth market",
-    subheader: "a guide to doing business in africa",
+    header: "How to succeed in the world's next big growth market",
+    subheader: "A guide to doing business in Africa",
     description:
-      "africa is the world's next great growth market, and business leaders who understand it stand to gain enormously. acha leke and his co-authors draw on decades of research and fieldwork across the continent to reveal how africa's most successful companies are built — and provide a practical roadmap for any business looking to invest, grow, and lead in africa.",
+      "Africa is the world's next great growth market, and business leaders who understand it stand to gain enormously. Acha Leke and his co-authors draw on decades of research and fieldwork across the continent to reveal how Africa's most successful companies are built — and provide a practical roadmap for any business looking to invest, grow, and lead in Africa.",
     coverImage:
       "http://books.google.com/books/content?id=OcnRtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -391,16 +629,28 @@ export const books = [
     rating: 4.6,
     reviews: 280,
     tag: ["staff pick"],
+    details: {
+      publisher: "Harvard Business Review Press",
+      isbn: "9781633693685",
+      format: ["paperback", "hardback"],
+      publishedDate: "November 6, 2018",
+      language: "English",
+      genre: "Business / Africa / Strategy",
+      storeCategory: "Business & Leadership",
+      pages: 272,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 21,
     title: "good to great",
     author: "Jim Collins",
-    header: "why some companies make the leap and others don't",
-    subheader: "the definitive management study of our time",
+    header: "Why some companies make the leap and others don't",
+    subheader: "The definitive management study of our time",
     description:
-      "built on a five-year research project, good to great answers the question: can a good company become a great company, and if so, how? jim collins and his team identified elite companies that made the leap to great results and sustained them for at least fifteen years. the findings challenge many of the conventional notions of corporate success.",
+      "Built on a five-year research project, Good to Great answers the question: can a good company become a great company, and if so, how? Jim Collins and his team identified elite companies that made the leap to great results and sustained them for at least fifteen years. The findings challenge many of the conventional notions of corporate success.",
     coverImage:
       "https://books.google.com/books/content?id=pJNt2ZFFT3sC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -410,16 +660,28 @@ export const books = [
     rating: 4.8,
     reviews: 2100,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "HarperBusiness",
+      isbn: "9780066620992",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 16, 2001",
+      language: "English",
+      genre: "Business / Management",
+      storeCategory: "Business & Leadership",
+      pages: 320,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 22,
     title: "start with why",
     author: "Simon Sinek",
-    header: "how great leaders inspire everyone to take action",
-    subheader: "the inspiring story behind the golden circle",
+    header: "How great leaders inspire everyone to take action",
+    subheader: "The inspiring story behind the golden circle",
     description:
-      "why are some people and organizations more innovative, more influential, and more profitable than others? simon sinek shows that the leaders who have had the greatest influence in the world all think, act and communicate the same way — starting with why. it's the key to inspiring those around you.",
+      "Why are some people and organizations more innovative, more influential, and more profitable than others? Simon Sinek shows that the leaders who have had the greatest influence in the world all think, act and communicate the same way — starting with why. It's the key to inspiring those around you.",
     coverImage:
       "http://books.google.com/books/content?id=xjqQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -429,16 +691,28 @@ export const books = [
     rating: 4.7,
     reviews: 1650,
     tag: ["bestseller"],
+    details: {
+      publisher: "Portfolio / Penguin",
+      isbn: "9781591846444",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 29, 2009",
+      language: "English",
+      genre: "Business / Leadership",
+      storeCategory: "Business & Leadership",
+      pages: 256,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 23,
     title: "leaders eat last",
     author: "Simon Sinek",
-    header: "why some teams pull together and others don't",
-    subheader: "the secret of great leadership is sacrifice",
+    header: "Why some teams pull together and others don't",
+    subheader: "The secret of great leadership is sacrifice",
     description:
-      "simon sinek investigates the cultures of the best organizations in the world and finds a common thread: the leaders create environments in which people naturally work together to do remarkable things. drawing on examples from the us marines to wall street, sinek shows that the best leaders sacrifice their own comfort for the good of those in their care.",
+      "Simon Sinek investigates the cultures of the best organizations in the world and finds a common thread: the leaders create environments in which people naturally work together to do remarkable things. Drawing on examples from the US Marines to Wall Street, Sinek shows that the best leaders sacrifice their own comfort for the good of those in their care.",
     coverImage:
       "http://books.google.com/books/content?id=3SliAgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -448,16 +722,28 @@ export const books = [
     rating: 4.6,
     reviews: 1100,
     tag: ["bestseller"],
+    details: {
+      publisher: "Portfolio / Penguin",
+      isbn: "9781591845324",
+      format: ["paperback", "hardback"],
+      publishedDate: "January 7, 2014",
+      language: "English",
+      genre: "Business / Leadership",
+      storeCategory: "Business & Leadership",
+      pages: 368,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 24,
     title: "zero to one",
     author: "Peter Thiel",
-    header: "notes on startups, or how to build the future",
-    subheader: "the bible of startup thinking",
+    header: "Notes on startups, or how to build the future",
+    subheader: "The bible of startup thinking",
     description:
-      "peter thiel, co-founder of paypal and palantir, shares his unconventional wisdom on building companies that create something genuinely new. every moment in business happens only once — the next bill gates will not build an operating system, the next mark zuckerberg won't create a social network. creating something truly new takes it from 0 to 1.",
+      "Peter Thiel, co-founder of PayPal and Palantir, shares his unconventional wisdom on building companies that create something genuinely new. Every moment in business happens only once — the next Bill Gates will not build an operating system, the next Mark Zuckerberg won't create a social network. Creating something truly new takes it from 0 to 1.",
     coverImage:
       "http://books.google.com/books/content?id=xw-PEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
@@ -467,16 +753,28 @@ export const books = [
     rating: 4.5,
     reviews: 1800,
     tag: ["bestseller"],
+    details: {
+      publisher: "Crown Business",
+      isbn: "9780804139021",
+      format: ["paperback", "hardback"],
+      publishedDate: "September 16, 2014",
+      language: "English",
+      genre: "Business / Entrepreneurship / Startups",
+      storeCategory: "Business & Leadership",
+      pages: 224,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 25,
     title: "the hard thing about hard things",
     author: "Ben Horowitz",
-    header: "building a business when there are no easy answers",
-    subheader: "the most honest book about entrepreneurship ever written",
+    header: "Building a business when there are no easy answers",
+    subheader: "The most honest book about entrepreneurship ever written",
     description:
-      "ben horowitz, co-founder of andreessen horowitz, draws on his decades of experience as a ceo and investor to offer essential advice on building and running a startup. in this honest account, he describes the challenges that come with founding, building, managing, and selling a business — and explains why there's no formula for success.",
+      "Ben Horowitz, co-founder of Andreessen Horowitz, draws on his decades of experience as a CEO and investor to offer essential advice on building and running a startup. In this honest account, he describes the challenges that come with founding, building, managing, and selling a business — and explains why there's no formula for success.",
     coverImage:
       "http://books.google.com/books/content?id=620pAgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -486,16 +784,28 @@ export const books = [
     rating: 4.7,
     reviews: 980,
     tag: ["staff pick"],
+    details: {
+      publisher: "HarperBusiness",
+      isbn: "9780062273208",
+      format: ["paperback", "hardback"],
+      publishedDate: "March 4, 2014",
+      language: "English",
+      genre: "Business / Entrepreneurship",
+      storeCategory: "Business & Leadership",
+      pages: 304,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 26,
     title: "how to sell to nigerians",
     author: "Akin Alabi",
-    header: "win more customers, make more money",
-    subheader: "the ultimate guide to selling in the nigerian market",
+    header: "Win more customers, make more money",
+    subheader: "The ultimate guide to selling in the Nigerian market",
     description:
-      "akin alabi, one of nigeria's most successful digital marketers and entrepreneurs, reveals the unique psychology of the nigerian consumer and how to craft messages that convert. packed with practical examples and real-world strategies tested in the nigerian market, this is essential reading for anyone selling in nigeria.",
+      "Akin Alabi, one of Nigeria's most successful digital marketers and entrepreneurs, reveals the unique psychology of the Nigerian consumer and how to craft messages that convert. Packed with practical examples and real-world strategies tested in the Nigerian market, this is essential reading for anyone selling in Nigeria.",
     coverImage:
       "http://books.google.com/books/content?id=DMNyzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
@@ -505,16 +815,28 @@ export const books = [
     rating: 4.6,
     reviews: 380,
     tag: ["staff pick", "new arrival"],
+    details: {
+      publisher: "Independently Published",
+      isbn: "9798503949681",
+      format: ["paperback"],
+      publishedDate: "May 14, 2021",
+      language: "English",
+      genre: "Business / Marketing / Sales",
+      storeCategory: "Business & Leadership",
+      pages: 188,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 27,
     title: "dare to lead",
     author: "Brené Brown",
-    header: "brave work. tough conversations. whole hearts.",
-    subheader: "the ultimate guide to courageous leadership",
+    header: "Brave work. tough conversations. whole hearts.",
+    subheader: "The ultimate guide to courageous leadership",
     description:
-      "leadership is not about titles, status, and wielding power. a leader is anyone who takes responsibility for recognizing the potential in people and ideas, and has the courage to develop that potential. brené brown shows that the most transformational leaders are those who have the courage to be vulnerable.",
+      "Leadership is not about titles, status, and wielding power. A leader is anyone who takes responsibility for recognizing the potential in people and ideas, and has the courage to develop that potential. Brené Brown shows that the most transformational leaders are those who have the courage to be vulnerable.",
     coverImage:
       "http://books.google.com/books/content?id=jGmTEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead her",
@@ -524,6 +846,18 @@ export const books = [
     rating: 4.7,
     reviews: 987,
     tag: ["bestseller", "staff pick"],
+    details: {
+      publisher: "Random House",
+      isbn: "9780399592522",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 9, 2018",
+      language: "English",
+      genre: "Business / Leadership / Self Help",
+      storeCategory: "Business & Leadership",
+      pages: 320,
+      awards: ["#1 New York Times Bestseller"],
+      countryOfPublication: "United States",
+    },
   },
 
   {
@@ -531,10 +865,10 @@ export const books = [
     title: "the lean startup",
     author: "Eric Ries",
     header:
-      "how today's entrepreneurs use continuous innovation to create radically successful businesses",
-    subheader: "a new approach for the age of uncertainty",
+      "How today's entrepreneurs use continuous innovation to create radically successful businesses",
+    subheader: "A new approach for the age of uncertainty",
     description:
-      "eric ries introduces the lean startup method, a scientific approach to creating and managing startups that gets the desired product to customers' hands faster. by validating assumptions and adapting based on feedback, entrepreneurs can reduce market risks and sidestep the need for large amounts of initial funding.",
+      "Eric Ries introduces the Lean Startup method, a scientific approach to creating and managing startups that gets the desired product to customers' hands faster. By validating assumptions and adapting based on feedback, entrepreneurs can reduce market risks and sidestep the need for large amounts of initial funding.",
     coverImage:
       "http://books.google.com/books/content?id=tvfyz-4JILwC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -544,17 +878,29 @@ export const books = [
     rating: 4.5,
     reviews: 1300,
     tag: ["bestseller"],
+    details: {
+      publisher: "Crown Business",
+      isbn: "9780307887894",
+      format: ["paperback", "hardback"],
+      publishedDate: "September 13, 2011",
+      language: "English",
+      genre: "Business / Entrepreneurship / Startups",
+      storeCategory: "Business & Leadership",
+      pages: 336,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 29,
     title: "built to last",
     author: "Jim Collins",
-    header: "successful habits of visionary companies",
+    header: "Successful habits of visionary companies",
     subheader:
-      "the ultimate business book about building enduring great companies",
+      "The ultimate business book about building enduring great companies",
     description:
-      "drawing on a six-year research project at stanford university, jim collins and jerry porras studied eighteen truly exceptional and long-lasting companies and compared each directly to a top competitor. the findings revealed key underlying principles that enabled visionary companies to be successful across many decades.",
+      "Drawing on a six-year research project at Stanford University, Jim Collins and Jerry Porras studied eighteen truly exceptional and long-lasting companies and compared each directly to a top competitor. The findings revealed key underlying principles that enabled visionary companies to be successful across many decades.",
     coverImage:
       "https://books.google.com/books/content?id=4jPgNqfnIXcC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -564,16 +910,28 @@ export const books = [
     rating: 4.6,
     reviews: 890,
     tag: ["classic"],
+    details: {
+      publisher: "HarperBusiness",
+      isbn: "9780060516406",
+      format: ["paperback", "hardback"],
+      publishedDate: "1994",
+      language: "English",
+      genre: "Business / Management",
+      storeCategory: "Business & Leadership",
+      pages: 368,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 30,
     title: "purple cow",
     author: "Seth Godin",
-    header: "transform your business by being remarkable",
-    subheader: "you're either a purple cow or you're not",
+    header: "Transform your business by being remarkable",
+    subheader: "You're either a purple cow or you're not",
     description:
-      "you're either a purple cow or you're not. you're either remarkable or invisible. in purple cow, seth godin urges you to put a purple cow into everything you build and everything you do — to create something truly noticeable. the old ps of marketing are no longer sufficient. standing out is the only option.",
+      "You're either a Purple Cow or you're not. You're either remarkable or invisible. In Purple Cow, Seth Godin urges you to put a Purple Cow into everything you build and everything you do — to create something truly noticeable. The old Ps of marketing are no longer sufficient. Standing out is the only option.",
     coverImage:
       "http://books.google.com/books/content?id=hdHXAc030p4C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
@@ -583,6 +941,18 @@ export const books = [
     rating: 4.4,
     reviews: 760,
     tag: ["classic"],
+    details: {
+      publisher: "Portfolio / Penguin",
+      isbn: "9781591843177",
+      format: ["paperback", "hardback"],
+      publishedDate: "2003",
+      language: "English",
+      genre: "Business / Marketing",
+      storeCategory: "Business & Leadership",
+      pages: 160,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   // ─────────────────────────────────────────
@@ -593,10 +963,10 @@ export const books = [
     id: 31,
     title: "steve jobs",
     author: "Walter Isaacson",
-    header: "the exclusive biography of apple's founder",
-    subheader: "the man who thought different",
+    header: "The exclusive biography of apple's founder",
+    subheader: "The man who thought different",
     description:
-      "based on more than forty interviews with jobs conducted over two years — as well as interviews with more than a hundred family members, friends, adversaries, and colleagues — walter isaacson has written a riveting story of a creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries.",
+      "Based on more than forty interviews with Jobs conducted over two years — as well as interviews with more than a hundred family members, friends, adversaries, and colleagues — Walter Isaacson has written a riveting story of a creative entrepreneur whose passion for perfection and ferocious drive revolutionized six industries.",
     coverImage:
       "https://books.google.com/books/content?id=6e4cDvhrKhgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -606,16 +976,28 @@ export const books = [
     rating: 4.7,
     reviews: 2890,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Simon & Schuster",
+      isbn: "9781451648539",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 24, 2011",
+      language: "English",
+      genre: "Biography / Technology",
+      storeCategory: "Biography",
+      pages: 656,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 32,
     title: "elon musk",
     author: "Walter Isaacson",
-    header: "the story of the world's most audacious entrepreneur",
-    subheader: "a biography of the man reshaping our future",
+    header: "The story of the world's most audacious entrepreneur",
+    subheader: "A biography of the man reshaping our future",
     description:
-      "walter isaacson's riveting biography of elon musk explores how his turbulent upbringing in south africa shaped the drive, vision, and uncompromising personality that has made him both one of the most influential people alive and one of the most controversial. it covers his work at tesla, spacex, twitter, and beyond.",
+      "Walter Isaacson's riveting biography of Elon Musk explores how his turbulent upbringing in South Africa shaped the drive, vision, and uncompromising personality that has made him both one of the most influential people alive and one of the most controversial. It covers his work at Tesla, SpaceX, Twitter, and beyond.",
     coverImage:
       "http://books.google.com/books/content?id=6_mzEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -625,16 +1007,28 @@ export const books = [
     rating: 4.5,
     reviews: 1430,
     tag: ["new arrival", "bestseller"],
+    details: {
+      publisher: "Simon & Schuster",
+      isbn: "9781982181284",
+      format: ["paperback", "hardback"],
+      publishedDate: "September 12, 2023",
+      language: "English",
+      genre: "Biography / Technology / Business",
+      storeCategory: "Biography",
+      pages: 688,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 33,
     title: "long walk to freedom",
     author: "Nelson Mandela",
-    header: "the autobiography of nelson mandela",
-    subheader: "the inspiring life story of south africa's greatest leader",
+    header: "The autobiography of nelson mandela",
+    subheader: "The inspiring life story of South Africa's greatest leader",
     description:
-      "the autobiography of nelson mandela — the statesman who emerged from 27 years in prison to lead his country out of apartheid and become its first democratically elected president. mandela's story is one of the most inspiring of our time — a story of integrity, courage, and determination in the face of overwhelming injustice.",
+      "The autobiography of Nelson Mandela — the statesman who emerged from 27 years in prison to lead his country out of apartheid and become its first democratically elected president. Mandela's story is one of the most inspiring of our time — a story of integrity, courage, and determination in the face of overwhelming injustice.",
     coverImage:
       "http://books.google.com/books/content?id=jc41AQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -644,16 +1038,28 @@ export const books = [
     rating: 4.9,
     reviews: 3400,
     tag: ["classic", "top rated"],
+    details: {
+      publisher: "Little, Brown and Company",
+      isbn: "9780316548182",
+      format: ["paperback", "hardback"],
+      publishedDate: "1994",
+      language: "English",
+      genre: "Biography / Politics / History",
+      storeCategory: "Biography",
+      pages: 656,
+      awards: ["ANC Book of the Year"],
+      countryOfPublication: "South Africa",
+    },
   },
 
   {
     id: 34,
     title: "africa rise and shine",
     author: "Jim Ovia",
-    header: "the story of one of africa's greatest entrepreneurs",
-    subheader: "building a world-class bank in nigeria",
+    header: "The story of one of Africa's greatest entrepreneurs",
+    subheader: "Building a world-class bank in Nigeria",
     description:
-      "jim ovia chronicles the building of zenith bank into one of the most successful financial institutions in africa. this biography reads as both a personal success story and a blueprint for building enduring institutions in africa's challenging but high-growth environment.",
+      "Jim Ovia chronicles the building of Zenith Bank into one of the most successful financial institutions in Africa. This biography reads as both a personal success story and a blueprint for building enduring institutions in Africa's challenging but high-growth environment.",
     coverImage:
       "http://books.google.com/books/content?id=xD_CuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -663,16 +1069,28 @@ export const books = [
     rating: 4.8,
     reviews: 450,
     tag: ["staff pick"],
+    details: {
+      publisher: "ForbesBooks",
+      isbn: "9781946633408",
+      format: ["hardback"],
+      publishedDate: "July 24, 2018",
+      language: "English",
+      genre: "Biography / Business",
+      storeCategory: "Biography",
+      pages: 224,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 35,
     title: "alexander hamilton",
     author: "Ron Chernow",
-    header: "the pulitzer prize-winning biography",
-    subheader: "the story of america's most dynamic founding father",
+    header: "The Pulitzer Prize-winning biography",
+    subheader: "The story of America's most dynamic founding father",
     description:
-      "ron chernow's landmark biography of alexander hamilton reveals the turbulent life of the genius who shaped the modern united states. illegitimate and orphaned, hamilton rose to become george washington's aide-de-camp, a founding father, and the nation's first treasury secretary — all while struggling with fierce political rivalries and the tragic duel that ended his life.",
+      "Ron Chernow's landmark biography of Alexander Hamilton reveals the turbulent life of the genius who shaped the modern United States. Illegitimate and orphaned, Hamilton rose to become George Washington's aide-de-camp, a founding father, and the nation's first Treasury Secretary — all while struggling with fierce political rivalries and the tragic duel that ended his life.",
     coverImage:
       "https://books.google.com/books/content?id=4iafgTEhU3QC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -682,17 +1100,32 @@ export const books = [
     rating: 4.8,
     reviews: 2100,
     tag: ["classic", "top rated"],
+    details: {
+      publisher: "Penguin Press",
+      isbn: "9780143034759",
+      format: ["paperback", "hardback"],
+      publishedDate: "April 26, 2004",
+      language: "English",
+      genre: "Biography / History / Politics",
+      storeCategory: "Biography",
+      pages: 818,
+      awards: [
+        "Pulitzer Prize for Biography (2005)",
+        "National Book Critics Circle Award (2004)",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 36,
     title: "leonardo da vinci",
     author: "Walter Isaacson",
-    header: "a biography of history's greatest creative genius",
+    header: "A biography of history's greatest creative genius",
     subheader:
-      "the passionate, creative, and eccentric genius who helped define the renaissance",
+      "The passionate, creative, and eccentric genius who helped define the renaissance",
     description:
-      "based on thousands of pages from leonardo's astonishing notebooks and on new discoveries about his life and work, walter isaacson weaves a narrative that connects his art to his science. he shows how leonardo's genius was based on skills we can improve in ourselves — insatiable curiosity, careful observation, and a playful imagination.",
+      "Based on thousands of pages from Leonardo's astonishing notebooks and on new discoveries about his life and work, Walter Isaacson weaves a narrative that connects his art to his science. He shows how Leonardo's genius was based on skills we can improve in ourselves — insatiable curiosity, careful observation, and a playful imagination.",
     coverImage:
       "http://books.google.com/books/content?id=vkA5DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -702,17 +1135,29 @@ export const books = [
     rating: 4.7,
     reviews: 1200,
     tag: ["bestseller"],
+    details: {
+      publisher: "Simon & Schuster",
+      isbn: "9781501139154",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 17, 2017",
+      language: "English",
+      genre: "Biography / Art / History",
+      storeCategory: "Biography",
+      pages: 624,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 37,
     title: "napoleon",
     author: "Andrew Roberts",
-    header: "a life — the definitive biography of a complex genius",
+    header: "A life — the definitive biography of a complex genius",
     subheader:
-      "the most authoritative and compelling biography of napoleon ever written",
+      "The most authoritative and compelling biography of napoleon ever written",
     description:
-      "andrew roberts's napoleon is the first one-volume biography to take advantage of the recently discovered 33,000 letters napoleon wrote throughout his life. his portrait demolishes the myths — revealing a brilliant general, a pragmatic statesman, and in many ways a visionary man of his era.",
+      "Andrew Roberts's Napoleon is the first one-volume biography to take advantage of the recently discovered 33,000 letters Napoleon wrote throughout his life. His portrait demolishes the myths — revealing a brilliant general, a pragmatic statesman, and in many ways a visionary man of his era.",
     coverImage:
       "http://books.google.com/books/content?id=rjVBAwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -722,16 +1167,31 @@ export const books = [
     rating: 4.7,
     reviews: 890,
     tag: ["bestseller"],
+    details: {
+      publisher: "Viking",
+      isbn: "9780670025329",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 7, 2014",
+      language: "English",
+      genre: "Biography / History / Military",
+      storeCategory: "Biography",
+      pages: 926,
+      awards: [
+        "Los Angeles Times Book Prize (2014)",
+        "New York Historical Society Award",
+      ],
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   {
     id: 38,
     title: "einstein",
     author: "Walter Isaacson",
-    header: "his life and universe",
-    subheader: "the story of the most famous scientist who ever lived",
+    header: "His life and universe",
+    subheader: "The story of the most famous scientist who ever lived",
     description:
-      "drawing on newly released personal letters and previously classified files, walter isaacson unlocks the mystery of einstein's genius and illuminates an inspirational story of creativity and courage. it is the story of a rebellious spirit who discovered the theory of relativity and became the iconic genius of the twentieth century.",
+      "Drawing on newly released personal letters and previously classified files, Walter Isaacson unlocks the mystery of Einstein's genius and illuminates an inspirational story of creativity and courage. It is the story of a rebellious spirit who discovered the theory of relativity and became the iconic genius of the twentieth century.",
     coverImage:
       "http://books.google.com/books/content?id=d2WZDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -741,16 +1201,28 @@ export const books = [
     rating: 4.7,
     reviews: 1100,
     tag: ["bestseller"],
+    details: {
+      publisher: "Simon & Schuster",
+      isbn: "9780743264747",
+      format: ["paperback", "hardback"],
+      publishedDate: "April 10, 2007",
+      language: "English",
+      genre: "Biography / Science",
+      storeCategory: "Biography",
+      pages: 704,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 39,
     title: "african entrepreneurs & their success stories",
     author: "Various Authors",
-    header: "the untold stories of africa's most inspiring business builders",
-    subheader: "real lessons from real african entrepreneurs",
+    header: "The untold stories of Africa's most inspiring business builders",
+    subheader: "Real lessons from real African entrepreneurs",
     description:
-      "a compelling collection of stories from entrepreneurs across the african continent who defied the odds to build successful businesses. from lagos to nairobi, accra to johannesburg, these stories reveal the grit, creativity, and resilience that define the new generation of african business leaders.",
+      "A compelling collection of stories from entrepreneurs across the African continent who defied the odds to build successful businesses. From Lagos to Nairobi, Accra to Johannesburg, these stories reveal the grit, creativity, and resilience that define the new generation of African business leaders.",
     coverImage:
       "http://books.google.com/books/content?id=8tAnDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -760,6 +1232,18 @@ export const books = [
     rating: 4.4,
     reviews: 180,
     tag: ["staff pick", "new arrival"],
+    details: {
+      publisher: "Kraft Books",
+      isbn: "9789785203108",
+      format: ["paperback"],
+      publishedDate: "2019",
+      language: "English",
+      genre: "Biography / Business / Africa",
+      storeCategory: "Biography",
+      pages: 250,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
@@ -767,10 +1251,10 @@ export const books = [
     title: "churchill",
     author: "Roy Jenkins",
     header:
-      "the masterful, defining biography of the greatest political figure of the 20th century",
-    subheader: "the man who saved the world",
+      "The masterful, defining biography of the greatest political figure of the 20th century",
+    subheader: "The man who saved the world",
     description:
-      "roy jenkins — himself one of the most distinguished politicians of the twentieth century — wrote this acclaimed biography after coming to know many of the people who had known churchill personally. it is a brilliantly written portrait of one of history's most complex, flawed, and ultimately heroic leaders.",
+      "Roy Jenkins — himself one of the most distinguished politicians of the twentieth century — wrote this acclaimed biography after coming to know many of the people who had known Churchill personally. It is a brilliantly written portrait of one of history's most complex, flawed, and ultimately heroic leaders.",
     coverImage:
       "http://books.google.com/books/content?id=QQTYWavUky8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -780,6 +1264,18 @@ export const books = [
     rating: 4.6,
     reviews: 670,
     tag: ["classic"],
+    details: {
+      publisher: "Farrar, Straus and Giroux",
+      isbn: "9780374123741",
+      format: ["paperback", "hardback"],
+      publishedDate: "2001",
+      language: "English",
+      genre: "Biography / History / Politics",
+      storeCategory: "Biography",
+      pages: 1002,
+      awards: ["Whitbread Biography Award (2001)"],
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   // ─────────────────────────────────────────
@@ -791,10 +1287,10 @@ export const books = [
     title: "becoming",
     author: "Michelle Obama",
     header:
-      "an intimate, powerful, and inspiring memoir by the former first lady of the united states",
-    subheader: "in her own words",
+      "An intimate, powerful, and inspiring memoir by the former first lady of the united states",
+    subheader: "In her own words",
     description:
-      "in a life filled with meaning and accomplishment, michelle obama has emerged as one of the most iconic and compelling women of our era. as the first african american first lady of the united states, she helped create the most welcoming white house in history while establishing herself as a powerful advocate for women and girls around the world.",
+      "In a life filled with meaning and accomplishment, Michelle Obama has emerged as one of the most iconic and compelling women of our era. As the first African American First Lady of the United States, she helped create the most welcoming White House in history while establishing herself as a powerful advocate for women and girls around the world.",
     coverImage:
       "http://books.google.com/books/content?id=HriPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead her",
@@ -804,16 +1300,31 @@ export const books = [
     rating: 4.9,
     reviews: 4200,
     tag: ["bestseller", "top rated"],
+    details: {
+      publisher: "Crown Publishing Group",
+      isbn: "9781524763138",
+      format: ["paperback", "hardback"],
+      publishedDate: "November 13, 2018",
+      language: "English",
+      genre: "Memoir / Politics",
+      storeCategory: "Memoir",
+      pages: 448,
+      awards: [
+        "#1 New York Times Bestseller",
+        "American Music Award (2019) for Audiobook",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 42,
     title: "shoe dog",
     author: "Phil Knight",
-    header: "a memoir by the creator of nike",
-    subheader: "the story of how nike was built from the ground up",
+    header: "A memoir by the creator of nike",
+    subheader: "The story of how nike was built from the ground up",
     description:
-      "in this candid and riveting memoir, nike founder phil knight shares the inside story of the company's early days as an idea and then a fledgling business, and how it grew to become one of the world's most iconic and profitable brands. it is an honest account of near-bankruptcy, betrayal, perseverance, and the courage it takes to build something from nothing.",
+      "In this candid and riveting memoir, Nike founder Phil Knight shares the inside story of the company's early days as an idea and then a fledgling business, and how it grew to become one of the world's most iconic and profitable brands. It is an honest account of near-bankruptcy, betrayal, perseverance, and the courage it takes to build something from nothing.",
     coverImage:
       "http://books.google.com/books/content?id=PXvtCgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
@@ -823,17 +1334,29 @@ export const books = [
     rating: 4.8,
     reviews: 2100,
     tag: ["bestseller", "staff pick"],
+    details: {
+      publisher: "Scribner",
+      isbn: "9781476773360",
+      format: ["paperback", "hardback"],
+      publishedDate: "April 26, 2016",
+      language: "English",
+      genre: "Memoir / Business",
+      storeCategory: "Memoir",
+      pages: 400,
+      awards: ["#1 New York Times Bestseller"],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 43,
     title: "open",
     author: "Andre Agassi",
-    header: "a new york times bestselling memoir",
+    header: "A New York Times bestselling memoir",
     subheader:
-      "the most honest, revealing book any professional athlete has ever written",
+      "The most honest, revealing book any professional athlete has ever written",
     description:
-      "from the first page of this extraordinary memoir, andre agassi admits that he hates tennis. and yet he keeps playing — driven by a domineering father, a desire to escape poverty, and the desperate need to justify his existence. this candid memoir spans agassi's entire life and career, including his personal struggles and ultimate redemption.",
+      "From the first page of this extraordinary memoir, Andre Agassi admits that he hates tennis. And yet he keeps playing — driven by a domineering father, a desire to escape poverty, and the desperate need to justify his existence. This candid memoir spans Agassi's entire life and career, including his personal struggles and ultimate redemption.",
     coverImage:
       "https://books.google.com/books/content?id=wSzxa9ZaVcUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead him",
@@ -843,16 +1366,28 @@ export const books = [
     rating: 4.7,
     reviews: 1400,
     tag: ["bestseller"],
+    details: {
+      publisher: "Alfred A. Knopf",
+      isbn: "9780307388407",
+      format: ["paperback", "hardback"],
+      publishedDate: "November 9, 2009",
+      language: "English",
+      genre: "Memoir / Sports",
+      storeCategory: "Memoir",
+      pages: 386,
+      awards: ["#1 New York Times Bestseller"],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 44,
     title: "a promised land",
     author: "Barack Obama",
-    header: "a riveting, deeply personal account of history in the making",
-    subheader: "the story of one man's journey to the oval office",
+    header: "A riveting, deeply personal account of history in the making",
+    subheader: "The story of one man's journey to the oval office",
     description:
-      "in the stirring first volume of his presidential memoirs, barack obama tells the story of his improbable odyssey from young man searching for his identity to leader of the free world. describing in striking personal detail both his political education and the landmark moments of the first term of his historic presidency.",
+      "In the stirring first volume of his presidential memoirs, Barack Obama tells the story of his improbable odyssey from young man searching for his identity to leader of the free world. Describing in striking personal detail both his political education and the landmark moments of the first term of his historic presidency.",
     coverImage:
       "http://books.google.com/books/content?id=ypb9DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -862,17 +1397,29 @@ export const books = [
     rating: 4.8,
     reviews: 1800,
     tag: ["bestseller"],
+    details: {
+      publisher: "Crown Publishing Group",
+      isbn: "9781524763169",
+      format: ["paperback", "hardback"],
+      publishedDate: "November 17, 2020",
+      language: "English",
+      genre: "Memoir / Politics",
+      storeCategory: "Memoir",
+      pages: 768,
+      awards: ["#1 New York Times Bestseller"],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 45,
     title: "pour your heart into it",
     author: "Howard Schultz",
-    header: "how starbucks built a company one cup at a time",
+    header: "How starbucks built a company one cup at a time",
     subheader:
-      "the story of one of the most remarkable business ventures of our time",
+      "The story of one of the most remarkable business ventures of our time",
     description:
-      "howard schultz tells the story of how he turned a commodity into a cultural phenomenon. this memoir traces the growth of starbucks from a single seattle coffee shop into a global empire — revealing the principles that guided schultz in building the company and how he put passion above the pressure of immediate profits.",
+      "Howard Schultz tells the story of how he turned a commodity into a cultural phenomenon. This memoir traces the growth of Starbucks from a single Seattle coffee shop into a global empire — revealing the principles that guided Schultz in building the company and how he put passion above the pressure of immediate profits.",
     coverImage:
       "http://books.google.com/books/content?id=XALK1Bv_hZMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
@@ -882,17 +1429,29 @@ export const books = [
     rating: 4.5,
     reviews: 890,
     tag: ["classic"],
+    details: {
+      publisher: "Hyperion",
+      isbn: "9780786863020",
+      format: ["paperback", "hardback"],
+      publishedDate: "January 7, 1997",
+      language: "English",
+      genre: "Memoir / Business",
+      storeCategory: "Memoir",
+      pages: 351,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 46,
     title: "total recall",
     author: "Arnold Schwarzenegger",
-    header: "my unbelievably true life story",
+    header: "My unbelievably true life story",
     subheader:
-      "the autobiography of a man who dreamed the impossible — and did it",
+      "The autobiography of a man who dreamed the impossible — and did it",
     description:
-      "arnold schwarzenegger tells the story of his three great careers: as a bodybuilding champion, as a box-office star, and as a powerful politician. he shares his unique approach to life and how he turned his dreams into reality — from immigrating to america with nothing to becoming one of the most recognizable people on the planet.",
+      "Arnold Schwarzenegger tells the story of his three great careers: as a bodybuilding champion, as a box-office star, and as a powerful politician. He shares his unique approach to life and how he turned his dreams into reality — from immigrating to America with nothing to becoming one of the most recognizable people on the planet.",
     coverImage:
       "http://books.google.com/books/content?id=qYijfgz4acgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead him",
@@ -902,18 +1461,30 @@ export const books = [
     rating: 4.6,
     reviews: 1200,
     tag: ["bestseller"],
+    details: {
+      publisher: "Simon & Schuster",
+      isbn: "9781451662436",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 1, 2012",
+      language: "English",
+      genre: "Memoir / Entertainment / Politics",
+      storeCategory: "Memoir",
+      pages: 656,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 47,
     title: "i am malala",
     author: "Malala Yousafzai",
-    header: "the girl who stood up for education and was shot by the taliban",
-    subheader: "one child, one teacher, one book, one pen can change the world",
+    header: "The girl who stood up for education and was shot by the taliban",
+    subheader: "One child, one teacher, one book, one pen can change the world",
     description:
-      "when the taliban took control of the swat valley in pakistan, one girl spoke out. malala yousafzai refused to be silenced and fought for her right to an education. on october 9, 2012, she almost paid the ultimate price — shot in the head at point-blank range. this memoir is her extraordinary story of survival, resilience, and her mission to educate girls around the world.",
+      "When the Taliban took control of the Swat Valley in Pakistan, one girl spoke out. Malala Yousafzai refused to be silenced and fought for her right to an education. On October 9, 2012, she almost paid the ultimate price — shot in the head at point-blank range. This memoir is her extraordinary story of survival, resilience, and her mission to educate girls around the world.",
     coverImage:
-      "http://books.google.com/books/content?id=COdKnwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "http://books.google.com/books/content?id=pGbpnQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead her",
     collections: ["lead her", "lead the young", "lead the world"],
     genre: "memoir",
@@ -921,6 +1492,18 @@ export const books = [
     rating: 4.8,
     reviews: 2890,
     tag: ["top rated", "bestseller"],
+    details: {
+      publisher: "Little, Brown and Company",
+      isbn: "9780316322409",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 8, 2013",
+      language: "English",
+      genre: "Memoir / Human Rights / Education",
+      storeCategory: "Memoir",
+      pages: 327,
+      awards: ["Nobel Peace Prize (2014)", "#1 New York Times Bestseller"],
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   {
@@ -928,11 +1511,11 @@ export const books = [
     title: "start small, scale big",
     author: "Abimbola Balogun",
     header:
-      "how i built so fresh from a small outlet into a national healthy food chain",
+      "How i built so fresh from a small outlet into a national healthy food chain",
     subheader:
-      "a step-by-step guide for anyone who dreams of turning small beginnings into something remarkable",
+      "A step-by-step guide for anyone who dreams of turning small beginnings into something remarkable",
     description:
-      "abimbola balogun, co-founder of so fresh — nigeria's leading healthy food chain — shares her journey of building a business from scratch with no prior business knowledge. part memoir, part practical guide, this book covers staffing, systems, personal branding, and scaling — written specifically for entrepreneurs building in nigeria's challenging but high-potential market.",
+      "Abimbola Balogun, co-founder of So Fresh — Nigeria's leading healthy food chain — shares her journey of building a business from scratch with no prior business knowledge. Part memoir, part practical guide, this book covers staffing, systems, personal branding, and scaling — written specifically for entrepreneurs building in Nigeria's challenging but high-potential market.",
     coverImage:
       "https://books.google.com.ng/books/content?id=buxlzgEACAAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70tJu9BRXANJ1jbfOT2mHDb56ceHIDjRrGUwukrEnnskv4X51qxDfVttNnTz6BGO3wiQgGXWs6OuebW2z8X4xFEycSlxII1L19xbYGd_oHteY4cUa2V_8jNVVTEQoWE8GjBhvzS",
     primaryCollection: "lead her",
@@ -942,16 +1525,28 @@ export const books = [
     rating: 4.7,
     reviews: 210,
     tag: ["staff pick", "new arrival"],
+    details: {
+      publisher: "Kachifo Limited (Farafina)",
+      isbn: "9789785203115",
+      format: ["paperback"],
+      publishedDate: "2021",
+      language: "English",
+      genre: "Memoir / Business / Entrepreneurship",
+      storeCategory: "Memoir",
+      pages: 200,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 49,
     title: "my own story",
     author: "Emmeline Pankhurst",
-    header: "the memoir of the woman who won women the right to vote",
-    subheader: "a story of courage, sacrifice, and conviction",
+    header: "The memoir of the woman who won women the right to vote",
+    subheader: "A story of courage, sacrifice, and conviction",
     description:
-      "emmeline pankhurst's memoir tells the story of her leadership of the suffragette movement — the campaign to win women the right to vote in britain. it is a firsthand account of the hunger strikes, imprisonment, and the fierce determination that ultimately changed the law and the world.",
+      "Emmeline Pankhurst's memoir tells the story of her leadership of the suffragette movement — the campaign to win women the right to vote in Britain. It is a firsthand account of the hunger strikes, imprisonment, and the fierce determination that ultimately changed the law and the world.",
     coverImage:
       "http://books.google.com/books/content?id=TCucEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead her",
@@ -961,16 +1556,28 @@ export const books = [
     rating: 4.5,
     reviews: 320,
     tag: ["classic"],
+    details: {
+      publisher: "Hearst's International Library Co.",
+      isbn: "9781408812167",
+      format: ["paperback"],
+      publishedDate: "1914",
+      language: "English",
+      genre: "Memoir / History / Women's Rights",
+      storeCategory: "Memoir",
+      pages: 364,
+      awards: null,
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   {
     id: 50,
     title: "the story of my experiments with truth",
     author: "Mahatma Gandhi",
-    header: "the autobiography of mahatma gandhi",
-    subheader: "the story of one of history's greatest souls",
+    header: "The autobiography of mahatma gandhi",
+    subheader: "The story of one of history's greatest souls",
     description:
-      "gandhi's autobiography traces his moral and spiritual development from childhood through the years he spent in south africa, where he developed his philosophy of nonviolent resistance. he describes his inner struggles as well as his public campaigns, offering a deeply personal account of a life dedicated to truth, justice, and service to humanity.",
+      "Gandhi's autobiography traces his moral and spiritual development from childhood through the years he spent in South Africa, where he developed his philosophy of nonviolent resistance. He describes his inner struggles as well as his public campaigns, offering a deeply personal account of a life dedicated to truth, justice, and service to humanity.",
     coverImage:
       "http://books.google.com/books/content?id=UtJhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
@@ -980,6 +1587,18 @@ export const books = [
     rating: 4.7,
     reviews: 1800,
     tag: ["classic"],
+    details: {
+      publisher: "Navajivan Publishing House",
+      isbn: "9780807059098",
+      format: ["paperback"],
+      publishedDate: "1927",
+      language: "English",
+      genre: "Memoir / Philosophy / History",
+      storeCategory: "Memoir",
+      pages: 528,
+      awards: null,
+      countryOfPublication: "India",
+    },
   },
 
   // ─────────────────────────────────────────
@@ -990,10 +1609,10 @@ export const books = [
     id: 51,
     title: "things fall apart",
     author: "Chinua Achebe",
-    header: "the most widely read book in modern african literature",
-    subheader: "a story of strength, culture, and the collision of worlds",
+    header: "The most widely read book in modern African literature",
+    subheader: "A story of strength, culture, and the collision of worlds",
     description:
-      "things fall apart is a classic narrative about africa's cataclysmic encounter with europe as it establishes a colonial presence on the continent. told through the experiences of okonkwo, a wealthy and fearful war hero, achebe explores how the ibo community in nigeria lived before and after the arrival of colonialism.",
+      "Things Fall Apart is a classic narrative about Africa's cataclysmic encounter with Europe as it establishes a colonial presence on the continent. Told through the experiences of Okonkwo, a wealthy and fearful war hero, Achebe explores how the Ibo community in Nigeria lived before and after the arrival of colonialism.",
     coverImage:
       "https://books.google.com/books/content?id=-fmfprdtL0EC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1003,16 +1622,31 @@ export const books = [
     rating: 4.7,
     reviews: 5600,
     tag: ["classic"],
+    details: {
+      publisher: "William Heinemann Ltd",
+      isbn: "9780385474542",
+      format: ["paperback", "hardback"],
+      publishedDate: "1958",
+      language: "English",
+      genre: "Literary Fiction / African Literature",
+      storeCategory: "Fiction & Storytelling",
+      pages: 209,
+      awards: [
+        "Man Booker International Prize Consideration",
+        "Listed among Time's 100 Best English-Language Novels",
+      ],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 52,
     title: "americanah",
     author: "Chimamanda Ngozi Adichie",
-    header: "a powerful story of love, race, and identity",
-    subheader: "what does it mean to be black in america?",
+    header: "A powerful story of love, race, and identity",
+    subheader: "What does it mean to be black in America?",
     description:
-      "ifemelu and obinze are young and in love when they depart military-ruled nigeria for the west. beautiful, self-assured ifemelu heads for america, where despite her academic success, she is forced to grapple with what it means to be black for the first time. a powerful, funny, and tender story about race, gender, and identity.",
+      "Ifemelu and Obinze are young and in love when they depart military-ruled Nigeria for the West. Beautiful, self-assured Ifemelu heads for America, where despite her academic success, she is forced to grapple with what it means to be black for the first time. A powerful, funny, and tender story about race, gender, and identity.",
     coverImage:
       "http://books.google.com/books/content?id=siSlP9JOj2YC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1022,16 +1656,31 @@ export const books = [
     rating: 4.6,
     reviews: 2300,
     tag: ["classic", "staff pick"],
+    details: {
+      publisher: "Alfred A. Knopf",
+      isbn: "9780307455925",
+      format: ["paperback", "hardback"],
+      publishedDate: "May 14, 2013",
+      language: "English",
+      genre: "Literary Fiction",
+      storeCategory: "Fiction & Storytelling",
+      pages: 477,
+      awards: [
+        "National Book Critics Circle Award (2013)",
+        "Chicago Tribune Heartland Prize",
+      ],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 53,
     title: "purple hibiscus",
     author: "Chimamanda Ngozi Adichie",
-    header: "a stunning debut about faith, family, and the courage to speak",
-    subheader: "a story of love, faith, and freedom",
+    header: "A stunning debut about faith, family, and the courage to speak",
+    subheader: "A story of love, faith, and freedom",
     description:
-      "fifteen-year-old kambili and her older brother jaja lead a privileged life in enugu, nigeria — beautiful house, prestigious schools, wealthy father. but their comfortable existence is nothing but a facade. their father rules his home with terror. this searing novel asks: what does it cost to stay silent?",
+      "Fifteen-year-old Kambili and her older brother Jaja lead a privileged life in Enugu, Nigeria — beautiful house, prestigious schools, wealthy father. But their comfortable existence is nothing but a facade. Their father rules his home with terror. This searing novel asks: what does it cost to stay silent?",
     coverImage:
       "http://books.google.com/books/content?id=3St6maxt2YIC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1041,17 +1690,32 @@ export const books = [
     rating: 4.6,
     reviews: 1800,
     tag: ["classic"],
+    details: {
+      publisher: "Algonquin Books",
+      isbn: "9781616953638",
+      format: ["paperback", "hardback"],
+      publishedDate: "2003",
+      language: "English",
+      genre: "Literary Fiction",
+      storeCategory: "Fiction & Storytelling",
+      pages: 307,
+      awards: [
+        "Commonwealth Writers' Prize for Best First Book (2005)",
+        "Hurston/Wright Legacy Award",
+      ],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 54,
     title: "half of a yellow sun",
     author: "Chimamanda Ngozi Adichie",
-    header: "winner of the orange broadband prize for fiction",
+    header: "Winner of the orange broadband prize for fiction",
     subheader:
-      "a story of love and loss set against the backdrop of the biafran war",
+      "A story of love and loss set against the backdrop of the biafran war",
     description:
-      "with astonishing vividness, chimamanda ngozi adichie recreates a seminal moment in modern african history — the biafran war of the late 1960s. her sweeping story of love and war follows three characters through the turbulence of the conflict, exploring the human costs of political ambition and the enduring power of love.",
+      "With astonishing vividness, Chimamanda Ngozi Adichie recreates a seminal moment in modern African history — the Biafran War of the late 1960s. Her sweeping story of love and war follows three characters through the turbulence of the conflict, exploring the human costs of political ambition and the enduring power of love.",
     coverImage:
       "https://books.google.com/books/content?id=ALyoMQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1061,16 +1725,28 @@ export const books = [
     rating: 4.7,
     reviews: 2100,
     tag: ["classic", "top rated"],
+    details: {
+      publisher: "Alfred A. Knopf",
+      isbn: "9781400044160",
+      format: ["paperback", "hardback"],
+      publishedDate: "September 12, 2006",
+      language: "English",
+      genre: "Literary Fiction / Historical Fiction",
+      storeCategory: "Fiction & Storytelling",
+      pages: 433,
+      awards: ["Orange Prize for Fiction (2007)", "Anisfield-Wolf Book Award"],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 55,
     title: "the alchemist",
     author: "Paulo Coelho",
-    header: "a fable about following your dream",
-    subheader: "every soul has its own destiny",
+    header: "A fable about following your dream",
+    subheader: "Every soul has its own destiny",
     description:
-      "paulo coelho's masterpiece tells the mystical story of santiago, an andalusian shepherd boy who yearns to travel in search of worldly treasure. his quest will lead him to riches far different — and far more satisfying — than he ever imagined. santiago's journey teaches us about the essential wisdom of listening to our hearts.",
+      "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of worldly treasure. His quest will lead him to riches far different — and far more satisfying — than he ever imagined. Santiago's journey teaches us about the essential wisdom of listening to our hearts.",
     coverImage:
       "http://books.google.com/books/content?id=ZI3gAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1080,16 +1756,28 @@ export const books = [
     rating: 4.7,
     reviews: 5600,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "HarperOne",
+      isbn: "9780062315007",
+      format: ["paperback", "hardback"],
+      publishedDate: "1988",
+      language: "English",
+      genre: "Fiction / Philosophy / Fable",
+      storeCategory: "Fiction & Storytelling",
+      pages: 197,
+      awards: null,
+      countryOfPublication: "Brazil",
+    },
   },
 
   {
     id: 56,
     title: "animal farm",
     author: "George Orwell",
-    header: "the timeless political fable",
-    subheader: "a fairy story",
+    header: "The timeless political fable",
+    subheader: "A fairy story",
     description:
-      "george orwell's brilliant, timeless political fable about a group of animals who overthrow their human farmer — only to find themselves living under an even more oppressive regime. animal farm is a warning about the corrupting nature of power and the ways in which revolutions can betray their own ideals.",
+      "George Orwell's brilliant, timeless political fable about a group of animals who overthrow their human farmer — only to find themselves living under an even more oppressive regime. Animal Farm is a warning about the corrupting nature of power and the ways in which revolutions can betray their own ideals.",
     coverImage:
       "https://books.google.com/books/content?id=Q8eNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1099,16 +1787,28 @@ export const books = [
     rating: 4.5,
     reviews: 6800,
     tag: ["classic"],
+    details: {
+      publisher: "Secker & Warburg",
+      isbn: "9780451526342",
+      format: ["paperback", "hardback"],
+      publishedDate: "August 17, 1945",
+      language: "English",
+      genre: "Fiction / Political Satire / Fable",
+      storeCategory: "Fiction & Storytelling",
+      pages: 112,
+      awards: ["Retrospective Hugo Award (1996)"],
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   {
     id: 57,
     title: "who moved my cheese",
     author: "Spencer Johnson",
-    header: "an amazing way to deal with change in your work and in your life",
-    subheader: "a simple parable that reveals profound truths",
+    header: "An amazing way to deal with change in your work and in your life",
+    subheader: "A simple parable that reveals profound truths",
     description:
-      "this simple parable about four characters looking for cheese in a maze has become one of the most read business books in the world. cheese is a metaphor for what you want to have in life — and the story reveals profound truths about how to deal with change, let go of fear, and move forward when everything you depend on is taken away.",
+      "This simple parable about four characters looking for cheese in a maze has become one of the most read business books in the world. Cheese is a metaphor for what you want to have in life — and the story reveals profound truths about how to deal with change, let go of fear, and move forward when everything you depend on is taken away.",
     coverImage:
       "http://books.google.com/books/content?id=SnymwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1118,16 +1818,28 @@ export const books = [
     rating: 4.5,
     reviews: 2300,
     tag: ["classic"],
+    details: {
+      publisher: "G.P. Putnam's Sons",
+      isbn: "9780399144462",
+      format: ["paperback", "hardback"],
+      publishedDate: "September 8, 1998",
+      language: "English",
+      genre: "Fiction / Business / Fable",
+      storeCategory: "Fiction & Storytelling",
+      pages: 96,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 58,
     title: "the monk who sold his ferrari",
     author: "Robin Sharma",
-    header: "a fable about fulfilling your dreams and reaching your destiny",
-    subheader: "a parable about following your passion and living with purpose",
+    header: "A fable about fulfilling your dreams and reaching your destiny",
+    subheader: "A parable about following your passion and living with purpose",
     description:
-      "this inspiring tale about a fictional lawyer named julian mantle delivers a powerful message about the importance of self-leadership, personal responsibility, and living life with purpose. after a spiritual journey to india, julian returns to share the 7 timeless virtues for living your best life.",
+      "This inspiring tale about a fictional lawyer named Julian Mantle delivers a powerful message about the importance of self-leadership, personal responsibility, and living life with purpose. After a spiritual journey to India, Julian returns to share the 7 timeless virtues for living your best life.",
     coverImage:
       "https://books.google.com/books/content?id=HsbgnoTDpdUC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1137,17 +1849,29 @@ export const books = [
     rating: 4.4,
     reviews: 1900,
     tag: ["bestseller"],
+    details: {
+      publisher: "HarperCollins",
+      isbn: "9780062515926",
+      format: ["paperback", "hardback"],
+      publishedDate: "1997",
+      language: "English",
+      genre: "Fiction / Self Help / Fable",
+      storeCategory: "Fiction & Storytelling",
+      pages: 198,
+      awards: null,
+      countryOfPublication: "Canada",
+    },
   },
 
   {
     id: 59,
     title: "weep not, child",
     author: "Ngũgĩ wa Thiong'o",
-    header: "the first english-language novel published by an east african",
+    header: "The first English-language novel published by an East African",
     subheader:
-      "a moving story about the effects of colonialism on one kenyan family",
+      "A moving story about the effects of colonialism on one Kenyan family",
     description:
-      "set in kenya during the mau mau uprising of the 1950s, weep not, child traces the devastating effects of colonial rule on a family and a community. through the eyes of njoroge — a young boy desperate for education and a brighter future — ngũgĩ wa thiong'o chronicles the dispossession and heartbreak of a people fighting for their land and freedom.",
+      "Set in Kenya during the Mau Mau uprising of the 1950s, Weep Not, Child traces the devastating effects of colonial rule on a family and a community. Through the eyes of Njoroge — a young boy desperate for education and a brighter future — Ngũgĩ wa Thiong'o chronicles the dispossession and heartbreak of a people fighting for their land and freedom.",
     coverImage:
       "http://books.google.com/books/content?id=STdvWoodW24C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1157,16 +1881,28 @@ export const books = [
     rating: 4.5,
     reviews: 980,
     tag: ["classic"],
+    details: {
+      publisher: "Heinemann Educational Books",
+      isbn: "9780435908393",
+      format: ["paperback"],
+      publishedDate: "1964",
+      language: "English",
+      genre: "Literary Fiction / Historical Fiction / African Literature",
+      storeCategory: "Fiction & Storytelling",
+      pages: 154,
+      awards: null,
+      countryOfPublication: "Kenya",
+    },
   },
 
   {
     id: 60,
     title: "the five dysfunctions of a team",
     author: "Patrick Lencioni",
-    header: "a leadership fable",
-    subheader: "the #1 bestseller on teamwork",
+    header: "A leadership fable",
+    subheader: "The #1 bestseller on teamwork",
     description:
-      "in this remarkable book, patrick lencioni offers a leadership fable that is as enthralling and instructive as his previous bestsellers. he turns his storytelling power to the fascinating, complex world of teams — asking why some teams fail to work together, and how leaders and team members can overcome these all-too-human tendencies.",
+      "In this remarkable book, Patrick Lencioni offers a leadership fable that is as enthralling and instructive as his previous bestsellers. He turns his storytelling power to the fascinating, complex world of teams — asking why some teams fail to work together, and how leaders and team members can overcome these all-too-human tendencies.",
     coverImage:
       "http://books.google.com/books/content?id=dsN3CgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1176,16 +1912,28 @@ export const books = [
     rating: 4.6,
     reviews: 1500,
     tag: ["bestseller"],
+    details: {
+      publisher: "Jossey-Bass",
+      isbn: "9780787960759",
+      format: ["paperback", "hardback"],
+      publishedDate: "April 11, 2002",
+      language: "English",
+      genre: "Fiction / Business / Leadership Fable",
+      storeCategory: "Fiction & Storytelling",
+      pages: 229,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 61,
     title: "siddhartha",
     author: "Hermann Hesse",
-    header: "a classic of world literature",
-    subheader: "the timeless story of a soul's journey toward truth",
+    header: "A classic of world literature",
+    subheader: "The timeless story of a soul's journey toward truth",
     description:
-      "siddhartha is the story of a young brahmin's search for ultimate enlightenment after meeting with the buddha. this deeply spiritual and luminous tale follows its hero as he travels from pleasure to asceticism, from love to solitude, from wealth to poverty, in his quest for wisdom and self-knowledge.",
+      "Siddhartha is the story of a young Brahmin's search for ultimate enlightenment after meeting with the Buddha. This deeply spiritual and luminous tale follows its hero as he travels from pleasure to asceticism, from love to solitude, from wealth to poverty, in his quest for wisdom and self-knowledge.",
     coverImage:
       "http://books.google.com/books/content?id=Ax6yEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1195,16 +1943,28 @@ export const books = [
     rating: 4.6,
     reviews: 3800,
     tag: ["classic"],
+    details: {
+      publisher: "New Directions Publishing",
+      isbn: "9780553208849",
+      format: ["paperback", "hardback"],
+      publishedDate: "1922",
+      language: "English",
+      genre: "Literary Fiction / Philosophy / Spirituality",
+      storeCategory: "Fiction & Storytelling",
+      pages: 152,
+      awards: ["Nobel Prize in Literature — author (1946)"],
+      countryOfPublication: "Germany",
+    },
   },
 
   {
     id: 62,
     title: "1984",
     author: "George Orwell",
-    header: "one of the most thought-provoking novels of the 20th century",
-    subheader: "big brother is watching you",
+    header: "One of the most thought-provoking novels of the 20th century",
+    subheader: "Big Brother is watching you",
     description:
-      "george orwell's haunting prophecy about the future has become one of the most influential books ever written. in the year 1984, winston smith lives under a totalitarian government that controls every aspect of life, even thought. it remains the most powerful warning against the dangers of totalitarianism and the destruction of truth ever written.",
+      "George Orwell's haunting prophecy about the future has become one of the most influential books ever written. In the year 1984, Winston Smith lives under a totalitarian government that controls every aspect of life, even thought. It remains the most powerful warning against the dangers of totalitarianism and the destruction of truth ever written.",
     coverImage:
       "http://books.google.com/books/content?id=6u2QEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1214,17 +1974,29 @@ export const books = [
     rating: 4.7,
     reviews: 9200,
     tag: ["classic"],
+    details: {
+      publisher: "Secker & Warburg",
+      isbn: "9780451524935",
+      format: ["paperback", "hardback"],
+      publishedDate: "June 8, 1949",
+      language: "English",
+      genre: "Fiction / Dystopia / Political Satire",
+      storeCategory: "Fiction & Storytelling",
+      pages: 328,
+      awards: ["Prometheus Award Hall of Fame (2016)"],
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   {
     id: 63,
     title: "stay with me",
     author: "Ayọ̀bámi Adébáyọ̀",
-    header: "shortlisted for the 2017 bailey's women's prize for fiction",
+    header: "Shortlisted for the 2017 Bailey's Women's Prize for Fiction",
     subheader:
-      "a devastating story of love, marriage, and the limits of sacrifice",
+      "A devastating story of love, marriage, and the limits of sacrifice",
     description:
-      "unravelling against the social and political turbulence of 1980s nigeria, stay with me tells the story of yejide and akin — a couple whose marriage buckles under the weight of family pressure and the desperate need to have a child. ayọ̀bámi adébáyọ̀ weaves a devastating story of married love, grief, and the bonds of motherhood.",
+      "Unravelling against the social and political turbulence of 1980s Nigeria, Stay With Me tells the story of Yejide and Akin — a couple whose marriage buckles under the weight of family pressure and the desperate need to have a child. Ayọ̀bámi Adébáyọ̀ weaves a devastating story of married love, grief, and the bonds of motherhood.",
     coverImage:
       "http://books.google.com/books/content?id=6IouDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1234,16 +2006,31 @@ export const books = [
     rating: 4.3,
     reviews: 1200,
     tag: ["staff pick"],
+    details: {
+      publisher: "Alfred A. Knopf",
+      isbn: "9781941641538",
+      format: ["paperback", "hardback"],
+      publishedDate: "August 22, 2017",
+      language: "English",
+      genre: "Literary Fiction",
+      storeCategory: "Fiction & Storytelling",
+      pages: 275,
+      awards: [
+        "Shortlisted — Baileys Women's Prize for Fiction (2017)",
+        "Shortlisted — Wellcome Book Prize (2018)",
+      ],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
     id: 64,
     title: "season of migration to the north",
     author: "Tayeb Salih",
-    header: "the most important arabic novel of the 20th century",
-    subheader: "a masterpiece of postcolonial literature",
+    header: "The most important Arabic novel of the 20th century",
+    subheader: "A masterpiece of postcolonial literature",
     description:
-      "a sudanese man returns home after years of studying in europe, only to find a stranger has settled in his village: mustafa sa'eed, a man with a mysterious past and a disturbing relationship to the west. this slim novel unpacks the legacy of colonialism on both the colonizer and the colonized, exploring identity, power, and belonging.",
+      "A Sudanese man returns home after years of studying in Europe, only to find a stranger has settled in his village: Mustafa Sa'eed, a man with a mysterious past and a disturbing relationship to the West. This slim novel unpacks the legacy of colonialism on both the colonizer and the colonized, exploring identity, power, and belonging.",
     coverImage:
       "http://books.google.com/books/content?id=zBBshCdGbVwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1253,16 +2040,30 @@ export const books = [
     rating: 4.4,
     reviews: 760,
     tag: ["classic"],
+    details: {
+      publisher: "Heinemann Educational Books",
+      isbn: "9780435909741",
+      format: ["paperback"],
+      publishedDate: "1966",
+      language: "English",
+      genre: "Literary Fiction / Postcolonial Literature",
+      storeCategory: "Fiction & Storytelling",
+      pages: 139,
+      awards: [
+        "Listed among the 100 Best Arabic Books of the 20th Century (Arab Writers Union)",
+      ],
+      countryOfPublication: "Sudan",
+    },
   },
 
   {
     id: 65,
     title: "the secret lives of baba segi's wives",
     author: "Lola Shoneyin",
-    header: "winner of the pen/open book award",
-    subheader: "a bold, darkly comic novel about polygamy, power, and secrets",
+    header: "Winner of the PEN/Open Book Award",
+    subheader: "A bold, darkly comic novel about polygamy, power, and secrets",
     description:
-      "when isola bello — known as baba segi — takes a fourth wife, the fragile peace of his household is shattered. lola shoneyin's debut is a fierce and funny novel about power, womanhood, and survival in contemporary nigeria.",
+      "When Isola Bello — known as Baba Segi — takes a fourth wife, the fragile peace of his household is shattered. Lola Shoneyin's debut is a fierce and funny novel about power, womanhood, and survival in contemporary Nigeria.",
     coverImage:
       "http://books.google.com/books/content?id=sDnNIdRTWlcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
@@ -1272,6 +2073,18 @@ export const books = [
     rating: 4.4,
     reviews: 890,
     tag: ["staff pick"],
+    details: {
+      publisher: "William Morrow (HarperCollins)",
+      isbn: "9780061946127",
+      format: ["paperback", "hardback"],
+      publishedDate: "2010",
+      language: "English",
+      genre: "Literary Fiction",
+      storeCategory: "Fiction & Storytelling",
+      pages: 287,
+      awards: ["PEN/Open Book Award (2011)"],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   // ─────────────────────────────────────────
@@ -1282,10 +2095,10 @@ export const books = [
     id: 66,
     title: "oh, the places you'll go!",
     author: "Dr. Seuss",
-    header: "the perfect gift for any milestone in life",
-    subheader: "life's journey begins with one step",
+    header: "The perfect gift for any milestone in life",
+    subheader: "Life's journey begins with one step",
     description:
-      "in this joyful ode to life, dr. seuss addresses life's ups and downs with his signature good humor. a beloved gift for graduations and new beginnings, it reminds readers that they have brains in their head and feet in their shoes — and they can steer themselves any direction they choose.",
+      "In this joyful ode to life, Dr. Seuss addresses life's ups and downs with his signature good humor. A beloved gift for graduations and new beginnings, it reminds readers that they have brains in their head and feet in their shoes — and they can steer themselves any direction they choose.",
     coverImage:
       "http://books.google.com/books/content?id=VM5imgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1295,16 +2108,28 @@ export const books = [
     rating: 4.9,
     reviews: 6700,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Random House",
+      isbn: "9780679805274",
+      format: ["hardback"],
+      publishedDate: "January 22, 1990",
+      language: "English",
+      genre: "Children's / Picture Book",
+      storeCategory: "Children's Books",
+      pages: 48,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 67,
     title: "the little engine that could",
     author: "Watty Piper",
-    header: "the classic tale of optimism and hard work",
-    subheader: "i think i can, i think i can",
+    header: "The classic tale of optimism and hard work",
+    subheader: "I think I can, I think I can",
     description:
-      "a little engine is asked to pull a long train over a mountain after several larger engines refuse. the little engine agrees to try, repeating the encouraging mantra 'i think i can'. this american classic has been used for generations to teach children the value of optimism, persistence, and hard work.",
+      "A little engine is asked to pull a long train over a mountain after several larger engines refuse. The little engine agrees to try, repeating the encouraging mantra 'I think I can'. This American classic has been used for generations to teach children the value of optimism, persistence, and hard work.",
     coverImage:
       "http://books.google.com/books/content?id=HXR_eBwKaTEC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1314,6 +2139,18 @@ export const books = [
     rating: 4.8,
     reviews: 3200,
     tag: ["classic"],
+    details: {
+      publisher: "Platt & Munk",
+      isbn: "9780448405209",
+      format: ["paperback", "hardback"],
+      publishedDate: "1930",
+      language: "English",
+      genre: "Children's / Picture Book",
+      storeCategory: "Children's Books",
+      pages: 48,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
@@ -1321,10 +2158,10 @@ export const books = [
     title: "matilda",
     author: "Roald Dahl",
     header:
-      "a funny story about a girl who discovers she has remarkable powers",
-    subheader: "never underestimate a small girl with a big brain",
+      "A funny story about a girl who discovers she has remarkable powers",
+    subheader: "Never underestimate a small girl with a big brain",
     description:
-      "matilda is a little girl who is far too good to be true. at age five-and-a-half she's knocking off double-digit multiplication problems and has read every book in the library. her parents think she's a nuisance. but matilda is a delight — the story of a small, extraordinary girl who fights back against the forces of ignorance and cruelty.",
+      "Matilda is a little girl who is far too good to be true. At age five-and-a-half she's knocking off double-digit multiplication problems and has read every book in the library. Her parents think she's a nuisance. But Matilda is a delight — the story of a small, extraordinary girl who fights back against the forces of ignorance and cruelty.",
     coverImage:
       "http://books.google.com/books/content?id=pMeMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1334,16 +2171,28 @@ export const books = [
     rating: 4.9,
     reviews: 4500,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Jonathan Cape",
+      isbn: "9780142410370",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 1, 1988",
+      language: "English",
+      genre: "Children's Fiction",
+      storeCategory: "Children's Books",
+      pages: 240,
+      awards: ["Children's Book Award (1988)"],
+      countryOfPublication: "United Kingdom",
+    },
   },
 
   {
     id: 69,
     title: "the giving tree",
     author: "Shel Silverstein",
-    header: "a tender story about the relationship between people and nature",
-    subheader: "a story of love that has never stopped giving",
+    header: "A tender story about the relationship between people and nature",
+    subheader: "A story of love that has never stopped giving",
     description:
-      "once there was a tree who loved a little boy. and every day the boy would come and the tree would give him everything she had — her apples, her branches, her trunk — and the tree was happy. a simple but profound story about giving, generosity, and the true meaning of love.",
+      "Once there was a tree who loved a little boy. And every day the boy would come and the tree would give him everything she had — her apples, her branches, her trunk — and the tree was happy. A simple but profound story about giving, generosity, and the true meaning of love.",
     coverImage:
       "http://books.google.com/books/content?id=K1cIAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1353,16 +2202,28 @@ export const books = [
     rating: 4.7,
     reviews: 5100,
     tag: ["classic"],
+    details: {
+      publisher: "Harper & Row",
+      isbn: "9780060256654",
+      format: ["hardback"],
+      publishedDate: "1964",
+      language: "English",
+      genre: "Children's / Picture Book",
+      storeCategory: "Children's Books",
+      pages: 64,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 70,
     title: "charlotte's web",
     author: "E.B. White",
-    header: "one of the most beloved children's books ever written",
-    subheader: "a story of friendship, loyalty, and what really matters",
+    header: "One of the most beloved children's books ever written",
+    subheader: "A story of friendship, loyalty, and what really matters",
     description:
-      "this is the story of a little girl named fern who loved a little pig named wilbur — and of wilbur's devoted friend, a spider named charlotte. e.b. white's timeless tale of friendship, loyalty, and love is considered one of the finest books ever written for children.",
+      "This is the story of a little girl named Fern who loved a little pig named Wilbur — and of Wilbur's devoted friend, a spider named Charlotte. E.B. White's timeless tale of friendship, loyalty, and love is considered one of the finest books ever written for children.",
     coverImage:
       "http://books.google.com/books/content?id=lx0zwmrKjusC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1372,16 +2233,31 @@ export const books = [
     rating: 4.8,
     reviews: 4200,
     tag: ["classic"],
+    details: {
+      publisher: "Harper & Brothers",
+      isbn: "9780064400558",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 15, 1952",
+      language: "English",
+      genre: "Children's Fiction",
+      storeCategory: "Children's Books",
+      pages: 184,
+      awards: [
+        "Newbery Honor Book (1953)",
+        "Laura Ingalls Wilder Medal (1970)",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 71,
     title: "anansi the spider",
     author: "Gerald McDermott",
-    header: "a tale from the ashanti people of west africa",
-    subheader: "a classic west african folktale about the trickster spider",
+    header: "A tale from the Ashanti people of West Africa",
+    subheader: "A classic West African folktale about the trickster spider",
     description:
-      "in this caldecott honor book, gerald mcdermott brings the traditional west african tale of anansi the spider to vivid life with bold, striking artwork. anansi is the great spider of ashanti tradition — a clever trickster whose adventures have been told across generations throughout west africa and the caribbean.",
+      "In this Caldecott Honor Book, Gerald McDermott brings the traditional West African tale of Anansi the Spider to vivid life with bold, striking artwork. Anansi is the great spider of Ashanti tradition — a clever trickster whose adventures have been told across generations throughout West Africa and the Caribbean.",
     coverImage:
       "http://books.google.com/books/content?id=Wn-SY_M28WAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1391,16 +2267,28 @@ export const books = [
     rating: 4.5,
     reviews: 980,
     tag: ["classic"],
+    details: {
+      publisher: "Henry Holt and Co.",
+      isbn: "9780805003109",
+      format: ["hardback"],
+      publishedDate: "1972",
+      language: "English",
+      genre: "Children's / Folktale / Picture Book",
+      storeCategory: "Children's Books",
+      pages: 48,
+      awards: ["Caldecott Honor (1973)"],
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 72,
     title: "sulwe",
     author: "Lupita Nyong'o",
-    header: "a new york times bestseller",
-    subheader: "a story about beauty, colorism, and self-acceptance",
+    header: "A New York Times bestseller",
+    subheader: "A story about beauty, colorism, and self-acceptance",
     description:
-      "sulwe has skin the color of midnight. she is darker than everyone in her family. darker than anyone in her school. sulwe just wants to be beautiful and bright, like her mother and sister. then a magical journey in the night sky opens her eyes and changes everything. a powerful story about colorism, self-acceptance, and the true meaning of beauty.",
+      "Sulwe has skin the color of midnight. She is darker than everyone in her family. Darker than anyone in her school. Sulwe just wants to be beautiful and bright, like her mother and sister. Then a magical journey in the night sky opens her eyes and changes everything. A powerful story about colorism, self-acceptance, and the true meaning of beauty.",
     coverImage:
       "http://books.google.com/books/content?id=xx-wDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1410,15 +2298,31 @@ export const books = [
     rating: 4.9,
     reviews: 2100,
     tag: ["bestseller", "staff pick"],
+    details: {
+      publisher: "Simon & Schuster Books for Young Readers",
+      isbn: "9781534425460",
+      format: ["hardback"],
+      publishedDate: "October 8, 2019",
+      language: "English",
+      genre: "Children's / Picture Book",
+      storeCategory: "Children's Books",
+      pages: 48,
+      awards: [
+        "#1 New York Times Bestseller",
+        "Coretta Scott King Illustrator Honor (2020)",
+      ],
+      countryOfPublication: "Kenya",
+    },
   },
+
   {
     id: 73,
     title: "i am you: a book about ubuntu",
     author: "Refiloe Moahloli",
-    header: "a stunning picture book about our shared humanity",
-    subheader: "i am, because you are",
+    header: "A stunning picture book about our shared humanity",
+    subheader: "I am, because you are",
     description:
-      "in southern africa, there is a belief called ubuntu — the idea that we are all connected. no matter where we're from or who we are, a person is a person through their connections to other people. with simple, lyrical text and charming artwork, this south african picture book is the perfect introduction to ubuntu for young children — a celebration of friendship, kindness, and everything we share.",
+      "In Southern Africa, there is a belief called Ubuntu — the idea that we are all connected. No matter where we're from or who we are, a person is a person through their connections to other people. With simple, lyrical text and charming artwork, this South African picture book is the perfect introduction to Ubuntu for young children — a celebration of friendship, kindness, and everything we share.",
     coverImage:
       "https://books.google.com.ng/books/content?id=PqxzzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1428,16 +2332,28 @@ export const books = [
     rating: 4.6,
     reviews: 430,
     tag: ["staff pick", "new arrival"],
+    details: {
+      publisher: "Jacana Media",
+      isbn: "9780992254407",
+      format: ["hardback"],
+      publishedDate: "2019",
+      language: "English",
+      genre: "Children's / Picture Book / African Philosophy",
+      storeCategory: "Children's Books",
+      pages: 32,
+      awards: null,
+      countryOfPublication: "South Africa",
+    },
   },
 
   {
     id: 74,
     title: "the very hungry caterpillar",
     author: "Eric Carle",
-    header: "one of the best-loved picture books of all time",
-    subheader: "a classic story of transformation",
+    header: "One of the best-loved picture books of all time",
+    subheader: "A classic story of transformation",
     description:
-      "the very hungry caterpillar has delighted a generation of readers. eric carle's iconic tale follows a tiny caterpillar as he eats through a variety of foods before transforming into a butterfly — teaching young children about counting, the days of the week, and the wonder of metamorphosis.",
+      "The Very Hungry Caterpillar has delighted a generation of readers. Eric Carle's iconic tale follows a tiny caterpillar as he eats through a variety of foods before transforming into a butterfly — teaching young children about counting, the days of the week, and the wonder of metamorphosis.",
     coverImage:
       "http://books.google.com/books/content?id=IyXhAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1447,17 +2363,29 @@ export const books = [
     rating: 4.9,
     reviews: 8200,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "World Publishing Company",
+      isbn: "9780399226908",
+      format: ["hardback"],
+      publishedDate: "June 3, 1969",
+      language: "English",
+      genre: "Children's / Picture Book",
+      storeCategory: "Children's Books",
+      pages: 32,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
     id: 75,
     title: "my rows and piles of coins",
     author: "Tololwa Mollel",
-    header: "a coretta scott king honor book",
+    header: "A Coretta Scott King Honor Book",
     subheader:
-      "a beautiful african story about saving, dreaming, and determination",
+      "A beautiful African story about saving, dreaming, and determination",
     description:
-      "in this award-winning picture book set in tanzania, a young boy named saruni saves every coin he earns to buy a bicycle so he can help his mother carry goods to market. this gentle, beautifully illustrated story teaches children about the value of money, savings, hard work, and the joy of reaching your goals.",
+      "In this award-winning picture book set in Tanzania, a young boy named Saruni saves every coin he earns to buy a bicycle so he can help his mother carry goods to market. This gentle, beautifully illustrated story teaches children about the value of money, savings, hard work, and the joy of reaching your goals.",
     coverImage:
       "http://books.google.com/books/content?id=JFjOicNSApIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead little ones",
@@ -1467,6 +2395,18 @@ export const books = [
     rating: 4.6,
     reviews: 560,
     tag: ["staff pick"],
+    details: {
+      publisher: "Clarion Books",
+      isbn: "9780395751862",
+      format: ["hardback"],
+      publishedDate: "April 1999",
+      language: "English",
+      genre: "Children's / Picture Book / African Literature",
+      storeCategory: "Children's Books",
+      pages: 32,
+      awards: ["Coretta Scott King Illustrator Honor (2000)"],
+      countryOfPublication: "Tanzania",
+    },
   },
 
   // ─────────────────────────────────────────
@@ -1475,32 +2415,13 @@ export const books = [
 
   {
     id: 76,
-    title: "i am malala",
-    author: "Malala Yousafzai",
-    header: "the girl who stood up for education and was shot by the taliban",
-    subheader: "one child, one teacher, one book, one pen can change the world",
-    description:
-      "when the taliban took control of the swat valley in pakistan, one girl spoke out. malala yousafzai refused to be silenced and fought for her right to an education. on october 9, 2012, she almost paid the ultimate price — shot in the head at point-blank range. her extraordinary story is a call to action for every young person who believes in the power of education.",
-    coverImage:
-      "http://books.google.com/books/content?id=pGbpnQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    primaryCollection: "lead the young",
-    collections: ["lead the young", "lead her", "lead the world"],
-    genre: "young adult",
-    price: { paperback: 1500000, hardback: 2400000 },
-    rating: 4.8,
-    reviews: 2890,
-    tag: ["top rated", "bestseller"],
-  },
-
-  {
-    id: 77,
     title: "the diary of a young girl",
     author: "Anne Frank",
-    header: "the most widely read account of the holocaust",
+    header: "The most widely read account of the Holocaust",
     subheader:
-      "in spite of everything, i still believe that people are truly good at heart",
+      "In spite of everything, I still believe that people are truly good at heart",
     description:
-      "anne frank's diary, written while she was hiding with her family from the nazis in amsterdam, is one of the most moving documents of the twentieth century. in it she writes about her fears, her hopes, her first love, and her dreams — all while living in constant danger of discovery.",
+      "Anne Frank's diary, written while she was hiding with her family from the Nazis in Amsterdam, is one of the most moving documents of the twentieth century. In it she writes about her fears, her hopes, her first love, and her dreams — all while living in constant danger of discovery.",
     coverImage:
       "http://books.google.com/books/content?id=kRE8xxCmUcMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1510,16 +2431,29 @@ export const books = [
     rating: 4.8,
     reviews: 7800,
     tag: ["classic", "top rated"],
+    details: {
+      publisher:
+        "Contact Publishing (original); Bantam Books (English edition)",
+      isbn: "9780553577129",
+      format: ["paperback", "hardback"],
+      publishedDate: "June 25, 1947",
+      language: "English",
+      genre: "Memoir / History / Young Adult",
+      storeCategory: "Young Adult",
+      pages: 283,
+      awards: null,
+      countryOfPublication: "Netherlands",
+    },
   },
 
   {
-    id: 78,
+    id: 77,
     title: "to kill a mockingbird",
     author: "Harper Lee",
-    header: "winner of the pulitzer prize",
-    subheader: "the most celebrated novel of the american south",
+    header: "Winner of the Pulitzer Prize",
+    subheader: "The most celebrated novel of the American South",
     description:
-      "harper lee's pulitzer prize-winning masterwork of honor and injustice in the deep south — and the heroism of one man in the face of blind and violent hatred. through the innocent eyes of scout and jem finch, we see their father atticus finch challenge a racist society and defend an innocent black man against an unjust charge.",
+      "Harper Lee's Pulitzer Prize-winning masterwork of honor and injustice in the Deep South — and the heroism of one man in the face of blind and violent hatred. Through the innocent eyes of Scout and Jem Finch, we see their father Atticus Finch challenge a racist society and defend an innocent Black man against an unjust charge.",
     coverImage:
       "http://books.google.com/books/content?id=M9lKHhLy1y0C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1529,17 +2463,32 @@ export const books = [
     rating: 4.8,
     reviews: 9500,
     tag: ["classic", "top rated"],
+    details: {
+      publisher: "J. B. Lippincott & Co.",
+      isbn: "9780061935466",
+      format: ["paperback", "hardback"],
+      publishedDate: "July 11, 1960",
+      language: "English",
+      genre: "Literary Fiction / Young Adult",
+      storeCategory: "Young Adult",
+      pages: 324,
+      awards: [
+        "Pulitzer Prize for Fiction (1961)",
+        "Presidential Medal of Freedom (2007)",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
-    id: 79,
+    id: 78,
     title: "wonder",
     author: "R.J. Palacio",
     header:
-      "the phenomenal #1 bestseller with over 12 million copies sold worldwide",
-    subheader: "you can't blend in when you were born to stand out",
+      "The phenomenal #1 bestseller with over 12 million copies sold worldwide",
+    subheader: "You can't blend in when you were born to stand out",
     description:
-      "august pullman was born with a facial difference that, up until now, has prevented him from going to a mainstream school. starting fifth grade at beecher prep, he wants nothing more than to be treated as an ordinary kid. wonder shows us what it means to be extraordinary — and that each of us has the power to choose kindness.",
+      "August Pullman was born with a facial difference that, up until now, has prevented him from going to a mainstream school. Starting fifth grade at Beecher Prep, he wants nothing more than to be treated as an ordinary kid. Wonder shows us what it means to be extraordinary — and that each of us has the power to choose kindness.",
     coverImage:
       "https://books.google.com/books/content?id=ZJuLKKpvOBYC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1549,16 +2498,31 @@ export const books = [
     rating: 4.8,
     reviews: 5400,
     tag: ["bestseller", "top rated"],
+    details: {
+      publisher: "Alfred A. Knopf",
+      isbn: "9780375869020",
+      format: ["paperback", "hardback"],
+      publishedDate: "February 14, 2012",
+      language: "English",
+      genre: "Young Adult / Children's Fiction",
+      storeCategory: "Young Adult",
+      pages: 315,
+      awards: [
+        "Goodreads Choice Award for Middle Grade & Children's (2012)",
+        "Jewish Book Council Award",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
-    id: 80,
+    id: 79,
     title: "tuesdays with morrie",
     author: "Mitch Albom",
-    header: "an old man, a young man, and life's greatest lesson",
-    subheader: "the book that changed millions of lives",
+    header: "An old man, a young man, and life's greatest lesson",
+    subheader: "The book that changed millions of lives",
     description:
-      "maybe it was a sportswriter's farewell to his old professor who was dying. or maybe it was a book about the most important things in life — love, work, community, family, aging, forgiveness, and, finally, death. mitch albom's memoir of his weekly visits with morrie schwartz has become one of the most beloved books of our time.",
+      "Maybe it was a sportswriter's farewell to his old professor who was dying. Or maybe it was a book about the most important things in life — love, work, community, family, aging, forgiveness, and, finally, death. Mitch Albom's memoir of his weekly visits with Morrie Schwartz has become one of the most beloved books of our time.",
     coverImage:
       "http://books.google.com/books/content?id=q6afAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1568,17 +2532,29 @@ export const books = [
     rating: 4.7,
     reviews: 4100,
     tag: ["classic", "bestseller"],
+    details: {
+      publisher: "Doubleday",
+      isbn: "9780767905923",
+      format: ["paperback", "hardback"],
+      publishedDate: "August 18, 1997",
+      language: "English",
+      genre: "Memoir / Young Adult / Self Help",
+      storeCategory: "Young Adult",
+      pages: 192,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 
   {
-    id: 81,
+    id: 80,
     title: "long way down",
     author: "Jason Reynolds",
-    header: "a national book award finalist",
+    header: "A National Book Award Finalist",
     subheader:
-      "a powerful novel in verse about gun violence and the cycle of revenge",
+      "A powerful novel in verse about gun violence and the cycle of revenge",
     description:
-      "will has just watched his brother shawn get shot and killed. gripping the gun he plans to use to avenge his brother's death, will gets into an elevator and during that sixty-second ride, confronts five people from his past — each with a story of the same gun, the same cycle of violence.",
+      "Will has just watched his brother Shawn get shot and killed. Gripping the gun he plans to use to avenge his brother's death, Will gets into an elevator and during that sixty-second ride, confronts five people from his past — each with a story of the same gun, the same cycle of violence.",
     coverImage:
       "https://books.google.com/books/content?id=gWc6DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1588,17 +2564,33 @@ export const books = [
     rating: 4.6,
     reviews: 1900,
     tag: ["staff pick"],
+    details: {
+      publisher: "Atheneum / Caitlyn Dlouhy Books",
+      isbn: "9781481438254",
+      format: ["paperback", "hardback"],
+      publishedDate: "October 10, 2017",
+      language: "English",
+      genre: "Young Adult / Novel in Verse",
+      storeCategory: "Young Adult",
+      pages: 306,
+      awards: [
+        "National Book Award Finalist (2017)",
+        "Kirkus Prize Finalist",
+        "Carnegie Medal Longlist",
+      ],
+      countryOfPublication: "United States",
+    },
   },
 
   {
-    id: 82,
+    id: 81,
     title: "children of blood and bone",
     author: "Tomi Adeyemi",
-    header: "the west african-inspired fantasy that took the world by storm",
+    header: "The West African-inspired fantasy that took the world by storm",
     subheader:
-      "they killed my mother. they took our magic. they tried to bury us.",
+      "They killed my mother. They took our magic. They tried to bury us.",
     description:
-      "tomi adeyemi conjures a stunning world of dark magic and danger in her west african-inspired fantasy. zélie adebola remembers when the soil of orïsha hummed with magic — before the king's soldiers slaughtered all the maji and stripped magic from the land. now zélie has one chance to bring magic back and reclaim her people's power.",
+      "Tomi Adeyemi conjures a stunning world of dark magic and danger in her West African-inspired fantasy. Zélie Adebola remembers when the soil of Orïsha hummed with magic — before the king's soldiers slaughtered all the maji and stripped magic from the land. Now Zélie has one chance to bring magic back and reclaim her people's power.",
     coverImage:
       "http://books.google.com/books/content?id=vuguDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1608,16 +2600,32 @@ export const books = [
     rating: 4.6,
     reviews: 1900,
     tag: ["bestseller", "staff pick", "new arrival"],
+    details: {
+      publisher: "Henry Holt and Co.",
+      isbn: "9781250170972",
+      format: ["paperback", "hardback"],
+      publishedDate: "March 6, 2018",
+      language: "English",
+      genre: "Young Adult / Fantasy",
+      storeCategory: "Young Adult",
+      pages: 544,
+      awards: [
+        "#1 New York Times Bestseller",
+        "Andre Norton Award Finalist",
+        "Locus Award Finalist",
+      ],
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
-    id: 83,
+    id: 82,
     title: "akata witch",
     author: "Nnedi Okofor",
-    header: "a west african harry potter — unlike anything you've ever read",
-    subheader: "discover your power",
+    header: "A West African Harry Potter — unlike anything you've ever read",
+    subheader: "Discover your power",
     description:
-      "twelve-year-old sunny lives in nigeria but was born in new york. she is an albino and an outsider. but when she discovers she has supernatural abilities, she is initiated into the leopard society — a secret world of magic that has existed in africa for thousands of years. nnedi okofor's award-winning fantasy draws on yoruba mythology and african folklore.",
+      "Twelve-year-old Sunny lives in Nigeria but was born in New York. She is an albino and an outsider. But when she discovers she has supernatural abilities, she is initiated into the Leopard Society — a secret world of magic that has existed in Africa for thousands of years. Nnedi Okofor's award-winning fantasy draws on Yoruba mythology and African folklore.",
     coverImage:
       "http://books.google.com/books/content?id=nl_cnAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1627,17 +2635,28 @@ export const books = [
     rating: 4.5,
     reviews: 1200,
     tag: ["staff pick", "new arrival"],
+    details: {
+      publisher: "Viking Juvenile",
+      isbn: "9780670011964",
+      format: ["paperback", "hardback"],
+      publishedDate: "April 14, 2011",
+      language: "English",
+      genre: "Young Adult / Fantasy / African Literature",
+      storeCategory: "Young Adult",
+      pages: 349,
+      awards: ["Macmillan Children's Book Prize"],
+      countryOfPublication: "Nigeria",
+    },
   },
 
-  //NOTE THIS
   {
-    id: 84,
+    id: 83,
     title: "so spoke the earth",
     author: "Various African Authors",
-    header: "a powerful anthology from africa's brightest young voices",
-    subheader: "stories that celebrate the diversity of the african experience",
+    header: "A powerful anthology from Africa's brightest young voices",
+    subheader: "Stories that celebrate the diversity of the African experience",
     description:
-      "so spoke the earth is a rich anthology of short fiction from across the african continent, celebrating the diversity and depth of the african experience. from the savannahs of east africa to the megacities of west africa, these stories explore identity, belonging, family, and what it means to be young and african in the modern world.",
+      "So Spoke the Earth is a rich anthology of short fiction from across the African continent, celebrating the diversity and depth of the African experience. From the savannahs of East Africa to the megacities of West Africa, these stories explore identity, belonging, family, and what it means to be young and African in the modern world.",
     coverImage:
       "http://books.google.com/books/content?id=7QNaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1647,18 +2666,30 @@ export const books = [
     rating: 4.4,
     reviews: 340,
     tag: ["staff pick", "new arrival"],
+    details: {
+      publisher: "Cassava Republic Press",
+      isbn: "9789785203122",
+      format: ["paperback"],
+      publishedDate: "2018",
+      language: "English",
+      genre: "Young Adult / Short Stories / African Literature",
+      storeCategory: "Young Adult",
+      pages: 256,
+      awards: null,
+      countryOfPublication: "Nigeria",
+    },
   },
 
   {
-    id: 85,
+    id: 84,
     title: "the outsiders",
     author: "S.E. Hinton",
     header:
-      "the iconic international bestseller with over 25 million copies sold",
+      "The iconic international bestseller with over 25 million copies sold",
     subheader:
-      "a heroic coming-of-age story about friendship, loyalty, and belonging",
+      "A heroic coming-of-age story about friendship, loyalty, and belonging",
     description:
-      "ponyboy curtis knows he can count on his brothers and his friends — true friends who would do anything for him. but not on much else besides trouble with the socs, a vicious gang of rich kids whose idea of a good time is beating up on greasers like ponyboy. when the conflict between the groups results in death, ponyboy must choose between his loyalty and his sense of right and wrong.",
+      "Ponyboy Curtis knows he can count on his brothers and his friends — true friends who would do anything for him. But not on much else besides trouble with the Socs, a vicious gang of rich kids whose idea of a good time is beating up on greasers like Ponyboy. When the conflict between the groups results in death, Ponyboy must choose between his loyalty and his sense of right and wrong.",
     coverImage:
       "http://books.google.com/books/content?id=aRfhAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
@@ -1668,5 +2699,17 @@ export const books = [
     rating: 4.7,
     reviews: 4100,
     tag: ["classic"],
+    details: {
+      publisher: "Viking Press",
+      isbn: "9780142407332",
+      format: ["paperback", "hardback"],
+      publishedDate: "1967",
+      language: "English",
+      genre: "Young Adult / Coming of Age",
+      storeCategory: "Young Adult",
+      pages: 192,
+      awards: null,
+      countryOfPublication: "United States",
+    },
   },
 ];

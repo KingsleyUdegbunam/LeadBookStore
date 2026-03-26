@@ -1,157 +1,92 @@
-import { useNavigate } from "react-router-dom";
-import { useState, useRef, useMemo } from "react";
+import { useEffect } from "react";
 import { Header } from "../component/Header";
 import { books } from "../data/inventory";
-import { BookGrid } from "../component/BookGrid";
-
+import { useParams, useLocation } from "react-router-dom";
 import "./ProductPage.css";
 
-export default function ProductPage({ cart, setCart }) {
-  const [query, setQuery] = useState("");
-  const [sortBy, setSortBy] = useState("Default");
+export default function ProductPage({ cart }) {
+  const { id } = useParams();
+  const { pathname } = useLocation();
 
-  const sortRef = useRef(null);
-  const dropDownIcon = useRef(null);
-  const dropdownRef = useRef(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  console.log(id);
 
-  const sortOptions = [
-    "Default",
-    "Sort by popularity",
-    "Sort by price:low to high",
-    "Sort by price:high to low",
-  ];
-
-  const handleSort = (option) => {
-    setSortBy(option);
-    closeDropDown();
-  };
-
-  const toggleDropDown = () => {
-    sortRef.current.classList.toggle("hide-dropdown");
-    dropDownIcon.current.classList.toggle("rotate-chevron-down");
-    dropdownRef.current.classList.toggle("cut-border-radius");
-
-    console.log(dropdownRef.current);
-  };
-
-  const closeDropDown = () => {
-    sortRef.current.classList.contains("hide-dropdown") ? toggleDropDown() : "";
-  };
-
-  const chevronDown = () => (
-    <svg
-      className="chevron-down"
-      ref={dropDownIcon}
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fillRule="evenodd"
-        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-      />
-    </svg>
-  );
-
-  let filteredBooks = books.filter((book) => {
-    const search = query.toLowerCase();
-
-    return (
-      book.title.includes(search) ||
-      book.author.toLowerCase().includes(search) ||
-      book.primaryCollection.includes(search) ||
-      book.genre.includes(search) ||
-      book.collections.some((col) => col.includes(search))
-    );
-  });
-
-  const sort = useMemo(() => {
-    const bookCopy = [...books];
-
-    switch (sortBy) {
-      case "Sort by popularity":
-        bookCopy.sort((a, b) => b.reviews - a.reviews);
-        break;
-
-      case "Sort by price:low to high":
-        bookCopy.sort((a, b) => a.price.paperback - b.price.paperback);
-        break;
-
-      case "Sort by price:high to low":
-        bookCopy.sort((a, b) => b.price.paperback - a.price.paperback);
-        break;
-
-      default:
-        return;
-    }
-
-    return bookCopy;
-  }, [sortBy]);
-
-  const searchRef = useRef(null);
-
-  const navigate = useNavigate();
-
-  const startSearch = (event) => {
-    console.log(query);
-    event.key === "Enter" ? alert("search") : " ";
-    if (event.key === "Enter") {
-      console.log("yes");
-      navigate("/shop?");
-    }
-  };
-
-  console.log(cart);
+  const book = books.find((book) => book.id === Number(id));
+  console.log(book);
   return (
-    <div>
-      <div className="product-header-wrapper">{<Header cart={cart} />}</div>
-      <section className="main-section">
-        <section className="filter">
-          <h2>Product Filters</h2>
-
-          <article className="search-fields" onClick={closeDropDown}>
-            <input
-              className="search-field"
-              placeholder="Search by title, author, or collection..."
-              type="text"
-              value={query}
-              onChange={(e) => {
-                setSortBy("Default");
-                setQuery(e.target.value);
-              }}
-              onKeyDown={startSearch}
-              ref={searchRef}
-            />
-          </article>
-
-          <article className="sort-field">
-            <div
-              onClick={toggleDropDown}
-              ref={dropdownRef}
-              className="dropdown-search"
-            >
-              <p className="selected">{sortBy}</p>
-              {chevronDown()}
-            </div>
-            <ul ref={sortRef}>
-              {sortOptions.map((option) => (
-                <li onClick={() => handleSort(option)} key={option}>
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </article>
-        </section>
-        <div onClick={closeDropDown}>
-          <BookGrid
-            setCart={setCart}
-            cart={cart}
-            books={sort ? sort : filteredBooks}
-          />
+    <>
+      <Header cart={cart} />
+      <section className="main-container">
+        <div className="product-image-container">
+          <img src={book.coverImage} alt={`Image of ${book.title} book`} />
         </div>
+        <div className="product-author-and-title">
+          <h2 className="book-title">{book.title}</h2>
+          <p className="book-authur">{`by ${book.author}`}</p>
+        </div>
+
+        <button className="book-to-cart">ADD TO CART</button>
+
+        <article className="desc-container">
+          <h3 className="desc-header">Description</h3>
+          <div className="desc-text-container">
+            <h4 className="product-header">{book.header}</h4>
+            <h4 className="product-subheader">{book.subheader}.</h4>
+            <p className="book-desc">{book.description}</p>
+          </div>
+        </article>
+
+        <article className="product-details">
+          <h3 className="product-details-header">Product Details</h3>
+          <div className="product-details-text">
+            <div className="row">
+              <p>Publisher:</p>
+              <p>{book.details.publisher}</p>
+            </div>
+            <div className="row">
+              <p>ISBN:</p>
+              <p>{book.details.isbn}</p>
+            </div>
+            <div className="row">
+              <p>Format:</p>
+              <p>Paperback / softback</p>
+            </div>
+            <div className="row">
+              <p>Published:</p>
+              <p>{book.details.publishedDate}</p>
+            </div>
+            <div className="row">
+              <p>Country of Publication:</p>
+              <p>{book.details.countryOfPublication}</p>
+            </div>
+            <div className="row">
+              <p>Language:</p>
+              <p>{book.details.language}</p>
+            </div>
+            <div className="row">
+              <p>Genre:</p>
+              <p>{book.details.genre}</p>
+            </div>
+            <div className="row">
+              <p>Pages:</p>
+              <p>{book.details.pages}</p>
+            </div>
+            {book.details.awards && (
+              <div className="row">
+                <p>Award</p>
+
+                <p className="product-award">{book.details.awards}</p>
+              </div>
+            )}
+          </div>
+        </article>
+
+        <article className="recommendation">
+          <h3 className="product-heade">You might love these as well</h3>
+        </article>
       </section>
-    </div>
+    </>
   );
 }

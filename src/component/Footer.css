@@ -1,0 +1,39 @@
+footer {
+  padding: 2rem 1.5rem;
+  background-color: var(---button-hover-clr);
+  color: white;
+}
+
+.footer-wrapper {
+  padding-block-start: 2rem;
+}
+
+.link-header {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.link-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.link-tree > * {
+  padding-block: 0.2rem;
+  display: block;
+}
+
+a,
+.copyright {
+  text-decoration: none;
+  color: white;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+
+  font-family: "Anonymous Pro", monospace;
+}
+
+.copyright {
+  margin-block-start: 4rem;
+}

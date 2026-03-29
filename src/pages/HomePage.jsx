@@ -6,6 +6,7 @@ import { BookGrid } from "../component/BookGrid";
 
 import "./HomePage.css";
 import womenImg from "../assets/womenImg.webp";
+import { Footer } from "../component/Footer";
 
 export default function HomePage({ cart, addToCart }) {
   const newArrival = books.filter((book) => book.tag.includes("new arrival"));
@@ -207,8 +208,34 @@ export default function HomePage({ cart, addToCart }) {
           for you.
         </p>
       </section>
+      <section className="newsletter-section">
+        <h2>JOIN OUR NEWSLETTER</h2>
+        <p className="newletter-text">
+          Powerpacked words, proven tools that helps shapes the Leader in you, a
+          week at a time.
+        </p>
 
-      <footer></footer>
+        <div className="news-join-field">
+          <label className="newsletter-label" htmlFor="newsletter">
+            <input
+              className="newsletter-email"
+              type="email"
+              placeholder="Email address"
+              name="newsletter"
+              id="newsletter"
+            />
+          </label>
+          <button className="subscribe-btn">Subscribe</button>
+        </div>
+        <p className="newsletter-constent">
+          By providing my email, I am consenting to recieve Lead emails.
+          <span>
+            {" "}
+            For additional information, please see our Privacy Policy.
+          </span>
+        </p>
+      </section>
+      <Footer />
     </>
   );
 }

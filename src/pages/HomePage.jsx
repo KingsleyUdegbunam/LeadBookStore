@@ -1,78 +1,47 @@
 import { LeadCarousel } from "../component/LeadCarousel";
+import { Header } from "../component/Header/Header";
+import { BookCard } from "../component/BookCard";
+import { books } from "../data/inventory";
+import { BookGrid } from "../component/BookGrid";
+
 import "./HomePage.css";
-import demoBook from "../assets/demoBook.webp";
 import womenImg from "../assets/womenImg.webp";
-import shoppingBag from "../assets/shopping-bag.svg";
-import moneyBook from "../assets/lead-money.webp";
-import businessAfrica from "../assets/africaBusiness.webp";
-import storytelling from "../assets/things-fall-apart.webp";
-import legacy from "../assets/becoming.webp";
 
-import { Product } from "../component/Product";
+export default function HomePage({ cart, addToCart }) {
+  const newArrival = books.filter((book) => book.tag.includes("new arrival"));
 
-export default function HomePage() {
+  const top10BestSellers = books
+    .filter((book) => book.tag.includes("bestseller"))
+    .slice(0, 10);
+
+  const first14BusinessBooks = books
+    .filter((book) => book.genre === "business & leadership")
+    .slice(0, 14);
+
+  const first14BiographyAndMemoirs = books
+    .filter((book) => book.genre === "biography" || book.genre === "memoir")
+    .slice(0, 14);
+
+  const first14FictionAndStoryTelling = books
+    .filter((book) => book.genre === "fiction & storytelling")
+    .slice(0, 14);
+
+  const first14ChildrenAndYoungAdults = books
+    .filter(
+      (book) =>
+        book.genre === "children's book" || book.genre === "young adult",
+    )
+    .slice(0, 14);
+
+  const womenMonth = books.filter(
+    (book) => book.primaryCollection === "lead her",
+  );
+
   return (
     <>
-      <div className="header-nav">
-        <p className="logo">L</p>
-        <div className="nav">
-          <div className="search-system">
-            <div className="search">
-              <svg
-                className="search-svg"
-                xmlns="http://www.w3.org/2000/svg"
-                width="32"
-                height="32"
-                fill="currentColor"
-                class="bi bi-search"
-                viewBox="0 0 16 16"
-              >
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-              </svg>
-            </div>
-            <div className="menu"></div>
-          </div>
-          <div className="menu">
-            <svg
-              width="24px"
-              height="24px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g id="style=stroke">
-                <g id="menu-hamburger">
-                  <path
-                    id="vector (Stroke)"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M2.25 6C2.25 5.58579 2.58579 5.25 3 5.25H21C21.4142 5.25 21.75 5.58579 21.75 6C21.75 6.41421 21.4142 6.75 21 6.75H3C2.58579 6.75 2.25 6.41421 2.25 6Z"
-                    fill="#000000"
-                  />
-                  <path
-                    id="vector (Stroke)_2"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M2.25 12C2.25 11.5858 2.58579 11.25 3 11.25H21C21.4142 11.25 21.75 11.5858 21.75 12C21.75 12.4142 21.4142 12.75 21 12.75H3C2.58579 12.75 2.25 12.4142 2.25 12Z"
-                    fill="#000000"
-                  />
-                  <path
-                    id="vector (Stroke)_3"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M2.25 18C2.25 17.5858 2.58579 17.25 3 17.25H21C21.4142 17.25 21.75 17.5858 21.75 18C21.75 18.4142 21.4142 18.75 21 18.75H3C2.58579 18.75 2.25 18.4142 2.25 18Z"
-                    fill="#000000"
-                  />
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div className="shopping-bag">
-            <img className="shopping-bag" src={shoppingBag} alt="" />
-          </div>
-        </div>
+      <div className="homepage-header-container">
+        {<Header cart={cart} addToCart={addToCart} />}
       </div>
-
       <section className="hero">
         {/* <div className="logo">LEAD</div> */}
         <section className="hero-text">
@@ -85,7 +54,6 @@ export default function HomePage() {
           </div>
           <div className="quick-action-btns">
             <button className="shop-now">Shop Now</button>
-            <button className="our-collection">Our Collection</button>
           </div>
         </section>
       </section>
@@ -124,24 +92,18 @@ export default function HomePage() {
           <h2 className="header">New Arrivals</h2>
 
           <section className="products-container slider">
-            <Product
-              image={demoBook}
-              category="Lead Me"
-              name="Atomic Habits"
-              priceInKobo="1200000"
-            />
-            <Product
-              image={demoBook}
-              category="Lead Me"
-              name="Atomic Habits"
-              priceInKobo="1200000"
-            />
-            <Product
-              image={demoBook}
-              category="Lead Me"
-              name="Atomic Habits"
-              priceInKobo="1200000"
-            />
+            {newArrival.map((book, index) => (
+              <BookCard
+                book={book}
+                id={book.id}
+                key={index}
+                addToCart={addToCart}
+                image={book.coverImage}
+                category={book.primaryCollection}
+                title={book.title}
+                priceInKobo={book.price.hardback}
+              />
+            ))}
           </section>
         </article>
       </section>
@@ -151,24 +113,18 @@ export default function HomePage() {
           <h2 className="header">10 Bestsellers</h2>
 
           <section className="products-container slider">
-            <Product
-              image={demoBook}
-              category="Lead Me"
-              name="Atomic Habits"
-              priceInKobo="1200000"
-            />
-            <Product
-              image={demoBook}
-              category="Lead Me"
-              name="Atomic Habits"
-              priceInKobo="1200000"
-            />
-            <Product
-              image={demoBook}
-              category="Lead Me"
-              name="Atomic Habits"
-              priceInKobo="1200000"
-            />
+            {top10BestSellers.map((book, index) => (
+              <BookCard
+                key={index}
+                id={book.id}
+                book={book}
+                image={book.coverImage}
+                category={book.primaryCollection}
+                title={book.title}
+                priceInKobo={book.price.paperback}
+                addToCart={addToCart}
+              />
+            ))}
           </section>
         </article>
       </section>
@@ -182,6 +138,22 @@ export default function HomePage() {
             </p>
           </article>
         </div>
+
+        {/* HERE HERE HERE  */}
+        <article className="products-container slider">
+          {womenMonth.map((book, index) => (
+            <BookCard
+              key={index}
+              id={book.id}
+              book={book}
+              image={book.coverImage}
+              category={book.primaryCollection}
+              title={book.title}
+              priceInKobo={book.price.paperback}
+              addToCart={addToCart}
+            />
+          ))}
+        </article>
         <div className="highlightImg-container">
           <img src={womenImg} alt="" />
         </div>
@@ -189,129 +161,29 @@ export default function HomePage() {
 
       <section className="kids">
         <h2 className="children-yound-adults header">Business & Leadership</h2>
-        <section className="grid-container">
-          <Product
-            image={moneyBook}
-            category="Lead With Money"
-            name="The Psychology of Money"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={businessAfrica}
-            category="Lead With Money"
-            name="The Psychology of Money"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={moneyBook}
-            category="Lead With Money"
-            name="The Psychology of Money"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={moneyBook}
-            category="Lead With Money"
-            name="The Psychology of Money"
-            priceInKobo="1200000"
-          />
-        </section>
+        {<BookGrid books={first14BusinessBooks} addToCart={addToCart} />}
       </section>
 
       <section className="kids">
         <h2 className="children-yound-adults header">Biography & Memoirs</h2>
-        <section className="grid-container">
-          <Product
-            image={legacy}
-            category="Lead With Money"
-            name="Becoming"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={legacy}
-            category="Lead With Money"
-            name="Becoming"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={legacy}
-            category="Lead With Money"
-            name="Becoming"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={legacy}
-            category="Lead With Money"
-            name="Becoming"
-            priceInKobo="1200000"
-          />
-        </section>
+        <BookGrid books={first14BiographyAndMemoirs} addToCart={addToCart} />
       </section>
 
       <section className="kids">
         <h2 className="children-yound-adults header">Fiction & StoryTelling</h2>
-        <section className="grid-container">
-          <Product
-            image={storytelling}
-            category="Lead The Young"
-            name="Things Fall Apart"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={storytelling}
-            category="Lead Little Ones"
-            name="Things Fall Apart"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={storytelling}
-            category="Lead Little Ones"
-            name="Things Fall Apart"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={storytelling}
-            category="Lead Little Ones"
-            name="Things Fall Apart"
-            priceInKobo="1200000"
-          />
-        </section>
+        <BookGrid books={first14FictionAndStoryTelling} addToCart={addToCart} />
       </section>
 
       <section className="kids">
         <h2 className="children-yound-adults header">
           Children & Young Adults
         </h2>
-        <section className="grid-container">
-          <Product
-            image={demoBook}
-            category="Lead The Young"
-            name="Atomic Habits"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={demoBook}
-            category="Lead Little Ones"
-            name="Atomic Habits"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={demoBook}
-            category="Lead Little Ones"
-            name="Atomic Habits"
-            priceInKobo="1200000"
-          />
-          <Product
-            image={demoBook}
-            category="Lead Little Ones"
-            name="Atomic Habits"
-            priceInKobo="1200000"
-          />
-        </section>
+        <BookGrid books={first14ChildrenAndYoungAdults} addToCart={addToCart} />
       </section>
 
       <section className="community">
         <div className="headeer-container">
-          <h3 className="category">Lead Us</h3>
+          <h3 className="comunity-lead">Lead Team</h3>
           <h2 className="header book-club">Join Our Community of Leaders</h2>
         </div>
         <div className="community-span">

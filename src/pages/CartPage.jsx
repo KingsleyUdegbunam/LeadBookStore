@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Header } from "../component/Header";
 import { convertToNaira } from "../utilities/money";
+import { Header } from "../component/Header/Header";
 
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import "./CartPage.css";
+import { Footer } from "../component/Footer";
 
 export default function CartPage({
   cart,
@@ -48,7 +49,6 @@ export default function CartPage({
 
       <section className="cart">
         <article className="main-section cart-product-details">
-          {/* CHECK THE ARTICLE BELOW STYLING OUT> CHANGE TO DIV INSTEAD */}
           <article className="cart-items-holder">
             <h2 className="cart-header">Your Cart</h2>
 
@@ -178,6 +178,7 @@ export default function CartPage({
       <section className="cart-summary">
         <article className="cart-total-summary"></article>
       </section>
+      <Footer />
     </>
   );
 }

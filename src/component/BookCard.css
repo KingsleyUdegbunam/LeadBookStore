@@ -1,6 +1,7 @@
 .product {
+  margin: 0 auto;
   flex-shrink: 0;
-  width: 190px;
+  width: 150px;
   gap: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -12,23 +13,27 @@
 .book-details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: inherit;
   flex-grow: 1;
 }
 
 .image-and-title {
   display: flex;
+  width: inherit;
   flex-direction: column;
-  gap: 0.2rem;
   flex-grow: 1;
+}
+
+.product-link {
+  width: inherit;
 }
 
 .image-container {
   flex-grow: 1;
   display: flex;
-  width: 100%;
+  width: inherit;
   aspect-ratio: 2 / 3;
-  min-height: 290px;
+
   padding: 0.3rem;
 }
 
@@ -37,12 +42,22 @@
   width: 85%;
   padding: 0.8rem 1rem;
   background-color: transparent;
-  border: 1px solid black;
-  font-family: "Anonymous Pro", monospace;
+  border-radius: 0.3rem;
+  border: none;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+
   color: black;
-  background: #1a1a1a;
+  background-color: red;
   color: #f9f5ef;
-  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background-color: var(---button-hover-clr);
 }
 
 .title {
@@ -65,4 +80,14 @@
 
 .price {
   font-weight: bold;
+}
+
+.product-link {
+  color: black;
+  transition: all, 500ms;
+  text-decoration: none;
+}
+
+.product-link:hover {
+  color: red;
 }

@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import HomePage from "./Pages/HomePage";
 import ShopPage from "./Pages/shopPage";
 import ProductPage from "./Pages/ProductPage";
@@ -11,6 +11,12 @@ import OrderPage from "./Pages/OrderPage";
 function App() {
   const [cart, setCart] = useState([]);
   const [order, setOrder] = useState({});
+
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const cartInDetail = cart.map((cartItem) => {
     const book = books.find((book) => book.id === cartItem.id);

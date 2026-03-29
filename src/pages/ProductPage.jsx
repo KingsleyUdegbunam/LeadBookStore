@@ -1,12 +1,16 @@
 import { useEffect } from "react";
-import { Header } from "../component/Header";
+import { Header } from "../component/Header/Header";
+import { Footer } from "../component/Footer";
 import { books } from "../data/inventory";
+import { BookCard } from "../component/BookCard";
 import { useParams, useLocation } from "react-router-dom";
 import "./ProductPage.css";
 
-export default function ProductPage({ cart }) {
+export default function ProductPage({ cart, addToCart }) {
   const { id } = useParams();
   const { pathname } = useLocation();
+
+  console.log(pathname);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -15,6 +19,17 @@ export default function ProductPage({ cart }) {
 
   const book = books.find((book) => book.id === Number(id));
   console.log(book);
+
+  const sameCollection = books.filter(
+    (find) => find.primaryCollection === book.primaryCollection,
+  );
+
+  const similarFive = sameCollection
+    .filter((book) => book.id !== Number(id))
+    .slice(0, 10);
+
+  // console.log(sameCollection);
+  console.log(similarFive);
   return (
     <>
       <Header cart={cart} />
@@ -27,7 +42,14 @@ export default function ProductPage({ cart }) {
           <p className="book-authur">{`by ${book.author}`}</p>
         </div>
 
-        <button className="book-to-cart">ADD TO CART</button>
+        <button
+          className="book-to-cart"
+          onClick={() => {
+            addToCart(book);
+          }}
+        >
+          ADD TO CART
+        </button>
 
         <article className="desc-container">
           <h3 className="desc-header">Description</h3>
@@ -84,9 +106,26 @@ export default function ProductPage({ cart }) {
         </article>
 
         <article className="recommendation">
-          <h3 className="product-heade">You might love these as well</h3>
+          <h3 className="product-heade">Related Reads</h3>
+          <div className="related-reads products-container">
+            <article className="products-container special-days">
+              {similarFive.map((book, index) => (
+                <BookCard
+                  key={index}
+                  id={book.id}
+                  book={book}
+                  image={book.coverImage}
+                  category={book.primaryCollection}
+                  title={book.title}
+                  priceInKobo={book.price.paperback}
+                  addToCart={addToCart}
+                />
+              ))}
+            </article>
+          </div>
         </article>
       </section>
+      <Footer />
     </>
   );
 }

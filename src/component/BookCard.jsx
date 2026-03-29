@@ -1,4 +1,5 @@
 import { convertToNaira } from "../utilities/money";
+import { Link } from "react-router-dom";
 import "./BookCard.css";
 
 export function BookCard({
@@ -8,19 +9,21 @@ export function BookCard({
   category,
   title,
   priceInKobo,
+  id,
 }) {
   return (
     <div className="product product-grid">
       <div className="book-details">
-        <div className="image-and-title">
+        <Link className="product-link" to={`/product/${id}`}>
           <div className="image-container">
             <img src={image} alt="Book image" />
           </div>
-          <div className="category-and-title">
-            <p className="category">{category}</p>
-            <p className="title">{title}</p>
-          </div>
-        </div>
+        </Link>
+
+        <p className="category">{category}</p>
+        <Link className="product-link" to={`/product/${id}`}>
+          <p className="title">{title}</p>
+        </Link>
 
         <p className="price">{convertToNaira(priceInKobo)}</p>
       </div>

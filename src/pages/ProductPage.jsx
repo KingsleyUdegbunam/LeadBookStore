@@ -32,7 +32,6 @@ export default function ProductPage({ cart, addToCart }) {
   console.log(similarFive);
   return (
     <>
-      <Header cart={cart} />
       <section className="main-container">
         <div className="product-image-container">
           <img src={book.coverImage} alt={`Image of ${book.title} book`} />
@@ -125,7 +124,6 @@ export default function ProductPage({ cart, addToCart }) {
           </div>
         </article>
       </section>
-      <Footer />
     </>
   );
 }

@@ -127,14 +127,6 @@ export default function CartPage({
               })}
             </article>
           </article>
-          <div className="promo-code">
-            <input
-              className="promo-code-input"
-              placeholder="Enter Promo Code"
-              type="text"
-            />
-            <button className="promo-code-btn">Apply</button>
-          </div>
 
           <div className="cart-cost-wrapper">
             <div className="cart-item-summary">

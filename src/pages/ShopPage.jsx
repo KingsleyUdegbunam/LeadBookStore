@@ -124,7 +124,6 @@ export default function ShopPage({ cart, setCart, addToCart }) {
   console.log(cart);
   return (
     <div>
-      <div className="product-header-wrapper">{<Header cart={cart} />}</div>
       <section className="main-section">
         <section className="filter">
           <h2>Product Filters</h2>
@@ -171,7 +170,6 @@ export default function ShopPage({ cart, setCart, addToCart }) {
           />
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

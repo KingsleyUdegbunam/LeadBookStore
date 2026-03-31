@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Header } from "./component/Header/Header";
+import { Footer } from "./component/Footer";
 import HomePage from "./Pages/HomePage";
 import ShopPage from "./Pages/shopPage";
 import ProductPage from "./Pages/ProductPage";
@@ -79,52 +81,56 @@ function App() {
   };
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={
-          <HomePage cart={cart} setCart={setCart} addToCart={addToCart} />
-        }
-      />
-      <Route
-        path="/shop"
-        element={
-          <ShopPage cart={cart} setCart={setCart} addToCart={addToCart} />
-        }
-      />
+    <>
+      <Header cart={cart} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage cart={cart} setCart={setCart} addToCart={addToCart} />
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <ShopPage cart={cart} setCart={setCart} addToCart={addToCart} />
+          }
+        />
 
-      <Route
-        path="/cart"
-        element={
-          <CartPage
-            cart={cart}
-            setCart={setCart}
-            cartInDetail={cartInDetail}
-            cartTotalPrice={cartTotalPrice}
-            getShippingOptions={getShippingOptions}
-          />
-        }
-      />
+        <Route
+          path="/cart"
+          element={
+            <CartPage
+              cart={cart}
+              setCart={setCart}
+              cartInDetail={cartInDetail}
+              cartTotalPrice={cartTotalPrice}
+              getShippingOptions={getShippingOptions}
+            />
+          }
+        />
 
-      <Route
-        path="/product/:id"
-        element={<ProductPage cart={cart} addToCart={addToCart} />}
-      />
+        <Route
+          path="/product/:id"
+          element={<ProductPage cart={cart} addToCart={addToCart} />}
+        />
 
-      <Route
-        path="/checkout"
-        element={
-          <CheckoutPage
-            cart={cart}
-            cartInDetail={cartInDetail}
-            cartTotalPrice={cartTotalPrice}
-            getShippingOptions={getShippingOptions}
-          />
-        }
-      />
+        <Route
+          path="/checkout"
+          element={
+            <CheckoutPage
+              cart={cart}
+              cartInDetail={cartInDetail}
+              cartTotalPrice={cartTotalPrice}
+              getShippingOptions={getShippingOptions}
+            />
+          }
+        />
 
-      <Route path="/order" element={<OrderPage cart={cart} />} />
-    </Routes>
+        <Route path="/order" element={<OrderPage cart={cart} />} />
+      </Routes>
+      <Footer />
+    </>
   );
 }
 

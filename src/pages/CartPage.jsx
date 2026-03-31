@@ -44,7 +44,7 @@ export default function CartPage({
   };
 
   return (
-    <div>
+    <>
       <section className="cart">
         <article className="main-section cart-product-details">
           <article className="cart-items-holder">
@@ -176,6 +176,6 @@ export default function CartPage({
       <section className="cart-summary">
         <article className="cart-total-summary"></article>
       </section>
-    </div>
+    </>
   );
 }

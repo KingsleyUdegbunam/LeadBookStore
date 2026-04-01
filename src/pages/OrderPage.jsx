@@ -14,7 +14,7 @@ export default function OrderPage() {
     <>
       <section className="banner-section main-section">
         <div className="banner">
-          <p>ORDER CONFIRMED</p>
+          <p>ORDER PLACED</p>
           <p>
             Thank you,{" "}
             <span className="order-highlight">{shippingDetails.lastName}</span>
@@ -107,7 +107,7 @@ export default function OrderPage() {
         </article>
 
         <div className="order-cta-btns">
-          <button className="track-btn">TRACK MY ORDER</button>
+          <button className="track-btn">ORDER STATUS</button>
           <button
             className="back-to-shop-btn"
             onClick={() => {

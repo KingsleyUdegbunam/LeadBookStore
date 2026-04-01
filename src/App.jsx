@@ -9,10 +9,12 @@ import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";
 import { books } from "./data/inventory";
 import OrderPage from "./Pages/OrderPage";
+import dayjs from "dayjs";
 
 function App() {
   const [cart, setCart] = useState([]);
   const [order, setOrder] = useState({});
+  const today = dayjs();
 
   const { pathname } = useLocation();
 
@@ -65,17 +67,23 @@ function App() {
       {
         id: "DHL",
         desc: "2-5 Working Days",
+        minDeliveryDay: today.add(2, "day").format("MMM DD YYYY"),
+        maxDeliveryDay: today.add(5, "day").format("MMM DD YYYY"),
         costInCents: isAbuja ? 1000000 : 1500000,
       },
       {
         id: "KOS",
         desc: "4-7 Working Days",
-        costInCents: isAbuja ? 350000 : 650000,
+        minDeliveryDay: today.add(4, "day").format("MMM DD YYYY"),
+        maxDeliveryDay: today.add(7, "day").format("MMM DD YYYY"),
+        costInCents: isAbuja ? 550000 : 650000,
       },
       {
         id: "Shipbubble",
         desc: "7-10 Working Days",
-        costInCents: isAbuja ? 400000 : 650000,
+        minDeliveryDay: today.add(7, "day").format("MMM DD YYYY"),
+        maxDeliveryDay: today.add(10, "day").format("MMM DD YYYY"),
+        costInCents: isAbuja ? 350000 : 450000,
       },
     ];
   };

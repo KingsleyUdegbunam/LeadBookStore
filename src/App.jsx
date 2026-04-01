@@ -25,7 +25,11 @@ function App() {
   const cartInDetail = cart.map((cartItem) => {
     const book = books.find((book) => book.id === cartItem.id);
 
-    return { ...book, quantity: cartItem.quantity };
+    return {
+      ...book,
+      quantity: cartItem.quantity,
+      totalPrice: cartItem.totalPrice,
+    };
   });
 
   const cartTotalPrice = cart.reduce((total, cartItem) => {

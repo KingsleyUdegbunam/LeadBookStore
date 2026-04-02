@@ -1,0 +1,161 @@
+:root {
+  ---font-white-clr: rgb(235, 235, 235);
+  ---card-black-clr: rgb(62, 62, 62);
+  ---brand-red-clr: #cc1500;
+  ---brand-red-click: #a01000;
+  ---brand-red-clr-hover: #d52e1c;
+  ---accent-grey-clr: #e5e5e5;
+}
+
+.about-main {
+  padding: 4rem 0;
+  padding-block-end: 0;
+}
+
+.about-banner,
+.strip {
+  font-family: "Outfit", sans-serif;
+
+  background-color: black;
+  color: var(---font-white-clr);
+  padding: 1.7rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.about-banner > * {
+  margin-bottom: 0.3rem;
+}
+
+.about-banner > *:last-child {
+  margin-bottom: 0;
+}
+
+.about-header {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(---accent-grey-clr);
+  color: rgb(208, 208, 208);
+}
+
+.our-story {
+  font-weight: 400;
+}
+
+.about-tag {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.about-tag span {
+  color: var(---brand-red-clr);
+  display: block;
+}
+
+.about-tag-detail {
+  font-size: 0.9rem;
+}
+
+.strip {
+  background-color: var(---brand-red-clr);
+  padding: 1rem;
+}
+
+.strip .about-tag-detail {
+  font-weight: 500;
+}
+
+.what-we-stand-for {
+  padding: 1.5rem 1rem;
+}
+
+.what-we-stand-for .about-header {
+  color: var(---brand-red-clr);
+}
+
+.stand-card {
+  display: flex;
+  gap: 1rem;
+  padding-block: 1.5rem;
+  border-bottom: 0.2px solid var(---card-black-clr);
+}
+
+.stand-card:last-of-type {
+  border-bottom: none;
+}
+
+.stand-number {
+  margin-inline-end: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(---accent-grey-clr);
+}
+
+.stand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.92rem;
+}
+
+.stand-head {
+  font-weight: 500;
+}
+
+.stand-detail,
+.collection-intro-txt {
+  color: var(---card-black-clr);
+  font-weight: 400;
+}
+
+.about-collection {
+  border-block: 0.2px solid var(---card-black-clr);
+}
+
+.about-collection .about-header {
+  color: var(---brand-red-clr);
+}
+
+.collection-intro-txt {
+  font-size: 0.92rem;
+}
+
+.our-collections-ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  list-style: square;
+  color: var(---brand-red-clr);
+  padding: 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.li-text {
+  color: var(---card-black-clr);
+}
+
+.about-redirect {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.about-redirect-btn {
+  padding: 0;
+  background-color: var(---brand-red-clr);
+  border: none;
+  color: var(---font-white-clr);
+  padding: 0.8rem 2.5rem;
+  margin-block: 1rem;
+  transition: 250ms all;
+}
+
+.about-redirect-btn:hover,
+.about-redirect-btn:focus {
+  background-color: var(---brand-red-clr-hover);
+}
+
+.about-redirect-btn:active {
+  background-color: var(---brand-red-click);
+}

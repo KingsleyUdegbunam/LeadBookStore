@@ -1,14 +1,7 @@
 import { MenuIcon, CloseMenuIcon } from "./Icons";
 import { Link } from "react-router-dom";
 
-export function HeaderMenu({ menuRef, menuOpenRef, menuCloseRef }) {
-  const toggleMenu = () => {
-    menuRef.current.classList.toggle("view-menu");
-    menuOpenRef.current.classList.toggle("close-menu-icon");
-    document.body.classList.toggle("lock-scroll");
-    menuCloseRef.current.classList.toggle("display-close-icon");
-  };
-
+export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
   return (
     <>
       <div className="menuIcon" onClick={toggleMenu}>

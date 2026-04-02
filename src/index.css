@@ -85,8 +85,28 @@ h2 {
 }
 
 button {
-  padding: 1rem 1.5rem;
   font-family: "Anonymous Pro", monospace;
+  cursor: pointer;
+
+  background-color: var(---brand-red-clr);
+  border: none;
+  color: var(---font-white-clr);
+  padding: 0.8rem 2.5rem;
+  margin-block: 1rem;
+  transition: 250ms all;
+}
+
+.about-redirect-btn:hover,
+.about-redirect-btn:focus {
+  background-color: var(---brand-red-clr-hover);
+}
+
+.about-redirect-btn:active {
+  background-color: var(---brand-red-click);
+}
+
+button:focus {
+  outline-color: transparent;
 }
 
 .main-section {

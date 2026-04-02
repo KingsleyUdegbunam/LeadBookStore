@@ -18,9 +18,10 @@ export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
               <span className="shop">Shop</span>
             </div>
           </Link>
-          <div>
+          <Link className="link" to="/about">
             <span className="about">About</span>
-          </div>
+          </Link>
+
           <div>
             <span className="contact">Contact</span>
           </div>

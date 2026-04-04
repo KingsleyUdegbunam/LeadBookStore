@@ -7,8 +7,10 @@ import ShopPage from "./Pages/shopPage";
 import ProductPage from "./Pages/ProductPage";
 import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";
-import { books } from "./data/inventory";
 import OrderPage from "./Pages/OrderPage";
+import AboutPage from "./Pages/AboutPage";
+import ContactPage from "./Pages/ContactPage";
+import { books } from "./data/inventory";
 import dayjs from "dayjs";
 
 function App() {
@@ -102,6 +104,7 @@ function App() {
             <HomePage cart={cart} setCart={setCart} addToCart={addToCart} />
           }
         />
+
         <Route
           path="/shop"
           element={
@@ -140,6 +143,9 @@ function App() {
         />
 
         <Route path="/order" element={<OrderPage cart={cart} />} />
+        <Route path="/about" element={<AboutPage />} />
+
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <Footer />
     </>

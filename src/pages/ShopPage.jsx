@@ -152,9 +152,13 @@ export default function ShopPage({ cart, setCart, addToCart }) {
               <p className="selected">{sortBy}</p>
               {chevronDown()}
             </div>
-            <ul ref={sortRef}>
+            <ul className="sort-ul" ref={sortRef}>
               {sortOptions.map((option) => (
-                <li onClick={() => handleSort(option)} key={option}>
+                <li
+                  className="sort-li"
+                  onClick={() => handleSort(option)}
+                  key={option}
+                >
                   {option}
                 </li>
               ))}

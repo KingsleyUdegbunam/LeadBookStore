@@ -17,10 +17,10 @@ export function BookCard({
         <Link className="product-link" to={`/product/${id}`}>
           <div className="image-container">
             <img src={image} alt="Book image" />
+            <p className="category">{category.replace("lead ", "")}</p>
           </div>
         </Link>
 
-        <p className="category">{category}</p>
         <Link className="product-link" to={`/product/${id}`}>
           <p className="title">{title}</p>
         </Link>

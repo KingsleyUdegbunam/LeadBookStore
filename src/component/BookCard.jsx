@@ -25,6 +25,8 @@ export function BookCard({
           <p className="title">{title}</p>
         </Link>
 
+        <p className="author">{book.author}</p>
+
         <p className="price">{convertToNaira(priceInKobo)}</p>
       </div>
 

@@ -22,9 +22,9 @@ export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
             <span className="about">About</span>
           </Link>
 
-          <div>
+          <Link className="link" to="/contact">
             <span className="contact">Contact</span>
-          </div>
+          </Link>
         </article>
       </div>
     </>

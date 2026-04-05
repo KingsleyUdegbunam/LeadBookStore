@@ -1,20 +1,19 @@
+:root {
+  ---product-card-width: 150px;
+}
+
 .product {
   margin: 0 auto;
   flex-shrink: 0;
-  width: 150px;
-  gap: 0.5rem;
+  width: var(---product-card-width);
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  text-align: center;
 }
 
 .book-details {
   display: flex;
   flex-direction: column;
-  width: inherit;
-  flex-grow: 1;
 }
 
 .image-and-title {
@@ -32,8 +31,10 @@
   position: relative;
   flex-grow: 1;
   display: flex;
-  width: inherit;
+  width: var(---product-card-width);
   aspect-ratio: 2 / 3;
+
+  background-color: rebeccapurple;
 
   padding: 0.3rem;
 }
@@ -48,11 +49,11 @@
 }
 
 .add-to-cart {
-  align-self: center;
-  width: 85%;
+  /* align-self: center; */
+  margin-top: auto;
+  width: 100%;
   padding: 0.8rem 1rem;
   background-color: transparent;
-  border-radius: 0.3rem;
   border: none;
 
   font-family: "Outfit", sans-serif;
@@ -67,13 +68,17 @@
 }
 
 .add-to-cart:hover {
-  background-color: var(---button-hover-clr);
+  /* background-color: var(---button-hover-clr); */
 }
 
-.title {
-  font-size: 14px;
+.title,
+.author {
+  font-size: 13px;
   text-transform: capitalize;
-  justify-self: center;
+}
+
+.author {
+  color: rgb(159, 159, 159);
 }
 
 .category {
@@ -91,19 +96,16 @@
   text-transform: uppercase;
 
   font-family: Arial, Helvetica, sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-
-  /* font-weight: 600; */
 }
 
 .title,
 .price {
-  font-family: "Anonymous Pro", monospace;
+  font-family: "Outfit", sans-serif;
 }
 
 .price {
   font-weight: bold;
+  font-size: 13px;
 }
 
 .product-link {

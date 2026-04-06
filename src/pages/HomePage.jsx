@@ -2,13 +2,11 @@ import { LeadCarousel } from "../component/LeadCarousel";
 import { BookCard } from "../component/BookCard";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
-import { useRef } from "react";
 import "./HomePage.css";
 import womenImg from "../assets/womenImg.webp";
 import { Footer } from "../component/Footer";
 
-export default function HomePage({ cart, addToCart }) {
-  const lockref = useRef(null);
+export default function HomePage({ addToCart }) {
   const newArrival = books.filter((book) => book.tag.includes("new arrival"));
 
   const top10BestSellers = books
@@ -39,7 +37,7 @@ export default function HomePage({ cart, addToCart }) {
   );
 
   return (
-    <div className="lock-reference" ref={lockref}>
+    <div>
       <section className="hero">
         {/* <div className="logo">LEAD</div> */}
         <section className="hero-text">

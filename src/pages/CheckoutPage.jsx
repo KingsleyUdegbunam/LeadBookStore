@@ -1,6 +1,7 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import Select from "react-select";
+import dayjs from "dayjs";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
 import {
@@ -10,7 +11,6 @@ import {
 import Paystack from "@paystack/inline-js";
 import { convertToNaira } from "../utilities/money";
 import { supabase } from "../supabase";
-
 import "./CheckoutPage.css";
 import { Footer } from "../component/Footer";
 
@@ -20,6 +20,9 @@ export default function CheckoutPage({
   cartTotalPrice,
   getShippingOptions,
 }) {
+  const today = dayjs().format("MMM DD YYYY");
+  console.log(today);
+
   const [selectedShipping, setSelectedShipping] = useState(null);
   // const [showForm, setShowForm] = useState(true);
   const [showShipDetailsForm, setShowShipDetailsForm] = useState(true);
@@ -30,6 +33,16 @@ export default function CheckoutPage({
   const hideForms = () => {
     setShowShipDetailsForm(false);
     setShowShippingOptForm(false);
+  };
+  const totalOrderCost = cartTotalPrice + selectedShipping?.costInCents;
+  console.log(totalOrderCost);
+
+  // ORDER SUMMARY FOR ORDER PAGE USE
+  const orderSummary = {
+    today,
+    subtotal: cartTotalPrice,
+    total: totalOrderCost,
+    shippingOption: selectedShipping,
   };
 
   const isReadyToPay = !showShipDetailsForm && !showShippingOptForm;
@@ -64,7 +77,14 @@ export default function CheckoutPage({
           });
           if (error) throw error;
 
-          navigate("/order-confirmation");
+          navigate("/order", {
+            state: {
+              cartInDetail,
+              shippingDetails,
+              address,
+              orderSummary,
+            },
+          });
         } catch (error) {
           console.error("Error saving order:", error);
         }
@@ -577,7 +597,7 @@ export default function CheckoutPage({
 
           <button
             disabled={!isFormValid}
-            className={`checkout-page-btn-disabled cheeckout-continue-btn ${isFormValid && "btn-enabled"}`}
+            className={`checkout-page-btn-disabled checkout-continue-btn ${isFormValid && "btn-enabled"}`}
             onClick={() => {
               if (isFormValid) {
                 if (isReadyToPay) {
@@ -589,7 +609,7 @@ export default function CheckoutPage({
               }
             }}
           >
-            {isReadyToPay ? "PLACE ORDER" : "CONTNUE"}
+            {isReadyToPay ? "PLACE ORDER" : "CONTINUE"}
           </button>
         </div>
       </section>

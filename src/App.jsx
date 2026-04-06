@@ -10,6 +10,8 @@ import CheckoutPage from "./Pages/CheckoutPage";
 import OrderPage from "./Pages/OrderPage";
 import AboutPage from "./Pages/AboutPage";
 import ContactPage from "./Pages/ContactPage";
+import TrackingPage from "./Pages/TrackingPage";
+import OrderStatusPage from "./Pages/OrderStatusPage";
 import { books } from "./data/inventory";
 import dayjs from "dayjs";
 
@@ -146,6 +148,9 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
 
         <Route path="/contact" element={<ContactPage />} />
+
+        <Route path="/tracking" element={<TrackingPage />} />
+        <Route path="/orderStatus" element={<OrderStatusPage />} />
       </Routes>
       <Footer />
     </>

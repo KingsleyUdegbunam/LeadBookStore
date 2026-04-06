@@ -95,11 +95,11 @@ export default function AboutPage() {
           </ul>
         </section>
         <section className="about-redirect">
-          <p>Ready to find your next great read?</p>
+          <p className="about-closure-txt">
+            Ready to find your next great read?
+          </p>
           <Link to="/shop">
-            <button className="about-redirect-btn">
-              BROWSE OUR COLLECTION
-            </button>
+            <button className="button-primary">BROWSE OUR COLLECTION</button>
           </Link>
         </section>
       </section>

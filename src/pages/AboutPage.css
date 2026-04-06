@@ -141,21 +141,6 @@
   font-size: 0.9rem;
 }
 
-.about-redirect-btn {
-  padding: 0;
-  background-color: var(---brand-red-clr);
-  border: none;
-  color: var(---font-white-clr);
-  padding: 0.8rem 2.5rem;
-  margin-block: 1rem;
-  transition: 250ms all;
-}
-
-.about-redirect-btn:hover,
-.about-redirect-btn:focus {
-  background-color: var(---brand-red-clr-hover);
-}
-
-.about-redirect-btn:active {
-  background-color: var(---brand-red-click);
+.about-closure-txt {
+  margin-block-end: 0.5rem;
 }

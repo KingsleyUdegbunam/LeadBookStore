@@ -107,9 +107,9 @@ export default function OrderPage() {
         </article>
 
         <div className="order-cta-btns">
-          <button className="track-btn">ORDER STATUS</button>
+          <button className="button-primary">ORDER STATUS</button>
           <button
-            className="back-to-shop-btn"
+            className="button-secondary"
             onClick={() => {
               navigate("/shop");
             }}

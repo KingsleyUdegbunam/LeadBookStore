@@ -160,7 +160,7 @@ export default function CartPage({
             </div>
           </div>
           <Link to="/checkout">
-            <button className="checkout-button">CHECKOUT</button>
+            <button className="checkout-button button-primary">CHECKOUT</button>
           </Link>
         </article>
       </section>

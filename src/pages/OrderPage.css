@@ -93,9 +93,9 @@
 }
 
 .order-image-container {
-  background-color: red;
   max-width: 4rem;
   aspect-ratio: 2/3;
+  object-fit: cover;
 }
 
 .order-item-details {
@@ -150,31 +150,4 @@
   margin-block-start: 1.5rem;
   gap: 0.8rem;
   padding-inline: 1rem;
-}
-
-.track-btn {
-  background-color: red;
-  border: red;
-  color: white;
-  transition: all 300ms;
-}
-
-.track-btn:hover {
-  background-color: rgb(182, 0, 0);
-}
-.track-btn:focus,
-.back-to-shop-btn:focus {
-  outline-color: inherit;
-}
-
-.back-to-shop-btn {
-  background-color: transparent;
-  border: 2px solid black;
-  transition: all 300ms;
-}
-
-.back-to-shop-btn:hover {
-  background-color: rgb(182, 0, 0);
-  color: white;
-  border-color: rgb(182, 0, 0);
 }

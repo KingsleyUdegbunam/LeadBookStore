@@ -107,7 +107,14 @@ export default function OrderPage() {
         </article>
 
         <div className="order-cta-btns">
-          <button className="button-primary">ORDER STATUS</button>
+          <button
+            className="button-primary"
+            onClick={() => {
+              navigate("/orderStatus");
+            }}
+          >
+            ORDER STATUS
+          </button>
           <button
             className="button-secondary"
             onClick={() => {

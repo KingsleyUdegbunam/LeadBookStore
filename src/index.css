@@ -138,3 +138,11 @@ button:focus {
 .main {
   padding: 4rem 0rem;
 }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+}

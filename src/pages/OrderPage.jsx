@@ -1,45 +1,74 @@
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { getOrderById } from "../services/orderServices";
+import dayjs from "dayjs";
 import { convertToNaira } from "../utilities/money";
-import { useNavigate } from "react-router-dom";
 import "./OrderPage.css";
 
 export default function OrderPage() {
-  console.log(useLocation());
-  const { state } = useLocation();
-  const { cartInDetail, shippingDetails, address, orderSummary } = state;
-
+  const [order, setOrder] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchOrder() {
+      try {
+        const data = await getOrderById(id);
+        console.log(data);
+        setOrder(data);
+      } catch (err) {
+        console.error("Failed to fetch order:", err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    if (id) fetchOrder();
+  }, [id]);
+
+  console.log(order);
+
+  if (loading) return <p style={{ marginBlock: "5rem" }}>Loading...</p>;
+  if (!order) return <p style={{ marginBlock: "5rem" }}>Order not found</p>;
 
   return (
     <>
       <section className="banner-section main-section">
         <div className="banner">
-          <p>ORDER PLACED</p>
           <p>
             Thank you,{" "}
-            <span className="order-highlight">{shippingDetails.lastName}</span>
+            <span className="order-highlight">
+              {order.shipping_details.lastName}!
+            </span>
           </p>
+          <p className="strong-text">We're processing your order📚</p>
+
           <p>
-            A confirmation has been sent to{" "}
-            <span className="order-highlight">{shippingDetails.email}</span>
+            Order summary has been sent to{" "}
+            <span className="order-highlight">
+              {order.shipping_details.email}
+            </span>
           </p>
         </div>
 
         <div className="order-clipper">
           <div className="order-strip">
-            <p className="order-highlight">Order Number</p>
-            <p className="order-number">ORG-0041</p>
+            <p className="order-highlight">Order Ref.</p>
+            <p className="order-number">{order.reference}</p>
           </div>
           <div className="order-strip">
             <p className="order-highlight">Date</p>
-            <p className="order-number">{orderSummary.today}</p>
+            <p className="order-number">
+              {dayjs(order.created_at).format("MMMM D, YYYY h:mm A")}
+            </p>
           </div>
         </div>
 
         <article className="your-order">
           <h2 className="your-order-header">Your Order</h2>
           <div className="order-items-container">
-            {cartInDetail.map((item) => {
+            {order.items.map((item) => {
               return (
                 <article key={item.id} className="order-item">
                   <div className="order-left">
@@ -66,40 +95,40 @@ export default function OrderPage() {
             <div className="item-cost-element">
               <p className="order-cost-text">Subtotal</p>
               <p className="order-cost-digit">
-                {convertToNaira(orderSummary.subtotal)}
+                {convertToNaira(order.subtotal)}
               </p>
             </div>
             <div className="item-cost-element">
               <p className="order-cost-text">Delivery</p>
               <p className="order-cost-digit">
-                {convertToNaira(orderSummary.shippingOption.costInCents)}
+                {convertToNaira(order.courier_details.costInCents)}
               </p>
             </div>
             <div className="item-cost-element order-total">
               <p className="order-cost-text total-h2">Total</p>
-              <p className="order-cost-digit">
-                {convertToNaira(orderSummary.total)}
-              </p>
+              <p className="order-cost-digit">{convertToNaira(order.total)}</p>
             </div>
           </div>
 
           <div className="order-delivery-details">
             <p className="order-delivery-detail-header">
-              Delivery Details(
-              {`${orderSummary.shippingOption.id} ${orderSummary.shippingOption.desc}`}{" "}
-              )
+              Delivery Details (
+              {`${order.courier_details.id} ${order.courier_details.desc}`} )
             </p>
             <div className="order-delivery-summary">
               <div className="location">
                 <span className="order-delivery-h3">Address:</span>{" "}
                 <span className="order-summary-detail order-highlight">
-                  {shippingDetails.address}, {address.city}, {address.state}
+                  {order.shipping_details.address},{" "}
+                  {order.shipping_details.city}, {order.shipping_details.state},{" "}
+                  {order.shipping_details.country}.
                 </span>
               </div>
               <div className="delivery-date">
-                <span className="order-delivery-h3">Estimated: </span>
+                <span className="order-delivery-h3">Arrival: </span>
                 <span className="order-summary-detail order-highlight">
-                  {`${orderSummary.shippingOption.maxDeliveryDay} - ${orderSummary.shippingOption.minDeliveryDay}`}
+                  {`${order.courier_details.minDeliveryDay} - ${order.courier_details.maxDeliveryDay}`}
+                  .
                 </span>
               </div>
             </div>
@@ -110,7 +139,7 @@ export default function OrderPage() {
           <button
             className="button-primary"
             onClick={() => {
-              navigate("/orderStatus");
+              navigate(`/orderStatus/${id}`);
             }}
           >
             ORDER STATUS

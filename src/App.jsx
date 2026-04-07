@@ -144,7 +144,7 @@ function App() {
           }
         />
 
-        <Route path="/order" element={<OrderPage cart={cart} />} />
+        <Route path="/order/:id" element={<OrderPage cart={cart} />} />
         <Route path="/about" element={<AboutPage />} />
 
         <Route path="/contact" element={<ContactPage />} />

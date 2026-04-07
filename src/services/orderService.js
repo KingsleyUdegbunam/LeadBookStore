@@ -1,4 +1,4 @@
-import { supabase } from "../supabase";
+import { supabase } from "../utilities/supabase";
 
 export const getOrderById = async (id) => {
   const { data, error } = await supabase

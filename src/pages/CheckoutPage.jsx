@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import Select from "react-select";
 import dayjs from "dayjs";
+import { createOrder } from "../services/orderService";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
 import {
@@ -10,7 +11,6 @@ import {
 } from "nigerian-states-lgas-cities-towns";
 import Paystack from "@paystack/inline-js";
 import { convertToNaira } from "../utilities/money";
-import { supabase } from "../supabase";
 import "./CheckoutPage.css";
 import { Footer } from "../component/Footer";
 
@@ -57,18 +57,6 @@ export default function CheckoutPage({
   const navigate = useNavigate();
   const popup = new Paystack();
   console.log(popup);
-
-  const createOrder = async (orderData) => {
-    const { error, data } = await supabase
-      .from("orders")
-      .insert([orderData])
-      .select()
-      .single();
-    if (error) {
-      throw new Error(error.message);
-    }
-    return data;
-  };
 
   const initiatePayment = () => {
     popup.checkout({

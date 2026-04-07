@@ -12,3 +12,15 @@ export const getOrderById = async (id) => {
   }
   return data;
 };
+
+export const createOrder = async (orderData) => {
+  const { error, data } = await supabase
+    .from("orders")
+    .insert([orderData])
+    .select()
+    .single();
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+};

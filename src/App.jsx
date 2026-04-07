@@ -137,6 +137,7 @@ function App() {
           element={
             <CheckoutPage
               cart={cart}
+              setCart={setCart}
               cartInDetail={cartInDetail}
               cartTotalPrice={cartTotalPrice}
               getShippingOptions={getShippingOptions}

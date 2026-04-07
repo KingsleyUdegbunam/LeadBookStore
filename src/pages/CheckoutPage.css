@@ -230,18 +230,16 @@ input {
   padding: 0.8rem 1rem;
 
   border: none;
-  border-radius: 0.3rem;
 
   transition: all 300ms;
 }
 
-.cheeckout-continue-btn {
-  width: 100%;
+.checkout-continue-btn {
   margin-top: 1rem;
 }
 
 .btn-enabled {
-  background-color: red;
+  background-color: var(---brand-red-clr);
   color: white;
 }
 

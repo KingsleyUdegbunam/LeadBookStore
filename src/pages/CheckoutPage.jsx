@@ -16,6 +16,7 @@ import { Footer } from "../component/Footer";
 
 export default function CheckoutPage({
   cart,
+  setCart,
   cartInDetail,
   cartTotalPrice,
   getShippingOptions,
@@ -57,6 +58,18 @@ export default function CheckoutPage({
   const popup = new Paystack();
   console.log(popup);
 
+  const createOrder = async (orderData) => {
+    const { error, data } = await supabase
+      .from("orders")
+      .insert([orderData])
+      .select()
+      .single();
+    if (error) {
+      throw new Error(error.message);
+    }
+    return data;
+  };
+
   const initiatePayment = () => {
     popup.checkout({
       key: "pk_test_87b24dad8322dd4a245702d85bd6035e9af5650b",
@@ -65,41 +78,41 @@ export default function CheckoutPage({
       onSuccess: async (transaction) => {
         console.log(transaction);
         try {
-          const { error } = await supabase.from("orders").insert({
+          if (!transaction?.reference) {
+            throw new Error("Invalid transaction reference");
+          }
+
+          const orderData = {
             reference: transaction.reference,
-            shipping_fee: selectedShipping.costInCents,
-            amount: cartTotalPrice,
+            subtotal: cartTotalPrice,
             total: cartTotalPrice + selectedShipping.costInCents,
-            items: cart,
+            items: cartInDetail,
             shipping_details: { ...address, ...shippingDetails },
-            status: "pending",
+            courier_details: selectedShipping,
+            status: "paid",
             created_at: new Date(),
-          });
-          if (error) throw error;
+          };
 
-          navigate("/order", {
-            state: {
-              cartInDetail,
-              shippingDetails,
-              address,
-              orderSummary,
-            },
-          });
+          const savedOrder = await createOrder(orderData);
+          console.log("THISSSS", savedOrder);
+
+          setCart([]);
+
+          navigate(`/order/${savedOrder.id}`);
         } catch (error) {
-          console.error("Error saving order:", error);
+          console.error("Order processing failed:", error);
+          alert("Something went wrong while processing your order.");
         }
-
-        alert("done");
       },
       onLoad: (response) => {
         console.log("onLoad: ", response);
       },
       onCancel: () => {
-        alert("onCancel");
+        console.info("Payment cancelled by user");
       },
       onError: (error) => {
         console.log("Error: ", error.message);
-        alert("Nah");
+        alert("Payment failed. Please try again.");
       },
     });
   };

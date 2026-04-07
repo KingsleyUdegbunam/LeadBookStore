@@ -151,7 +151,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/tracking" element={<TrackingPage />} />
-        <Route path="/orderStatus" element={<OrderStatusPage />} />
+        <Route path="/orderStatus/:id" element={<OrderStatusPage />} />
       </Routes>
       <Footer />
     </>

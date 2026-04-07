@@ -1,0 +1,56 @@
+:root {
+  ---banner-p-clr: rgb(208, 208, 208);
+}
+
+.about-tag-detail {
+  color: var(---banner-p-clr);
+}
+
+.tracking-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dull-black {
+  color: rgb(83, 83, 83);
+}
+
+.article {
+  padding: 1.5rem 1rem;
+}
+
+.sidenote {
+  padding-block-start: 0;
+}
+
+.sidenote-wrapper {
+  background-color: rgba(244, 244, 244, 0.823);
+  padding: 1rem 0.7rem;
+}
+
+.sidenote-header,
+.sidenote-text-body {
+  font-size: 12px;
+}
+
+.sidenote-header {
+  margin-block-end: 0.3rem;
+}
+
+.emphasize-normal {
+  color: black;
+}
+
+.sidenote-header,
+.emphasize-normal {
+  font-weight: 600;
+}
+
+.error-container {
+  padding: 0.5rem 0.8rem;
+  border-inline-start: 3px solid var(---brand-red-clr);
+  color: var(---brand-red-clr);
+  font-size: 13px;
+  background-color: rgb(249, 235, 235);
+}

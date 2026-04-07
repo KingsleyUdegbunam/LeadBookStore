@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import Select from "react-select";
 import dayjs from "dayjs";
-import { createOrder } from "../services/orderService";
+import { createOrder } from "../services/orderServices";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
 import {

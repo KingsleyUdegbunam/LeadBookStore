@@ -76,6 +76,7 @@ export default function CheckoutPage({
             total: cartTotalPrice + selectedShipping.costInCents,
             items: cartInDetail,
             shipping_details: { ...address, ...shippingDetails },
+            email: shippingDetails.email,
             courier_details: selectedShipping,
             status: "paid",
             created_at: new Date(),

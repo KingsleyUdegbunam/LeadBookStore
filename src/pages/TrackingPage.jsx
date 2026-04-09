@@ -32,9 +32,7 @@ export default function TrackingPage() {
 
     try {
       const orderList = await getOrdersByEmail(email);
-      if (orderList.length === 0) {
-        setOrders(orderList);
-      }
+      setOrders(orderList);
     } catch (err) {
       console.error("There was an error in getting order: ", err);
       setError("Something went wrong. Try again.");
@@ -94,12 +92,14 @@ export default function TrackingPage() {
           </article>
 
           <article className="tracking-body">
-            {loading && <p>Loading...</p>}
-            {orders.length === 0 && !error && !loading && (
-              <p>No order(s) found.</p>
-            )}
+            <div className="order-states">
+              {loading && <p>Loading...</p>}
+              {orders.length === 0 && !error && !loading && (
+                <p>No order(s) found.</p>
+              )}
 
-            {orders.length > 0 && !loading && <p>Found</p>}
+              {orders.length > 0 && !loading && <p>Found</p>}
+            </div>
           </article>
 
           <article className="article sidenote">

@@ -45,7 +45,7 @@ export default function TrackingPage() {
 
   return (
     <>
-      <section className="main">
+      <section className="main tracking-page-wrapper">
         <article className="about-banner">
           <p className="about-header">LEAD BOOKSTORE</p>
           <p className="about-tag">Track Your Order</p>

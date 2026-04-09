@@ -73,3 +73,11 @@
 .tracking-container .about-header {
   color: var(---brand-red-clr);
 }
+
+.order-states {
+  color: rgb(167, 167, 167);
+}
+
+.tracking-page-wrapper {
+  padding-block-end: 0;
+}

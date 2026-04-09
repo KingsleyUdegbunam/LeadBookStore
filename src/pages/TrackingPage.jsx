@@ -1,15 +1,39 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { getOrdersByEmail } from "../services/orderServices";
 import "./TrackingPage.css";
 
 export default function TrackingPage() {
   const [email, setEmail] = useState("");
+  const [orders, setOrders] = useState("");
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const inputRef = useRef(null);
 
   const navigate = useNavigate();
 
-  console.log(email);
+  const handleFindOrders = async () => {
+    if (!email) {
+      setError("Please enter your email.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const orderList = await getOrdersByEmail(email);
+      if (orderList.length === 0) {
+        setOrders([]);
+      }
+      setOrders(orderList);
+    } catch (err) {
+      console.error("There was an error in getting order: ", err);
+      setError("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <>
       <section className="main">
@@ -49,8 +73,14 @@ export default function TrackingPage() {
               }}
             />
           </div>
-          <button className="button-primary">FIND MY ORDERS</button>
+          <button className="button-primary" onClick={handleFindOrders}>
+            FIND MY ORDERS
+          </button>
         </article>
+        {loading && <p>Loading...</p>}
+        {orders.length === 0 && !loading && <p>No order(s) found.</p>}
+
+        {orders.length > 0 && !loading && <p>Found</p>}
 
         <article className="article sidenote">
           <div className="sidenote-wrapper">

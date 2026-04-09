@@ -3,10 +3,13 @@ import { useNavigate } from "react-router-dom";
 import "./TrackingPage.css";
 
 export default function TrackingPage() {
-  const [errorText, setErrorText] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const inputRef = useRef(null);
 
   const navigate = useNavigate();
+
+  console.log(email);
   return (
     <>
       <section className="main">
@@ -24,9 +27,9 @@ export default function TrackingPage() {
               Enter the email address you used at checkout to view all orders.
             </p>
 
-            {errorText && (
+            {error && (
               <div className="error-container article">
-                <p className="error-text">{errorText}</p>
+                <p className="error-text">{error}</p>
               </div>
             )}
 
@@ -34,12 +37,16 @@ export default function TrackingPage() {
               Tracking Input
             </label>
             <input
-              ref={inputRef}
               className="dull-black"
               type="email"
               name="tracking-input"
               id="tracking-input"
               placeholder="e.g. john@mail.com"
+              ref={inputRef}
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
           </div>
           <button className="button-primary">FIND MY ORDERS</button>

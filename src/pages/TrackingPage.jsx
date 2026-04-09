@@ -5,7 +5,7 @@ import "./TrackingPage.css";
 
 export default function TrackingPage() {
   const [email, setEmail] = useState("");
-  const [orders, setOrders] = useState("");
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const inputRef = useRef(null);

@@ -87,7 +87,7 @@ export default function TrackingPage() {
           </button>
         </article>
         {loading && <p>Loading...</p>}
-        {orders.length === 0 && !loading && <p>No order(s) found.</p>}
+        {orders.length === 0 && !error && !loading && <p>No order(s) found.</p>}
 
         {orders.length > 0 && !loading && <p>Found</p>}
 

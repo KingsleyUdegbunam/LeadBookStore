@@ -12,9 +12,18 @@ export default function TrackingPage() {
 
   const navigate = useNavigate();
 
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleFindOrders = async () => {
     if (!email) {
       setError("Please enter your email.");
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      setError("Enter a valid email");
       return;
     }
 
@@ -24,9 +33,8 @@ export default function TrackingPage() {
     try {
       const orderList = await getOrdersByEmail(email);
       if (orderList.length === 0) {
-        setOrders([]);
+        setOrders(orderList);
       }
-      setOrders(orderList);
     } catch (err) {
       console.error("There was an error in getting order: ", err);
       setError("Something went wrong. Try again.");
@@ -34,6 +42,7 @@ export default function TrackingPage() {
       setLoading(false);
     }
   };
+
   return (
     <>
       <section className="main">

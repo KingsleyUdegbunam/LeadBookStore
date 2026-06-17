@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { HeaderMenu } from "./HeaderMenu";
 import { SearchIcon, CartIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
@@ -26,10 +26,6 @@ export function Header({ cart }) {
     );
   });
 
-  useEffect(() => {
-    console.log(headerSearchValue);
-  }, [headerSearchValue]);
-
   const menuRef = useRef(null);
   const menuOpenRef = useRef(null);
   const menuCloseRef = useRef(null);
@@ -49,7 +45,6 @@ export function Header({ cart }) {
     searchInputRef.current.focus();
 
     document.body.style.overflow = "hidden";
-    console.log(headerSearchRef.current);
   };
 
   return (

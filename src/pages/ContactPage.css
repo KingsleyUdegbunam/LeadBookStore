@@ -1,0 +1,59 @@
+.contact-card {
+  display: flex;
+  gap: 0.5rem;
+  color: var(---card-black-clr);
+
+  font-size: 0.8rem;
+
+  margin-block-end: 1rem;
+}
+
+.contact-icon-container {
+  display: grid;
+  place-items: center;
+  background-color: var(---brand-red-click);
+  border-radius: 0.2rem;
+}
+
+.contact-card-head {
+  font-size: 0.8rem;
+}
+
+.contact-card-lead {
+  font-weight: 500;
+  color: black;
+  font-size: 0.9rem;
+}
+
+.contact-form-article {
+  border-top: 0.5px solid black;
+  padding: 2rem 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.contact-cards-wrapper {
+  margin-top: 1rem;
+}
+
+.textarea {
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 4rem;
+  max-height: 15rem;
+  padding: 0.6rem;
+}

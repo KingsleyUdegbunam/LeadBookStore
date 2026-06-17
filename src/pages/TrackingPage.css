@@ -68,6 +68,7 @@
 
 .tracking-body {
   margin: 0 auto;
+  border-block: 1px solid black;
 }
 
 .tracking-container .about-header {
@@ -80,4 +81,12 @@
 
 .tracking-page-wrapper {
   padding-block-end: 0;
+}
+
+.found-body {
+  margin: 0;
+  
+}
+.found-body .order-states {
+  color: red;
 }

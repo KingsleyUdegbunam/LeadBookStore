@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import { getOrdersByEmail } from "../services/orderServices";
 import "./TrackingPage.css";
+import { convertToNaira } from "../utilities/money";
 
 export default function TrackingPage() {
   const [email, setEmail] = useState("");
@@ -9,8 +9,6 @@ export default function TrackingPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const inputRef = useRef(null);
-
-  const navigate = useNavigate();
 
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -91,14 +89,47 @@ export default function TrackingPage() {
             </button>
           </article>
 
-          <article className="tracking-body">
+          <article className="tracking-body found-body">
             <div className="order-states">
               {loading && <p>Loading...</p>}
               {orders.length === 0 && !error && !loading && (
                 <p>No order(s) found.</p>
               )}
 
-              {orders.length > 0 && !loading && <p>Found</p>}
+              {orders.length > 0 && !loading && (
+                <article className="found-orders">
+                  <div className="found-header">
+                    <p className="found-header">ORDERS FOUND</p>
+                    <p className="order-count">
+                      {`${orders[0].shipping_details.firstName}, you have `}
+                      {orders.length === 1
+                        ? "an order"
+                        : `${orders.length} orders`}
+                      .
+                    </p>
+                    <p className="order-email">
+                      {orders[0].shipping_details.email}
+                    </p>
+                  </div>
+
+                  <article className="display-found">
+                    {orders.map((order) => (
+                      <article key={order.id ?? order.reference}>
+                        <div>
+                          <p className="order-status">PROCESSING</p>
+                          <p className="order-cost">
+                            {convertToNaira(order.total)}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="order-ref">{order.reference}</p>
+                          <p className="order-date">{order.created_at}</p>
+                        </div>
+                      </article>
+                    ))}
+                  </article>
+                </article>
+              )}
             </div>
           </article>
 

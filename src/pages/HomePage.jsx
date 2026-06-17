@@ -4,7 +4,6 @@ import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
 import "./HomePage.css";
 import womenImg from "../assets/womenImg.webp";
-import { Footer } from "../component/Footer";
 
 export default function HomePage({ addToCart }) {
   const newArrival = books.filter((book) => book.tag.includes("new arrival"));
@@ -42,7 +41,7 @@ export default function HomePage({ addToCart }) {
         {/* <div className="logo">LEAD</div> */}
         <section className="hero-text">
           <div className="landing-text">
-            <h1>Building Tomorrow's Leaders — One Book at a Time.</h1>
+            <h1>Building Tomorrow's Leaders. One Book at a Time.</h1>
             <p className="supporting-h1">
               Curated bookstore of premium reads centered around leadership
               carefully handpicked and ready to unlock the leader in you.
@@ -135,6 +134,7 @@ export default function HomePage({ addToCart }) {
           </article>
         </div>
 
+        {/* FEATURE PAGE */}
         {/* HERE HERE HERE  */}
         <article className="products-container slider">
           {womenMonth.map((book, index) => (
@@ -177,7 +177,7 @@ export default function HomePage({ addToCart }) {
         <BookGrid books={first14ChildrenAndYoungAdults} addToCart={addToCart} />
       </section>
 
-      <section className="community">
+      {/* <section className="community">
         <div className="headeer-container">
           <h3 className="comunity-lead">Lead Team</h3>
           <h2 className="header book-club">Join Our Community of Leaders</h2>
@@ -190,10 +190,9 @@ export default function HomePage({ addToCart }) {
         </div>
 
         <button className="community-btn">Join In</button>
-      </section>
+      </section> */}
 
-      <section className="about">
-        {/* <h2 className="about-header">What We Stand By</h2> */}
+      {/* <section className="about">
         <p className="about-text">
           <span className="bold">LEAD</span> is more than a bookstore. We are a
           community of readers committed to building tomorrow's leaders one book
@@ -202,7 +201,7 @@ export default function HomePage({ addToCart }) {
           every kind of leader. Whether you are 8 or 80, there is a shelf here
           for you.
         </p>
-      </section>
+      </section> */}
       <section className="newsletter-section">
         <h2>JOIN OUR NEWSLETTER</h2>
         <p className="newletter-text">
@@ -230,7 +229,6 @@ export default function HomePage({ addToCart }) {
           </span>
         </p>
       </section>
-      <Footer />
     </div>
   );
 }

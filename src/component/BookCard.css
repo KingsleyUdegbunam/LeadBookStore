@@ -34,7 +34,7 @@
   width: var(---product-card-width);
   aspect-ratio: 2 / 3;
 
-  background-color: rebeccapurple;
+  /* background-color: rebeccapurple; */
 
   padding: 0.3rem;
 }
@@ -46,29 +46,6 @@
   display: block;
 
   transition: scale 250ms;
-}
-
-.add-to-cart {
-  /* align-self: center; */
-  margin-top: auto;
-  width: 100%;
-  padding: 0.8rem 1rem;
-  background-color: transparent;
-  border: none;
-
-  font-family: "Outfit", sans-serif;
-  font-size: 0.8rem;
-  font-weight: 600;
-
-  color: black;
-  background-color: red;
-  color: #f9f5ef;
-
-  cursor: pointer;
-}
-
-.add-to-cart:hover {
-  /* background-color: var(---button-hover-clr); */
 }
 
 .title,

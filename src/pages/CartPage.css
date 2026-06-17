@@ -130,27 +130,6 @@
 }
 
 /* NEW CART STYLING ENDS */
-/* PROMO CODE STYLES */
-.promo-code {
-  display: flex;
-  width: 100%;
-  margin-top: 1rem;
-}
-.promo-code-input {
-  border: 0.1px solid grey;
-  border-inline-end-color: transparent;
-  width: 75%;
-  padding: 0.3rem 0.9rem;
-}
-
-.promo-code-btn {
-  width: none;
-  padding: 0;
-  flex: 1;
-  border: 0.1px solid red;
-  background-color: red;
-  color: white;
-}
 
 .cart-product-image {
   object-fit: cover;
@@ -210,16 +189,12 @@
   padding-block-start: 0;
 }
 
-.cart-total-summary {
-  padding-block-end: 2rem;
-}
-
 /* NEW CART SUMMARY STYLING */
 .cart-item-summary {
-  margin-block-start: 0.5rem;
+  /* margin-block-start: 0.2rem; */
   padding-block: 0.5rem;
   padding-inline: 0;
-  border-block: 0.1px solid grey;
+  border-block-end: 0.1px solid grey;
 }
 
 .cart-cost-wrapper {
@@ -236,21 +211,14 @@
 }
 
 .estimated-total {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
 }
 
 .checkout-button {
-  font-family: "Outfit", sans-serif;
-
-  width: 100%;
   margin-block: 1rem;
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 0.3rem;
 }
 /* NEW CART STYLING ENDS */
 
@@ -272,48 +240,6 @@ input[type="radio"] {
   margin-right: 0.5rem;
 }
 
-.cart-shipment {
-  font-family: "Anonymous Pro", monospace;
-  border-block-end: 0.1px solid black;
-
-  font-weight: 600;
-}
-
-.shipping-note {
-  font-family: "Anonymous Pro", monospace;
-  font-size: 0.85rem;
-  padding-block: 0.5rem;
-}
-
-.emphasize-text {
-  color: red;
-  font-weight: bold;
-}
-
-.total-cost {
-  border-block: 1px dashed black;
-  padding-block: 0.5rem;
-}
-
-.total-cost-child {
-  display: flex;
-  justify-content: space-between;
-  font-family: "Anonymous Pro", monospace;
-}
-
-.total-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.total-text,
-.total-amount {
-  font-size: 1.2rem;
-  font-family: "Outfit", sans-serif;
-  font-weight: bold;
-  margin-block: 0.2rem;
-}
-
 .action-btns {
   margin-block-start: 1rem;
   display: flex;
@@ -333,10 +259,6 @@ input[type="radio"] {
   display: grid;
   place-content: center;
   text-decoration: none;
-}
-
-.shipping {
-  padding-block: 2rem;
 }
 
 .shopping-btn,

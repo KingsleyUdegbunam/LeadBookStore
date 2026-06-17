@@ -85,12 +85,32 @@ h2 {
 }
 
 button {
-  width: 100%;
   font-family: "Anonymous Pro", monospace;
   font-weight: 600;
   cursor: pointer;
-  padding: 0.8rem 2.5rem;
+  padding: 0.7rem 1rem;
+  font-size: 14px;
   transition: 250ms all;
+
+  margin-top: auto;
+  width: 100%;
+  /* padding: 0.8rem 1rem; */
+  background-color: transparent;
+  border: none;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  color: black;
+  background-color: red;
+  color: #f9f5ef;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(---button-hover-clr);
 }
 
 button:focus {

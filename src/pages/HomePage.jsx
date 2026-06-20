@@ -2,8 +2,9 @@ import { LeadCarousel } from "../component/LeadCarousel";
 import { BookCard } from "../component/BookCard";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
-import "./HomePage.css";
 import womenImg from "../assets/womenImg.webp";
+import "./HomePage.css";
+import { FeatureSection } from "../component/FeatureSection";
 
 export default function HomePage({ addToCart }) {
   const newArrival = books.filter((book) => book.tag.includes("new arrival"));
@@ -30,10 +31,9 @@ export default function HomePage({ addToCart }) {
         book.genre === "children's book" || book.genre === "young adult",
     )
     .slice(0, 14);
-
-  const womenMonth = books.filter(
-    (book) => book.primaryCollection === "lead her",
-  );
+  const womenMonth = books
+    .filter((book) => book.primaryCollection === "lead her")
+    .slice(0, 10);
 
   return (
     <div>
@@ -124,36 +124,12 @@ export default function HomePage({ addToCart }) {
         </article>
       </section>
 
-      <section className="highlight">
-        <div>
-          <article className="section">
-            <h2 className="header">Women's History Month</h2>
-            <p className="header-desc">
-              Stories of women who led, and books to help you do the same.
-            </p>
-          </article>
-        </div>
-
-        {/* FEATURE PAGE */}
-        {/* HERE HERE HERE  */}
-        <article className="products-container slider">
-          {womenMonth.map((book, index) => (
-            <BookCard
-              key={index}
-              id={book.id}
-              book={book}
-              image={book.coverImage}
-              category={book.primaryCollection}
-              title={book.title}
-              priceInKobo={book.price.paperback}
-              addToCart={addToCart}
-            />
-          ))}
-        </article>
-        <div className="highlightImg-container">
-          <img src={womenImg} alt="" />
-        </div>
-      </section>
+      {/* FEATURE SECTION */}
+      <FeatureSection
+        addToCart={addToCart}
+        image={womenImg}
+        array={womenMonth}
+      />
 
       <section className="home-section">
         <h2 className="children-yound-adults header">Business & Leadership</h2>

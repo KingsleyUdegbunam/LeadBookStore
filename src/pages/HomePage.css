@@ -149,38 +149,12 @@ span {
   overflow-x: auto;
   flex-wrap: nowrap;
   align-items: stretch;
-  /* background-color: beige; */
 }
 
 .slider,
 .slider-container {
   padding-inline: 1.5rem;
   padding-inline-end: 0;
-}
-
-.highlight {
-  /* padding-inline: 0; */
-  padding-block-end: 0;
-  background-color: #f5f5f5;
-  min-height: 70vh;
-
-  width: 100%;
-
-  justify-content: space-between;
-}
-
-.highlightImg-container {
-  width: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-  display: grid;
-  place-items: center;
-
-  margin-top: 2rem;
-}
-
-.highlightImg-container img {
-  object-fit: cover;
 }
 
 .newsletter {
@@ -265,6 +239,7 @@ span {
 .newsletter-email {
   padding: 0.8rem 0.5rem;
   width: 100%;
+  font-size: 1rem;
 }
 
 .newsletter-email:focus-visible {

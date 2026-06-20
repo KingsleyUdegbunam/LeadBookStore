@@ -1,0 +1,46 @@
+.highlight {
+  width: 100%;
+  padding-block-end: 0;
+  background-color: #f5f5f5;
+  justify-content: space-between;
+}
+
+.highlightImg-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+
+  margin-top: 2rem;
+}
+
+.highlightImg-container img {
+  object-fit: cover;
+}
+
+.see-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding-block: 1.5rem 0rem;
+}
+
+.feature-btn {
+  width: fit-content;
+  display: flex;
+  background-color: transparent;
+  color: black;
+  font-weight: 500;
+  text-transform: none;
+}
+
+.feature-btn:hover {
+  color: white;
+}
+
+.feature-icon {
+  margin: 0;
+  display: inline-flex;
+}

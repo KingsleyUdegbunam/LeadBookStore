@@ -177,57 +177,34 @@ export default function HomePage({ addToCart }) {
         <BookGrid books={first14ChildrenAndYoungAdults} addToCart={addToCart} />
       </section>
 
-      {/* <section className="community">
-        <div className="headeer-container">
-          <h3 className="comunity-lead">Lead Team</h3>
-          <h2 className="header book-club">Join Our Community of Leaders</h2>
-        </div>
-        <div className="community-span">
-          <span>You don't have to read alone.</span>
-          <span>
-            Join thousands of leaders who read, grow and lead together.
-          </span>
-        </div>
+      <section className="newsletter">
+        <h2>Join The List</h2>
+        <div className="newsletter-body">
+          <p className="newletter-text">
+            Power-packed reads and practical tools to shape the leader in you,
+            one week at a time.
+          </p>
 
-        <button className="community-btn">Join In</button>
-      </section> */}
-
-      {/* <section className="about">
-        <p className="about-text">
-          <span className="bold">LEAD</span> is more than a bookstore. We are a
-          community of readers committed to building tomorrow's leaders one book
-          at a time. Proudly Nigerian, globally inspired — we curate books
-          across leadership, business, self-development and storytelling for
-          every kind of leader. Whether you are 8 or 80, there is a shelf here
-          for you.
-        </p>
-      </section> */}
-      <section className="newsletter-section">
-        <h2>JOIN OUR NEWSLETTER</h2>
-        <p className="newletter-text">
-          Powerpacked words, proven tools that helps shapes the Leader in you, a
-          week at a time.
-        </p>
-
-        <div className="news-join-field">
-          <label className="newsletter-label" htmlFor="newsletter">
-            <input
-              className="newsletter-email"
-              type="email"
-              placeholder="Email address"
-              name="newsletter"
-              id="newsletter"
-            />
-          </label>
-          <button className="subscribe-btn">Subscribe</button>
+          <div className="news-join-field">
+            <label className="newsletter-label" htmlFor="newsletter">
+              <input
+                className="newsletter-email"
+                type="email"
+                placeholder="Email address"
+                name="newsletter"
+                id="newsletter"
+              />
+            </label>
+            <button className="subscribe-btn">Subscribe</button>
+          </div>
+          <p className="newsletter-constent">
+            By providing my email, I am consenting to recieve Lead emails.
+            <span>
+              {" "}
+              For additional information, please see our Privacy Policy.
+            </span>
+          </p>
         </div>
-        <p className="newsletter-constent">
-          By providing my email, I am consenting to recieve Lead emails.
-          <span>
-            {" "}
-            For additional information, please see our Privacy Policy.
-          </span>
-        </p>
       </section>
     </div>
   );

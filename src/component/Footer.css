@@ -22,6 +22,11 @@ footer {
 .link-tree > * {
   padding-block: 0.2rem;
   display: block;
+  width: fit-content;
+}
+
+.link-tree > *:hover {
+  text-decoration: underline;
 }
 
 a,

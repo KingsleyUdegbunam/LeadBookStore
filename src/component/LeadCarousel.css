@@ -1,6 +1,10 @@
 .slider-text {
   text-wrap: nowrap;
   display: flex;
-  gap: 0.5rem;
+  gap: 1.2rem;
   text-transform: uppercase;
+}
+
+.carousel-star {
+  color: var(---button-hover-clr);
 }

@@ -104,18 +104,15 @@ span {
 
 .marque-group {
   display: flex;
-  gap: 2rem;
-  animation: spin 90s infinite linear;
-  padding-right: 2rem;
+  gap: 1.2rem;
+  animation: spin 70s infinite linear;
+  padding-right: 1.2rem;
   font-size: 0.85rem;
-}
-
-.marque:hover .marque-group {
-  animation-play-state: paused;
+  touch-action: none;
 }
 
 .marque:hover {
-  cursor: grabbing;
+  cursor: text;
 }
 
 @keyframes spin {
@@ -134,7 +131,8 @@ span {
   border-bottom: 1px solid black;
   padding-block: 0.7rem;
   padding-left: 0.8rem;
-  overflow-x: auto;
+  overflow-x: hidden;
+  touch-action: none;
 }
 
 .marque::-webkit-scrollbar {

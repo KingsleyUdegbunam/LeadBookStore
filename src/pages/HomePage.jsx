@@ -155,22 +155,22 @@ export default function HomePage({ addToCart }) {
         </div>
       </section>
 
-      <section className="kids">
+      <section className="home-section">
         <h2 className="children-yound-adults header">Business & Leadership</h2>
         {<BookGrid books={first14BusinessBooks} addToCart={addToCart} />}
       </section>
 
-      <section className="kids">
+      <section className="home-section">
         <h2 className="children-yound-adults header">Biography & Memoirs</h2>
         <BookGrid books={first14BiographyAndMemoirs} addToCart={addToCart} />
       </section>
 
-      <section className="kids">
+      <section className="home-section">
         <h2 className="children-yound-adults header">Fiction & StoryTelling</h2>
         <BookGrid books={first14FictionAndStoryTelling} addToCart={addToCart} />
       </section>
 
-      <section className="kids">
+      <section className="home-section">
         <h2 className="children-yound-adults header">
           Children & Young Adults
         </h2>

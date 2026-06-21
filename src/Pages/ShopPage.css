@@ -4,6 +4,10 @@ h2 {
 
 /* SEARCH SECTION */
 .filter {
+  background-color: white;
+  position: sticky;
+  top: 4rem;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -42,6 +46,7 @@ h2 {
   border: 1px solid black;
   border-bottom-color: none;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .cut-border-radius {
@@ -65,12 +70,12 @@ h2 {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.5rem;
   padding: 0;
   border: 1px solid black;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   height: 0;
+  cursor: pointer;
 }
 
 .sort-li {
@@ -78,6 +83,11 @@ h2 {
   padding-block: 0.5rem;
   border-block-end: 1px solid black;
   color: rgba(0, 0, 0, 0.801);
+}
+
+.sort-li:hover {
+  background-color: var(---brand-red-clr);
+  color: white;
 }
 
 .sort-ul > *:last-child {

@@ -70,7 +70,6 @@ h2 {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  /* gap: 0.5rem; */
   padding: 0;
   border: 1px solid black;
   border-bottom-left-radius: 6px;

@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
-
 import "./ShopPage.css";
 
 export default function ShopPage({ cart, setCart, addToCart }) {
@@ -15,7 +14,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
 
   const [searchParams] = useSearchParams();
 
-  console.log(searchParams);
+  console.log(searchParams.toString());
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,13 +23,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
   useEffect(() => {
     const collection = searchParams.get("collection");
     const search = searchParams.get("search");
-    if (collection) {
-      setQuery(collection);
-    }
-
-    if (search) {
-      setQuery(search);
-    }
+    setQuery(search || collection || "");
   }, [searchParams]);
 
   const sortOptions = [
@@ -120,6 +113,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
   };
 
   console.log(cart);
+
   return (
     <div>
       <section className="main-section">
@@ -163,6 +157,8 @@ export default function ShopPage({ cart, setCart, addToCart }) {
             </ul>
           </article>
         </section>
+
+        {/* SHOP BOOKS */}
         <div onClick={closeDropDown}>
           <BookGrid
             setCart={setCart}

@@ -1,12 +1,10 @@
 import { useEffect } from "react";
-import { Header } from "../component/Header/Header";
-import { Footer } from "../component/Footer";
 import { books } from "../data/inventory";
 import { BookCard } from "../component/BookCard";
 import { useParams, useLocation } from "react-router-dom";
 import "./ProductPage.css";
 
-export default function ProductPage({ cart, addToCart }) {
+export default function ProductPage({ addToCart }) {
   const { id } = useParams();
   const { pathname } = useLocation();
 
@@ -33,22 +31,24 @@ export default function ProductPage({ cart, addToCart }) {
   return (
     <>
       <section className="main-container">
-        <div className="product-image-container">
-          <img src={book.coverImage} alt={`Image of ${book.title} book`} />
-        </div>
-        <div className="product-author-and-title">
-          <h2 className="book-title">{book.title}</h2>
-          <p className="book-authur">{`by ${book.author}`}</p>
-        </div>
+        <div className="product-details">
+          <div className="product-image-container">
+            <img src={book.coverImage} alt={`Image of ${book.title} book`} />
+          </div>
+          <div className="product-author-and-title">
+            <h2 className="book-title">{book.title}</h2>
+            <p className="book-authur">{`by ${book.author}`}</p>
+          </div>
 
-        <button
-          className="book-to-cart"
-          onClick={() => {
-            addToCart(book);
-          }}
-        >
-          ADD TO CART
-        </button>
+          <button
+            className="book-to-cart"
+            onClick={() => {
+              addToCart(book);
+            }}
+          >
+            ADD TO CART
+          </button>
+        </div>
 
         <article className="desc-container">
           <h3 className="desc-header">Description</h3>

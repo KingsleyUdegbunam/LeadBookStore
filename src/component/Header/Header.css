@@ -35,6 +35,7 @@
   padding: 1.3rem 2rem;
 
   background-color: white;
+  backdrop-filter: blur(5px);
   border-block-end: 0.5px solid rgb(0, 0, 0);
 }
 
@@ -228,7 +229,7 @@ svg {
 }
 
 .hamburger-menu > *:hover {
-  background-color: black;
+  background-color: var(---brand-red-clr);
   color: white;
 }
 

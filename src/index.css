@@ -152,7 +152,8 @@ button:focus {
 }
 
 .main-section {
-  padding-block: 5rem;
+  padding-block: 4rem;
+  padding-inline: 0;
 }
 
 .main {

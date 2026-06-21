@@ -1,7 +1,5 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
-import { Header } from "../component/Header/Header";
-import { Footer } from "../component/Footer";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
 

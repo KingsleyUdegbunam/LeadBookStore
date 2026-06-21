@@ -4,6 +4,10 @@ h2 {
 
 /* SEARCH SECTION */
 .filter {
+  background-color: white;
+  position: sticky;
+  top: 4rem;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

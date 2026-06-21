@@ -12,10 +12,6 @@ button {
   gap: 0.3rem;
 }
 
-.main-section {
-  padding-inline: 0;
-}
-
 input {
   width: 100%;
   padding: 0.4rem 1rem;

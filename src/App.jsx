@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Header } from "./component/Header/Header";
 import { Footer } from "./component/Footer";
 import HomePage from "./Pages/HomePage";
-import ShopPage from "./Pages/shopPage";
+import ShopPage from "./Pages/ShopPage";
 import ProductPage from "./Pages/ProductPage";
 import CartPage from "./Pages/CartPage";
 import CheckoutPage from "./Pages/CheckoutPage";

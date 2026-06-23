@@ -1,6 +1,12 @@
 :root {
-  ---button-hover-clr: rgb(201, 0, 0);
-  ---transition-time: 250ms;
+  --button-hover-clr: rgb(201, 0, 0);
+  --transition-time: 250ms;
+  --font-white-clr: rgb(235, 235, 235);
+  --card-black-clr: rgb(62, 62, 62);
+  --brand-red-clr: #cc1500;
+  --brand-red-click: #a01000;
+  --brand-red-clr-hover: #e66051;
+  --accent-grey-clr: #e5e5e5;
 }
 
 section,
@@ -229,7 +235,7 @@ span {
 }
 
 .news-join-field button:hover {
-  background-color: var(---button-hover-clr);
+  background-color: var(--button-hover-clr);
 }
 
 .newsletter-label {

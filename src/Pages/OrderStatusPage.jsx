@@ -70,7 +70,7 @@ export default function OrderStatusPage() {
               <div className="order-branch-left-container">
                 <IoIosCheckmarkCircle
                   style={{
-                    color: "var(---brand-red-clr)",
+                    color: "var(--brand-red-clr)",
                     zIndex: 2,
                   }}
                 />
@@ -92,7 +92,7 @@ export default function OrderStatusPage() {
             <div className="order-status-branch">
               <div className="order-branch-left-container">
                 <IoIosCheckmarkCircle
-                  style={{ color: "var(---brand-red-clr)", zIndex: 2 }}
+                  style={{ color: "var(--brand-red-clr)", zIndex: 2 }}
                 />
 
                 <div className="connecting-line"></div>
@@ -113,7 +113,7 @@ export default function OrderStatusPage() {
             <div className="order-status-branch">
               <div className="order-branch-left-container">
                 <IoIosCheckmarkCircle
-                  style={{ color: "var(---brand-red-clr)", zIndex: 2 }}
+                  style={{ color: "var(--brand-red-clr)", zIndex: 2 }}
                 />
 
                 <div className="connecting-line"></div>
@@ -134,7 +134,7 @@ export default function OrderStatusPage() {
             <div className="order-status-branch">
               <div className="order-branch-left-container">
                 <IoIosCheckmarkCircle
-                  style={{ color: "var(---brand-red-clr)", zIndex: 2 }}
+                  style={{ color: "var(--brand-red-clr)", zIndex: 2 }}
                 />
 
                 <div className="connecting-line"></div>
@@ -155,7 +155,7 @@ export default function OrderStatusPage() {
             <div className="order-status-branch">
               <div className="order-branch-left-container">
                 <IoIosCheckmarkCircle
-                  style={{ color: "var(---brand-red-clr)", zIndex: 2 }}
+                  style={{ color: "var(--brand-red-clr)", zIndex: 2 }}
                 />
 
                 <div className="connecting-line"></div>
@@ -176,7 +176,7 @@ export default function OrderStatusPage() {
             <div className="order-status-branch">
               <div className="order-branch-left-container">
                 <IoIosCheckmarkCircle
-                  style={{ color: "var(---brand-red-clr)", zIndex: 2 }}
+                  style={{ color: "var(--brand-red-clr)", zIndex: 2 }}
                 />
 
                 <div className="connecting-line"></div>

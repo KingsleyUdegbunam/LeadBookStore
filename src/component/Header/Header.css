@@ -131,7 +131,7 @@
 }
 
 .header-search-input:focus {
-  outline: 1px solid var(---button-hover-clr);
+  outline: 1px solid var(--button-hover-clr);
   font-size: 1rem;
 }
 
@@ -142,9 +142,9 @@
   gap: 0.3rem;
   align-items: center;
 
-  border: 1px solid var(---button-hover-clr);
+  border: 1px solid var(--button-hover-clr);
   color: white;
-  background-color: var(---button-hover-clr);
+  background-color: var(--button-hover-clr);
 }
 
 .found-book {
@@ -229,7 +229,7 @@ svg {
 }
 
 .hamburger-menu > *:hover {
-  background-color: var(---brand-red-clr);
+  background-color: var(--brand-red-clr);
   color: white;
 }
 

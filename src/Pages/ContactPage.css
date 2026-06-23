@@ -1,7 +1,7 @@
 .contact-card {
   display: flex;
   gap: 0.5rem;
-  color: var(---card-black-clr);
+  color: var(--card-black-clr);
 
   font-size: 0.8rem;
 
@@ -11,7 +11,7 @@
 .contact-icon-container {
   display: grid;
   place-items: center;
-  background-color: var(---brand-red-click);
+  background-color: var(--brand-red-click);
   border-radius: 0.2rem;
 }
 

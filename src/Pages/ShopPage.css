@@ -86,8 +86,8 @@ h2 {
 }
 
 .sort-li:hover {
-  background-color: var(---brand-red-clr);
-  color: white;
+  background-color: var(--brand-red-clr);
+  color: var(--font-white-clr);
 }
 
 .sort-ul > *:last-child {

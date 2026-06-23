@@ -1,5 +1,5 @@
 :root {
-  ---product-card-width: 150px;
+  --product-card-width: 150px;
 }
 
 .product {
@@ -31,7 +31,7 @@
   position: relative;
   flex-grow: 1;
   display: flex;
-  width: var(---product-card-width);
+  width: var(--product-card-width);
   aspect-ratio: 2 / 3;
 
   padding: 0.3rem;
@@ -50,7 +50,7 @@
 .author {
   font-size: 13px;
   text-transform: capitalize;
-  width: var(---product-card-width);
+  width: var(--product-card-width);
 }
 
 .author {

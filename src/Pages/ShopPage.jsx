@@ -1,16 +1,112 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
+import Select from "react-select";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
+
 import "./ShopPage.css";
+
+function capitalizeWords(str, word = false) {
+  if (!str) return "";
+
+  if (word) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
 export default function ShopPage({ cart, setCart, addToCart }) {
   const [query, setQuery] = useState("");
+  const [collection, setCollection] = useState("");
+  const [genre, setGenre] = useState(null);
   const [sortBy, setSortBy] = useState("Default");
 
-  const sortRef = useRef(null);
-  const dropDownIcon = useRef(null);
-  const dropdownRef = useRef(null);
+  const genres = [
+    ...new Set(
+      books.map((book) => book.genre),
+      "all genres",
+    ),
+  ];
+
+  const shopCollections = [
+    "all collections",
+    "lead me",
+    "lead him",
+    "lead her",
+    "lead them",
+    "lead us",
+    "lead little ones",
+    "lead the young",
+    "lead with money",
+    "lead the world",
+    "lead with legacy",
+    "lead with imagination",
+  ];
+  const sortBys = [
+    "default",
+    "sort by popularity",
+    "sort by price:low to high",
+    "sort by price:high to low",
+  ];
+
+  const sortOptions = sortBys.map((sort) => ({
+    value: sort,
+    label: capitalizeWords(sort, true),
+  }));
+
+  console.log(sortOptions);
+
+  const collectionOptions = shopCollections.map((coll) => ({
+    value: coll,
+    label: capitalizeWords(coll),
+  }));
+
+  const genreOptions = genres.map((g) => ({
+    value: g,
+    label: capitalizeWords(g),
+  }));
+
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      cursor: "pointer",
+      fontFamily: "Anonymous Pro, monospace",
+      fontSize: "1rem",
+      borderColor: state.isFocused ? "var(--brand-red-clr)" : "#d1d5db",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "var(--brand-red-clr)",
+      },
+      minHeight: 0,
+      borderRadius: 0,
+      borderWidth: ".2px",
+    }),
+
+    valueContainer: (base) => ({
+      ...base,
+      lineHeight: 1.2,
+    }),
+    dropdownIndicator: (base) => ({ ...base, padding: ".43rem" }),
+    clearIndicator: (base) => ({ ...base, padding: ".43rem" }),
+    indicatorSeparator: () => ({
+      display: "none",
+    }),
+    option: (base, state) => ({
+      ...base,
+      fontFamily: "Anonymous Pro, monospace",
+      cursor: "pointer",
+      backgroundColor: state.isSelected
+        ? "var(--brand-red-clr)"
+        : state.isFocused
+          ? "var(--brand-red-clr-hover)"
+          : "white",
+      color: state.isSelected ? "white" : state.isFocused ? "white" : "black",
+    }),
+  };
 
   const [searchParams] = useSearchParams();
 
@@ -25,47 +121,6 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     const search = searchParams.get("search");
     setQuery(search || collection || "");
   }, [searchParams]);
-
-  const sortOptions = [
-    "Default",
-    "Sort by popularity",
-    "Sort by price:low to high",
-    "Sort by price:high to low",
-  ];
-
-  const handleSort = (option) => {
-    setSortBy(option);
-    closeDropDown();
-  };
-
-  const toggleDropDown = () => {
-    sortRef.current.classList.toggle("hide-dropdown");
-    dropDownIcon.current.classList.toggle("rotate-chevron-down");
-    dropdownRef.current.classList.toggle("cut-border-radius");
-
-    console.log(dropdownRef.current);
-  };
-
-  const closeDropDown = () => {
-    sortRef.current.classList.contains("hide-dropdown") ? toggleDropDown() : "";
-  };
-
-  const chevronDown = () => (
-    <svg
-      className="chevron-down"
-      ref={dropDownIcon}
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fillRule="evenodd"
-        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-      />
-    </svg>
-  );
 
   let filteredBooks = books.filter((book) => {
     const search = query.toLowerCase();
@@ -120,46 +175,80 @@ export default function ShopPage({ cart, setCart, addToCart }) {
         <section className="filter">
           <h2>Product Filters</h2>
 
-          <article className="search-fields" onClick={closeDropDown}>
-            <input
-              className="search-field"
-              placeholder="Search by title, author, or collection..."
-              type="text"
-              value={query}
-              onChange={(e) => {
-                setSortBy("Default");
-                setQuery(e.target.value);
-              }}
-              onKeyDown={startSearch}
-              ref={searchRef}
-            />
-          </article>
+          <div className="filter-field">
+            <article className="search-fields">
+              <input
+                className="search-field"
+                placeholder="Search by title or author"
+                type="text"
+                value={query}
+                onChange={(e) => {
+                  setSortBy("Default");
+                  setQuery(e.target.value);
+                }}
+                onKeyDown={startSearch}
+                ref={searchRef}
+              />
+            </article>
 
-          <article className="sort-field">
-            <div
-              onClick={toggleDropDown}
-              ref={dropdownRef}
-              className="dropdown-search"
-            >
-              <p className="selected">{sortBy}</p>
-              {chevronDown()}
-            </div>
-            <ul className="sort-ul" ref={sortRef}>
-              {sortOptions.map((option) => (
-                <li
-                  className="sort-li"
-                  onClick={() => handleSort(option)}
-                  key={option}
+            <Select
+              classNamePrefix="book-filter"
+              isClearable
+              placeholder="Filter by collection"
+              styles={customStyles}
+              options={collectionOptions}
+              value={collection}
+              onChange={setCollection}
+            />
+
+            <Select
+              classNamePrefix="book-filter"
+              isClearable
+              placeholder="Filter by genre"
+              styles={customStyles}
+              options={genreOptions}
+              value={genre}
+              onChange={setGenre}
+            />
+
+            <Select
+              classNamePrefix="book-filter"
+              isClearable
+              placeholder="Sort by..."
+              styles={customStyles}
+              options={sortOptions}
+              value={sortBy}
+              onChange={setSortBy}
+            />
+
+            {/* <article className="sort-field">
+                <div
+                  onClick={toggleDropDown}
+                  ref={dropdownRef}
+                  className="dropdown-search"
                 >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </article>
+                  <p className="selected">{sortBy}</p>
+                  {chevronDown()}
+                </div>
+
+                
+                <ul className="sort-ul" ref={sortRef}>
+                  {sortOptions.map((option) => (
+                    <li
+                      className="sort-li"
+                      onClick={() => handleSort(option)}
+                      key={option}
+                    >
+                      {option}
+                    </li>
+                  ))}
+                </ul>
+              </article> */}
+          </div>
         </section>
 
         {/* SHOP BOOKS */}
-        <div onClick={closeDropDown}>
+        <div>
           <BookGrid
             setCart={setCart}
             cart={cart}

@@ -1,9 +1,12 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
+import { filterBooks } from "../feature/shop/filterBooks";
 import Select from "react-select";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
 
+import { sortBooks } from "../feature/shop/sortBooks";
+import { SHOP_COLLECTIONS, SORT_BYS } from "../constants/shopPage/bookFilters";
 import "./ShopPage.css";
 
 function capitalizeWords(str, word = false) {
@@ -24,6 +27,49 @@ export default function ShopPage({ cart, setCart, addToCart }) {
   const [collection, setCollection] = useState("");
   const [genre, setGenre] = useState(null);
   const [sortBy, setSortBy] = useState("Default");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const updateURL = (updates) => {
+    const params = new URLSearchParams(searchParams);
+
+    Object.entries(updates).forEach(([key, value]) => {
+      if (!value || value === "Default") {
+        params.delete(key);
+      } else {
+        const keyValue = value.trim();
+        params.set(key, keyValue);
+      }
+    });
+
+    setSearchParams(params);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateURL({ search: query });
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  function handleFilter(field, value) {
+    switch (field) {
+      case "collection":
+        setCollection(value);
+        updateURL({ collection: value?.value });
+        break;
+
+      case "genre":
+        setGenre(value);
+        updateURL({ genre: value?.value });
+        break;
+
+      case "sort":
+        setSortBy(value);
+        updateURL({ sort: value?.value });
+        break;
+    }
+  }
 
   const genres = [
     ...new Set(
@@ -32,33 +78,12 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     ),
   ];
 
-  const shopCollections = [
-    "all collections",
-    "lead me",
-    "lead him",
-    "lead her",
-    "lead them",
-    "lead us",
-    "lead little ones",
-    "lead the young",
-    "lead with money",
-    "lead the world",
-    "lead with legacy",
-    "lead with imagination",
-  ];
-  const sortBys = [
-    "default",
-    "sort by popularity",
-    "sort by price:low to high",
-    "sort by price:high to low",
-  ];
-
+  const shopCollections = SHOP_COLLECTIONS;
+  const sortBys = SORT_BYS;
   const sortOptions = sortBys.map((sort) => ({
     value: sort,
     label: capitalizeWords(sort, true),
   }));
-
-  console.log(sortOptions);
 
   const collectionOptions = shopCollections.map((coll) => ({
     value: coll,
@@ -69,6 +94,33 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     value: g,
     label: capitalizeWords(g),
   }));
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [searchParams]);
+
+  useEffect(() => {
+    // Get individaual param from URL
+    setQuery(searchParams.get("search") || "");
+    const collectionParam = searchParams.get("collection");
+    const genreParam = searchParams.get("genre");
+    const sortParam = searchParams.get("sort");
+
+    const selectedCollection = collectionOptions.find(
+      (option) => option.value === collectionParam || null,
+    );
+    const selectedGenre = genreOptions.find(
+      (genre) => genre.value === genreParam || null,
+    );
+    const selectedSort = sortOptions.find(
+      (sort) => sort.value === sortParam || null,
+    );
+
+    setCollection(selectedCollection);
+    setGenre(selectedGenre);
+    setSortBy(selectedSort);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   const customStyles = {
     control: (base, state) => ({
@@ -85,6 +137,8 @@ export default function ShopPage({ cart, setCart, addToCart }) {
       borderRadius: 0,
       borderWidth: ".2px",
     }),
+
+    placeholder: (base) => ({ ...base, color: "lightgray" }),
 
     valueContainer: (base) => ({
       ...base,
@@ -108,66 +162,24 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     }),
   };
 
-  const [searchParams] = useSearchParams();
+  const filteredBooks = useMemo(() => {
+    const filtered = filterBooks(query, collection, genre, books);
+    return filtered;
+  }, [collection, genre, query]);
 
-  console.log(searchParams.toString());
+  const sortedBooks = useMemo(() => {
+    const booksCopy = [...filteredBooks];
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [searchParams]);
-
-  useEffect(() => {
-    const collection = searchParams.get("collection");
-    const search = searchParams.get("search");
-    setQuery(search || collection || "");
-  }, [searchParams]);
-
-  let filteredBooks = books.filter((book) => {
-    const search = query.toLowerCase();
-
-    return (
-      book.title.includes(search) ||
-      book.author.toLowerCase().includes(search) ||
-      book.primaryCollection.includes(search) ||
-      book.genre.includes(search) ||
-      book.collections.some((col) => col.includes(search))
-    );
-  });
-
-  const sort = useMemo(() => {
-    const bookCopy = [...books];
-
-    switch (sortBy) {
-      case "Sort by popularity":
-        bookCopy.sort((a, b) => b.reviews - a.reviews);
-        break;
-
-      case "Sort by price:low to high":
-        bookCopy.sort((a, b) => a.price.paperback - b.price.paperback);
-        break;
-
-      case "Sort by price:high to low":
-        bookCopy.sort((a, b) => b.price.paperback - a.price.paperback);
-        break;
-
-      default:
-        return;
-    }
-
-    return bookCopy;
-  }, [sortBy]);
+    sortBooks(sortBy, booksCopy);
+    return booksCopy;
+  }, [filteredBooks, sortBy]);
 
   const searchRef = useRef(null);
 
-  const startSearch = (event) => {
-    console.log(query);
-    event.key === "Enter" ? alert("search") : " ";
-    if (event.key === "Enter") {
-      console.log("yes");
-    }
+  const startSearch = (event, query) => {
+    if (event.key !== "Enter") return;
+    handleFilter("search", query);
   };
-
-  console.log(cart);
 
   return (
     <div>
@@ -182,11 +194,11 @@ export default function ShopPage({ cart, setCart, addToCart }) {
                 placeholder="Search by title or author"
                 type="text"
                 value={query}
-                onChange={(e) => {
-                  setSortBy("Default");
-                  setQuery(e.target.value);
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  const value = e.target.value;
+                  startSearch(event, value);
                 }}
-                onKeyDown={startSearch}
                 ref={searchRef}
               />
             </article>
@@ -195,10 +207,12 @@ export default function ShopPage({ cart, setCart, addToCart }) {
               classNamePrefix="book-filter"
               isClearable
               placeholder="Filter by collection"
+              value={collection}
               styles={customStyles}
               options={collectionOptions}
-              value={collection}
-              onChange={setCollection}
+              onChange={(selected) => {
+                handleFilter("collection", selected);
+              }}
             />
 
             <Select
@@ -208,7 +222,9 @@ export default function ShopPage({ cart, setCart, addToCart }) {
               styles={customStyles}
               options={genreOptions}
               value={genre}
-              onChange={setGenre}
+              onChange={(selected) => {
+                handleFilter("genre", selected);
+              }}
             />
 
             <Select
@@ -218,32 +234,8 @@ export default function ShopPage({ cart, setCart, addToCart }) {
               styles={customStyles}
               options={sortOptions}
               value={sortBy}
-              onChange={setSortBy}
+              onChange={(selected) => handleFilter("sort", selected)}
             />
-
-            {/* <article className="sort-field">
-                <div
-                  onClick={toggleDropDown}
-                  ref={dropdownRef}
-                  className="dropdown-search"
-                >
-                  <p className="selected">{sortBy}</p>
-                  {chevronDown()}
-                </div>
-
-                
-                <ul className="sort-ul" ref={sortRef}>
-                  {sortOptions.map((option) => (
-                    <li
-                      className="sort-li"
-                      onClick={() => handleSort(option)}
-                      key={option}
-                    >
-                      {option}
-                    </li>
-                  ))}
-                </ul>
-              </article> */}
           </div>
         </section>
 
@@ -253,7 +245,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
             setCart={setCart}
             cart={cart}
             addToCart={addToCart}
-            books={sort ? sort : filteredBooks}
+            books={sortedBooks}
           />
         </div>
       </section>

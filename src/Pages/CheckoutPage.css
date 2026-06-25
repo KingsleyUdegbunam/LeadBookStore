@@ -234,7 +234,7 @@ input {
 }
 
 .btn-enabled {
-  background-color: var(---brand-red-clr);
+  background-color: var(--brand-red-clr);
   color: white;
 }
 

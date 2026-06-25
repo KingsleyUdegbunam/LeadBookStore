@@ -1,118 +1,185 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
+import { filterBooks } from "../feature/shop/filterBooks";
+import Select from "react-select";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
+
+import { sortBooks } from "../feature/shop/sortBooks";
+import { SHOP_COLLECTIONS, SORT_BYS } from "../constants/shopPage/bookFilters";
 import "./ShopPage.css";
+
+function capitalizeWords(str, word = false) {
+  if (!str) return "";
+
+  if (word) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
 export default function ShopPage({ cart, setCart, addToCart }) {
   const [query, setQuery] = useState("");
+  const [collection, setCollection] = useState("");
+  const [genre, setGenre] = useState(null);
   const [sortBy, setSortBy] = useState("Default");
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const sortRef = useRef(null);
-  const dropDownIcon = useRef(null);
-  const dropdownRef = useRef(null);
+  const updateURL = (updates) => {
+    const params = new URLSearchParams(searchParams);
 
-  const [searchParams] = useSearchParams();
+    Object.entries(updates).forEach(([key, value]) => {
+      if (!value || value === "Default") {
+        params.delete(key);
+      } else {
+        const keyValue = value.trim();
+        params.set(key, keyValue);
+      }
+    });
 
-  console.log(searchParams.toString());
+    setSearchParams(params);
+  };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      updateURL({ search: query });
+    }, 400);
+
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  function handleFilter(field, value) {
+    switch (field) {
+      case "collection":
+        setCollection(value);
+        updateURL({ collection: value?.value });
+        break;
+
+      case "genre":
+        setGenre(value);
+        updateURL({ genre: value?.value });
+        break;
+
+      case "sort":
+        setSortBy(value);
+        updateURL({ sort: value?.value });
+        break;
+    }
+  }
+
+  const genres = [
+    ...new Set(
+      books.map((book) => book.genre),
+      "all genres",
+    ),
+  ];
+
+  const shopCollections = SHOP_COLLECTIONS;
+  const sortBys = SORT_BYS;
+  const sortOptions = sortBys.map((sort) => ({
+    value: sort,
+    label: capitalizeWords(sort, true),
+  }));
+
+  const collectionOptions = shopCollections.map((coll) => ({
+    value: coll,
+    label: capitalizeWords(coll),
+  }));
+
+  const genreOptions = genres.map((g) => ({
+    value: g,
+    label: capitalizeWords(g),
+  }));
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [searchParams]);
 
   useEffect(() => {
-    const collection = searchParams.get("collection");
-    const search = searchParams.get("search");
-    setQuery(search || collection || "");
+    // Get individaual param from URL
+    setQuery(searchParams.get("search") || "");
+    const collectionParam = searchParams.get("collection");
+    const genreParam = searchParams.get("genre");
+    const sortParam = searchParams.get("sort");
+
+    const selectedCollection = collectionOptions.find(
+      (option) => option.value === collectionParam || null,
+    );
+    const selectedGenre = genreOptions.find(
+      (genre) => genre.value === genreParam || null,
+    );
+    const selectedSort = sortOptions.find(
+      (sort) => sort.value === sortParam || null,
+    );
+
+    setCollection(selectedCollection);
+    setGenre(selectedGenre);
+    setSortBy(selectedSort);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  const sortOptions = [
-    "Default",
-    "Sort by popularity",
-    "Sort by price:low to high",
-    "Sort by price:high to low",
-  ];
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      cursor: "pointer",
+      fontFamily: "Anonymous Pro, monospace",
+      fontSize: "1rem",
+      borderColor: state.isFocused ? "var(--brand-red-clr)" : "#d1d5db",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "var(--brand-red-clr)",
+      },
+      minHeight: 0,
+      borderRadius: 0,
+      borderWidth: ".2px",
+    }),
 
-  const handleSort = (option) => {
-    setSortBy(option);
-    closeDropDown();
+    placeholder: (base) => ({ ...base, color: "lightgray" }),
+
+    valueContainer: (base) => ({
+      ...base,
+      lineHeight: 1.2,
+    }),
+    dropdownIndicator: (base) => ({ ...base, padding: ".43rem" }),
+    clearIndicator: (base) => ({ ...base, padding: ".43rem" }),
+    indicatorSeparator: () => ({
+      display: "none",
+    }),
+    option: (base, state) => ({
+      ...base,
+      fontFamily: "Anonymous Pro, monospace",
+      cursor: "pointer",
+      backgroundColor: state.isSelected
+        ? "var(--brand-red-clr)"
+        : state.isFocused
+          ? "var(--brand-red-clr-hover)"
+          : "white",
+      color: state.isSelected ? "white" : state.isFocused ? "white" : "black",
+    }),
   };
 
-  const toggleDropDown = () => {
-    sortRef.current.classList.toggle("hide-dropdown");
-    dropDownIcon.current.classList.toggle("rotate-chevron-down");
-    dropdownRef.current.classList.toggle("cut-border-radius");
+  const filteredBooks = useMemo(() => {
+    const filtered = filterBooks(query, collection, genre, books);
+    return filtered;
+  }, [collection, genre, query]);
 
-    console.log(dropdownRef.current);
-  };
+  const sortedBooks = useMemo(() => {
+    const booksCopy = [...filteredBooks];
 
-  const closeDropDown = () => {
-    sortRef.current.classList.contains("hide-dropdown") ? toggleDropDown() : "";
-  };
-
-  const chevronDown = () => (
-    <svg
-      className="chevron-down"
-      ref={dropDownIcon}
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      fill="currentColor"
-      viewBox="0 0 16 16"
-    >
-      <path
-        fillRule="evenodd"
-        d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
-      />
-    </svg>
-  );
-
-  let filteredBooks = books.filter((book) => {
-    const search = query.toLowerCase();
-
-    return (
-      book.title.includes(search) ||
-      book.author.toLowerCase().includes(search) ||
-      book.primaryCollection.includes(search) ||
-      book.genre.includes(search) ||
-      book.collections.some((col) => col.includes(search))
-    );
-  });
-
-  const sort = useMemo(() => {
-    const bookCopy = [...books];
-
-    switch (sortBy) {
-      case "Sort by popularity":
-        bookCopy.sort((a, b) => b.reviews - a.reviews);
-        break;
-
-      case "Sort by price:low to high":
-        bookCopy.sort((a, b) => a.price.paperback - b.price.paperback);
-        break;
-
-      case "Sort by price:high to low":
-        bookCopy.sort((a, b) => b.price.paperback - a.price.paperback);
-        break;
-
-      default:
-        return;
-    }
-
-    return bookCopy;
-  }, [sortBy]);
+    sortBooks(sortBy, booksCopy);
+    return booksCopy;
+  }, [filteredBooks, sortBy]);
 
   const searchRef = useRef(null);
 
-  const startSearch = (event) => {
-    console.log(query);
-    event.key === "Enter" ? alert("search") : " ";
-    if (event.key === "Enter") {
-      console.log("yes");
-    }
+  const startSearch = (event, query) => {
+    if (event.key !== "Enter") return;
+    handleFilter("search", query);
   };
-
-  console.log(cart);
 
   return (
     <div>
@@ -120,51 +187,65 @@ export default function ShopPage({ cart, setCart, addToCart }) {
         <section className="filter">
           <h2>Product Filters</h2>
 
-          <article className="search-fields" onClick={closeDropDown}>
-            <input
-              className="search-field"
-              placeholder="Search by title, author, or collection..."
-              type="text"
-              value={query}
-              onChange={(e) => {
-                setSortBy("Default");
-                setQuery(e.target.value);
-              }}
-              onKeyDown={startSearch}
-              ref={searchRef}
-            />
-          </article>
+          <div className="filter-field">
+            <article className="search-fields">
+              <input
+                className="search-field"
+                placeholder="Search by title or author"
+                type="text"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  const value = e.target.value;
+                  startSearch(event, value);
+                }}
+                ref={searchRef}
+              />
+            </article>
 
-          <article className="sort-field">
-            <div
-              onClick={toggleDropDown}
-              ref={dropdownRef}
-              className="dropdown-search"
-            >
-              <p className="selected">{sortBy}</p>
-              {chevronDown()}
-            </div>
-            <ul className="sort-ul" ref={sortRef}>
-              {sortOptions.map((option) => (
-                <li
-                  className="sort-li"
-                  onClick={() => handleSort(option)}
-                  key={option}
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
-          </article>
+            <Select
+              classNamePrefix="book-filter"
+              isClearable
+              placeholder="Filter by collection"
+              value={collection}
+              styles={customStyles}
+              options={collectionOptions}
+              onChange={(selected) => {
+                handleFilter("collection", selected);
+              }}
+            />
+
+            <Select
+              classNamePrefix="book-filter"
+              isClearable
+              placeholder="Filter by genre"
+              styles={customStyles}
+              options={genreOptions}
+              value={genre}
+              onChange={(selected) => {
+                handleFilter("genre", selected);
+              }}
+            />
+
+            <Select
+              classNamePrefix="book-filter"
+              isClearable
+              placeholder="Sort by..."
+              styles={customStyles}
+              options={sortOptions}
+              value={sortBy}
+              onChange={(selected) => handleFilter("sort", selected)}
+            />
+          </div>
         </section>
 
         {/* SHOP BOOKS */}
-        <div onClick={closeDropDown}>
+        <div>
           <BookGrid
             setCart={setCart}
             cart={cart}
             addToCart={addToCart}
-            books={sort ? sort : filteredBooks}
+            books={sortedBooks}
           />
         </div>
       </section>

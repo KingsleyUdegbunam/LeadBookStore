@@ -1,6 +1,6 @@
 footer {
   padding: 2rem 1.5rem;
-  background-color: var(---button-hover-clr);
+  background-color: var(--button-hover-clr);
   color: white;
 }
 

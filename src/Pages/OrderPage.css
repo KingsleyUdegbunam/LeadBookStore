@@ -14,7 +14,7 @@
 
 .banner {
   padding-block: 5rem;
-  background-color: var(---button-hover-clr);
+  background-color: var(--button-hover-clr);
   color: white;
   width: 100%;
 }

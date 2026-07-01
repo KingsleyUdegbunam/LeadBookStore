@@ -5,6 +5,7 @@ import { capitalizeWords } from "../utilities/capitalizeWords";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import { IoTrashBin } from "react-icons/io5";
+import { deleteItem, updateCartItemQty } from "../feature/cart/utilities";
 import "./CartPage.css";
 
 export default function CartPage({
@@ -18,29 +19,11 @@ export default function CartPage({
 
   useEffect(() => {
     const initial = cart.reduce((acc, cartItem) => {
-      acc[cartItem.id] = cart.quantity;
+      acc[cartItem.id] = cartItem.quantity;
       return acc;
     }, {});
     setQtyInputs(initial);
   }, [cart]);
-
-  const deleteItem = (cartItem) => {
-    setCart((prev) => prev.filter((book) => book.id !== cartItem.id));
-  };
-
-  const updateCartItemQty = (newQty, cartItem) => {
-    if (newQty < 1) {
-      deleteItem(cartItem);
-      return;
-    }
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === cartItem.id
-          ? { ...item, quantity: newQty, totalPrice: item.basePrice * newQty }
-          : item,
-      ),
-    );
-  };
 
   return (
     <>
@@ -49,14 +32,14 @@ export default function CartPage({
           <article className="cart-items-holder">
             <h2 className="cart-header">Your Cart</h2>
             <div className="navigations">
-              <button className="shop-nav cart-nav">
+              <Link to="/shop" className="shop-nav cart-nav">
                 <FiChevronLeft className="chevron-icon" />
                 <span className="">Keep Shopping</span>
-              </button>
-              <button className="cart-nav">
+              </Link>
+              <Link to="/checkout" className="cart-nav">
                 <span className="">Checkout</span>
                 <FiChevronRight className="chevron-icon" />
-              </button>
+              </Link>
             </div>
             <article className="cart-items-container">
               {cartInDetail.map((cartItem, key) => {
@@ -108,29 +91,30 @@ export default function CartPage({
                             />
                           </div>
 
-                          <p
-                            className="functional-btn update-item-quantity-btn"
+                          <button
+                            className="functional-btn cart-item-action-btn"
                             onClick={() => {
                               updateCartItemQty(
                                 Number(qtyInputs[cartItem.id]),
                                 cartItem,
+                                setCart,
                               );
                             }}
                           >
                             Update
-                          </p>
+                          </button>
                         </div>
                       </div>
                     </article>
-                    <div
+                    <button
                       onClick={() => {
-                        deleteItem(cartItem);
+                        deleteItem(cartItem, setCart);
                       }}
-                      className="delete-item"
+                      className="delete-item functional-btn"
                     >
                       <IoTrashBin />
                       <span>Remove</span>
-                    </div>
+                    </button>
                   </div>
                 );
               })}
@@ -172,10 +156,6 @@ export default function CartPage({
             <button className="checkout-button">CHECKOUT</button>
           </Link>
         </article>
-      </section>
-
-      <section className="cart-summary">
-        <article className="cart-total-summary"></article>
       </section>
     </>
   );

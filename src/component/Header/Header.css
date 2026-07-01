@@ -177,13 +177,13 @@
   gap: 1rem;
 }
 
-svg {
+/* svg {
   display: block;
   margin: 0 auto;
   width: 20px;
   height: 20px;
   cursor: pointer;
-}
+} */
 
 .hamburger-menu {
   flex-direction: column;

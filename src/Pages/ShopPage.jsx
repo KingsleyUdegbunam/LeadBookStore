@@ -4,23 +4,11 @@ import { filterBooks } from "../feature/shop/filterBooks";
 import Select from "react-select";
 import { books } from "../data/inventory";
 import { BookGrid } from "../component/BookGrid";
+import { capitalizeWords } from "../utilities/capitalizeWords";
 
 import { sortBooks } from "../feature/shop/sortBooks";
 import { SHOP_COLLECTIONS, SORT_BYS } from "../constants/shopPage/bookFilters";
 import "./ShopPage.css";
-
-function capitalizeWords(str, word = false) {
-  if (!str) return "";
-
-  if (word) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  return str
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
 
 export default function ShopPage({ cart, setCart, addToCart }) {
   const [query, setQuery] = useState("");

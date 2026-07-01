@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { convertToNaira } from "../utilities/money";
-import { Header } from "../component/Header/Header";
-
+import { capitalizeWords } from "../utilities/capitalizeWords";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
+import { IoTrashBin } from "react-icons/io5";
+import { deleteItem, updateCartItemQty } from "../feature/cart/utilities";
 import "./CartPage.css";
-import { Footer } from "../component/Footer";
 
 export default function CartPage({
   cart,
@@ -19,29 +19,11 @@ export default function CartPage({
 
   useEffect(() => {
     const initial = cart.reduce((acc, cartItem) => {
-      acc[cartItem.id] = cart.quantity;
+      acc[cartItem.id] = cartItem.quantity;
       return acc;
     }, {});
     setQtyInputs(initial);
   }, [cart]);
-
-  const deleteItem = (cartItem) => {
-    setCart((prev) => prev.filter((book) => book.id !== cartItem.id));
-  };
-
-  const updateCartItemQty = (newQty, cartItem) => {
-    if (newQty < 1) {
-      deleteItem(cartItem);
-      return;
-    }
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === cartItem.id
-          ? { ...item, quantity: newQty, totalPrice: item.basePrice * newQty }
-          : item,
-      ),
-    );
-  };
 
   return (
     <>
@@ -49,43 +31,52 @@ export default function CartPage({
         <article className="main-section cart-product-details">
           <article className="cart-items-holder">
             <h2 className="cart-header">Your Cart</h2>
-
+            <div className="navigations">
+              <Link to="/shop" className="shop-nav cart-nav">
+                <FiChevronLeft className="chevron-icon" />
+                <span className="">Keep Shopping</span>
+              </Link>
+              <Link to="/checkout" className="cart-nav">
+                <span className="">Checkout</span>
+                <FiChevronRight className="chevron-icon" />
+              </Link>
+            </div>
             <article className="cart-items-container">
-              <div className="navigations">
-                <div className="shop-nav cart-nav">
-                  <FiChevronLeft color="red" />
-                  <span className="functional-btn">Keep Shopping</span>
-                </div>
-                <div className="cart-nav">
-                  <span className="functional-btn">Checkout</span>
-                  <FiChevronRight color="red" />
-                </div>
-              </div>
               {cartInDetail.map((cartItem, key) => {
                 return (
-                  <div className="cart-items-wraper" key={key}>
+                  <div className="cart-items-wrapper" key={key}>
                     <article className="cart-item-container">
-                      <div className="cart-image-container">
-                        <img src={cartItem.coverImage} alt="" />
-                      </div>
-                      <div className="cart-item-details">
-                        <p className="cart-item-title">{cartItem.title}</p>
-                        <div className="product-about">
-                          <p className="author">by {cartItem.author}</p>
-                          <p className="book-type">
-                            {cartItem.primaryCollection}
-                          </p>
-                          <p className="genre">{cartItem.genre}</p>
+                      <div className="item-img-and-details">
+                        <div className="cart-image-container">
+                          <img
+                            src={cartItem.coverImage}
+                            alt={`${cartItem.title} book cover`}
+                          />
+                        </div>
+                        <div className="cart-item-details">
+                          <div>
+                            <p className="cart-item-title">{cartItem.title}</p>
+                            <p className="author">by {cartItem.author}</p>
+                          </div>
+                          <div className="product-about">
+                            <p className="book-type">
+                              {capitalizeWords(cartItem.primaryCollection)}
+                            </p>
+                            <p className="genre">
+                              {capitalizeWords(cartItem.genre)}
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      <div className="cart-item-details cost-update">
+                      <div className="cost-update">
                         <span className="cart-item-price">
                           {convertToNaira(cartItem.price.paperback)}
                         </span>
                         <div className="cart-item-quantity-and-update">
                           <div className="cart-item-quantity-update">
-                            <label>Qty</label>{" "}
+                            <label>Qty:</label>{" "}
                             <input
+                              className="qty-input"
                               value={
                                 qtyInputs[cartItem.id] ?? cartItem.quantity
                               }
@@ -100,28 +91,30 @@ export default function CartPage({
                             />
                           </div>
 
-                          <p
-                            className="functional-btn update-item-quantity-btn"
+                          <button
+                            className="functional-btn cart-item-action-btn"
                             onClick={() => {
                               updateCartItemQty(
                                 Number(qtyInputs[cartItem.id]),
                                 cartItem,
+                                setCart,
                               );
                             }}
                           >
                             Update
-                          </p>
+                          </button>
                         </div>
                       </div>
                     </article>
-                    <span
+                    <button
                       onClick={() => {
-                        deleteItem(cartItem);
+                        deleteItem(cartItem, setCart);
                       }}
-                      className="functional-btn"
+                      className="delete-item functional-btn"
                     >
-                      Remove
-                    </span>
+                      <IoTrashBin />
+                      <span>Remove</span>
+                    </button>
                   </div>
                 );
               })}
@@ -160,13 +153,9 @@ export default function CartPage({
             </div>
           </div>
           <Link to="/checkout">
-            <button className="checkout-button button-primary">CHECKOUT</button>
+            <button className="checkout-button">CHECKOUT</button>
           </Link>
         </article>
-      </section>
-
-      <section className="cart-summary">
-        <article className="cart-total-summary"></article>
       </section>
     </>
   );

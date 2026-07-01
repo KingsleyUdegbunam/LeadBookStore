@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
-import { getOrdersByEmail } from "../services/orderServices";
+import { getOrdersByEmail } from "../../services/orderServices";
 import "./TrackingPage.css";
-import { convertToNaira } from "../utilities/money";
+import { convertToNaira } from "../../utilities/money";
 
 export default function TrackingPage() {
   const [email, setEmail] = useState("");

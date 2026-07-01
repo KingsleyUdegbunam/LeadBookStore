@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { books } from "../data/inventory";
-import { BookCard } from "../component/BookCard";
+import { books } from "../../data/inventory";
+import { BookCard } from "../../component/BookCard";
 import { useParams, useLocation } from "react-router-dom";
 import "./ProductPage.css";
 

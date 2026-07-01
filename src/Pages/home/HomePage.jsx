@@ -1,10 +1,10 @@
-import { LeadCarousel } from "../component/LeadCarousel";
-import { BookCard } from "../component/BookCard";
-import { books } from "../data/inventory";
-import { BookGrid } from "../component/BookGrid";
-import womenImg from "../assets/womenImg.webp";
+import { LeadCarousel } from "../../component/LeadCarousel";
+import { BookCard } from "../../component/BookCard";
+import { books } from "../../data/inventory";
+import { BookGrid } from "../../component/BookGrid";
+import womenImg from "../../assets/womenImg.webp";
 import "./HomePage.css";
-import { FeatureSection } from "../component/FeatureSection";
+import { FeatureSection } from "../../component/FeatureSection";
 
 export default function HomePage({ addToCart }) {
   const newArrival = books.filter((book) => book.tag.includes("new arrival"));

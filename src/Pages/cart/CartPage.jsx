@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { convertToNaira } from "../utilities/money";
-import { capitalizeWords } from "../utilities/capitalizeWords";
+import { convertToNaira } from "../../utilities/money";
+import { capitalizeWords } from "../../utilities/capitalizeWords";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import { IoTrashBin } from "react-icons/io5";
-import { deleteItem, updateCartItemQty } from "../feature/cart/utilities";
+import { deleteItem, updateCartItemQty } from "../../feature/cart/utilities";
 import "./CartPage.css";
 
 export default function CartPage({

@@ -6,7 +6,11 @@ button {
   font-family: "Outfit", sans-serif;
 }
 
-.h2-and-link {
+.important {
+  color: red;
+}
+
+.checkout-header {
   display: flex;
   align-items: baseline;
   gap: 0.3rem;
@@ -26,7 +30,7 @@ input {
 
 .checkout-links {
   font-size: 0.75rem;
-  color: red;
+  color: var(--brand-red-clr);
   font-family: "Outfit", sans-serif;
   cursor: pointer;
 }
@@ -153,7 +157,7 @@ input {
   gap: 0.2rem;
 }
 
-.delivery-options-container > * {
+.shipping-options-container > * {
   margin-bottom: 0.5rem;
 }
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getShippingOptions } from "../../feature/checkout/utilities";
 import { convertToNaira } from "../../utilities/money";
 import { capitalizeWords } from "../../utilities/capitalizeWords";
 import { FiChevronLeft } from "react-icons/fi";
@@ -13,7 +14,6 @@ export default function CartPage({
   setCart,
   cartInDetail,
   cartTotalPrice,
-  getShippingOptions,
 }) {
   const [qtyInputs, setQtyInputs] = useState({});
 

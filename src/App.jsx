@@ -13,12 +13,10 @@ import ContactPage from "./Pages/contact/ContactPage";
 import TrackingPage from "./Pages/tracking/TrackingPage";
 import OrderStatusPage from "./Pages/orderStatus/OrderStatusPage";
 import { books } from "./data/inventory";
-import dayjs from "dayjs";
 
 function App() {
   const [cart, setCart] = useState([]);
   const [order, setOrder] = useState({});
-  const today = dayjs();
 
   const { pathname } = useLocation();
 
@@ -68,34 +66,6 @@ function App() {
     }
   };
 
-  const getShippingOptions = (state) => {
-    const isAbuja = state === "FCT (Abuja)";
-
-    return [
-      {
-        id: "DHL",
-        desc: "2-5 Working Days",
-        minDeliveryDay: today.add(2, "day").format("MMM DD, YYYY"),
-        maxDeliveryDay: today.add(5, "day").format("MMM DD, YYYY"),
-        costInCents: isAbuja ? 1000000 : 1500000,
-      },
-      {
-        id: "KOS",
-        desc: "4-7 Working Days",
-        minDeliveryDay: today.add(4, "day").format("MMM DD, YYYY"),
-        maxDeliveryDay: today.add(7, "day").format("MMM DD, YYYY"),
-        costInCents: isAbuja ? 550000 : 650000,
-      },
-      {
-        id: "Shipbubble",
-        desc: "7-10 Working Days",
-        minDeliveryDay: today.add(7, "day").format("MMM DD, YYYY"),
-        maxDeliveryDay: today.add(10, "day").format("MMM DD, YYYY"),
-        costInCents: isAbuja ? 350000 : 450000,
-      },
-    ];
-  };
-
   return (
     <>
       <Header cart={cart} />
@@ -122,7 +92,6 @@ function App() {
               setCart={setCart}
               cartInDetail={cartInDetail}
               cartTotalPrice={cartTotalPrice}
-              getShippingOptions={getShippingOptions}
             />
           }
         />
@@ -140,7 +109,6 @@ function App() {
               setCart={setCart}
               cartInDetail={cartInDetail}
               cartTotalPrice={cartTotalPrice}
-              getShippingOptions={getShippingOptions}
             />
           }
         />

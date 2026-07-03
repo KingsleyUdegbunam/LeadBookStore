@@ -73,22 +73,76 @@ export const initiatePayment = (
   });
 };
 
-export function dropDownStyles(error) {
-  const styling = {
-    control: (base) => ({
-      ...base,
-      boxShadow: "none",
-      borderColor: error ? "red" : "",
-      "&:hover": { borderColor: "red" },
-    }),
-    option: (base, state) => ({
-      ...base,
-      color: state.isSelected ? "white" : "black",
-      backgroundColor: state.isSelected ? "red" : "acc",
-    }),
-  };
+export function dropDownStyles(variant, error = false, isDisabled) {
+  return variant === "shippingOpts"
+    ? {
+        control: (base, state) => ({
+          ...base,
+          cursor: "pointer",
+          fontFamily: "Anonymous Pro, monospace",
+          borderColor: isDisabled
+            ? "lightgray"
+            : error
+              ? "red"
+              : state.isFocused
+                ? "black"
+                : "#d1d5db",
+          boxShadow: "none",
+          "&:hover": {
+            borderColor: "var(--brand-red-clr)",
+          },
+        }),
 
-  return styling;
+        placeholder: (base) => ({ ...base, color: "lightgray" }),
+
+        valueContainer: (base) => ({
+          ...base,
+          lineHeight: 1.2,
+        }),
+        dropdownIndicator: (base) => ({
+          ...base,
+          padding: ".43rem",
+          display: isDisabled ? "none" : undefined,
+        }),
+        clearIndicator: (base) => ({ ...base, padding: ".43rem" }),
+        indicatorSeparator: () => ({
+          display: "none",
+        }),
+        option: (base, state) => ({
+          ...base,
+          fontFamily: "Anonymous Pro, monospace",
+          cursor: "pointer",
+          backgroundColor: state.isSelected
+            ? "var(--brand-red-clr)"
+            : state.isFocused
+              ? "var(--brand-red-clr-hover)"
+              : "white",
+          color: state.isSelected
+            ? "white"
+            : state.isFocused
+              ? "white"
+              : "black",
+        }),
+      }
+    : {
+        control: (base) => ({
+          ...base,
+          boxShadow: "none",
+          width: "100%",
+          marginInline: "0",
+        }),
+        dropdownIndicator: (base) => ({
+          ...base,
+          display: "none",
+        }),
+
+        indicatorSeparator: (base) => ({
+          ...base,
+          display: "none",
+        }),
+
+        container: (base) => ({ ...base, width: "80%" }),
+      };
 }
 
 export function getShippingOptions(state) {

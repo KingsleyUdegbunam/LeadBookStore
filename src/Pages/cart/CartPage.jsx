@@ -22,6 +22,7 @@ export default function CartPage({
       acc[cartItem.id] = cartItem.quantity;
       return acc;
     }, {});
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQtyInputs(initial);
   }, [cart]);
 

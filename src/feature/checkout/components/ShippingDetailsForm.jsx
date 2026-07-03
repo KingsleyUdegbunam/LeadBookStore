@@ -1,26 +1,16 @@
 import { useState } from "react";
 import Select from "react-select";
+import { dropDownStyles } from "../utilities";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
 export function ShippingDetailsForm({
   address,
   shippingDetails,
   setShippingDetails,
-  stateOptions,
 }) {
   const [phone, setPhone] = useState();
   const [phoneError, setPhoneError] = useState(false);
 
-  const selectStyles = {
-    control: (base) => ({
-      ...base,
-      boxShadow: "none",
-      width: "100%",
-      marginInline: "0",
-    }),
-
-    container: (base) => ({ ...base, width: "80%" }),
-  };
   return (
     <article className="primary-form-container">
       <div className="email-container user-info-div">
@@ -153,7 +143,7 @@ export function ShippingDetailsForm({
           Country:
           <Select
             isDisabled
-            styles={selectStyles}
+            styles={dropDownStyles("form", false, true)}
             options={[{ value: "Nigeria", label: "Nigeria" }]}
             value={{
               value: address.country,
@@ -167,7 +157,7 @@ export function ShippingDetailsForm({
         <label className="user-state-label" htmlFor="state">
           State:
           <Select
-            styles={selectStyles}
+            styles={dropDownStyles("form", false, true)}
             value={{ value: address?.state, label: address?.state }}
             isDisabled={true}
           />

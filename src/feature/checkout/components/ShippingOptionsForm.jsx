@@ -44,6 +44,7 @@ export function ShippingOptionsForm({
 
             <Select
               value={{ value: address?.country, label: address?.country }}
+              styles={dropDownStyles("shippingOpts", false, true)}
               isDisabled
             ></Select>
           </div>
@@ -53,7 +54,7 @@ export function ShippingOptionsForm({
               State<span className="important">*</span>
             </p>
             <Select
-              styles={dropDownStyles(stateError)}
+              styles={dropDownStyles("shippingOpts", stateError)}
               options={stateOptions}
               value={
                 stateOptions.find((opt) => opt.value === address.state) ?? null
@@ -72,7 +73,7 @@ export function ShippingOptionsForm({
             </p>
 
             <Select
-              styles={dropDownStyles(cityError)}
+              styles={dropDownStyles("shippingOpts", cityError)}
               options={cityOptions}
               value={
                 cityOptions.find((opt) => opt.value === address.city) ?? null

@@ -23,11 +23,15 @@ export function ShippingOptionsForm({
 
   const shippingOptions = getShippingOptions(address.state);
   const states = getStates();
-  const stateOptions = states.map((state) => ({ value: state, label: state }));
-  const cityOptions = getCitiesAndTownsByState(address?.state).map((city) => ({
-    value: city,
-    label: city,
-  }));
+  const stateOptions = states
+    .map((state) => ({ value: state, label: state }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+  const cityOptions = getCitiesAndTownsByState(address?.state)
+    .map((city) => ({
+      value: city,
+      label: city,
+    }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 
   const handleStateChange = (value) => {
     setAddress((prev) => ({ ...prev, state: value, city: "" }));
@@ -46,6 +50,7 @@ export function ShippingOptionsForm({
               value={{ value: address?.country, label: address?.country }}
               styles={dropDownStyles("shippingOpts", false, true)}
               isDisabled
+              isSearchable={false}
             ></Select>
           </div>
           {/* STATE SELECTION */}
@@ -54,6 +59,7 @@ export function ShippingOptionsForm({
               State<span className="important">*</span>
             </p>
             <Select
+              isSearchable={false}
               styles={dropDownStyles("shippingOpts", stateError)}
               options={stateOptions}
               value={
@@ -61,7 +67,7 @@ export function ShippingOptionsForm({
               }
               onChange={(selected) => {
                 handleStateChange(selected.value);
-                setStateError(false);
+                stateError && setStateError(false);
               }}
               placeholder="Select State"
             />
@@ -73,6 +79,7 @@ export function ShippingOptionsForm({
             </p>
 
             <Select
+              isSearchable={false}
               styles={dropDownStyles("shippingOpts", cityError)}
               options={cityOptions}
               value={
@@ -85,7 +92,7 @@ export function ShippingOptionsForm({
                     city: selected.value,
                   };
                 });
-                setCityError(false);
+                cityError && setCityError(false);
               }}
             ></Select>
           </div>

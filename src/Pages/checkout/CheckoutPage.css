@@ -83,12 +83,12 @@ input {
   border-block-start: 1px solid black;
   padding-block: 0.3rem;
   font-size: 0.9rem;
+  font-family: "Anonymous Pro", monospace;
 }
 
 .total-cost-child {
   display: flex;
   justify-content: space-between;
-  font-family: "Anonymous Pro", monospace;
 }
 
 .total-container {
@@ -138,6 +138,23 @@ input {
   flex-direction: column;
   justify-content: space-between;
   width: none;
+}
+
+.user-info-div label {
+  font-family: "Outfit", sans-serif;
+}
+
+.user-info-div input {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  padding-inline: 0.5rem;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .user-info-div input {
+    font-size: 1rem;
+  }
 }
 
 .form-header-container {

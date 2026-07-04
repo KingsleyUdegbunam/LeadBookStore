@@ -12,7 +12,7 @@ export function ShippingDetailsForm({
   const [phoneError, setPhoneError] = useState(false);
 
   return (
-    <article className="primary-form-container">
+    <article className="primary-form-container shipping-details-form">
       <div className="email-container user-info-div">
         <label htmlFor="email">Email:</label>
         <input
@@ -159,7 +159,7 @@ export function ShippingDetailsForm({
           <Select
             styles={dropDownStyles("form", false, true)}
             value={{ value: address?.state, label: address?.state }}
-            isDisabled={true}
+            isDisabled
           />
         </label>
       </div>

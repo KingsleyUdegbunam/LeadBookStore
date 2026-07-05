@@ -2,8 +2,6 @@ import { ShippingOptions } from "./ShippingOptions";
 import { ShippingDetails } from "./ShippingDetails";
 
 export function ShippingInfo({
-  address,
-  setAddress,
   showShippingOptForm,
   selectedShipping,
   setSelectedShipping,
@@ -21,8 +19,8 @@ export function ShippingInfo({
     <>
       {showShippingOptForm && (
         <ShippingOptions
-          address={address}
-          setAddress={setAddress}
+          shippingDetails={shippingDetails}
+          setShippingDetails={setShippingDetails}
           selectedShipping={selectedShipping}
           setSelectedShipping={setSelectedShipping}
         />
@@ -30,7 +28,6 @@ export function ShippingInfo({
 
       {showShippingDetailsForm && (
         <ShippingDetails
-          address={address}
           shippingDetails={shippingDetails}
           setShippingDetails={setShippingDetails}
         />

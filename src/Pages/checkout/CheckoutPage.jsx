@@ -17,21 +17,19 @@ export default function CheckoutPage({
   cartTotalPrice,
 }) {
   // Shouldn't we have the house number as well?
-  const [address, setAddress] = useState({
+  const [shippingDetails, setShippingDetails] = useState({
     country: "Nigeria",
     state: "",
     city: "",
-  });
-
-  const [shippingDetails, setShippingDetails] = useState({
+    address: "",
+    tel: "",
     email: "",
     firstName: "",
     lastName: "",
-    address: "",
-    tel: "",
+    deliveryNotes: "",
   });
 
-  const [selectedShipping, setSelectedShipping] = useState(null);
+  const [selectedShipping, setSelectedShipping] = useState({});
 
   const [showShippingDetailsForm, setShowShippingDetailsForm] = useState(true);
   const [showShippingOptForm, setShowShippingOptForm] = useState(true);
@@ -42,7 +40,6 @@ export default function CheckoutPage({
   const isReadyToPay = !showShippingDetailsForm && !showShippingOptForm;
 
   console.log(shippingDetails);
-  console.log(address);
 
   console.log(cart);
 
@@ -84,8 +81,6 @@ export default function CheckoutPage({
           )}
 
           <ShippingInfo
-            address={address}
-            setAddress={setAddress}
             showShippingOptForm={showShippingOptForm}
             showShippingDetailsForm={showShippingDetailsForm}
             shippingDetails={shippingDetails}
@@ -95,12 +90,13 @@ export default function CheckoutPage({
           />
 
           <ActionButton
+            setShowShippingOptForm={setShowShippingOptForm}
+            setShowShipDetailsForm={setShowShippingDetailsForm}
             isReadyToPay={isReadyToPay}
             cartTotalPrice={cartTotalPrice}
             cartInDetail={cartInDetail}
             shippingDetails={shippingDetails}
             selectedShipping={selectedShipping}
-            address={address}
             setCart={setCart}
             setShowSummary={setShowSummary}
             initiatePayment={initiatePayment}

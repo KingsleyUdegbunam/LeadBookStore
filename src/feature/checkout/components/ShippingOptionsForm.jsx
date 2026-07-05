@@ -8,8 +8,8 @@ import { convertToNaira } from "../../../utilities/money";
 import { dropDownStyles, getShippingOptions } from "../utilities";
 
 export function ShippingOptionsForm({
-  address,
-  setAddress,
+  shippingDetails,
+  setShippingDetails,
   selectedShipping,
   setSelectedShipping,
 }) {
@@ -21,12 +21,22 @@ export function ShippingOptionsForm({
     setStateError(true);
   };
 
-  const shippingOptions = getShippingOptions(address.state);
+  const validDeliveryFields = () => {
+    !shippingDetails?.city && !shippingDetails?.state
+      ? doubleError()
+      : shippingDetails?.state && !shippingDetails?.city
+        ? setCityError(true)
+        : "";
+  };
+
+  const shippingOptions = getShippingOptions(shippingDetails?.state);
+
   const states = getStates();
   const stateOptions = states
     .map((state) => ({ value: state, label: state }))
     .sort((a, b) => a.label.localeCompare(b.label));
-  const cityOptions = getCitiesAndTownsByState(address?.state)
+
+  const cityOptions = getCitiesAndTownsByState(shippingDetails?.state)
     .map((city) => ({
       value: city,
       label: city,
@@ -34,7 +44,7 @@ export function ShippingOptionsForm({
     .sort((a, b) => a.label.localeCompare(b.label));
 
   const handleStateChange = (value) => {
-    setAddress((prev) => ({ ...prev, state: value, city: "" }));
+    setShippingDetails((prev) => ({ ...prev, state: value, city: "" }));
     setSelectedShipping(getShippingOptions(value)[0]);
   };
 
@@ -47,7 +57,10 @@ export function ShippingOptionsForm({
             <p>Country/Region</p>
 
             <Select
-              value={{ value: address?.country, label: address?.country }}
+              value={{
+                value: shippingDetails?.country,
+                label: shippingDetails?.country,
+              }}
               styles={dropDownStyles("shippingOpts", false, true)}
               isDisabled
               isSearchable={false}
@@ -63,7 +76,9 @@ export function ShippingOptionsForm({
               styles={dropDownStyles("shippingOpts", stateError)}
               options={stateOptions}
               value={
-                stateOptions.find((opt) => opt.value === address.state) ?? null
+                stateOptions.find(
+                  (opt) => opt.value === shippingDetails?.state,
+                ) ?? null
               }
               onChange={(selected) => {
                 handleStateChange(selected.value);
@@ -83,10 +98,12 @@ export function ShippingOptionsForm({
               styles={dropDownStyles("shippingOpts", cityError)}
               options={cityOptions}
               value={
-                cityOptions.find((opt) => opt.value === address.city) ?? null
+                cityOptions.find(
+                  (opt) => opt.value === shippingDetails?.city,
+                ) ?? null
               }
               onChange={(selected) => {
-                setAddress((prev) => {
+                setShippingDetails((prev) => {
                   return {
                     ...prev,
                     city: selected.value,
@@ -111,13 +128,7 @@ export function ShippingOptionsForm({
                 name="shipping"
                 id={option.id}
                 checked={selectedShipping?.id === option.id}
-                onClick={
-                  address?.city
-                    ? () => {
-                        return "";
-                      }
-                    : doubleError
-                }
+                onClick={validDeliveryFields}
                 onChange={() => setSelectedShipping(option)}
               />
               <span>

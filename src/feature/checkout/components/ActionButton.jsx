@@ -7,14 +7,13 @@ export function ActionButton({
   cartInDetail,
   shippingDetails,
   selectedShipping,
-  address,
   setCart,
   setShowSummary,
   initiatePayment,
   setShowShipDetailsForm,
   setShowShippingOptForm,
 }) {
-  const formValid = isFormValid(address, shippingDetails);
+  const formValid = isFormValid(shippingDetails, selectedShipping);
   const navigate = useNavigate();
 
   const hideForms = () => {
@@ -33,7 +32,6 @@ export function ActionButton({
               cartInDetail,
               shippingDetails,
               selectedShipping,
-              address,
               setCart,
               navigate,
             );

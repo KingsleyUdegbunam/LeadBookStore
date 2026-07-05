@@ -2,15 +2,16 @@ import Paystack from "@paystack/inline-js";
 import { createOrder } from "../../services/orderServices";
 import dayjs from "dayjs";
 
-export function isFormValid(address, shippingDetails) {
+export function isFormValid(shippingDetails, selectedShipping) {
   const validity =
-    address.state.trim() !== "" &&
-    address.city.trim() !== "" &&
-    shippingDetails.email.trim() !== "" &&
-    shippingDetails.firstName.trim() !== "" &&
-    shippingDetails.lastName.trim() !== "" &&
-    shippingDetails.address.trim() !== "" &&
-    shippingDetails.tel.trim() !== "";
+    shippingDetails?.state.trim() !== "" &&
+    shippingDetails?.city.trim() !== "" &&
+    shippingDetails?.firstName.trim() !== "" &&
+    shippingDetails?.lastName.trim() !== "" &&
+    shippingDetails?.email.trim() !== "" &&
+    shippingDetails?.address.trim() !== "" &&
+    shippingDetails?.tel.trim() !== "" &&
+    selectedShipping?.id;
 
   return validity;
 }
@@ -20,16 +21,16 @@ export const initiatePayment = (
   cartInDetail,
   shippingDetails,
   selectedShipping,
-  address,
   setCart,
   navigate,
 ) => {
   const popup = new Paystack();
+  const totalCost = cartTotalPrice + selectedShipping?.costInCents;
 
   popup.checkout({
     key: "pk_test_87b24dad8322dd4a245702d85bd6035e9af5650b",
-    email: shippingDetails.email,
-    amount: cartTotalPrice + selectedShipping.costInCents,
+    email: shippingDetails?.email,
+    amount: totalCost,
     onSuccess: async (transaction) => {
       console.log(transaction);
       try {
@@ -40,10 +41,10 @@ export const initiatePayment = (
         const orderData = {
           reference: transaction.reference,
           subtotal: cartTotalPrice,
-          total: cartTotalPrice + selectedShipping.costInCents,
+          total: totalCost,
           items: cartInDetail,
-          shipping_details: { ...address, ...shippingDetails },
-          email: shippingDetails.email,
+          shipping_details: shippingDetails,
+          email: shippingDetails?.email,
           courier_details: selectedShipping,
           status: "paid",
           created_at: new Date(),
@@ -68,7 +69,7 @@ export const initiatePayment = (
     },
     onError: (error) => {
       console.log("Error: ", error.message);
-      alert("Payment failed. Please try again.");
+      alert(error.message);
     },
   });
 };

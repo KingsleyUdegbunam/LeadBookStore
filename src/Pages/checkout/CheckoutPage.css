@@ -6,6 +6,10 @@ button {
   font-family: "Outfit", sans-serif;
 }
 
+input::placeholder {
+  color: lightgray;
+}
+
 .important {
   color: red;
 }
@@ -127,6 +131,22 @@ input {
 .form-section-container {
   padding: 0;
   padding-block-start: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.auth-cta-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.details-subheader {
+  font-size: 0.75rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  color: gray;
 }
 
 .primary-form-container {
@@ -183,6 +203,11 @@ input {
   width: initial;
 }
 
+.text-right-aligned {
+  text-align: right;
+  font-size: 0.65rem;
+}
+
 /* USER DETAILS */
 .account-action {
   font-weight: 400;
@@ -190,9 +215,9 @@ input {
 }
 .user-info-div {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  margin-block: 1rem;
+  margin-block: 0.5rem;
 }
 
 .primary-form-container > *:first-child {
@@ -211,12 +236,6 @@ input {
 .tel-input-field-and-error-display {
   display: flex;
   flex-direction: column;
-  width: 80%;
-}
-
-.user-info-div input,
-.user-name div input {
-  width: 80%;
 }
 
 .tel-input-field-and-error-display input {

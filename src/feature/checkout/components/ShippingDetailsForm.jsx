@@ -1,20 +1,25 @@
 import { useState } from "react";
-import Select from "react-select";
-import { dropDownStyles } from "../utilities";
 import { isValidPhoneNumber } from "libphonenumber-js";
 
-export function ShippingDetailsForm({
-  address,
-  shippingDetails,
-  setShippingDetails,
-}) {
+export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
   const [phone, setPhone] = useState();
   const [phoneError, setPhoneError] = useState(false);
 
   return (
     <article className="primary-form-container shipping-details-form">
+      {shippingDetails?.state && (
+        <div className="details-subheader text-right-aligned">
+          <p>
+            📍 {shippingDetails?.state}
+            {shippingDetails?.city && ", " + shippingDetails?.city}
+          </p>
+        </div>
+      )}
+
       <div className="email-container user-info-div">
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email">
+          Email<span className="important">*</span>
+        </label>
         <input
           type="email"
           name="email"
@@ -32,7 +37,9 @@ export function ShippingDetailsForm({
       </div>
 
       <div className="user-info-div">
-        <label htmlFor="first-name">First Name:</label>
+        <label htmlFor="first-name">
+          First Name<span className="important">*</span>
+        </label>
         <input
           type="text"
           name="first-name"
@@ -49,7 +56,9 @@ export function ShippingDetailsForm({
       </div>
 
       <div className="user-info-div">
-        <label htmlFor="last-name">Last Name:</label>
+        <label htmlFor="last-name">
+          Last Name<span className="important">*</span>
+        </label>
         <input
           type="text"
           name="last-name"
@@ -65,26 +74,11 @@ export function ShippingDetailsForm({
         />
       </div>
 
-      <div className="address user-info-div">
-        <label htmlFor="address">Address:</label>
-        <input
-          required
-          type="text"
-          name="address"
-          id="address"
-          value={shippingDetails?.address}
-          onChange={(e) => {
-            setShippingDetails((prev) => ({
-              ...prev,
-              address: e.target.value,
-            }));
-          }}
-        />
-      </div>
-
       <div className="tel-container">
         <div className="user-info-div">
-          <label htmlFor="telephone">Phone:</label>
+          <label htmlFor="telephone">
+            Phone<span className="important">*</span>
+          </label>
           <div className="tel-input-field-and-error-display">
             <input
               value={phone}
@@ -138,9 +132,55 @@ export function ShippingDetailsForm({
         </div>
       </div>
 
-      <div className="user-info-div">
+      <div className="address user-info-div">
+        <label htmlFor="address">
+          Address<span className="important">*</span>
+          <p className="details-subheader">
+            Include your house number and street name
+          </p>
+        </label>
+
+        <input
+          placeholder="12 Admiralty Way"
+          required
+          type="text"
+          name="address"
+          id="address"
+          value={shippingDetails?.address}
+          onChange={(e) => {
+            setShippingDetails((prev) => ({
+              ...prev,
+              address: e.target.value,
+            }));
+          }}
+        />
+      </div>
+
+      <div className="address user-info-div">
+        <label htmlFor="address">
+          Landmark/Delivery Notes?
+          <span className="details-subheader"> (Optional)</span>
+        </label>
+
+        <input
+          placeholder="e.g. Opposite GTBank or Blue Gate, Flat 2B"
+          required
+          type="text"
+          name="address"
+          id="address"
+          value={shippingDetails?.deliveryNotes}
+          onChange={(e) => {
+            setShippingDetails((prev) => ({
+              ...prev,
+              deliveryNotes: e.target.value,
+            }));
+          }}
+        />
+      </div>
+
+      {/* <div className="user-info-div">
         <label className="user-state-label" htmlFor="">
-          Country:
+          Country
           <Select
             isDisabled
             styles={dropDownStyles("form", false, true)}
@@ -155,14 +195,14 @@ export function ShippingDetailsForm({
 
       <div className="user-info-div">
         <label className="user-state-label" htmlFor="state">
-          State:
+          State
           <Select
             styles={dropDownStyles("form", false, true)}
             value={{ value: address?.state, label: address?.state }}
             isDisabled
           />
         </label>
-      </div>
+      </div> */}
     </article>
   );
 }

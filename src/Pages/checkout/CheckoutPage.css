@@ -2,6 +2,7 @@
 p,
 span,
 input,
+textarea,
 button {
   font-family: "Outfit", sans-serif;
 }
@@ -20,7 +21,8 @@ input::placeholder {
   gap: 0.3rem;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   padding: 0.4rem 1rem;
   font-size: 0.9rem;
@@ -164,7 +166,8 @@ input {
   font-family: "Outfit", sans-serif;
 }
 
-.user-info-div input {
+.user-info-div input,
+.user-info-div textarea {
   font-family: "Anonymous Pro", monospace;
   font-size: 0.8rem;
   border-radius: 0.2rem;
@@ -172,7 +175,8 @@ input {
 }
 
 @supports (-webkit-touch-callout: none) {
-  .user-info-div input {
+  .user-info-div input,
+  .user-info-div textarea {
     font-size: 1rem;
   }
 }

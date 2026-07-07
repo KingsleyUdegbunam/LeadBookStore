@@ -1,22 +1,89 @@
+import { useState } from "react";
 import { ShippingOptions } from "./ShippingOptions";
 import { ShippingDetails } from "./ShippingDetails";
+import { ActionButton } from "./ActionButton";
+import { isValidAddress, isValidEmail, isValidName } from "../utilities";
+import { isValidNumber } from "libphonenumber-js";
+import { useNavigate } from "react-router-dom";
+import { initiatePayment } from "../utilities";
 
 export function ShippingInfo({
   showShippingOptForm,
+  showShippingDetailsForm,
+  setShowShippingDetailsForm,
+  setShowShippingOptForm,
+  setShowSummary,
+
   selectedShipping,
   setSelectedShipping,
-  showShippingDetailsForm,
+
   shippingDetails,
   setShippingDetails,
+  cartTotalPrice,
+  cartInDetail,
+  setCart,
 }) {
-  //Shipping options only gets set when the user have passed in their state in the select dropdown.
-  //This is solely because we need to know if the user is a resident of FCT which have a lower shipping rate.
+  const [phoneError, setPhoneError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [firstNameError, setFirstNameError] = useState(false);
+  const [lastNameError, setLastNameError] = useState(false);
+  const [addressError, setAddressError] = useState(null);
+  const [notesError, setNotesError] = useState(false);
 
-  //handleStateChange function takes the user State selection but most importantly, set the city to empty string. This is intentional as leaving a previous city in the address object will be cause false information.
-  //Also, we re-evaluate the shipping option again to know if isAbuja is true.
+  const navigate = useNavigate();
+
+  const hideForms = () => {
+    setShowShippingDetailsForm(false);
+    setShowShippingOptForm(false);
+  };
+  const isReadyToPay = !showShippingDetailsForm && !showShippingOptForm;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validEmail = isValidEmail(shippingDetails?.email);
+    !validEmail && setEmailError(true);
+
+    const validFirstName = isValidName(shippingDetails?.firstName);
+    !validFirstName && setFirstNameError(true);
+
+    const validLastName = isValidName(shippingDetails?.lastName);
+    !validLastName && setLastNameError(true);
+
+    const validTel = isValidNumber(shippingDetails?.tel, "NG");
+    !validTel && setPhoneError(true);
+
+    const invalidAddress = isValidAddress(shippingDetails?.address);
+    invalidAddress && setAddressError(invalidAddress);
+
+    const validForm =
+      validEmail &&
+      validFirstName &&
+      validLastName &&
+      validTel &&
+      !invalidAddress &&
+      shippingDetails?.state.trim() !== "" &&
+      shippingDetails?.city.trim() !== "" &&
+      selectedShipping?.id;
+
+    if (validForm) {
+      if (isReadyToPay) {
+        initiatePayment(
+          cartTotalPrice,
+          cartInDetail,
+          shippingDetails,
+          selectedShipping,
+          setCart,
+          navigate,
+        );
+        return;
+      }
+      hideForms();
+      setShowSummary(true);
+    }
+  };
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       {showShippingOptForm && (
         <ShippingOptions
           shippingDetails={shippingDetails}
@@ -28,10 +95,24 @@ export function ShippingInfo({
 
       {showShippingDetailsForm && (
         <ShippingDetails
+          phoneError={phoneError}
+          emailError={emailError}
+          firstNameError={firstNameError}
+          lastNameError={lastNameError}
+          addressError={addressError}
+          notesError={notesError}
+          setPhoneError={setPhoneError}
+          setEmailError={setEmailError}
+          setFirstNameError={setFirstNameError}
+          setLastNameError={setLastNameError}
+          setAddressError={setAddressError}
+          setNotesError={setNotesError}
           shippingDetails={shippingDetails}
           setShippingDetails={setShippingDetails}
         />
       )}
-    </>
+
+      <ActionButton isReadyToPay={isReadyToPay} />
+    </form>
   );
 }

@@ -3,7 +3,6 @@ import { useState } from "react";
 // import { DiscountField } from "../../feature/checkout/components/DiscountField";
 import { TotalCost } from "../../feature/checkout/components/TotalCost";
 import { ShippingInfo } from "../../feature/checkout/components/ShippingInfo";
-import { ActionButton } from "../../feature/checkout/components/ActionButton";
 import { CartItemsSummary } from "../../feature/checkout/components/CartItemsSummary";
 import { CheckoutDetailSummary } from "../../feature/checkout/components/CheckoutDetailSummary";
 import { initiatePayment } from "../../feature/checkout/utilities";
@@ -11,7 +10,6 @@ import { convertToNaira } from "../../utilities/money";
 import "./CheckoutPage.css";
 
 export default function CheckoutPage({
-  cart,
   setCart,
   cartInDetail,
   cartTotalPrice,
@@ -37,11 +35,6 @@ export default function CheckoutPage({
   const [showSummary, setShowSummary] = useState(false);
 
   // Is the display of forms a good qualifier for being ready to pay?
-  const isReadyToPay = !showShippingDetailsForm && !showShippingOptForm;
-
-  console.log(shippingDetails);
-
-  console.log(cart);
 
   return (
     <section className="checkout-section">
@@ -83,22 +76,16 @@ export default function CheckoutPage({
           <ShippingInfo
             showShippingOptForm={showShippingOptForm}
             showShippingDetailsForm={showShippingDetailsForm}
-            shippingDetails={shippingDetails}
-            setShippingDetails={setShippingDetails}
+            setShowShippingDetailsForm={setShowShippingDetailsForm}
+            setShowShippingOptForm={setShowShippingOptForm}
+            setShowSummary={setShowSummary}
             selectedShipping={selectedShipping}
             setSelectedShipping={setSelectedShipping}
-          />
-
-          <ActionButton
-            setShowShippingOptForm={setShowShippingOptForm}
-            setShowShipDetailsForm={setShowShippingDetailsForm}
-            isReadyToPay={isReadyToPay}
+            shippingDetails={shippingDetails}
+            setShippingDetails={setShippingDetails}
             cartTotalPrice={cartTotalPrice}
             cartInDetail={cartInDetail}
-            shippingDetails={shippingDetails}
-            selectedShipping={selectedShipping}
             setCart={setCart}
-            setShowSummary={setShowSummary}
             initiatePayment={initiatePayment}
           />
         </div>

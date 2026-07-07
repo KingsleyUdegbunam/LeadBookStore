@@ -1,10 +1,27 @@
-import { useState } from "react";
 import { isValidPhoneNumber } from "libphonenumber-js";
+import {
+  isValidAddress,
+  isValidDeliveryNotes,
+  isValidEmail,
+  isValidName,
+} from "../utilities";
 
-export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
-  const [phone, setPhone] = useState();
-  const [phoneError, setPhoneError] = useState(false);
-
+export function ShippingDetailsForm({
+  phoneError,
+  emailError,
+  firstNameError,
+  lastNameError,
+  addressError,
+  notesError,
+  setPhoneError,
+  setEmailError,
+  setFirstNameError,
+  setLastNameError,
+  setAddressError,
+  setNotesError,
+  shippingDetails,
+  setShippingDetails,
+}) {
   return (
     <article className="primary-form-container shipping-details-form">
       {shippingDetails?.state && (
@@ -26,14 +43,27 @@ export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
           id="email"
           value={shippingDetails?.email}
           onChange={(e) => {
+            const value = e.target.value;
             setShippingDetails((prev) => ({
               ...prev,
               email: e.target.value,
             }));
+            if (emailError) {
+              setEmailError(!isValidEmail(value));
+            }
+          }}
+          onBlur={() => {
+            const validEmail = isValidEmail(shippingDetails?.email);
+            setEmailError(!validEmail);
           }}
           required
           placeholder="Email address"
         />
+        {emailError && (
+          <span className="tel-error">
+            {shippingDetails?.email} is not a valid email address
+          </span>
+        )}
       </div>
 
       <div className="user-info-div">
@@ -46,13 +76,25 @@ export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
           id="first-name"
           value={shippingDetails?.firstName}
           required
-          onChange={(e) =>
+          onChange={(e) => {
+            const value = e.target.value;
             setShippingDetails((prev) => ({
               ...prev,
               firstName: e.target.value,
-            }))
-          }
+            }));
+
+            if (firstNameError) {
+              setFirstNameError(!isValidName(value));
+            }
+          }}
+          onBlur={() => {
+            const valid = isValidName(shippingDetails?.firstName);
+            setFirstNameError(!valid);
+          }}
         />
+        {firstNameError && (
+          <span className="tel-error">Enter a valid name</span>
+        )}
       </div>
 
       <div className="user-info-div">
@@ -65,13 +107,22 @@ export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
           id="last-name"
           value={shippingDetails?.lastName}
           required
-          onChange={(e) =>
+          onChange={(e) => {
+            const value = e.target.value;
             setShippingDetails((prev) => ({
               ...prev,
               lastName: e.target.value,
-            }))
-          }
+            }));
+
+            if (lastNameError) {
+              setLastNameError(!isValidName(value));
+            }
+          }}
+          onBlur={() => {
+            setLastNameError(!isValidName(shippingDetails?.lastName));
+          }}
         />
+        {lastNameError && <span className="tel-error">Enter a valid name</span>}
       </div>
 
       <div className="tel-container">
@@ -81,45 +132,32 @@ export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
           </label>
           <div className="tel-input-field-and-error-display">
             <input
-              value={phone}
+              value={shippingDetails?.tel}
               onChange={(e) => {
-                setPhone(e.target.value);
+                const value = e.target.value;
+                setShippingDetails((prev) => ({ ...prev, tel: value }));
                 if (phoneError) {
-                  const valid = isValidPhoneNumber(e.target.value, "NG");
+                  const valid = isValidPhoneNumber(value, "NG");
                   setPhoneError(!valid);
-
-                  if (valid) {
-                    setShippingDetails((prev) => ({
-                      ...prev,
-                      tel: e.target.value,
-                    }));
-                  }
                 }
               }}
               onBlur={() => {
-                const valid = isValidPhoneNumber(phone, "NG");
+                const valid = isValidPhoneNumber(shippingDetails?.tel, "NG");
                 setPhoneError(!valid);
-
-                if (valid) {
-                  setShippingDetails((prev) => ({
-                    ...prev,
-                    tel: phone,
-                  }));
-                }
               }}
-              onAnimationStart={(e) => {
-                if (e.animationName === "onAutoFillStart") {
-                  const valid = isValidPhoneNumber(e.target.value, "NG");
-                  setPhoneError(!valid);
-                  setPhone(e.target.value);
-                  if (valid) {
-                    setShippingDetails((prev) => ({
-                      ...prev,
-                      tel: e.target.value,
-                    }));
-                  }
-                }
-              }}
+              // onAnimationStart={(e) => {
+              //   if (e.animationName === "onAutoFillStart") {
+              //     const valid = isValidPhoneNumber(e.target.value, "NG");
+              //     setPhoneError(!valid);
+              //     setPhone(e.target.value);
+              //     if (valid) {
+              //       setShippingDetails((prev) => ({
+              //         ...prev,
+              //         tel: e.target.value,
+              //       }));
+              //     }
+              //   }
+              // }}
               type="tel"
               name="telephone"
               id="telephone"
@@ -148,61 +186,60 @@ export function ShippingDetailsForm({ shippingDetails, setShippingDetails }) {
           id="address"
           value={shippingDetails?.address}
           onChange={(e) => {
+            const value = e.target.value;
             setShippingDetails((prev) => ({
               ...prev,
               address: e.target.value,
             }));
+            if (addressError) {
+              const response = isValidAddress(value);
+              setAddressError(response);
+            }
+          }}
+          onBlur={() => {
+            const response = isValidAddress(shippingDetails?.address);
+            setAddressError(response);
           }}
         />
+        {addressError && <span className="tel-error">{addressError}</span>}
       </div>
 
       <div className="address user-info-div">
-        <label htmlFor="address">
+        <label htmlFor="deliveryNotes">
           Landmark/Delivery Notes?
           <span className="details-subheader"> (Optional)</span>
         </label>
 
-        <input
+        <textarea
           placeholder="e.g. Opposite GTBank or Blue Gate, Flat 2B"
-          required
+          rows={3}
+          maxLength={500}
           type="text"
-          name="address"
-          id="address"
+          name="deliveryNotes"
+          id="deliveryNotes"
           value={shippingDetails?.deliveryNotes}
           onChange={(e) => {
+            const value = e.target.value;
             setShippingDetails((prev) => ({
               ...prev,
               deliveryNotes: e.target.value,
             }));
+
+            if (notesError) {
+              isValidDeliveryNotes(value) && setNotesError(!notesError);
+            }
+          }}
+          onBlur={() => {
+            !isValidDeliveryNotes(shippingDetails?.deliveryNotes) &&
+              setNotesError(true);
           }}
         />
+        {notesError && (
+          <span className="tel-error">
+            "Delivery notes cannot exceed 500 characters."
+          </span>
+        )}
       </div>
-
-      {/* <div className="user-info-div">
-        <label className="user-state-label" htmlFor="">
-          Country
-          <Select
-            isDisabled
-            styles={dropDownStyles("form", false, true)}
-            options={[{ value: "Nigeria", label: "Nigeria" }]}
-            value={{
-              value: address.country,
-              label: address.country,
-            }}
-          />
-        </label>
-      </div>
-
-      <div className="user-info-div">
-        <label className="user-state-label" htmlFor="state">
-          State
-          <Select
-            styles={dropDownStyles("form", false, true)}
-            value={{ value: address?.state, label: address?.state }}
-            isDisabled
-          />
-        </label>
-      </div> */}
     </article>
   );
 }

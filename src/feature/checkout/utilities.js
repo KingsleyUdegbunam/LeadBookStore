@@ -1,16 +1,81 @@
 import Paystack from "@paystack/inline-js";
 import { createOrder } from "../../services/orderServices";
 import dayjs from "dayjs";
+import { isValidPhoneNumber } from "libphonenumber-js";
+
+export const isValidEmail = (email) => {
+  const trimmed = email.trim();
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  return regex.test(trimmed);
+};
+
+export const isValidName = (name) => {
+  const trimmed = name.trim().replace(/\s+/g, " ");
+  if (trimmed.length < 2) return false;
+
+  const regex = /^[\p{L}\p{M}]+(?:[-' ][\p{L}\p{M}]+)*$/u;
+  return regex.test(trimmed);
+};
+
+export const isValidAddress = (address) => {
+  const trimmed = address.trim().replace(/\s+/g, " ");
+
+  if (!trimmed) {
+    return "Enter a valid email address";
+  }
+  if (!/^[\p{L}\p{M}\d\s,.'#/()-]{5,100}$/u.test(trimmed)) {
+    return "Address contains invalid characters";
+  }
+
+  if (trimmed.length < 5) {
+    return "Address is too short";
+  }
+
+  if (!/\d/.test(trimmed)) {
+    return "Please include your house or building number";
+  }
+
+  return null;
+};
+
+export const isValidDeliveryNotes = (notes) => {
+  const trimmed = notes.trim();
+
+  if (!trimmed) return true;
+  return trimmed.length <= 500;
+};
 
 export function isFormValid(shippingDetails, selectedShipping) {
+  const validFirstName = {
+    isValid: isValidName(shippingDetails?.firstName),
+    message: isValidName(shippingDetails?.firstName)
+      ? null
+      : "Invalid first name",
+  };
+  const validLastName = {
+    isValid: isValidName(shippingDetails?.lastName),
+    message: isValidName(shippingDetails?.lastName)
+      ? null
+      : "Invalid last name",
+  };
+
+  const validEmail = {
+    isValid: isValidEmail(shippingDetails?.email),
+    message: isValidEmail(shippingDetails?.email) ? null : "Invalid First name",
+  };
+
+  const validTel = isValidPhoneNumber(shippingDetails?.tel, "NG");
+  const validAddress = !isValidAddress(shippingDetails?.address);
+
   const validity =
+    validFirstName &&
+    validLastName &&
+    validEmail &&
+    validTel &&
+    validAddress &&
     shippingDetails?.state.trim() !== "" &&
     shippingDetails?.city.trim() !== "" &&
-    shippingDetails?.firstName.trim() !== "" &&
-    shippingDetails?.lastName.trim() !== "" &&
-    shippingDetails?.email.trim() !== "" &&
-    shippingDetails?.address.trim() !== "" &&
-    shippingDetails?.tel.trim() !== "" &&
     selectedShipping?.id;
 
   return validity;

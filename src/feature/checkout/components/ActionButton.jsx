@@ -1,47 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import { isFormValid } from "../utilities";
-
-export function ActionButton({
-  isReadyToPay,
-  cartTotalPrice,
-  cartInDetail,
-  shippingDetails,
-  selectedShipping,
-  setCart,
-  setShowSummary,
-  initiatePayment,
-  setShowShipDetailsForm,
-  setShowShippingOptForm,
-}) {
-  const formValid = isFormValid(shippingDetails, selectedShipping);
-  const navigate = useNavigate();
-
-  const hideForms = () => {
-    setShowShipDetailsForm(false);
-    setShowShippingOptForm(false);
-  };
+export function ActionButton({ isReadyToPay }) {
   return (
-    <button
-      disabled={!isFormValid}
-      className={`checkout-page-btn-disabled checkout-continue-btn ${formValid && "btn-enabled"}`}
-      onClick={() => {
-        if (formValid) {
-          if (isReadyToPay) {
-            initiatePayment(
-              cartTotalPrice,
-              cartInDetail,
-              shippingDetails,
-              selectedShipping,
-              setCart,
-              navigate,
-            );
-            return;
-          }
-          hideForms();
-          setShowSummary(true);
-        }
-      }}
-    >
+    <button type="submit" className={`checkout-continue-btn btn-enabled}`}>
       {isReadyToPay ? "PLACE ORDER" : "CONTINUE"}
     </button>
   );

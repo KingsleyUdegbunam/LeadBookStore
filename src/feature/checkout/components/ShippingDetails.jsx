@@ -1,6 +1,21 @@
 import { Link } from "react-router-dom";
 import { ShippingDetailsForm } from "./ShippingDetailsForm";
-export function ShippingDetails({ shippingDetails, setShippingDetails }) {
+export function ShippingDetails({
+  phoneError,
+  emailError,
+  firstNameError,
+  lastNameError,
+  addressError,
+  notesError,
+  setPhoneError,
+  setEmailError,
+  setFirstNameError,
+  setLastNameError,
+  setAddressError,
+  setNotesError,
+  shippingDetails,
+  setShippingDetails,
+}) {
   return (
     <section className="form-section-container">
       <div className="form-header-container">
@@ -13,6 +28,18 @@ export function ShippingDetails({ shippingDetails, setShippingDetails }) {
           <Link className="checkout-links">Log in</Link> for a faster checkout.
         </p>
         <ShippingDetailsForm
+          phoneError={phoneError}
+          emailError={emailError}
+          firstNameError={firstNameError}
+          lastNameError={lastNameError}
+          addressError={addressError}
+          notesError={notesError}
+          setPhoneError={setPhoneError}
+          setEmailError={setEmailError}
+          setFirstNameError={setFirstNameError}
+          setLastNameError={setLastNameError}
+          setAddressError={setAddressError}
+          setNotesError={setNotesError}
           shippingDetails={shippingDetails}
           setShippingDetails={setShippingDetails}
         />

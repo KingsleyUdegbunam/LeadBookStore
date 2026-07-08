@@ -7,8 +7,18 @@ button {
   font-family: "Outfit", sans-serif;
 }
 
+strong {
+  font-weight: 600;
+  color: rgb(37, 37, 37);
+  font-family: "Outfit", sans-serif;
+}
+
 input::placeholder {
   color: lightgray;
+}
+
+.summary-header {
+  font-weight: 600;
 }
 
 .important {
@@ -149,6 +159,34 @@ textarea {
   font-family: "Outfit", sans-serif;
   font-weight: 300;
   color: gray;
+}
+.user-details {
+  font-size: 0.78rem;
+  color: rgb(37, 37, 37);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.delivery-notes {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.truncate-btn {
+  width: fit-content;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  padding-inline: 0;
+  text-transform: none;
+  background-color: transparent;
+  color: var(--brand-red-clr);
+  font-weight: 500;
+}
+
+.truncate-btn:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 .primary-form-container {

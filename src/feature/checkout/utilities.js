@@ -15,6 +15,7 @@ export const isValidName = (name) => {
   if (trimmed.length < 2) return false;
 
   const regex = /^[\p{L}\p{M}]+(?:[-' ][\p{L}\p{M}]+)*$/u;
+
   return regex.test(trimmed);
 };
 
@@ -35,7 +36,6 @@ export const isValidAddress = (address) => {
   if (!/\d/.test(trimmed)) {
     return "Please include your house or building number";
   }
-
   return null;
 };
 
@@ -44,6 +44,12 @@ export const isValidDeliveryNotes = (notes) => {
 
   if (!trimmed) return true;
   return trimmed.length <= 500;
+};
+
+export const truncate = (text, maxLength = 120) => {
+  if (!text) return "";
+
+  return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 };
 
 export function isFormValid(shippingDetails, selectedShipping) {
@@ -218,24 +224,48 @@ export function getShippingOptions(state) {
   return [
     {
       id: "DHL",
-      desc: "2-5 Working Days",
-      minDeliveryDay: today.add(2, "day").format("MMM DD, YYYY"),
-      maxDeliveryDay: today.add(5, "day").format("MMM DD, YYYY"),
+      desc: "2–5 working days",
+      minDeliveryDay: calculateDeliveryDays(2),
+      maxDeliveryDay: calculateDeliveryDays(5),
       costInCents: isAbuja ? 1000000 : 1500000,
     },
     {
       id: "KOS",
-      desc: "4-7 Working Days",
-      minDeliveryDay: today.add(4, "day").format("MMM DD, YYYY"),
-      maxDeliveryDay: today.add(7, "day").format("MMM DD, YYYY"),
+      desc: "4–7 working days",
+      minDeliveryDay: calculateDeliveryDays(4),
+      maxDeliveryDay: calculateDeliveryDays(7),
       costInCents: isAbuja ? 550000 : 650000,
     },
     {
       id: "Shipbubble",
-      desc: "7-10 Working Days",
-      minDeliveryDay: today.add(7, "day").format("MMM DD, YYYY"),
-      maxDeliveryDay: today.add(10, "day").format("MMM DD, YYYY"),
+      desc: "7–10 working days",
+      minDeliveryDay: calculateDeliveryDays(7),
+      maxDeliveryDay: calculateDeliveryDays(10),
       costInCents: isAbuja ? 350000 : 450000,
     },
   ];
 }
+//check if tomorroq falls in weekend
+//if yes, skip
+//if no, substract from countdown
+//loop again
+export const calculateDeliveryDays = (length) => {
+  const orderedDate = dayjs();
+  let today = dayjs();
+  let countdown = length;
+  const weekend = [0, 6];
+
+  while (countdown) {
+    today = today.add(1, "d");
+    const todayWeekNumber = today.day();
+    const isWeekend = weekend.includes(todayWeekNumber);
+    if (!isWeekend) {
+      countdown--;
+    }
+  }
+  if (orderedDate.year() !== today.year()) {
+    return today.format("ddd, DD MMM YYYY");
+  }
+
+  return today.format("ddd, DD MMM");
+};

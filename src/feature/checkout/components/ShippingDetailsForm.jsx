@@ -206,12 +206,12 @@ export function ShippingDetailsForm({
 
       <div className="address user-info-div">
         <label htmlFor="deliveryNotes">
-          Landmark/Delivery Notes?
+          Delivery Intructions
           <span className="details-subheader"> (Optional)</span>
         </label>
 
         <textarea
-          placeholder="e.g. Opposite GTBank or Blue Gate, Flat 2B"
+          placeholder="e.g. Blue gate, opposite GTBank. Call when you arrive."
           rows={3}
           maxLength={500}
           type="text"

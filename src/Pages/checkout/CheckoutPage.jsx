@@ -61,6 +61,7 @@ export default function CheckoutPage({
             convertToNaira={convertToNaira}
             cartTotalPrice={cartTotalPrice}
             selectedShipping={selectedShipping}
+            shippingDetails={shippingDetails}
           />
 
           {showSummary && (
@@ -74,6 +75,7 @@ export default function CheckoutPage({
           )}
 
           <ShippingInfo
+            showSummary={showSummary}
             showShippingOptForm={showShippingOptForm}
             showShippingDetailsForm={showShippingDetailsForm}
             setShowShippingDetailsForm={setShowShippingDetailsForm}

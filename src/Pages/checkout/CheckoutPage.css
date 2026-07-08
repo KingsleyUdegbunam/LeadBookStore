@@ -7,10 +7,11 @@ button {
   font-family: "Outfit", sans-serif;
 }
 
-strong {
+strong,
+.strong {
   font-weight: 600;
-  color: rgb(37, 37, 37);
   font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
 }
 
 input::placeholder {
@@ -19,6 +20,11 @@ input::placeholder {
 
 .summary-header {
   font-weight: 600;
+}
+
+.little-text {
+  font-size: 0.6rem;
+  opacity: 0.45;
 }
 
 .important {
@@ -160,12 +166,13 @@ textarea {
   font-weight: 300;
   color: gray;
 }
+
 .user-details {
   font-size: 0.78rem;
   color: rgb(37, 37, 37);
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.3rem;
 }
 
 .delivery-notes {
@@ -233,15 +240,28 @@ textarea {
 
 .shipping-opt-radio {
   display: flex;
+  align-items: flex-start;
   gap: 0.2rem;
 }
 
+.shipping-option-container {
+  /* border-radius: 0.4rem; */
+  padding: 0.6rem 0.4rem;
+  /* background-color: rebeccapurple; */
+}
+
+.selected-option-highlight .carrier-cost {
+  color: var(--brand-red-clr);
+}
+
 .shipping-options-container > * {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.8rem; */
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
 }
 
 .shipping-opt-radio input {
   margin: 0;
+  margin-top: 4px;
   width: initial;
 }
 

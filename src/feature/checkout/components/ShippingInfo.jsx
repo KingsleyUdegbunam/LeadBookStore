@@ -12,6 +12,7 @@ export function ShippingInfo({
   showShippingDetailsForm,
   setShowShippingDetailsForm,
   setShowShippingOptForm,
+  showSummary,
   setShowSummary,
 
   selectedShipping,
@@ -23,6 +24,8 @@ export function ShippingInfo({
   cartInDetail,
   setCart,
 }) {
+  const [cityError, setCityError] = useState(false);
+  const [stateError, setStateError] = useState(false);
   const [phoneError, setPhoneError] = useState(false);
   const [emailError, setEmailError] = useState(false);
   const [firstNameError, setFirstNameError] = useState(false);
@@ -37,6 +40,21 @@ export function ShippingInfo({
     setShowShippingOptForm(false);
   };
   const isReadyToPay = !showShippingDetailsForm && !showShippingOptForm;
+
+  const validStateCity = (field) => {
+    if (field === "state") {
+      const isValid = shippingDetails.state ? true : false;
+      !isValid && setStateError(true);
+
+      return isValid;
+    }
+    if (field === "city") {
+      const isValid = shippingDetails.city ? true : false;
+      !isValid && setCityError(true);
+
+      return isValid;
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,17 +73,21 @@ export function ShippingInfo({
     const invalidAddress = isValidAddress(shippingDetails?.address);
     invalidAddress && setAddressError(invalidAddress);
 
+    const validState = validStateCity("state");
+    const validCity = validStateCity("city");
+
     const validForm =
+      validState &&
+      validCity &&
       validEmail &&
       validFirstName &&
       validLastName &&
       validTel &&
       !invalidAddress &&
-      shippingDetails?.state.trim() !== "" &&
-      shippingDetails?.city.trim() !== "" &&
       selectedShipping?.id;
 
     if (validForm) {
+      console.log("YES");
       if (isReadyToPay) {
         initiatePayment(
           cartTotalPrice,
@@ -86,6 +108,11 @@ export function ShippingInfo({
     <form onSubmit={handleSubmit}>
       {showShippingOptForm && (
         <ShippingOptions
+          stateError={stateError}
+          cityError={cityError}
+          setStateError={setStateError}
+          setCityError={setCityError}
+          showSummary={showSummary}
           shippingDetails={shippingDetails}
           setShippingDetails={setShippingDetails}
           selectedShipping={selectedShipping}
@@ -109,6 +136,7 @@ export function ShippingInfo({
           setNotesError={setNotesError}
           shippingDetails={shippingDetails}
           setShippingDetails={setShippingDetails}
+          showSummary={showSummary}
         />
       )}
 

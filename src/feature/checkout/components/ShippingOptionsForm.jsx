@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Select from "react-select";
 import {
   getStates,
@@ -8,14 +7,15 @@ import { convertToNaira } from "../../../utilities/money";
 import { dropDownStyles, getShippingOptions } from "../utilities";
 
 export function ShippingOptionsForm({
+  stateError,
+  cityError,
+  setStateError,
+  setCityError,
   shippingDetails,
   setShippingDetails,
   selectedShipping,
   setSelectedShipping,
 }) {
-  const [cityError, setCityError] = useState(false);
-  const [stateError, setStateError] = useState(false);
-
   const doubleError = () => {
     setCityError(true);
     setStateError(true);
@@ -45,7 +45,8 @@ export function ShippingOptionsForm({
 
   const handleStateChange = (value) => {
     setShippingDetails((prev) => ({ ...prev, state: value, city: "" }));
-    setSelectedShipping(getShippingOptions(value)[0]);
+
+    shippingDetails?.city && setSelectedShipping(getShippingOptions(value)[0]);
   };
 
   return (
@@ -86,6 +87,9 @@ export function ShippingOptionsForm({
               }}
               placeholder="Select State"
             />
+            {stateError && shippingDetails?.tel && (
+              <span className="tel-error">Select a city to continue</span>
+            )}
           </div>
           {/* CITY SELECTION */}
           <div className="form-container">
@@ -112,6 +116,9 @@ export function ShippingOptionsForm({
                 cityError && setCityError(false);
               }}
             ></Select>
+            {cityError && shippingDetails?.tel && (
+              <span className="tel-error">Select a city to continue</span>
+            )}
           </div>
         </div>
       </div>
@@ -119,23 +126,35 @@ export function ShippingOptionsForm({
       <article className="shipping-options-container">
         {shippingOptions.map((option) => (
           <label
-            className="shipping-option-container shipping-radio-and-price"
+            className={`${selectedShipping.id === option.id && "selected-option-highlight"} shipping-option-container shipping-radio-and-price`}
             key={option.id}
           >
             <div className="shipping-opt-radio">
               <input
+                className="radio-input"
                 type="radio"
                 name="shipping"
                 id={option.id}
                 checked={selectedShipping?.id === option.id}
                 onClick={validDeliveryFields}
-                onChange={() => setSelectedShipping(option)}
+                onChange={() => {
+                  shippingDetails?.city && setSelectedShipping(option);
+                }}
               />
-              <span>
-                {option.id}({option.desc}):
-              </span>
+              <div>
+                <p>
+                  <span className="strong">{option.id}:</span>{" "}
+                  <span>
+                    {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
+                  </span>
+                </p>
+
+                <p className="little-text">({option.desc})</p>
+              </div>
             </div>
-            <span>{convertToNaira(option.costInCents)}</span>
+            <span className="strong carrier-cost">
+              {convertToNaira(option.costInCents)}
+            </span>
           </label>
         ))}
       </article>

@@ -15,6 +15,9 @@ export function ShippingInfo({
   showSummary,
   setShowSummary,
 
+  shippingDetailsFormRef,
+  deliveryOptionsFormRef,
+
   selectedShipping,
   setSelectedShipping,
 
@@ -108,6 +111,7 @@ export function ShippingInfo({
     <form onSubmit={handleSubmit}>
       {showShippingOptForm && (
         <ShippingOptions
+          deliveryOptionsFormRef={deliveryOptionsFormRef}
           stateError={stateError}
           cityError={cityError}
           setStateError={setStateError}
@@ -122,6 +126,7 @@ export function ShippingInfo({
 
       {showShippingDetailsForm && (
         <ShippingDetails
+          shippingDetailsFormRef={shippingDetailsFormRef}
           phoneError={phoneError}
           emailError={emailError}
           firstNameError={firstNameError}

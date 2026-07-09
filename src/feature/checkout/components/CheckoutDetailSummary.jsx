@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { truncate } from "../utilities";
 export function CheckoutDetailSummary({
+  shippingDetailsFormRef,
+  deliveryOptionsFormRef,
+  setEditingForm,
   setShowShippingDetailsForm,
   setShowShippingOptForm,
   shippingDetails,
@@ -10,6 +13,13 @@ export function CheckoutDetailSummary({
   const [showFullNotes, setShowFullNotes] = useState(false);
   const notes = shippingDetails.deliveryNotes;
   const truncateText = truncate(notes);
+
+  const scrollTo = (section) => {
+    section.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <section className="forms-details-summary">
@@ -21,6 +31,10 @@ export function CheckoutDetailSummary({
             className="checkout-links"
             onClick={() => {
               setShowShippingDetailsForm(true);
+              setEditingForm("shippingDetails");
+              setTimeout(() => {
+                scrollTo(shippingDetailsFormRef);
+              }, 0);
             }}
           >
             Edit
@@ -50,17 +64,18 @@ export function CheckoutDetailSummary({
               <strong>Delivery Instructions:</strong>
               <p className="delivery-notes">
                 {showFullNotes ? notes : truncateText}
-                {/* {shippingDetails.deliveryNotes} */}
               </p>
-              <button
-                className="truncate-btn"
-                type="button"
-                onClick={() => {
-                  setShowFullNotes(!showFullNotes);
-                }}
-              >
-                {showFullNotes ? "Show less" : "Show more"}
-              </button>
+              {truncateText.length > 120 && (
+                <button
+                  className="truncate-btn"
+                  type="button"
+                  onClick={() => {
+                    setShowFullNotes(!showFullNotes);
+                  }}
+                >
+                  {showFullNotes ? "Show less" : "Show more"}
+                </button>
+              )}
             </div>
           )}
         </div>
@@ -74,6 +89,10 @@ export function CheckoutDetailSummary({
             className="checkout-links"
             onClick={() => {
               setShowShippingOptForm(true);
+              setEditingForm("deliveryOptions");
+              setTimeout(() => {
+                scrollTo(deliveryOptionsFormRef);
+              }, 0);
             }}
           >
             Edit

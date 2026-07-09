@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 // import { DiscountField } from "../../feature/checkout/components/DiscountField";
 import { TotalCost } from "../../feature/checkout/components/TotalCost";
 import { ShippingInfo } from "../../feature/checkout/components/ShippingInfo";
@@ -28,13 +28,23 @@ export default function CheckoutPage({
   });
 
   const [selectedShipping, setSelectedShipping] = useState({});
-
   const [showShippingDetailsForm, setShowShippingDetailsForm] = useState(true);
   const [showShippingOptForm, setShowShippingOptForm] = useState(true);
-
   const [showSummary, setShowSummary] = useState(false);
+  const [editingForm, setEditingForm] = useState(null);
 
-  // Is the display of forms a good qualifier for being ready to pay?
+  const shippingDetailsFormRef = useRef(null);
+  const deliveryOptionsFormRef = useRef(null);
+
+  // Scrolll to top to properly display summary when shown
+  useEffect(() => {
+    !showShippingDetailsForm &&
+      !showShippingOptForm &&
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+  }, [showShippingDetailsForm, showShippingOptForm]);
 
   return (
     <section className="checkout-section">
@@ -66,6 +76,10 @@ export default function CheckoutPage({
 
           {showSummary && (
             <CheckoutDetailSummary
+              shippingDetailsFormRef={shippingDetailsFormRef}
+              deliveryOptionsFormRef={deliveryOptionsFormRef}
+              editingForm={editingForm}
+              setEditingForm={setEditingForm}
               shippingDetails={shippingDetails}
               selectedShipping={selectedShipping}
               setShowShippingDetailsForm={setShowShippingDetailsForm}
@@ -75,6 +89,8 @@ export default function CheckoutPage({
           )}
 
           <ShippingInfo
+            shippingDetailsFormRef={shippingDetailsFormRef}
+            deliveryOptionsFormRef={deliveryOptionsFormRef}
             showSummary={showSummary}
             showShippingOptForm={showShippingOptForm}
             showShippingDetailsForm={showShippingDetailsForm}

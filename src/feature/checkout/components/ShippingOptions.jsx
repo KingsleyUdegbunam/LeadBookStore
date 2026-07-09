@@ -1,6 +1,7 @@
 import { ShippingOptionsForm } from "./ShippingOptionsForm";
 
 export function ShippingOptions({
+  deliveryOptionsFormRef,
   stateError,
   cityError,
   setStateError,
@@ -14,7 +15,7 @@ export function ShippingOptions({
   showSummary,
 }) {
   return (
-    <section className="form-section-container">
+    <section ref={deliveryOptionsFormRef} className="form-section-container">
       <div className="form-header-container">
         <p className="step1 cart-shipment">{`${showSummary ? "Edit" : "Step 1"}: Delivery Method`}</p>
         <p className="details-subheader">

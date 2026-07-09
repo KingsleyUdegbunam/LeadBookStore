@@ -16,9 +16,10 @@ export function ShippingDetails({
   shippingDetails,
   setShippingDetails,
   showSummary,
+  shippingDetailsFormRef,
 }) {
   return (
-    <section className="form-section-container">
+    <section ref={shippingDetailsFormRef} className="form-section-container">
       <div className="form-header-container">
         <p className="step1 cart-shipment">{`${showSummary ? "Edit" : "Step 2"}: Shipping Details`}</p>
         <p className="details-subheader">{`${showSummary ? "Update your shipping details" : "Tell us where to deliver your order"}`}</p>

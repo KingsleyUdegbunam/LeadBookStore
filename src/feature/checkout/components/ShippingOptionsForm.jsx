@@ -49,8 +49,21 @@ export function ShippingOptionsForm({
     shippingDetails?.city && setSelectedShipping(getShippingOptions(value)[0]);
   };
 
+  const handleCityChange = (selected) => {
+    setShippingDetails((prev) => {
+      return {
+        ...prev,
+        city: selected.value,
+      };
+    });
+
+    !selectedShipping.id &&
+      setSelectedShipping(getShippingOptions(selected)[0]);
+    cityError && setCityError(false);
+  };
+
   return (
-    <article className="primary-form-container">
+    <article id="shipping-details-form" className="primary-form-container">
       <div className="address-form-container">
         <div className="address-form">
           {/* COUNTRY SELECTION */}
@@ -106,15 +119,7 @@ export function ShippingOptionsForm({
                   (opt) => opt.value === shippingDetails?.city,
                 ) ?? null
               }
-              onChange={(selected) => {
-                setShippingDetails((prev) => {
-                  return {
-                    ...prev,
-                    city: selected.value,
-                  };
-                });
-                cityError && setCityError(false);
-              }}
+              onChange={handleCityChange}
             ></Select>
             {cityError && shippingDetails?.tel && (
               <span className="tel-error">Select a city to continue</span>

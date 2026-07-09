@@ -61,7 +61,9 @@ export function ShippingDetailsForm({
         />
         {emailError && (
           <span className="tel-error">
-            {shippingDetails?.email} is not a valid email address
+            {shippingDetails?.email
+              ? shippingDetails.email + " is not a valid email address"
+              : "Enter a valid email address"}
           </span>
         )}
       </div>

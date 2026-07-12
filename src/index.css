@@ -103,7 +103,7 @@ button {
   font-weight: 600;
 
   color: black;
-  background-color: red;
+  background-color: var(--brand-red-clr);
   color: #f9f5ef;
 
   cursor: pointer;

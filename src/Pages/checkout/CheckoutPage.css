@@ -45,6 +45,12 @@ textarea {
   border: 1px rgba(128, 128, 128, 0.3) solid;
 }
 
+input:focus,
+textarea:focus {
+  border-color: black;
+  outline-color: black;
+}
+
 /* CART REVIEW */
 .checkout-section {
   background-color: #eeeeee;
@@ -147,6 +153,7 @@ textarea {
 
 /* FORM UTILITIES */
 .form-section-container {
+  scroll-margin-top: 4rem;
   padding: 0;
   padding-block-start: 1rem;
   display: flex;

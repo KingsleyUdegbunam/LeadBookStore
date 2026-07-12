@@ -252,9 +252,15 @@ textarea:focus {
 }
 
 .shipping-option-container {
-  /* border-radius: 0.4rem; */
+  background-color: transparent;
   padding: 0.6rem 0.4rem;
-  /* background-color: rebeccapurple; */
+  cursor: pointer;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.shipping-option-container:hover {
+  background-color: rgba(255, 247, 247, 0.679);
 }
 
 .selected-option-highlight .carrier-cost {

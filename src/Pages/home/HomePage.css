@@ -47,7 +47,7 @@ span {
   padding: 0;
   display: grid;
   place-items: center;
-  background: url("../assets/bg-image.jpg");
+  background: url("../../assets/bg-image.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -174,7 +174,7 @@ span {
   padding: 2rem 1.5rem;
   height: 35vh;
 
-  background: url("../assets/bookClub2.jpg");
+  background: url("../../assets/bookClub2.jpg");
   color: white;
   background-size: cover;
 }

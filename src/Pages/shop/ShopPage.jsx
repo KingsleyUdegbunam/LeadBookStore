@@ -1,13 +1,16 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
-import { filterBooks } from "../feature/shop/filterBooks";
+import { filterBooks } from "../../feature/shop/filterBooks";
 import Select from "react-select";
-import { books } from "../data/inventory";
-import { BookGrid } from "../component/BookGrid";
-import { capitalizeWords } from "../utilities/capitalizeWords";
+import { books } from "../../data/inventory";
+import { BookGrid } from "../../component/BookGrid";
+import { capitalizeWords } from "../../utilities/capitalizeWords";
 
-import { sortBooks } from "../feature/shop/sortBooks";
-import { SHOP_COLLECTIONS, SORT_BYS } from "../constants/shopPage/bookFilters";
+import { sortBooks } from "../../feature/shop/sortBooks";
+import {
+  SHOP_COLLECTIONS,
+  SORT_BYS,
+} from "../../constants/shopPage/bookFilters";
 import "./ShopPage.css";
 
 export default function ShopPage({ cart, setCart, addToCart }) {

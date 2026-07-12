@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getOrderById } from "../services/orderServices";
+import { getOrderById } from "../../services/orderServices";
 import dayjs from "dayjs";
-import { convertToNaira } from "../utilities/money";
+// import { convertToNaira } from "../../utilities/money";
 import "./OrderPage.css";
+import { convertToNaira } from "../../utilities/money";
 
 export default function OrderPage() {
   const [order, setOrder] = useState(null);

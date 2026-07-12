@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { convertToNaira } from "../utilities/money";
-import { capitalizeWords } from "../utilities/capitalizeWords";
+import { getShippingOptions } from "../../feature/checkout/utilities";
+import { convertToNaira } from "../../utilities/money";
+import { capitalizeWords } from "../../utilities/capitalizeWords";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import { IoTrashBin } from "react-icons/io5";
-import { deleteItem, updateCartItemQty } from "../feature/cart/utilities";
+import { deleteItem, updateCartItemQty } from "../../feature/cart/utilities";
 import "./CartPage.css";
 
 export default function CartPage({
@@ -13,7 +14,6 @@ export default function CartPage({
   setCart,
   cartInDetail,
   cartTotalPrice,
-  getShippingOptions,
 }) {
   const [qtyInputs, setQtyInputs] = useState({});
 
@@ -22,6 +22,7 @@ export default function CartPage({
       acc[cartItem.id] = cartItem.quantity;
       return acc;
     }, {});
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQtyInputs(initial);
   }, [cart]);
 

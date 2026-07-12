@@ -2,21 +2,53 @@
 p,
 span,
 input,
+textarea,
 button {
   font-family: "Outfit", sans-serif;
 }
 
-.h2-and-link {
+strong,
+.strong {
+  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+.summary-header {
+  font-weight: 600;
+}
+
+.little-text {
+  font-size: 0.6rem;
+  opacity: 0.45;
+}
+
+.important {
+  color: red;
+}
+
+.checkout-header {
   display: flex;
   align-items: baseline;
   gap: 0.3rem;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   padding: 0.4rem 1rem;
   font-size: 0.9rem;
   border: 1px rgba(128, 128, 128, 0.3) solid;
+}
+
+input:focus,
+textarea:focus {
+  border-color: black;
+  outline-color: black;
 }
 
 /* CART REVIEW */
@@ -26,7 +58,7 @@ input {
 
 .checkout-links {
   font-size: 0.75rem;
-  color: red;
+  color: var(--brand-red-clr);
   font-family: "Outfit", sans-serif;
   cursor: pointer;
 }
@@ -79,12 +111,12 @@ input {
   border-block-start: 1px solid black;
   padding-block: 0.3rem;
   font-size: 0.9rem;
+  font-family: "Anonymous Pro", monospace;
 }
 
 .total-cost-child {
   display: flex;
   justify-content: space-between;
-  font-family: "Anonymous Pro", monospace;
 }
 
 .total-container {
@@ -121,8 +153,54 @@ input {
 
 /* FORM UTILITIES */
 .form-section-container {
+  scroll-margin-top: 4rem;
   padding: 0;
   padding-block-start: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.auth-cta-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.details-subheader {
+  font-size: 0.75rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  color: gray;
+}
+
+.user-details {
+  font-size: 0.78rem;
+  color: rgb(37, 37, 37);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.delivery-notes {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.truncate-btn {
+  width: fit-content;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+  padding-inline: 0;
+  text-transform: none;
+  background-color: transparent;
+  color: var(--brand-red-clr);
+  font-weight: 500;
+}
+
+.truncate-btn:hover {
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 .primary-form-container {
@@ -134,6 +212,25 @@ input {
   flex-direction: column;
   justify-content: space-between;
   width: none;
+}
+
+.user-info-div label {
+  font-family: "Outfit", sans-serif;
+}
+
+.user-info-div input,
+.user-info-div textarea {
+  font-family: "Anonymous Pro", monospace;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  padding-inline: 0.5rem;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .user-info-div input,
+  .user-info-div textarea {
+    font-size: 1rem;
+  }
 }
 
 .form-header-container {
@@ -150,16 +247,40 @@ input {
 
 .shipping-opt-radio {
   display: flex;
+  align-items: flex-start;
   gap: 0.2rem;
 }
 
-.delivery-options-container > * {
-  margin-bottom: 0.5rem;
+.shipping-option-container {
+  background-color: transparent;
+  padding: 0.6rem 0.4rem;
+  cursor: pointer;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.shipping-option-container:hover {
+  background-color: rgba(255, 247, 247, 0.679);
+}
+
+.selected-option-highlight .carrier-cost {
+  color: var(--brand-red-clr);
+}
+
+.shipping-options-container > * {
+  /* margin-bottom: 0.8rem; */
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
 }
 
 .shipping-opt-radio input {
   margin: 0;
+  margin-top: 4px;
   width: initial;
+}
+
+.text-right-aligned {
+  text-align: right;
+  font-size: 0.65rem;
 }
 
 /* USER DETAILS */
@@ -169,9 +290,9 @@ input {
 }
 .user-info-div {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  margin-block: 1rem;
+  margin-block: 0.5rem;
 }
 
 .primary-form-container > *:first-child {
@@ -190,12 +311,6 @@ input {
 .tel-input-field-and-error-display {
   display: flex;
   flex-direction: column;
-  width: 80%;
-}
-
-.user-info-div input,
-.user-name div input {
-  width: 80%;
 }
 
 .tel-input-field-and-error-display input {

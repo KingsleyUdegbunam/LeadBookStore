@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { IoIosCheckmarkCircle } from "react-icons/io";
-import { convertToNaira } from "../utilities/money";
+import { convertToNaira } from "../../utilities/money";
 import { useParams } from "react-router-dom";
-import { getOrderById } from "../services/orderServices";
+import { getOrderById } from "../../services/orderServices";
 
 import "./OrderStatusPage.css";
 

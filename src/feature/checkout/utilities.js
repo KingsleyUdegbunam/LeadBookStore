@@ -25,12 +25,17 @@ export const isValidAddress = (address) => {
   if (!trimmed) {
     return "Enter a valid email address";
   }
-  if (!/^[\p{L}\p{M}\d\s,.'#/()-]{5,100}$/u.test(trimmed)) {
-    return "Address contains invalid characters";
-  }
 
   if (trimmed.length < 5) {
     return "Address is too short";
+  }
+
+  if (trimmed.length > 100) {
+    return "Address must be no more than 100 characters long";
+  }
+
+  if (!/^[\p{L}\p{M}\d\s,.'#/()-]+$/u.test(trimmed)) {
+    return "Address contains invalid characters";
   }
 
   if (!/\d/.test(trimmed)) {
@@ -121,6 +126,7 @@ export const initiatePayment = (
           created_at: new Date(),
         };
 
+        console.log("START HERE");
         const savedOrder = await createOrder(orderData);
         console.log("THISSSS", savedOrder);
 
@@ -129,7 +135,7 @@ export const initiatePayment = (
         navigate(`/order/${savedOrder.id}`);
       } catch (error) {
         console.error("Order processing failed:", error);
-        alert("Something went wrong while processing your order.");
+        alert("Something went wrong while processing your order OMO.");
       }
     },
     onLoad: (response) => {

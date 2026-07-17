@@ -42,14 +42,11 @@
 }
 
 .image-container {
-  aspect-ratio: 2/3;
   width: 100%;
   height: 100%;
   position: relative;
   flex-grow: 1;
   display: flex;
-
-  /* padding: 0.3rem; */
 }
 
 .image-container img {
@@ -121,7 +118,7 @@
 .image-container-rec {
   position: relative;
   width: 100%;
-  aspect-ratio: 2/3;
+  height: 100%;
   align-items: center;
   justify-content: center;
 }
@@ -188,7 +185,6 @@
     align-items: left;
     text-align: left;
     max-width: 160px;
-    /* background-color: beige; */
   }
 
   .title-rec,

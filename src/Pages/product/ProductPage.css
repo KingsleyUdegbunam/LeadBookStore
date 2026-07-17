@@ -24,8 +24,10 @@ h3 {
 }
 
 .product-image-container img {
+  display: block;
   width: 100%;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 
 .product-author-and-title {
@@ -76,4 +78,10 @@ h3 {
 
 .product-award {
   text-align: end;
+}
+
+@media screen and (min-width: 1024px) {
+  .related-reads .products-container {
+    gap: 1.5rem;
+  }
 }

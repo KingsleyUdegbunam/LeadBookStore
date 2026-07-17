@@ -1,7 +1,7 @@
-import { BookCard } from "./BookCard";
 import { MdChevronRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import "./FeatureSection.css";
+import { BookCard } from "./BookCard";
 
 export function FeatureSection({ addToCart, image, array }) {
   return (

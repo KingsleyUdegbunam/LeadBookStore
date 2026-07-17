@@ -21,13 +21,13 @@ export function BookCard({
           </div>
         </Link>
 
-        <Link className="product-link" to={`/product/${id}`}>
+        <Link className="product-link book-details" to={`/product/${id}`}>
           <p className="title">{title}</p>
+
+          <p className="author">{book.author}</p>
+
+          <p className="price">{convertToNaira(priceInKobo)}</p>
         </Link>
-
-        <p className="author">{book.author}</p>
-
-        <p className="price">{convertToNaira(priceInKobo)}</p>
       </div>
 
       <button className="add-to-cart" onClick={() => addToCart(book)}>

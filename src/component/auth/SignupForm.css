@@ -19,7 +19,7 @@
 }
 
 .signup-checkout-subheader {
-  font-size: 0.8rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
   font-weight: 300;
 }
 
@@ -69,14 +69,32 @@
 }
 
 .feedback {
-  /* color: rgba(0, 0, 0, 0.71); */
-
   display: flex;
   align-items: center;
   font-size: 0.75rem;
   font-weight: 300;
   gap: 0.2rem;
   opacity: 0.7;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.eye-btn {
+  width: fit-content;
+  background-color: transparent;
+  color: black;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+}
+
+.eye-btn:hover {
+  color: black;
+  background-color: transparent;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -106,10 +124,6 @@
 @media screen and (min-width: 1024px) {
   .signup-header {
     font-size: 28px;
-  }
-
-  .signup-checkout-subheader {
-    font-size: 1rem;
   }
 
   .signup-benefits * {

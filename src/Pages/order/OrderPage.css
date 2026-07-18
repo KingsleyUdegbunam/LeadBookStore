@@ -71,6 +71,10 @@
   color: black;
 }
 
+.shipping-billing-section {
+  background-color: #eeeeee;
+}
+
 .shipping-billing-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -213,6 +217,36 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .order-page-wrapper > * {
+    padding-block: 64px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .banner-and-signup {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    padding-top: 0;
+    background-color: #eeeeee;
+    padding-bottom: 64px;
+  }
+
+  .signup-checkout {
+    margin-inline-end: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .banner-section,
+  .signup-checkout {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+
   .orderpage-header {
     margin-top: -0.5rem;
     font-size: 42px;
@@ -244,9 +278,14 @@
     gap: 4rem;
   }
 
+  .shipping-billing-section {
+    background-color: white;
+  }
+
   .shipping-billing-grid {
     gap: 32px;
   }
+
   .shipping-billing-header {
     font-size: 1rem;
   }
@@ -282,5 +321,11 @@
 
   .cost-summation-total {
     font-size: 14px;
+  }
+
+  .order-to-shop-btn {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1rem 2rem;
   }
 }

@@ -18,7 +18,7 @@
 }
 
 .orderpage-header {
-  font-size: 24px;
+  font-size: clamp(24px, 2.5vw, 42px);
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -28,7 +28,7 @@
 }
 
 .order-img-wrapper {
-  max-width: 311px;
+  width: clamp(300px, 80vw, 500px);
   height: auto;
 }
 
@@ -36,6 +36,13 @@
   font-size: 13px;
   font-weight: 300;
   opacity: 0.6;
+}
+
+.user-order-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .order-details {
@@ -79,6 +86,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  row-gap: 2rem;
 }
 .shipping-billing-grid-cell {
   display: flex;
@@ -231,6 +239,10 @@
   }
 
   .signup-checkout {
+    display: grid;
+    align-items: center;
+    max-height: 90vh;
+    padding-top: 5rem;
     margin-inline-end: 2rem;
     background-color: white;
     border-radius: 12px;
@@ -241,19 +253,13 @@
     border: 1px solid rgba(0, 0, 0, 0.06);
   }
 
-  .banner-section,
-  .signup-checkout {
+  .banner-section {
     padding-top: 120px;
     padding-bottom: 0;
   }
 
   .orderpage-header {
     margin-top: -0.5rem;
-    font-size: 42px;
-  }
-
-  .order-img-wrapper {
-    max-width: 500px;
   }
 
   .order-details-header {
@@ -273,6 +279,7 @@
   }
 
   .user-order-details {
+    flex-direction: row;
     display: flex;
     justify-content: space-between;
     gap: 4rem;

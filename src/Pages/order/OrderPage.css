@@ -17,6 +17,10 @@
   font-size: 0.85rem;
 }
 
+.signup-checkout .signup-section {
+  height: 100%;
+}
+
 .orderpage-header {
   font-size: clamp(24px, 2.5vw, 42px);
   font-weight: 500;
@@ -231,6 +235,7 @@
   }
 
   .banner-and-signup {
+    height: 90vh;
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     padding-top: 0;
@@ -242,7 +247,7 @@
     display: grid;
     align-items: center;
     max-height: 90vh;
-    padding-top: 5rem;
+    padding-top: 120px;
     margin-inline-end: 2rem;
     background-color: white;
     border-radius: 12px;

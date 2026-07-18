@@ -2,10 +2,12 @@ import { useState } from "react";
 import { ShippingOptions } from "./ShippingOptions";
 import { ShippingDetails } from "./ShippingDetails";
 import { ActionButton } from "./ActionButton";
-import { isValidAddress, isValidEmail, isValidName } from "../utilities";
+import { isValidAddress, isValidName } from "../utilities";
+
 import { isValidNumber } from "libphonenumber-js";
 import { useNavigate } from "react-router-dom";
 import { initiatePayment } from "../utilities";
+import { isValidEmail } from "../../../lib/validation/validation";
 
 export function ShippingInfo({
   showShippingOptForm,

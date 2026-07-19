@@ -5,11 +5,11 @@ import { MdOutlineClose } from "react-icons/md";
 
 export function GuestAccountDrawer({ isOpen, onClose }) {
   const accountNav = [
-    { title: "Orders", desc: "Track and view your orders", link: "" },
+    { title: "Track Order", desc: "Check your order status", link: "" },
     { title: "Addresses", desc: "Manage your saved addreses", link: "" },
     {
       title: "Account Settings",
-      desc: "Manage your account after signing in",
+      desc: "Sign in to manage your account",
       link: "",
     },
   ];

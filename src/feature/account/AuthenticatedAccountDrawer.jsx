@@ -8,7 +8,7 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
     { title: "Addresses", desc: "Manage your saved addreses", link: "" },
     {
       title: "Account Settings",
-      desc: "Update your personal information",
+      desc: "Manage your account details",
       link: "",
     },
   ];

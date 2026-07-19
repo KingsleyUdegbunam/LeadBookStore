@@ -1,0 +1,89 @@
+.account-drawer-wrapper {
+  padding: 4rem 1.2rem;
+  font-family: "Outfit", sans-serif;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  /* background-color: aliceblue; */
+  min-height: 60%;
+}
+
+.account-drawer-header-n-close {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.close-account-drawer {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  width: fit-content;
+  background-color: transparent;
+  color: black;
+}
+
+.close-account-drawer:hover {
+  background-color: transparent;
+  color: black;
+}
+
+.account-drawer-wrapper header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.account-drawer-subtext {
+  max-width: 90%;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.account-drawer-wrapper nav {
+  /* background-color: antiquewhite; */
+  /* flex: 1; */
+  padding-block: 2rem;
+
+  border-block: 1px solid #c5c5c5;
+}
+
+.account-drawer-wrapper ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.account-nav-subtext {
+  font-size: 12.5px;
+  font-weight: 300;
+}
+
+.account-drawer-wrapper li {
+  padding-block: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.account-drawer-buttons-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.new-here-login {
+  font-size: 0.9rem;
+}
+
+.account-drawer-link {
+  font-family: "Outfit", sans-serif;
+  color: var(--brand-red-click);
+}
+
+.account-drawer-footer {
+  padding: 0;
+  /* padding-top: 2rem; */
+  margin: 0;
+  background-color: transparent;
+}

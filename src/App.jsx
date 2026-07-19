@@ -1,5 +1,6 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { AccountDrawer } from "./feature/account/AccountDrawer";
 import { Header } from "./component/Header/Header";
 import { Footer } from "./component/Footer";
 import HomePage from "./Pages/home/HomePage";
@@ -15,8 +16,8 @@ import OrderStatusPage from "./Pages/orderStatus/OrderStatusPage";
 import { books } from "./data/inventory";
 
 function App() {
+  const [openAccountDrawer, setOpenAccountDrawer] = useState(false);
   const [cart, setCart] = useState([]);
-  const [order, setOrder] = useState({});
 
   const { pathname } = useLocation();
 
@@ -68,7 +69,11 @@ function App() {
 
   return (
     <>
-      <Header cart={cart} />
+      <AccountDrawer
+        isOpen={openAccountDrawer}
+        onClose={() => setOpenAccountDrawer(false)}
+      />
+      <Header cart={cart} setOpenAccountDrawer={setOpenAccountDrawer} />
       <Routes>
         <Route
           path="/"

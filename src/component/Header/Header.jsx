@@ -4,9 +4,10 @@ import { SearchIcon, CartIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
 import { books } from "../../data/inventory";
 import { convertToNaira } from "../../utilities/money";
+import { FaRegUser } from "react-icons/fa6";
 import "./Header.css";
 
-export function Header({ cart }) {
+export function Header({ cart, setOpenAccountDrawer }) {
   const [headerSearchValue, setHeaderSearchValue] = useState("");
 
   const navigate = useNavigate();
@@ -64,6 +65,13 @@ export function Header({ cart }) {
               toggleSearchBar={toggleSearchBar}
               menuRef={menuRef}
             />
+
+            <button
+              onClick={() => setOpenAccountDrawer(true)}
+              className="header-account"
+            >
+              <FaRegUser />
+            </button>
 
             <CartIcon cartQuantity={cartQuantity} />
           </div>

@@ -237,3 +237,21 @@
   text-decoration: none;
   color: black;
 }
+
+.account {
+  background-color: rgba(0, 0, 0, 0.594);
+  color: white;
+}
+
+.header-account {
+  padding: 0.5rem;
+  background-color: transparent;
+  color: black;
+  font-size: initial;
+  margin: auto;
+  max-width: fit-content;
+}
+
+.header-account:hover {
+  background-color: transparent;
+}

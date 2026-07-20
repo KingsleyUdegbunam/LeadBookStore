@@ -4,7 +4,6 @@
   display: flex;
   gap: 2rem;
   flex-direction: column;
-  /* background-color: aliceblue; */
   min-height: 60%;
 }
 
@@ -40,8 +39,6 @@
 }
 
 .account-drawer-wrapper nav {
-  /* background-color: antiquewhite; */
-  /* flex: 1; */
   padding-block: 2rem;
 
   border-block: 1px solid #c5c5c5;
@@ -74,16 +71,26 @@
 
 .new-here-login {
   font-size: 0.9rem;
+  font-weight: 300;
 }
 
 .account-drawer-link {
   font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  color: var(--brand-red-click);
+  width: fit-content;
+  padding: 0;
+  background-color: transparent;
+  text-transform: none;
+}
+
+.account-drawer-link:hover {
+  background-color: transparent;
   color: var(--brand-red-click);
 }
 
 .account-drawer-footer {
   padding: 0;
-  /* padding-top: 2rem; */
   margin: 0;
   background-color: transparent;
 }

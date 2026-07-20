@@ -2,29 +2,23 @@ import { MenuIcon, CloseMenuIcon } from "./Icons";
 import { Link } from "react-router-dom";
 
 export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
+  const menuOptions = [
+    { page: "Home", link: "/" },
+    { page: "Shop", link: "/shop" },
+    { page: "About", link: "/about" },
+    { page: "Contact", link: "/contact" },
+  ];
   return (
     <>
       <div className="menuIcon" onClick={toggleMenu}>
         <MenuIcon ref={menuOpenRef} />
         <CloseMenuIcon ref={menuCloseRef} />
         <article ref={menuRef} className="hamburger-menu">
-          <Link className="link" to="/">
-            <div>
-              <span className="home">Home</span>
-            </div>
-          </Link>
-          <Link className="link" to="/shop">
-            <div className="shopp">
-              <span className="shop">Shop</span>
-            </div>
-          </Link>
-          <Link className="link" to="/about">
-            <span className="about">About</span>
-          </Link>
-
-          <Link className="link" to="/contact">
-            <span className="contact">Contact</span>
-          </Link>
+          {menuOptions.map((item) => (
+            <Link className={`${item.page.toLowerCase()} link`} to={item.link}>
+              <span>{item.page}</span>
+            </Link>
+          ))}
         </article>
       </div>
     </>

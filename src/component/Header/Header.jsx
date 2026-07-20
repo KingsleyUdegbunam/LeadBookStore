@@ -6,9 +6,13 @@ import { books } from "../../data/inventory";
 import { convertToNaira } from "../../utilities/money";
 import { FaRegUser } from "react-icons/fa6";
 import "./Header.css";
+import { useCart } from "../../context/CartContext";
+import { useUI } from "../../context/UIContext";
 
-export function Header({ cart, setOpenAccountDrawer }) {
+export function Header() {
   const [headerSearchValue, setHeaderSearchValue] = useState("");
+  const { cart } = useCart();
+  const { setOpenAccountDrawer } = useUI();
 
   const navigate = useNavigate();
 

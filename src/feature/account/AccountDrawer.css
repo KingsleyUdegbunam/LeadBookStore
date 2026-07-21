@@ -19,6 +19,7 @@
   width: fit-content;
   background-color: transparent;
   color: black;
+  margin: 0;
 }
 
 .close-account-drawer:hover {

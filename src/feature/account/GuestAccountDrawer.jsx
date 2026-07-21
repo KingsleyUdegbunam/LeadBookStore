@@ -1,9 +1,19 @@
 import Drawer from "../../component/components/Drawer/drawer";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 
 export function GuestAccountDrawer({ isOpen, onClose }) {
+  const navigate = useNavigate();
+  const handleSignUpNavigation = () => {
+    onClose();
+    navigate("/signup");
+  };
+  const handleSignInNavigation = () => {
+    onClose();
+    navigate("/signin");
+  };
+
   const accountNav = [
     { title: "Track Order", desc: "Check your order status", link: "" },
     { title: "Addresses", desc: "Manage your saved addreses", link: "" },
@@ -29,12 +39,17 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
           </p>
 
           <div className="account-drawer-buttons-wrapper">
-            <button className="button-primary">Sign In</button>
+            <button onClick={handleSignInNavigation} className="button-primary">
+              Sign In
+            </button>
             <p className="new-here-login">
               New here?{" "}
-              <Link className="account-drawer-link" to="">
+              <button
+                onClick={handleSignUpNavigation}
+                className="account-drawer-link"
+              >
                 Create an account
-              </Link>
+              </button>
             </p>
           </div>
         </header>

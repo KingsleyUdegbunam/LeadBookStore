@@ -8,6 +8,7 @@ import { convertToNaira } from "../../utilities/money";
 import { SlPrinter } from "react-icons/sl";
 import { books } from "../../data/inventory";
 import { BookCardRecommendation } from "../../component/BookCardRecommendation";
+import { SignupForm } from "../../component/auth/SignupForm";
 
 export default function OrderPage({ addToCart }) {
   const [order, setOrder] = useState(null);
@@ -30,6 +31,8 @@ export default function OrderPage({ addToCart }) {
 
     if (id) fetchOrder();
   }, [id]);
+
+  console.log(order);
 
   const collections = useMemo(() => {
     return [...new Set(order?.items.flatMap((item) => item.collections) ?? [])];
@@ -54,69 +57,75 @@ export default function OrderPage({ addToCart }) {
   return (
     <>
       <section className="order-page-wrapper">
-        <section className="banner-section">
-          <div>
-            <p className="orderpage-header">
-              Thanks you for{" "}
-              <span className="header-red">shopping with us!</span>
-            </p>
-          </div>
-
-          <div className="order-img-wrapper">
-            <img src={orderBox} alt="Order box" />
-          </div>
-
-          <p className="mini-support-txt hero-msg-support">
-            Your books are being carefully prepared for shipment.
-          </p>
-
-          <div className="order-details">
+        <div className="banner-and-signup">
+          <section className="banner-section">
             <div>
-              <p className="order-details-header mini-support-txt">
-                An email confirmation has been sent to
-              </p>
-
-              <p className="order-details-detail">
-                {order.shipping_details.email}
+              <p className="orderpage-header">
+                Thanks you for{" "}
+                <span className="header-red">shopping with us!</span>
               </p>
             </div>
 
-            <div className="user-order-details">
-              <div>
-                <p className="order-details-header mini-support-txt">
-                  Order Ref.
-                </p>
+            <div className="order-img-wrapper">
+              <img src={orderBox} alt="Order box" />
+            </div>
 
-                <p className="order-details-detail">{order.reference}</p>
-              </div>
-              <div>
-                <p className="order-details-header mini-support-txt">
-                  Order Date
-                </p>
+            <p className="mini-support-txt hero-msg-support">
+              Your books are being carefully prepared for shipment.
+            </p>
 
-                <p className="order-details-detail">
-                  {dayjs(order.created_at).format("D, MMM YYYY h:mm A")}
-                </p>
-              </div>
+            <div className="order-details">
               <div>
                 <p className="order-details-header mini-support-txt">
-                  Order Total
+                  An email confirmation has been sent to
                 </p>
 
                 <p className="order-details-detail">
-                  {convertToNaira(order.total)}
+                  {order.shipping_details.email}
                 </p>
+              </div>
+
+              <div className="user-order-details">
+                <div>
+                  <p className="order-details-header mini-support-txt">
+                    Order Ref.
+                  </p>
+
+                  <p className="order-details-detail">{order.reference}</p>
+                </div>
+                <div>
+                  <p className="order-details-header mini-support-txt">
+                    Order Date
+                  </p>
+
+                  <p className="order-details-detail">
+                    {dayjs(order.created_at).format("D, MMM YYYY h:mm A")}
+                  </p>
+                </div>
+                <div>
+                  <p className="order-details-header mini-support-txt">
+                    Order Total
+                  </p>
+
+                  <p className="order-details-detail">
+                    {convertToNaira(order.total)}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <button className="print-btn">
-            <SlPrinter />
-            <p className="order-details-header">Print receipt</p>
-          </button>
-        </section>
+            <button className="print-btn">
+              <SlPrinter />
+              <p className="order-details-header">Print receipt</p>
+            </button>
+          </section>
 
-        <section>
+          <section className="signup-checkout">
+            <SignupForm prefilledEmail={order.email} />
+          </section>
+        </div>
+
+        <section className="shipping-billing-section">
           <div className="shipping-billing-grid">
             <div>
               <div className="shipping-billing-grid-cell">
@@ -235,12 +244,12 @@ export default function OrderPage({ addToCart }) {
               </p>
             </div>
           </div>
+          <div className="order-to-shop-btn-wrapper">
+            <a href="/shop">
+              <button className="order-to-shop-btn">Browse More Books</button>
+            </a>
+          </div>
         </section>
-        <div className="order-to-shop-btn-wrapper">
-          <a href="/shop">
-            <button className="order-to-shop-btn">Continue Shopping</button>
-          </a>
-        </div>
 
         <section className="recommendation-sec">
           <h2 className="order-summary-h2">Inspired By Your Order</h2>
@@ -261,8 +270,6 @@ export default function OrderPage({ addToCart }) {
             </article>
           </div>
         </section>
-
-        <div className="order-cta-btns"></div>
       </section>
     </>
   );

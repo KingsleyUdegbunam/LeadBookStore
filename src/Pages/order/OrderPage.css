@@ -18,7 +18,7 @@
 }
 
 .orderpage-header {
-  font-size: 24px;
+  font-size: clamp(24px, 2.5vw, 42px);
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -28,7 +28,7 @@
 }
 
 .order-img-wrapper {
-  max-width: 311px;
+  width: clamp(300px, 80vw, 500px);
   height: auto;
 }
 
@@ -36,6 +36,13 @@
   font-size: 13px;
   font-weight: 300;
   opacity: 0.6;
+}
+
+.user-order-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
 
 .order-details {
@@ -71,10 +78,15 @@
   color: black;
 }
 
+.shipping-billing-section {
+  background-color: #eeeeee;
+}
+
 .shipping-billing-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  row-gap: 2rem;
 }
 .shipping-billing-grid-cell {
   display: flex;
@@ -213,13 +225,41 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .orderpage-header {
-    margin-top: -0.5rem;
-    font-size: 42px;
+  .order-page-wrapper > * {
+    padding-block: 64px;
+    border-bottom: 1px solid #eee;
   }
 
-  .order-img-wrapper {
-    max-width: 500px;
+  .banner-and-signup {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    padding-top: 0;
+    background-color: #eeeeee;
+    padding-bottom: 64px;
+  }
+
+  .signup-checkout {
+    display: grid;
+    align-items: center;
+    max-height: 90vh;
+    padding-top: 5rem;
+    margin-inline-end: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.04),
+      0 8px 24px rgba(0, 0, 0, 0.06);
+
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .banner-section {
+    padding-top: 120px;
+    padding-bottom: 0;
+  }
+
+  .orderpage-header {
+    margin-top: -0.5rem;
   }
 
   .order-details-header {
@@ -239,14 +279,20 @@
   }
 
   .user-order-details {
+    flex-direction: row;
     display: flex;
     justify-content: space-between;
     gap: 4rem;
   }
 
+  .shipping-billing-section {
+    background-color: white;
+  }
+
   .shipping-billing-grid {
     gap: 32px;
   }
+
   .shipping-billing-header {
     font-size: 1rem;
   }
@@ -282,5 +328,11 @@
 
   .cost-summation-total {
     font-size: 14px;
+  }
+
+  .order-to-shop-btn {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1rem 2rem;
   }
 }

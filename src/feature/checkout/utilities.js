@@ -2,13 +2,7 @@ import Paystack from "@paystack/inline-js";
 import { createOrder } from "../../services/orderServices";
 import dayjs from "dayjs";
 import { isValidPhoneNumber } from "libphonenumber-js";
-
-export const isValidEmail = (email) => {
-  const trimmed = email.trim();
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  return regex.test(trimmed);
-};
+import { isValidEmail } from "../../lib/validation/validation";
 
 export const isValidName = (name) => {
   const trimmed = name.trim().replace(/\s+/g, " ");

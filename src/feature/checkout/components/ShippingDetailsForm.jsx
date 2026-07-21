@@ -2,9 +2,9 @@ import { isValidPhoneNumber } from "libphonenumber-js";
 import {
   isValidAddress,
   isValidDeliveryNotes,
-  isValidEmail,
   isValidName,
 } from "../utilities";
+import { isValidEmail } from "../../../lib/validation/validation";
 
 export function ShippingDetailsForm({
   phoneError,

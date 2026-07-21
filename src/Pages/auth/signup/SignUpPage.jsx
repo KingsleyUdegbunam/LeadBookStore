@@ -1,4 +1,4 @@
-import { SignUpForm } from "../../../feature/auth/signup/SignUpForm";
+import { PrimarySignUpForm } from "../../../feature/auth/signup/PrimarySignUpForm";
 import "./SignUpPage.css";
 
 export default function SignUpPage() {
@@ -10,7 +10,7 @@ export default function SignUpPage() {
           Create an account to track this order and future purchases.
         </p>
       </div>
-      <SignUpForm />
+      <PrimarySignUpForm />
     </section>
   );
 }

@@ -37,6 +37,21 @@ select {
   font: inherit;
 }
 
+input,
+textarea {
+  width: 100%;
+  padding: 1rem 1rem;
+  font-size: clamp(1.05rem, 1vw, 1.5rem);
+  font-weight: 500;
+  border: 1px rgba(128, 128, 128, 0.3) solid;
+}
+
+input:focus,
+textarea:focus {
+  border-color: black;
+  outline-color: black;
+}
+
 p,
 h1,
 h2,
@@ -66,14 +81,24 @@ h6 {
 
 /* GENERAL STYLING */
 /* Text */
+
+h1 {
+  font-size: clamp(1.5rem, 8vw, 2.5rem);
+  font-family: "Outfit", sans-serif;
+}
 h3,
 h2,
 button {
   text-transform: uppercase;
 }
 
-h1 {
-  font-size: 2rem;
+label {
+  font-family: "Outfit", sans-serif;
+}
+
+.subheader {
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
+  font-weight: 300;
 }
 
 h2 {
@@ -94,7 +119,6 @@ button {
 
   margin-top: auto;
   width: 100%;
-  /* padding: 0.8rem 1rem; */
   background-color: transparent;
   border: none;
 
@@ -125,6 +149,7 @@ button:focus {
 .button-primary:hover,
 .button-primary:focus {
   background-color: var(--brand-red-clr-hover);
+  border-color: var(--brand-red-clr-hover);
 }
 
 .button-primary:active {
@@ -165,4 +190,10 @@ button:focus {
   height: 1px;
   overflow: hidden;
   opacity: 0;
+}
+
+.auth-helper-text {
+  font-size: clamp(0.85rem, 3vw, 0.95rem);
+  width: 100%;
+  font-weight: 300;
 }

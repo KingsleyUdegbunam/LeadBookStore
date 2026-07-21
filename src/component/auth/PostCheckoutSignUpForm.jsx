@@ -3,18 +3,17 @@ import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { FcCheckmark } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
-import { HiOutlineTruck } from "react-icons/hi2";
-import { GoHistory } from "react-icons/go";
-import { IoBagCheckOutline } from "react-icons/io5";
+
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 import {
   validateEmail,
   validatePassword,
 } from "../../lib/validation/validation";
 import { supabase } from "../../utilities/supabase";
-import "./SignupForm.css";
+import "./SignUpForm.css";
 
-export function SignupForm({ prefilledEmail }) {
+export function PostCheckoutSignUpForm({ prefilledEmail }) {
   const [isVisible, setIsVisible] = useState({
     password: false,
     confirmPassword: false,
@@ -108,40 +107,17 @@ export function SignupForm({ prefilledEmail }) {
     });
 
     if (error) {
-      // console.log(error.message);
+      toast.error(error.message);
+      console.log(error.message);
       return;
     }
-
-    // console.log(data);
+    toast.success("Account created successfully!");
+    console.log(data);
     setFormValue({ email: "", password: "", confirmPassword: "" });
   };
 
   return (
     <section className="signup-section">
-      <div className="signup-header-wrapper">
-        <div>
-          <h2 className="signup-header">Create an Account</h2>
-          <p className="signup-checkout-subheader">
-            Create an account to track this order and future purchases.
-          </p>
-        </div>
-        <div className="signup-benefits">
-          <div className="">
-            <HiOutlineTruck />
-            <p>Easily Track Orders</p>
-          </div>
-
-          <div className="">
-            <GoHistory />
-            <p>View Order History</p>
-          </div>
-
-          <div className="">
-            <IoBagCheckOutline />
-            <p>Faster Checkout</p>
-          </div>
-        </div>
-      </div>
       <form className="signup-form" onSubmit={handleSubmit}>
         <div>
           <article className="signup-input-fields-wrapper">
@@ -179,7 +155,7 @@ export function SignupForm({ prefilledEmail }) {
                 />
               </div>
               <div className="feedback-outer">
-                {prefilledChanged ? (
+                {!prefilledEmail ? (
                   <div className="feedback">
                     {!hasStartedTyping.email ? (
                       "-"
@@ -191,10 +167,14 @@ export function SignupForm({ prefilledEmail }) {
                     <p>Valid email address</p>
                   </div>
                 ) : (
-                  <p className="feedback feedback-email">
-                    This is the email used for your order. You can change it if
-                    needed.
-                  </p>
+                  <div>
+                    {!prefilledChanged && (
+                      <p className="feedback feedback-email">
+                        This is the email used for your order. You can change it
+                        if needed.
+                      </p>
+                    )}
+                  </div>
                 )}
               </div>
             </div>
@@ -271,6 +251,7 @@ export function SignupForm({ prefilledEmail }) {
             </div>
           )}
         </div>
+
         <button
           onClick={() => {
             if (!isEmailValid) {
@@ -295,13 +276,13 @@ export function SignupForm({ prefilledEmail }) {
         >
           Create Account
         </button>
+        <p className="signup-login">
+          Already have an account?{" "}
+          <Link className="signup-login-link" to="">
+            Sign in
+          </Link>
+        </p>
       </form>
-      <p className="signup-login">
-        Already have an account?{" "}
-        <Link className="signup-login-link" to="">
-          Log in
-        </Link>
-      </p>
     </section>
   );
 }

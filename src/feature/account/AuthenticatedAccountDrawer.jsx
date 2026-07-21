@@ -1,8 +1,8 @@
-import Drawer from "../../component/components/Drawer/drawer";
 import { BsChevronRight } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
-
+import Drawer from "../../component/components/Drawer/Drawer";
 import "./AuthenticatedAccountDrawer.css";
+
 export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
   const accountNav = [
     { title: "Orders", desc: "Track and view your orders", link: "" },

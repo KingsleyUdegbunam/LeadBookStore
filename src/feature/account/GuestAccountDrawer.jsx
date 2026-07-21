@@ -1,4 +1,4 @@
-import Drawer from "../../component/components/Drawer/drawer";
+import Drawer from "../../component/components/Drawer/Drawer";
 import { useNavigate } from "react-router-dom";
 import { BsChevronRight } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";

@@ -8,11 +8,10 @@ import { convertToNaira } from "../../utilities/money";
 import { SlPrinter } from "react-icons/sl";
 import { books } from "../../data/inventory";
 import { BookCardRecommendation } from "../../component/BookCardRecommendation";
-import { SignupForm } from "../../component/auth/SignupForm";
+import { SignUpPostCheckoutForm } from "../../feature/PostCheckout/SignUpPostCheckout";
 
-export default function OrderPage({ addToCart }) {
+export default function OrderPage() {
   const [order, setOrder] = useState(null);
-
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
@@ -121,7 +120,8 @@ export default function OrderPage({ addToCart }) {
           </section>
 
           <section className="signup-checkout">
-            <SignupForm prefilledEmail={order.email} />
+            <SignUpPostCheckoutForm />
+            {/* <SignupForm prefilledEmail={order.email} /> */}
           </section>
         </div>
 
@@ -256,16 +256,7 @@ export default function OrderPage({ addToCart }) {
           <div className="related-reads">
             <article className="products-container special-days">
               {recommendedBooks.map((book, index) => (
-                <BookCardRecommendation
-                  key={index}
-                  id={book.id}
-                  book={book}
-                  image={book.coverImage}
-                  category={book.primaryCollection}
-                  title={book.title}
-                  priceInKobo={book.price.paperback}
-                  addToCart={addToCart}
-                />
+                <BookCardRecommendation key={index} book={book} />
               ))}
             </article>
           </div>

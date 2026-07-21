@@ -8,12 +8,9 @@ import { CheckoutDetailSummary } from "../../feature/checkout/components/Checkou
 import { initiatePayment } from "../../feature/checkout/utilities";
 import { convertToNaira } from "../../utilities/money";
 import "./CheckoutPage.css";
+import { useCart } from "../../context/CartContext";
 
-export default function CheckoutPage({
-  setCart,
-  cartInDetail,
-  cartTotalPrice,
-}) {
+export default function CheckoutPage() {
   // Shouldn't we have the house number as well?
   const [shippingDetails, setShippingDetails] = useState({
     country: "Nigeria",
@@ -26,6 +23,8 @@ export default function CheckoutPage({
     lastName: "",
     deliveryNotes: "",
   });
+
+  const { setCart, cartInDetail, cartTotalPrice } = useCart();
 
   const [selectedShipping, setSelectedShipping] = useState({});
   const [showShippingDetailsForm, setShowShippingDetailsForm] = useState(true);

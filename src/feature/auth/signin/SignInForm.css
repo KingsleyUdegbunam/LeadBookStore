@@ -1,0 +1,20 @@
+.signin-form-children {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.password-n-forgot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.forgot-password {
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  color: black;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}

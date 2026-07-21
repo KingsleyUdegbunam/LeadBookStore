@@ -1,0 +1,13 @@
+.account-drawer-wrapper .authenticated-header {
+  gap: 0rem;
+}
+
+.authenticated-nav-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.authenticated-account-drawer-wrapper {
+  gap: 1rem;
+}

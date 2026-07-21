@@ -4,10 +4,15 @@ import { SearchIcon, CartIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
 import { books } from "../../data/inventory";
 import { convertToNaira } from "../../utilities/money";
+import { FaRegUser } from "react-icons/fa6";
 import "./Header.css";
+import { useCart } from "../../context/CartContext";
+import { useUI } from "../../context/UIContext";
 
-export function Header({ cart }) {
+export function Header() {
   const [headerSearchValue, setHeaderSearchValue] = useState("");
+  const { cart } = useCart();
+  const { setOpenAccountDrawer } = useUI();
 
   const navigate = useNavigate();
 
@@ -64,6 +69,13 @@ export function Header({ cart }) {
               toggleSearchBar={toggleSearchBar}
               menuRef={menuRef}
             />
+
+            <button
+              onClick={() => setOpenAccountDrawer(true)}
+              className="header-account"
+            >
+              <FaRegUser />
+            </button>
 
             <CartIcon cartQuantity={cartQuantity} />
           </div>

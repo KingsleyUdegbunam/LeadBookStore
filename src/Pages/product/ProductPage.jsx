@@ -4,7 +4,7 @@ import { useParams, useLocation } from "react-router-dom";
 import "./ProductPage.css";
 import { BookCardRecommendation } from "../../component/BookCardRecommendation";
 
-export default function ProductPage({ addToCart }) {
+export default function ProductPage() {
   const { id } = useParams();
   const { pathname } = useLocation();
 
@@ -109,16 +109,7 @@ export default function ProductPage({ addToCart }) {
           <div className="related-reads">
             <article className="products-container special-days">
               {similarFive.map((book, index) => (
-                <BookCardRecommendation
-                  key={index}
-                  id={book.id}
-                  book={book}
-                  image={book.coverImage}
-                  category={book.primaryCollection}
-                  title={book.title}
-                  priceInKobo={book.price.paperback}
-                  addToCart={addToCart}
-                />
+                <BookCardRecommendation key={index} book={book} />
               ))}
             </article>
           </div>

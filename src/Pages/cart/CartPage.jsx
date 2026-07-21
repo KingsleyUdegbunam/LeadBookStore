@@ -8,14 +8,11 @@ import { FiChevronRight } from "react-icons/fi";
 import { IoTrashBin } from "react-icons/io5";
 import { deleteItem, updateCartItemQty } from "../../feature/cart/utilities";
 import "./CartPage.css";
+import { useCart } from "../../context/CartContext";
 
-export default function CartPage({
-  cart,
-  setCart,
-  cartInDetail,
-  cartTotalPrice,
-}) {
+export default function CartPage() {
   const [qtyInputs, setQtyInputs] = useState({});
+  const { cart, setCart, cartInDetail, cartTotalPrice } = useCart();
 
   useEffect(() => {
     const initial = cart.reduce((acc, cartItem) => {

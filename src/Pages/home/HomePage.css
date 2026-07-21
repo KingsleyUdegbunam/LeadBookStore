@@ -257,12 +257,6 @@ span {
   font-family: "Outfit", sans-serif;
 }
 
-.about {
-  padding-block-end: 2rem;
-
-  border-block-end: 1px solid white;
-}
-
 .about-text,
 .newsletter-constent {
   font-size: 0.85rem;

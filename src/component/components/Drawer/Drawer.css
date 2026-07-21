@@ -1,0 +1,47 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  width: min(85vw, 400px);
+  height: 100dvh;
+  background-color: white;
+  z-index: 200;
+
+  box-shadow: -8px 0 24px rgb(0 0 0 / 0.08);
+
+  transition: transform 250ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer--left {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+.drawer--right {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.drawer-backdrop {
+  background: rgb(0 0 0 / 0.45);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+
+.drawer--open {
+  transform: translateX(0);
+}
+
+.drawer-backdrop--open {
+  opacity: 1;
+  pointer-events: auto;
+}

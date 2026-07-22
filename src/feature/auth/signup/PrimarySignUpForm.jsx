@@ -115,8 +115,9 @@ export function PrimarySignUpForm({ prefilledEmail }) {
       if (result.success) {
         toast.success("Account created successfully!");
         navigate("/");
+        return;
       }
-      toast.error(result.error.message);
+      toast.error(result.error.message ?? result.error);
     } catch (err) {
       toast.error(err.message);
     } finally {

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { HeaderMenu } from "./HeaderMenu";
 import { SearchIcon, CartIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
@@ -54,15 +55,19 @@ export function Header() {
 
   return (
     <>
-      <article className="header-wrapper">
+      <header className="header-wrapper">
         <div className="header-nav">
-          <HeaderMenu
-            toggleMenu={toggleMenu}
-            menuRef={menuRef}
-            menuOpenRef={menuOpenRef}
-            menuCloseRef={menuCloseRef}
-          />
-          <p className="logo">LEAD</p>
+          <div className="menu-toggle-n-logo">
+            <HeaderMenu
+              toggleMenu={toggleMenu}
+              menuRef={menuRef}
+              menuOpenRef={menuOpenRef}
+              menuCloseRef={menuCloseRef}
+            />
+            <Link to="/" className="logo">
+              LEAD
+            </Link>
+          </div>
           <div className="nav">
             <SearchIcon
               toggleMenu={toggleMenu}
@@ -80,7 +85,7 @@ export function Header() {
             <CartIcon cartQuantity={cartQuantity} />
           </div>
         </div>
-      </article>
+      </header>
 
       <div ref={headerSearchRef} className="search-overlay">
         <div className="close-overlay">

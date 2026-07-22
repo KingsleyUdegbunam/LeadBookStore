@@ -139,6 +139,11 @@ button:focus {
   outline-color: transparent;
 }
 
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .button-primary {
   background-color: var(--brand-red-clr);
   color: var(--font-white-clr);

@@ -1,6 +1,8 @@
 import { BsChevronRight } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
 import Drawer from "../../component/components/Drawer/Drawer";
+import { UseAuth } from "../../context/AuthContext";
+import { toast } from "sonner";
 import "./AuthenticatedAccountDrawer.css";
 
 export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
@@ -13,13 +15,26 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
       link: "",
     },
   ];
+  const { signOut } = UseAuth();
+  const handleSignOut = async () => {
+    try {
+      const result = await signOut();
+      if (!result.success) {
+        toast.error("Sign out failed. Try  again.");
+        return;
+      }
+      toast.success("Signed out successfully!");
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
 
   return (
     <Drawer isOpen={isOpen} onClose={onClose}>
       <div className="account-drawer-wrapper authenticated-account-drawer-wrapper">
         <header className="authenticated-header">
           <div className="account-drawer-header-n-close">
-            <h1>Welcome Back! {user}</h1>
+            <h1>Hi {user}!</h1>
             <button onClick={onClose} className="close-account-drawer">
               <MdOutlineClose />
             </button>
@@ -42,7 +57,9 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
           </nav>
 
           <footer className="account-drawer-footer">
-            <button className="button-secondary">Sign Out</button>
+            <button onClick={handleSignOut} className="button-secondary">
+              Sign Out
+            </button>
           </footer>
         </div>
       </div>

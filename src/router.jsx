@@ -11,6 +11,7 @@ import TrackingPage from "./Pages/tracking/TrackingPage";
 import SignInPage from "./Pages/auth/signin/SignInPage";
 import SignUpPage from "./Pages/auth/signup/SignUpPage";
 import Layout from "./Layout";
+import AuthLayout from "./AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -18,8 +19,6 @@ export const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: "/signin", element: <SignInPage /> },
-      { path: "/signup", element: <SignUpPage /> },
       { path: "/shop", element: <ShopPage /> },
       { path: "/cart", element: <CartPage /> },
       { path: "/checkout", element: <CheckoutPage /> },
@@ -28,6 +27,27 @@ export const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/contact", element: <ContactPage /> },
       { path: "/tracking", element: <TrackingPage /> },
+    ],
+  },
+  {
+    element: <AuthLayout />,
+    children: [
+      { path: "/signup", element: <SignUpPage /> },
+      { path: "/signin", element: <SignInPage /> },
+    ],
+  },
+]);
+
+export const routs = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      { path: "/shop", element: <ShopPage /> },
     ],
   },
 ]);

@@ -9,15 +9,6 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-.forgot-password {
-  font-family: "Outfit", sans-serif;
-  text-align: center;
-  color: black;
-}
-
-.forgot-password:hover {
-  text-decoration: underline;
-}
 
 .action-btn-helper-n-text {
   display: flex;

@@ -90,9 +90,6 @@ export function SignInForm() {
                 </button>
               </div>
             </div>
-            <Link className="forgot-password auth-helper-text" to="">
-              Forgot Password?
-            </Link>
           </div>
 
           <div className="action-btn-helper-n-text">

@@ -18,3 +18,9 @@
 .forgot-password:hover {
   text-decoration: underline;
 }
+
+.action-btn-helper-n-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

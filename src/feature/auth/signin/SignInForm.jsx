@@ -3,6 +3,8 @@ import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
+import { UseAuth } from "../../../context/AuthContext";
 import "./SignInForm.css";
 
 export function SignInForm() {
@@ -11,13 +13,30 @@ export function SignInForm() {
     password: "",
   });
 
+  const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
+  const { signInUser } = UseAuth();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formValue.email.trim() && !formValue.password.trim()) {
       toast.warning("Enter your email and password to continue");
       return;
+    }
+    try {
+      const result = await signInUser(formValue.email, formValue.password);
+      if (!result.success) {
+        toast.error(result.error.message);
+        return;
+      }
+
+      toast.success("Signed in successfully!");
+      navigate("/");
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -76,7 +95,17 @@ export function SignInForm() {
             </Link>
           </div>
 
-          <button type="submit">Sign In</button>
+          <div className="action-btn-helper-n-text">
+            <button disabled={loading} type="submit">
+              Sign In
+            </button>
+            <p className="signup-login">
+              Don't have an account?{" "}
+              <Link className="signup-login-link" to="/signup">
+                Sign up
+              </Link>
+            </p>
+          </div>
         </div>
       </form>
     </section>

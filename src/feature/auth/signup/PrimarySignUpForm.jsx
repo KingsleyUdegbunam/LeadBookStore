@@ -3,17 +3,19 @@ import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { FcCheckmark } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-
-import { supabase } from "../../../utilities/supabase";
 import {
   validateEmail,
   validatePassword,
 } from "../../../lib/validation/validation";
+import { UseAuth } from "../../../context/AuthContext";
 
 export function PrimarySignUpForm({ prefilledEmail }) {
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const { signUpNewUser } = UseAuth();
+
   const [isVisible, setIsVisible] = useState({
     password: false,
     confirmPassword: false,
@@ -97,25 +99,29 @@ export function PrimarySignUpForm({ prefilledEmail }) {
   const isEmailValid = validateEmail(formValue.email).valid;
 
   const isValidDetails = isEmailValid && isPasswordValid;
-  console.log(isValidDetails);
 
+  //HANDLE FORM SUBMISSION
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isValidDetails) return;
-    const { data, error } = await supabase.auth.signUp({
-      email: formValue.email,
-      password: formValue.password,
-    });
-
-    if (error) {
-      toast.error(error.message);
-      console.log(error.message);
-      return;
+    setLoading(true);
+    try {
+      const result = await signUpNewUser(
+        formValue.email,
+        formValue.password,
+        formValue.firstName,
+      );
+      if (result.success) {
+        toast.success("Account created successfully!");
+        navigate("/");
+      }
+      toast.error(result.error.message);
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
     }
-    toast.success("Account created successfully!");
-    console.log(data);
-    setFormValue({ email: "", password: "", confirmPassword: "" });
   };
 
   return (
@@ -296,6 +302,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
         </div>
 
         <button
+          disabled={loading}
           onClick={() => {
             if (!isEmailValid) {
               emailInputRef?.current.focus();
@@ -317,11 +324,11 @@ export function PrimarySignUpForm({ prefilledEmail }) {
           className="signup-btn"
           type="submit"
         >
-          Create Account
+          {loading ? "Creating Account..." : "Create Account"}
         </button>
         <p className="signup-login">
           Already have an account?{" "}
-          <Link className="signup-login-link" to="">
+          <Link className="signup-login-link" to="/signin">
             Sign in
           </Link>
         </p>

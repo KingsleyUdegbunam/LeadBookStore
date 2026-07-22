@@ -7,7 +7,7 @@ export default function SignUpPage() {
       <div>
         <h1>Create Your Account</h1>
         <p className="subheader">
-          Create an account to track this order and future purchases.
+          Create an account to track your orders and breeze through checkout.
         </p>
       </div>
       <PrimarySignUpForm />

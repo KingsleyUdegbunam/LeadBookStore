@@ -3,11 +3,12 @@ import { ShippingOptions } from "./ShippingOptions";
 import { ShippingDetails } from "./ShippingDetails";
 import { ActionButton } from "./ActionButton";
 import { isValidAddress, isValidName } from "../utilities";
-
 import { isValidNumber } from "libphonenumber-js";
 import { useNavigate } from "react-router-dom";
 import { initiatePayment } from "../utilities";
 import { isValidEmail } from "../../../lib/validation/validation";
+
+import { UseAuth } from "../../../context/AuthContext";
 
 export function ShippingInfo({
   showShippingOptForm,
@@ -38,6 +39,8 @@ export function ShippingInfo({
   const [addressError, setAddressError] = useState(null);
   const [notesError, setNotesError] = useState(false);
 
+  const { session } = UseAuth();
+
   const navigate = useNavigate();
 
   const hideForms = () => {
@@ -61,7 +64,7 @@ export function ShippingInfo({
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validEmail = isValidEmail(shippingDetails?.email);
     !validEmail && setEmailError(true);
@@ -92,9 +95,10 @@ export function ShippingInfo({
       selectedShipping?.id;
 
     if (validForm) {
-      console.log("YES");
+      const userId = session?.user?.id ?? null;
       if (isReadyToPay) {
-        initiatePayment(
+        await initiatePayment(
+          userId,
           cartTotalPrice,
           cartInDetail,
           shippingDetails,

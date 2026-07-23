@@ -87,6 +87,7 @@ export function isFormValid(shippingDetails, selectedShipping) {
 }
 
 export const initiatePayment = (
+  userId,
   cartTotalPrice,
   cartInDetail,
   shippingDetails,
@@ -110,17 +111,16 @@ export const initiatePayment = (
 
         const orderData = {
           reference: transaction.reference,
+          user_id: userId,
           subtotal: cartTotalPrice,
           total: totalCost,
           items: cartInDetail,
           shipping_details: shippingDetails,
           email: shippingDetails?.email,
           courier_details: selectedShipping,
-          status: "paid",
-          created_at: new Date(),
+          status: "processing",
         };
 
-        console.log("START HERE");
         const savedOrder = await createOrder(orderData);
         console.log("THISSSS", savedOrder);
 

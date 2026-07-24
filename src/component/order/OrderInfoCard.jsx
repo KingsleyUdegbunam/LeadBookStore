@@ -1,6 +1,11 @@
 import React from "react";
 
-const OrderInfoCard = ({ title, bodyMain, additionalDetail, footer }) => {
+export const OrderInfoCard = ({
+  title,
+  bodyMain,
+  additionalDetail,
+  footer,
+}) => {
   return (
     <div>
       <div className="shipping-billing-grid-cell">
@@ -14,8 +19,6 @@ const OrderInfoCard = ({ title, bodyMain, additionalDetail, footer }) => {
     </div>
   );
 };
-
-export default OrderInfoCard;
 
 export const OrderDeliveryInfoCard = ({ title, bodyMain, footer }) => {
   return (

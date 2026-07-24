@@ -269,3 +269,13 @@ export const calculateDeliveryDays = (length) => {
 
   return today.format("ddd, DD MMM");
 };
+
+export function getOrderDate(inputDate, time = false) {
+  const returnDate = dayjs(inputDate).format("MMM D, YYYY");
+  const returnTime = dayjs(inputDate).format("H:mm");
+
+  if (time) {
+    return `${returnDate} at ${returnTime}`;
+  }
+  return returnDate;
+}

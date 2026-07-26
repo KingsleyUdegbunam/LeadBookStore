@@ -1,0 +1,153 @@
+/* Book Purchased Mobile */
+.order-items-mobile {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  font-size: clamp(12.5px, 3vw, 14px);
+  padding-block: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile:last-child {
+  border-color: transparent;
+}
+
+.order-img-container {
+  display: grid;
+  place-content: center;
+  aspect-ratio: 2/3;
+  width: 45px;
+}
+
+.order-img-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.order-item-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  color: #454545;
+  font-weight: 300;
+}
+
+.order-item-title {
+  font-size: clamp(13px, 3vw, 0.9rem);
+  font-weight: 400;
+  color: #000000;
+  text-transform: capitalize;
+}
+
+.order-item-price {
+  font-weight: 500;
+  display: flex;
+  align-items: end;
+  justify-content: right;
+}
+
+.cost-summation {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.order-cost-fraction,
+.cost-summation-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtotal-delivery {
+  border-top: solid hwb(0 27% 73% / 0.176) 1px;
+  padding-block: 0.25rem;
+}
+
+.cost-summation-total {
+  border-top: dashed hwb(0 27% 73% / 0.176) 1px;
+  padding-block: 0.25rem;
+}
+
+.cost-summation-total {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.order-items-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .order-items-mobile {
+    display: none;
+    background-color: antiquewhite;
+  }
+
+  .book-img-n-title {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .order-items-desktop {
+    display: block;
+  }
+
+  .order-item-grid-desktop,
+  .books-purchased-header {
+    font-size: 0.85rem;
+    display: grid;
+    grid-template-columns: 450px 1fr 1fr 1fr auto;
+    align-items: center;
+  }
+
+  .order-item-grid-desktop:last-child {
+    border-bottom-color: transparent;
+  }
+
+  .books-purchased-header {
+    margin-top: 0.5rem;
+    font-weight: 500;
+    font-size: 0.82rem;
+    color: #454545;
+  }
+
+  .order-item-grid-desktop {
+    padding-block: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .order-img-container {
+    width: 44px;
+  }
+
+  .book-purchased-title {
+    text-transform: capitalize;
+  }
+
+  .book-purchased-quantity {
+    padding-inline: 2rem;
+  }
+
+  .order-item-author {
+    font-size: 12px;
+  }
+
+  .order-item-qty,
+  .order-item-price {
+    font-size: 12px;
+  }
+
+  .cost-summation {
+    font-size: 13px;
+  }
+
+  .cost-summation-total {
+    font-size: 14px;
+  }
+}

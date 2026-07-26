@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { convertToNaira } from "../../../utilities/money";
 import { Link } from "react-router-dom";
-import "./AccountOrdersPage.css";
 import { toast } from "sonner";
 import { UseAuth } from "../../../context/AuthContext";
 import { getOrderDate } from "../../../feature/checkout/utilities";
@@ -10,6 +9,8 @@ import { BsChevronRight } from "react-icons/bs";
 import { LuDot } from "react-icons/lu";
 import { FaCircleDot } from "react-icons/fa6";
 import { getUserOrders } from "../../../lib/validation/orders";
+
+import "./AccountOrdersPage.css";
 
 const AccountOrdersPage = () => {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,6 @@ const AccountOrdersPage = () => {
       const result = await getUserOrders(user);
       if (result.success) {
         setOrders(result.data);
-        // console.log(result.data);
       } else {
         toast.error("Couldn't load your orders. Please try again.");
       }
@@ -36,18 +36,22 @@ const AccountOrdersPage = () => {
   if (loading) return <p className="pages-wrapper">Loading your orders...</p>;
   if (orders.length === 0)
     return (
-      <p className="pages-wrapper">
-        No orders yet — <a href="/shop">browse the shop</a>.
-      </p>
+      <div className="pages-wrapper">
+        <p className="redirect">
+          No orders yet — <a href="/shop">browse the shop</a>.
+        </p>
+      </div>
     );
 
   return (
     <div className="orders-list pages-wrapper">
       <header>
-        <h1>My Orders</h1>
-        <p className="support-txt">Track and manage your book orders</p>
+        <h2>My Orders</h2>
+        <p className="support-txt card-text-body">
+          Track and manage your book orders
+        </p>
       </header>
-      <p className="your-order-count">{orders.length} Orders</p>
+      <p className="details-card-header">{orders.length} Orders</p>
       <article className="my-order-wrapper">
         {orders.map((order) => (
           <Link

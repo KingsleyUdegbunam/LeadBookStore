@@ -1,3 +1,11 @@
+.redirect {
+  color: black;
+}
+
+.redirect a {
+  color: var(--brand-red-clr);
+}
+
 .pages-wrapper {
   padding: 6rem 1rem;
   min-height: 100vh;

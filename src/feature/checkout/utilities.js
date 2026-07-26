@@ -103,7 +103,6 @@ export const initiatePayment = (
     email: shippingDetails?.email,
     amount: totalCost,
     onSuccess: async (transaction) => {
-      console.log(transaction);
       try {
         if (!transaction?.reference) {
           throw new Error("Invalid transaction reference");
@@ -119,6 +118,7 @@ export const initiatePayment = (
           email: shippingDetails?.email,
           courier_details: selectedShipping,
           status: "processing",
+          processing_at: new Date().toISOString(),
         };
 
         const savedOrder = await createOrder(orderData);

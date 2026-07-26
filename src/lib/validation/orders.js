@@ -1,6 +1,7 @@
 import { supabase } from "../../utilities/supabase";
 
 export async function getUserOrders(user) {
+  if (!user) return { success: false, error: "Not signed in" };
   const { data, error } = await supabase
     .from("orders")
     .select("*")

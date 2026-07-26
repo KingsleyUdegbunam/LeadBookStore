@@ -87,6 +87,7 @@ export function isFormValid(shippingDetails, selectedShipping) {
 }
 
 export const initiatePayment = (
+  userId,
   cartTotalPrice,
   cartInDetail,
   shippingDetails,
@@ -102,7 +103,6 @@ export const initiatePayment = (
     email: shippingDetails?.email,
     amount: totalCost,
     onSuccess: async (transaction) => {
-      console.log(transaction);
       try {
         if (!transaction?.reference) {
           throw new Error("Invalid transaction reference");
@@ -110,17 +110,17 @@ export const initiatePayment = (
 
         const orderData = {
           reference: transaction.reference,
+          user_id: userId,
           subtotal: cartTotalPrice,
           total: totalCost,
           items: cartInDetail,
           shipping_details: shippingDetails,
           email: shippingDetails?.email,
           courier_details: selectedShipping,
-          status: "paid",
-          created_at: new Date(),
+          status: "processing",
+          processing_at: new Date().toISOString(),
         };
 
-        console.log("START HERE");
         const savedOrder = await createOrder(orderData);
         console.log("THISSSS", savedOrder);
 
@@ -269,3 +269,13 @@ export const calculateDeliveryDays = (length) => {
 
   return today.format("ddd, DD MMM");
 };
+
+export function getOrderDate(inputDate, time = false) {
+  const returnDate = dayjs(inputDate).format("MMMM D, YYYY");
+  const returnTime = dayjs(inputDate).format("h:mm A");
+
+  if (time) {
+    return `${returnDate} at ${returnTime}`;
+  }
+  return returnDate;
+}

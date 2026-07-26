@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { books } from "../../data/inventory";
 import { useParams, useLocation } from "react-router-dom";
 import "./ProductPage.css";
-import { BookCardRecommendation } from "../../component/BookCardRecommendation";
+import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -109,7 +109,7 @@ export default function ProductPage() {
           <div className="related-reads">
             <article className="products-container special-days">
               {similarFive.map((book, index) => (
-                <BookCardRecommendation key={index} book={book} />
+                <BookCardRecommendationCard key={index} book={book} />
               ))}
             </article>
           </div>

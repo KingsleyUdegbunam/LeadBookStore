@@ -1,11 +1,11 @@
 import { convertToNaira } from "../utilities/money";
 import { Link } from "react-router-dom";
-import "./BookCard.css";
 import { useCart } from "../context/CartContext";
 
-export function BookCardRecommendation({ book }) {
+import "./BookCard.css";
+
+export function BookCardRecommendationCard({ book }) {
   const { id, coverImage, primaryCollection, price, title, author } = book;
-  console.log(book);
   const { addToCart } = useCart();
   return (
     <div className="product product-rec  product-grid">

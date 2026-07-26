@@ -2,13 +2,19 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOrderById } from "../../services/orderServices";
 import orderBox from "../../assets/order-box.png";
+import {
+  OrderCostBreakDown,
+  BooksPurchased,
+} from "../../component/order/OrderSummary";
 import dayjs from "dayjs";
-import "./OrderPage.css";
 import { convertToNaira } from "../../utilities/money";
 import { SlPrinter } from "react-icons/sl";
 import { books } from "../../data/inventory";
-import { BookCardRecommendation } from "../../component/BookCardRecommendation";
+import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 import { SignUpPostCheckoutForm } from "../../feature/PostCheckout/SignUpPostCheckout";
+import { OrderInfo } from "../../component/order/OrderInfo";
+import { toast } from "sonner";
+import "./OrderPage.css";
 
 export default function OrderPage() {
   const [order, setOrder] = useState(null);
@@ -19,10 +25,9 @@ export default function OrderPage() {
     async function fetchOrder() {
       try {
         const data = await getOrderById(id);
-        console.log(data);
         setOrder(data);
-      } catch (err) {
-        console.error("Failed to fetch order:", err);
+      } catch {
+        toast.error("Failed to fetch order");
       } finally {
         setLoading(false);
       }
@@ -30,8 +35,6 @@ export default function OrderPage() {
 
     if (id) fetchOrder();
   }, [id]);
-
-  console.log(order);
 
   const collections = useMemo(() => {
     return [...new Set(order?.items.flatMap((item) => item.collections) ?? [])];
@@ -126,124 +129,13 @@ export default function OrderPage() {
         </div>
 
         <section className="shipping-billing-section">
-          <div className="shipping-billing-grid">
-            <div>
-              <div className="shipping-billing-grid-cell">
-                <p className="shipping-billing-header">Shipping To</p>
-                <p className="shipping-billing-name">
-                  {`${order.shipping_details.firstName} ${order.shipping_details.lastName}`}
-                </p>
-                <div>
-                  <p className="shipping-billing-detail-regular">
-                    {`${order.shipping_details.address}, ${order.shipping_details.city}, ${order.shipping_details.state}`}
-                  </p>
-                  <p className="shipping-billing-detail-regular">
-                    {order.shipping_details.tel}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="shipping-billing-grid-cell">
-                <p className="shipping-billing-header">Billing Address</p>
-                <p className="shipping-billing-name">
-                  {`${order.shipping_details.firstName} ${order.shipping_details.lastName}`}
-                </p>
-                <div>
-                  <p className="shipping-billing-detail-regular">
-                    {`${order.shipping_details.address}, ${order.shipping_details.city}, ${order.shipping_details.state}`}
-                  </p>
-                  <p className="shipping-billing-detail-regular">
-                    {order.shipping_details.tel}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="shipping-billing-grid-cell">
-                <p className="shipping-billing-header">Delivery</p>
-
-                <div>
-                  <p className="shipping-billing-name">
-                    {`${order.courier_details.minDeliveryDay} - ${order.courier_details.maxDeliveryDay}`}
-                  </p>
-                  <p className="shipping-billing-detail-regular">
-                    {`${order.courier_details.id}`}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-2">
-              <div className="shipping-billing-grid-cell">
-                <p className="shipping-billing-header">Payment</p>
-
-                <div>
-                  <p className="shipping-billing-detail-regular">
-                    {`${order.shipping_details.address}, ${order.shipping_details.city}, ${order.shipping_details.state}`}
-                  </p>
-                  <p className="shipping-billing-detail-regular">
-                    {order.shipping_details.tel}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <OrderInfo order={order} />
         </section>
 
         <section className="order-summary">
           <h2 className="order-summary-h2">Order Summary</h2>
-          <div className="order-items">
-            {order.items.map((item) => {
-              return (
-                <article key={item.id} className="order-item-grid">
-                  <div className="order-img-container">
-                    <img src={item.coverImage} height={56} alt="" />
-                  </div>
-
-                  <div className="order-item-txt">
-                    <div>
-                      <p className="order-item-title">{item.title}</p>
-                      <p className="order-item-author">{item.author}</p>
-                    </div>
-
-                    <div className="order-item-qty">
-                      <p>{`Qty: ${item.quantity}`}</p>
-                    </div>
-                  </div>
-                  <div className="order-item-price">
-                    <p>{convertToNaira(item.totalPrice)}</p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="cost-summation">
-            <div className="subtotal-delivery">
-              <div className="order-cost-fraction">
-                <p className="cost-summation-title">Subtotal</p>
-                <p className="cost-summation-money">
-                  {convertToNaira(order.subtotal)}
-                </p>
-              </div>
-              <div className="order-cost-fraction">
-                <p className="cost-summation-title">Delivery</p>
-                <p className="cost-summation-money">
-                  {convertToNaira(order.courier_details.costInCents)}
-                </p>
-              </div>
-            </div>
-
-            <div className="cost-summation-total">
-              <p className="cost-summation-total-title">Total</p>
-              <p className="cost-summation-total-money">
-                {convertToNaira(order.total)}
-              </p>
-            </div>
-          </div>
+          <BooksPurchased order={order} />
+          <OrderCostBreakDown order={order} />
           <div className="order-to-shop-btn-wrapper">
             <a href="/shop">
               <button className="order-to-shop-btn">Browse More Books</button>
@@ -256,7 +148,7 @@ export default function OrderPage() {
           <div className="related-reads">
             <article className="products-container special-days">
               {recommendedBooks.map((book, index) => (
-                <BookCardRecommendation key={index} book={book} />
+                <BookCardRecommendationCard key={index} book={book} />
               ))}
             </article>
           </div>

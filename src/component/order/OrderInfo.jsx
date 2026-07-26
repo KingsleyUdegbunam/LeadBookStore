@@ -1,5 +1,6 @@
 import React from "react";
-import OrderInfoCard, { OrderDeliveryInfoCard } from "./OrderInfoCard";
+import { OrderInfoCard } from "./OrderInfoCard";
+import { capitalizeWords } from "../../utilities/capitalizeWords";
 
 export const OrderInfo = ({ order }) => {
   const shipping = {
@@ -17,8 +18,9 @@ export const OrderInfo = ({ order }) => {
 
   const delivery = {
     title: "Delivery",
-    bodyMain: `${order?.courier_details?.minDeliveryDay} - ${order?.courier_details?.maxDeliveryDay}`,
-    footer: order?.courier_details.id,
+    bodyMain: order?.courier_details.id,
+    additionalDetail: capitalizeWords(`${order?.courier_details.desc}`),
+    footer: `${order?.courier_details?.minDeliveryDay} - ${order?.courier_details?.maxDeliveryDay}`,
   };
 
   const deliveryNotes = {
@@ -47,9 +49,10 @@ export const OrderInfo = ({ order }) => {
         />
       )}
 
-      <OrderDeliveryInfoCard
+      <OrderInfoCard
         title={delivery.title}
         bodyMain={delivery.bodyMain}
+        additionalDetail={delivery.additionalDetail}
         footer={delivery.footer}
       />
     </div>

@@ -2,16 +2,19 @@ import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOrderById } from "../../services/orderServices";
 import orderBox from "../../assets/order-box.png";
-import { OrderSummary } from "../../component/order/OrderSummary";
+import {
+  OrderCostBreakDown,
+  BooksPurchased,
+} from "../../component/order/OrderSummary";
 import dayjs from "dayjs";
-import "./OrderPage.css";
 import { convertToNaira } from "../../utilities/money";
 import { SlPrinter } from "react-icons/sl";
 import { books } from "../../data/inventory";
 import { BookCardRecommendation } from "../../component/BookCardRecommendation";
 import { SignUpPostCheckoutForm } from "../../feature/PostCheckout/SignUpPostCheckout";
-
 import { OrderInfo } from "../../component/order/OrderInfo";
+import { toast } from "sonner";
+import "./OrderPage.css";
 
 export default function OrderPage() {
   const [order, setOrder] = useState(null);
@@ -22,10 +25,9 @@ export default function OrderPage() {
     async function fetchOrder() {
       try {
         const data = await getOrderById(id);
-        console.log(data);
         setOrder(data);
-      } catch (err) {
-        console.error("Failed to fetch order:", err);
+      } catch {
+        toast.error("Failed to fetch order");
       } finally {
         setLoading(false);
       }
@@ -33,8 +35,6 @@ export default function OrderPage() {
 
     if (id) fetchOrder();
   }, [id]);
-
-  console.log(order);
 
   const collections = useMemo(() => {
     return [...new Set(order?.items.flatMap((item) => item.collections) ?? [])];
@@ -134,8 +134,8 @@ export default function OrderPage() {
 
         <section className="order-summary">
           <h2 className="order-summary-h2">Order Summary</h2>
-          <OrderSummary order={order} />
-
+          <BooksPurchased order={order} />
+          <OrderCostBreakDown order={order} />
           <div className="order-to-shop-btn-wrapper">
             <a href="/shop">
               <button className="order-to-shop-btn">Browse More Books</button>

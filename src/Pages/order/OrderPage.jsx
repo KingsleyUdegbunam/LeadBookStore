@@ -10,7 +10,7 @@ import dayjs from "dayjs";
 import { convertToNaira } from "../../utilities/money";
 import { SlPrinter } from "react-icons/sl";
 import { books } from "../../data/inventory";
-import { BookCardRecommendation } from "../../component/BookCardRecommendation";
+import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 import { SignUpPostCheckoutForm } from "../../feature/PostCheckout/SignUpPostCheckout";
 import { OrderInfo } from "../../component/order/OrderInfo";
 import { toast } from "sonner";
@@ -148,7 +148,7 @@ export default function OrderPage() {
           <div className="related-reads">
             <article className="products-container special-days">
               {recommendedBooks.map((book, index) => (
-                <BookCardRecommendation key={index} book={book} />
+                <BookCardRecommendationCard key={index} book={book} />
               ))}
             </article>
           </div>

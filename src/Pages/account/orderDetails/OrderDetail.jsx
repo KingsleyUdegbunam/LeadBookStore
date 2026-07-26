@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOrderById } from "../../../services/orderServices";
 import { Link } from "react-router-dom";
-import { OrderSummary } from "../../../component/order/OrderSummary";
+import { BooksPurchased } from "../../../component/order/OrderSummary";
 import { getOrderDate } from "../../../feature/checkout/utilities";
 import { RiArrowLeftLongLine } from "react-icons/ri";
 import { FaCircleDot } from "react-icons/fa6";
@@ -17,8 +17,9 @@ import { HiOutlineTruck } from "react-icons/hi2";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import { convertToNaira } from "../../../utilities/money";
 import BookRecommendation from "../../../component/order/BookRecommendation";
-import "./OrderDetail.css";
 import { toast } from "sonner";
+
+import "./OrderDetail.css";
 
 const OrderDetail = () => {
   const [order, setOrder] = useState(null);
@@ -40,7 +41,6 @@ const OrderDetail = () => {
     }
 
     if (id) fetchOrder();
-    window.scrollTo(0, 0);
   }, [id]);
 
   const ORDER_TIMELINE = [
@@ -124,7 +124,7 @@ const OrderDetail = () => {
                       {step.title}
                     </p>
                     {timestamp && (
-                      <p className="timeline-date">
+                      <p className="timeline-date card-text-body">
                         {getOrderDate(timestamp, true)}
                       </p>
                     )}
@@ -235,7 +235,7 @@ const OrderDetail = () => {
               {`Book${order?.items?.length > 1 ? "s" : ""} Purchased (${order?.items?.length}) `}
             </p>
             <div>
-              <OrderSummary order={order} />
+              <BooksPurchased order={order} />
             </div>
           </div>
 

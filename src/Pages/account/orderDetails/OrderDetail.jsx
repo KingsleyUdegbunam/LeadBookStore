@@ -16,7 +16,7 @@ import { HiOutlineTruck } from "react-icons/hi2";
 
 import { IoCheckmarkOutline } from "react-icons/io5";
 import { convertToNaira } from "../../../utilities/money";
-import BookRecommendation from "../../../component/order/BookRecommendation";
+import BookRecommendations from "../../../component/order/BookRecommendations";
 import { toast } from "sonner";
 
 import "./OrderDetail.css";
@@ -273,7 +273,7 @@ const OrderDetail = () => {
         </div>
         <article className="border recommendation">
           <p className="details-card-header">You May Also Like</p>
-          <BookRecommendation order={order} />
+          <BookRecommendations order={order} />
         </article>
       </div>
     </section>

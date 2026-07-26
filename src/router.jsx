@@ -14,6 +14,7 @@ import Layout from "./Layout";
 import AuthLayout from "./AuthLayout";
 import AccountOrdersPage from "./Pages/account/orders/AccountOrdersPage";
 import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
+import { Settings } from "./Pages/account/setting/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
       { path: "/tracking", element: <TrackingPage /> },
       { path: "/account/orders", element: <AccountOrdersPage /> },
       { path: "/account/order-details/:id", element: <OrderDetail /> },
+      {
+        path: "/account/account-settings",
+        element: <Settings />,
+      },
     ],
   },
   {

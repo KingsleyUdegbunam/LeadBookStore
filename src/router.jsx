@@ -12,6 +12,8 @@ import SignInPage from "./Pages/auth/signin/SignInPage";
 import SignUpPage from "./Pages/auth/signup/SignUpPage";
 import Layout from "./Layout";
 import AuthLayout from "./AuthLayout";
+import AccountOrdersPage from "./Pages/account/orders/AccountOrdersPage";
+import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +29,8 @@ export const router = createBrowserRouter([
       { path: "/about", element: <AboutPage /> },
       { path: "/contact", element: <ContactPage /> },
       { path: "/tracking", element: <TrackingPage /> },
+      { path: "/account/orders", element: <AccountOrdersPage /> },
+      { path: "/account/order-details/:id", element: <OrderDetail /> },
     ],
   },
   {

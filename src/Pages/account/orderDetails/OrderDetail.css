@@ -1,0 +1,273 @@
+.order-progress-header {
+  margin-bottom: 1rem;
+}
+
+.page-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.grouped-details-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-details-wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+}
+
+.timeline-header {
+  font-weight: 600;
+  font-size: clamp(13px, 4vw, 0.9rem);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-item {
+  display: flex;
+  flex: 1;
+  gap: 1rem;
+}
+
+.timeline-content {
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: clamp(14px, 3vw, 0.9rem);
+}
+
+.timeline-item:last-child .timeline-content {
+  padding-bottom: 0;
+}
+
+.timeline-title {
+  font-weight: 600;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-icon {
+  color: #bebebe;
+  padding: 0.2rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+
+  display: grid;
+  place-content: center;
+}
+
+/* completed */
+.timeline-icon.completed {
+  background-color: rgb(0, 177, 53);
+  color: white;
+  border: none;
+}
+
+/* Current */
+.timeline-icon.current {
+  color: white;
+  background-color: rgb(238, 159, 0);
+  border: none;
+}
+
+.timeline-line {
+  min-height: 2.5rem;
+  width: 2px;
+  flex: 1;
+  background: #ddd;
+}
+
+.timeline-line.completed {
+  background-color: rgb(0, 177, 53);
+}
+
+.order-details-page-wrapper {
+  gap: 1rem;
+}
+
+.order-details-navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: "Outfit", sans-serif;
+  color: black;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  transition: color 150ms ease;
+}
+
+.order-details-navigation:hover {
+  color: var(--brand-red-clr);
+}
+
+.order-details-page-header {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.order-detail-number-date {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.order-number-and-status {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.order-details-card {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #eee;
+  border-radius: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.border {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid #eee;
+  border-radius: 0.4rem;
+}
+
+.detail-card-pill {
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.2rem;
+  width: fit-content;
+  font-size: clamp(11.5px, 2vw, 14px);
+}
+
+.detail-card-pill.green {
+  color: rgb(0, 177, 53);
+  background-color: rgba(0, 177, 53, 0.15);
+}
+
+.detail-card-pill.red-text {
+  color: var(--brand-red-clr);
+}
+
+.detail-card-pill.green-text {
+  color: rgb(0, 177, 53);
+}
+
+.details-card-icon-wrapper {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.details-card-header {
+  font-weight: 600;
+  font-size: clamp(14px, 4vw, 1rem);
+}
+
+.order-details-card-left {
+  display: flex;
+  align-items: top;
+  gap: 1rem;
+}
+
+.order-details-card.detail-orders {
+  display: block;
+}
+
+.order-details-card-text-flex.details-orders {
+  width: 100%;
+}
+
+.order-details-card-text-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: rgb(27, 27, 27);
+}
+
+.card-text-body {
+  font-size: clamp(14px, 3vw, 0.9rem);
+  font-weight: 300;
+}
+
+.flex {
+  width: 100%;
+  display: flex;
+}
+
+.py {
+  padding-block: 0.15rem;
+}
+
+.order-subtotal {
+  padding-block: 0.3rem;
+}
+
+.order-total-cost {
+  font-size: 13px;
+  font-weight: 500;
+  border-top: 1px solid #eee;
+  padding-block: 0.3rem;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.order-detail-status {
+  font-size: 0.95rem;
+}
+
+.order-details-page-wrapper .order-detail-info {
+  padding-block: 0.5rem;
+  background-color: #eee;
+  padding: 1rem;
+}
+
+.order-details-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.order-details-items-header {
+  text-align: left;
+}
+.order-details-card.display-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .page-content-wrapper {
+    padding-inline: 2rem;
+  }
+  .order-details-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .order-details-card.display-desktop {
+    display: block;
+  }
+
+  .order-details-card.display-mobile {
+    display: none;
+  }
+
+  .books-purchased-container {
+    grid-column: span 2;
+  }
+}

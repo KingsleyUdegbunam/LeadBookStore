@@ -271,8 +271,8 @@ export const calculateDeliveryDays = (length) => {
 };
 
 export function getOrderDate(inputDate, time = false) {
-  const returnDate = dayjs(inputDate).format("MMM D, YYYY");
-  const returnTime = dayjs(inputDate).format("H:mm");
+  const returnDate = dayjs(inputDate).format("MMMM D, YYYY");
+  const returnTime = dayjs(inputDate).format("h:mm A");
 
   if (time) {
     return `${returnDate} at ${returnTime}`;

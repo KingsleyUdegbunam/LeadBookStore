@@ -150,6 +150,7 @@ span {
   padding-block: 0rem;
   padding-block-start: 1rem;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   gap: 0.8rem;
   overflow-x: auto;
@@ -165,18 +166,20 @@ span {
 
 .newsletter {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 2rem 1.5rem;
-  height: 35vh;
 
   background: url("../../assets/bookClub2.jpg");
   color: white;
   background-size: cover;
+}
+
+.newsletter-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 3rem 1.5rem;
+
+  justify-content: center;
 }
 
 .newsletter::before {

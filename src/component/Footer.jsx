@@ -18,29 +18,31 @@ export function Footer() {
 
   return (
     <footer>
-      <article className="about">
-        <p className="about-text">
-          LEAD is more than a bookstore. We are a community of readers committed
-          to building tomorrow's leaders one book at a time. Proudly Nigerian,
-          globally inspired — we curate books across leadership, business,
-          self-development and storytelling for every kind of leader. Whether
-          you are 8 or 80, there is a shelf here for you.
-        </p>
-      </article>
-      <div className="footer-wrapper">
-        <div className="footer-div">
-          <p className="link-header">Our Collection</p>
-          <div className="link-tree">
-            {ourCollection.map((col, key) => (
-              <Link key={key} to={`/shop?collection=${col.toLowerCase()}`}>
-                {col}
-              </Link>
-            ))}
+      <div className="footer-content-wrapper pages-wrapper-variation">
+        <article className="about">
+          <p className="about-text">
+            LEAD is more than a bookstore. We are a community of readers
+            committed to building tomorrow's leaders one book at a time. Proudly
+            Nigerian, globally inspired — we curate books across leadership,
+            business, self-development and storytelling for every kind of
+            leader. Whether you are 8 or 80, there is a shelf here for you.
+          </p>
+        </article>
+        <div className="footer-wrapper">
+          <div className="footer-div">
+            <p className="link-header">Our Collection</p>
+            <div className="link-tree">
+              {ourCollection.map((col, key) => (
+                <Link key={key} to={`/shop?collection=${col.toLowerCase()}`}>
+                  {col}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <p className="copyright">&copy; 2026 LEAD Inc. </p>
+        <p className="copyright">&copy; 2026 LEAD Inc. </p>
+      </div>
     </footer>
   );
 }

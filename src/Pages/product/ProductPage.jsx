@@ -26,11 +26,9 @@ export default function ProductPage() {
     .filter((book) => book.id !== Number(id))
     .slice(0, 10);
 
-  // console.log(sameCollection);
-  console.log(similarFive);
   return (
     <>
-      <section className="main-container">
+      <section className="pages-wrapper">
         <div className="product-details">
           <div className="product-image-container">
             <img src={book.coverImage} alt={`Image of ${book.title} book`} />

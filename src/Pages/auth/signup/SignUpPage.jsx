@@ -3,7 +3,7 @@ import "./SignUpPage.css";
 
 export default function SignUpPage() {
   return (
-    <section className="auth-section">
+    <section className="auth-section pages-wrapper">
       <div>
         <h1>Create Your Account</h1>
         <p className="subheader">

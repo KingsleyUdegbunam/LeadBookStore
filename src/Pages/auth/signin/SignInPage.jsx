@@ -2,7 +2,7 @@ import { SignInForm } from "../../../feature/auth/signin/SignInForm";
 
 export default function SignInPage() {
   return (
-    <section className="auth-section">
+    <section className="auth-section pages-wrapper">
       <div>
         <h1>Welcome Back!</h1>
         <p className="subheader">

@@ -25,8 +25,8 @@ export default function CartPage() {
 
   return (
     <>
-      <section className="cart">
-        <article className="main-section cart-product-details">
+      <section className="cart pages-wrapper">
+        <article className="cart-product-details">
           <article className="cart-items-holder">
             <h2 className="cart-header">Your Cart</h2>
             <div className="navigations">
@@ -39,6 +39,7 @@ export default function CartPage() {
                 <FiChevronRight className="chevron-icon" />
               </Link>
             </div>
+
             <article className="cart-items-container">
               {cartInDetail.map((cartItem, key) => {
                 return (

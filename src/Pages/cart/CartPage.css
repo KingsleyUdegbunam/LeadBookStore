@@ -127,6 +127,7 @@
   /* background-color: aquamarine; */
 }
 
+/* COME SET GRID LAYOUT FOR LARGER DISPLAY */
 .cart-image-container {
   display: grid;
   place-items: center;

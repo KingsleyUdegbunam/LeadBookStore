@@ -202,3 +202,31 @@ button:disabled {
   width: 100%;
   font-weight: 300;
 }
+
+.pages-wrapper {
+  padding: 6rem 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.pages-wrapper-variation {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.pages-section-width-set {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .pages-wrapper {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .pages-wrapper {
+    padding-inline: 4rem;
+  }
+}

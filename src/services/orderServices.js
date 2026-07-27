@@ -12,6 +12,18 @@ export const getOrderById = async (id) => {
   }
   return data;
 };
+export const getOrderByRef = async (ref) => {
+  const { data, error } = await supabase
+    .from("orders")
+    .select("*")
+    .eq("reference", ref)
+    .single();
+
+  if (error) {
+    throw new Error(error.message);
+  }
+  return data;
+};
 
 export const getOrdersByEmail = async (email) => {
   if (!email) {
@@ -28,13 +40,10 @@ export const getOrdersByEmail = async (email) => {
 };
 
 export const createOrder = async (orderData) => {
-  const { error, data } = await supabase
-    .from("orders")
-    .insert([orderData])
-    .select()
-    .single();
+  const { error, data } = await supabase.from("orders").insert([orderData]);
   if (error) {
-    throw new Error(error.message);
+    console.log(error);
+    throw new Error(error);
   }
   return data;
 };

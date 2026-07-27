@@ -121,12 +121,11 @@ export const initiatePayment = (
           processing_at: new Date().toISOString(),
         };
 
-        const savedOrder = await createOrder(orderData);
-        console.log("THISSSS", savedOrder);
+        createOrder(orderData);
 
         setCart([]);
-
-        navigate(`/order/${savedOrder.id}`);
+        sessionStorage.setItem("recentOrder", JSON.stringify(orderData));
+        navigate(`/order/${orderData.reference}`);
       } catch (error) {
         console.error("Order processing failed:", error);
         alert("Something went wrong while processing your order OMO.");
@@ -271,7 +270,7 @@ export const calculateDeliveryDays = (length) => {
 };
 
 export function getOrderDate(inputDate, time = false) {
-  const returnDate = dayjs(inputDate).format("MMMM D, YYYY");
+  const returnDate = dayjs(inputDate).format("MMM D, YYYY");
   const returnTime = dayjs(inputDate).format("h:mm A");
 
   if (time) {

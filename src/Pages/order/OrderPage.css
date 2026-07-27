@@ -12,6 +12,19 @@
   background-color: #eeeeee;
 }
 
+.authenticated-banner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0;
+  padding-top: 120px;
+}
+
+.banner-section-authenticated {
+  background-color: #eeeeee;
+}
+
 .banner-section > * {
   text-align: center;
   font-size: 0.85rem;
@@ -32,7 +45,7 @@
 }
 
 .order-img-wrapper {
-  width: clamp(300px, 80vw, 500px);
+  width: clamp(300px, 80vw, 490px);
   height: auto;
 }
 
@@ -54,6 +67,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
 }
 
 .order-details-header {
@@ -161,7 +175,7 @@
 
   .banner-signup-wrapper {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 2fr 1.2fr;
   }
 
   .signup-checkout {

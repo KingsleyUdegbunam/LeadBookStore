@@ -3,17 +3,18 @@ import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { FcCheckmark } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
-
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
   validateEmail,
   validatePassword,
 } from "../../lib/validation/validation";
-import { supabase } from "../../utilities/supabase";
+import { UseAuth } from "../../context/AuthContext";
 import "./SignUpForm.css";
 
-export function PostCheckoutSignUpForm({ prefilledEmail }) {
+export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
+  const { signUpNewUser } = UseAuth();
+  const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState({
     password: false,
     confirmPassword: false,
@@ -95,25 +96,29 @@ export function PostCheckoutSignUpForm({ prefilledEmail }) {
   const isEmailValid = validateEmail(formValue.email).valid;
 
   const isValidDetails = isEmailValid && isPasswordValid;
-  console.log(isValidDetails);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isValidDetails) return;
-    const { data, error } = await supabase.auth.signUp({
-      email: formValue.email,
-      password: formValue.password,
-    });
-
-    if (error) {
-      toast.error(error.message);
-      console.log(error.message);
-      return;
+    setLoading(true);
+    try {
+      const result = await signUpNewUser(
+        formValue.email,
+        formValue.password,
+        lastName,
+      );
+      if (result.success) {
+        setFormValue({ email: "", password: "", confirmPassword: "" });
+        toast.success("Account created successfully!");
+        return;
+      }
+      toast.error(result.error.message);
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
     }
-    toast.success("Account created successfully!");
-    console.log(data);
-    setFormValue({ email: "", password: "", confirmPassword: "" });
   };
 
   return (
@@ -252,6 +257,11 @@ export function PostCheckoutSignUpForm({ prefilledEmail }) {
           )}
         </div>
 
+        <p className="feedback center">
+          {" "}
+          This account will be linked to your recent order.
+        </p>
+
         <button
           onClick={() => {
             if (!isEmailValid) {
@@ -271,15 +281,16 @@ export function PostCheckoutSignUpForm({ prefilledEmail }) {
               return;
             }
           }}
+          disabled={loading}
           className="signup-btn"
           type="submit"
         >
-          Create Account
+          {loading ? "Creating Account..." : "Create Account"}
         </button>
         <p className="signup-login">
           Already have an account?{" "}
-          <Link className="signup-login-link" to="">
-            Sign in
+          <Link className="signup-login-link" to="/signin">
+            Sign in.
           </Link>
         </p>
       </form>

@@ -3,7 +3,7 @@ import { GoHistory } from "react-icons/go";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { PostCheckoutSignUpForm } from "../../component/auth/PostCheckoutSignUpForm";
 
-export function SignUpPostCheckoutForm() {
+export function SignUpPostCheckoutForm({ prefilledEmail, lastName }) {
   return (
     <section className="signup-section">
       <div className="signup-header-wrapper">
@@ -30,7 +30,11 @@ export function SignUpPostCheckoutForm() {
           </div>
         </div>
       </div>
-      <PostCheckoutSignUpForm />
+      {/* <PrimarySignUpForm /> */}
+      <PostCheckoutSignUpForm
+        prefilledEmail={prefilledEmail}
+        lastName={lastName}
+      />
     </section>
   );
 }

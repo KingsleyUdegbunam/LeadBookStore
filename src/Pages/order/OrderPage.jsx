@@ -60,99 +60,101 @@ export default function OrderPage() {
     <>
       <section className="order-page-wrapper">
         <div className="banner-and-signup">
-          <section className="banner-section">
-            <div>
-              <p className="orderpage-header">
-                Thanks you for{" "}
-                <span className="header-red">shopping with us!</span>
-              </p>
-            </div>
-
-            <div className="order-img-wrapper">
-              <img src={orderBox} alt="Order box" />
-            </div>
-
-            <p className="mini-support-txt hero-msg-support">
-              Your books are being carefully prepared for shipment.
-            </p>
-
-            <div className="order-details">
+          <div className="banner-signup-wrapper pages-wrapper-variation">
+            <section className="banner-section">
               <div>
-                <p className="order-details-header mini-support-txt">
-                  An email confirmation has been sent to
-                </p>
-
-                <p className="order-details-detail">
-                  {order.shipping_details.email}
+                <p className="orderpage-header">
+                  Thanks you for{" "}
+                  <span className="header-red">shopping with us!</span>
                 </p>
               </div>
 
-              <div className="user-order-details">
-                <div>
-                  <p className="order-details-header mini-support-txt">
-                    Order Ref.
-                  </p>
+              <div className="order-img-wrapper">
+                <img src={orderBox} alt="Order box" />
+              </div>
 
-                  <p className="order-details-detail">{order.reference}</p>
-                </div>
-                <div>
-                  <p className="order-details-header mini-support-txt">
-                    Order Date
-                  </p>
+              <p className="mini-support-txt hero-msg-support">
+                Your books are being carefully prepared for shipment.
+              </p>
 
-                  <p className="order-details-detail">
-                    {dayjs(order.created_at).format("D, MMM YYYY h:mm A")}
-                  </p>
-                </div>
+              <div className="order-details">
                 <div>
                   <p className="order-details-header mini-support-txt">
-                    Order Total
+                    An email confirmation has been sent to
                   </p>
 
                   <p className="order-details-detail">
-                    {convertToNaira(order.total)}
+                    {order.shipping_details.email}
                   </p>
+                </div>
+
+                <div className="user-order-details">
+                  <div>
+                    <p className="order-details-header mini-support-txt">
+                      Order Ref.
+                    </p>
+
+                    <p className="order-details-detail">{order.reference}</p>
+                  </div>
+                  <div>
+                    <p className="order-details-header mini-support-txt">
+                      Order Date
+                    </p>
+
+                    <p className="order-details-detail">
+                      {dayjs(order.created_at).format("D, MMM YYYY h:mm A")}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="order-details-header mini-support-txt">
+                      Order Total
+                    </p>
+
+                    <p className="order-details-detail">
+                      {convertToNaira(order.total)}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <button className="print-btn">
-              <SlPrinter />
-              <p className="order-details-header">Print receipt</p>
-            </button>
+              <button className="print-btn">
+                <SlPrinter />
+                <p className="order-details-header">Print receipt</p>
+              </button>
+            </section>
+
+            <section className="signup-checkout">
+              <SignUpPostCheckoutForm />
+              {/* <SignupForm prefilledEmail={order.email} /> */}
+            </section>
+          </div>
+        </div>
+        <div className="pages-wrapper-variation order-page-body">
+          <section className="shipping-billing-section">
+            <OrderInfo order={order} />
           </section>
 
-          <section className="signup-checkout">
-            <SignUpPostCheckoutForm />
-            {/* <SignupForm prefilledEmail={order.email} /> */}
+          <section className="order-summary">
+            <h2 className="order-summary-h2">Order Summary</h2>
+            <BooksPurchased order={order} />
+            <OrderCostBreakDown order={order} />
+            <div className="order-to-shop-btn-wrapper">
+              <a href="/shop">
+                <button className="order-to-shop-btn">Browse More Books</button>
+              </a>
+            </div>
+          </section>
+          <section className="recommendation-sec">
+            <h2 className="order-summary-h2">Inspired By Your Order</h2>
+            <div className="related-reads">
+              <article className="products-container special-days">
+                {recommendedBooks.map((book, index) => (
+                  <BookCardRecommendationCard key={index} book={book} />
+                ))}
+              </article>
+            </div>
           </section>
         </div>
-
-        <section className="shipping-billing-section">
-          <OrderInfo order={order} />
-        </section>
-
-        <section className="order-summary">
-          <h2 className="order-summary-h2">Order Summary</h2>
-          <BooksPurchased order={order} />
-          <OrderCostBreakDown order={order} />
-          <div className="order-to-shop-btn-wrapper">
-            <a href="/shop">
-              <button className="order-to-shop-btn">Browse More Books</button>
-            </a>
-          </div>
-        </section>
-
-        <section className="recommendation-sec">
-          <h2 className="order-summary-h2">Inspired By Your Order</h2>
-          <div className="related-reads">
-            <article className="products-container special-days">
-              {recommendedBooks.map((book, index) => (
-                <BookCardRecommendationCard key={index} book={book} />
-              ))}
-            </article>
-          </div>
-        </section>
       </section>
     </>
   );

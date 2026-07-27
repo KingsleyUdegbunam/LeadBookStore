@@ -44,7 +44,7 @@ const AccountOrdersPage = () => {
     );
 
   return (
-    <div className="orders-list pages-wrapper">
+    <div className="orders-list-card pages-wrapper">
       <header>
         <h2>My Orders</h2>
         <p className="support-txt card-text-body">

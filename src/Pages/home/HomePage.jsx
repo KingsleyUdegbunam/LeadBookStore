@@ -39,7 +39,7 @@ export default function HomePage({ addToCart }) {
     <div>
       <section className="hero">
         {/* <div className="logo">LEAD</div> */}
-        <section className="hero-text">
+        <section className="hero-text pages-wrapper-variation">
           <div className="landing-text">
             <h1>Building Tomorrow's Leaders. One Book at a Time.</h1>
             <p className="supporting-h1">
@@ -81,48 +81,49 @@ export default function HomePage({ addToCart }) {
           <LeadCarousel text="with Imagination" />
         </div>
       </article>
+      <div className="pages-wrapper-variation">
+        <section className="slider-container">
+          <article className="top10">
+            <h2 className="header">New Arrivals</h2>
 
-      <section className="slider-container">
-        <article className="top10">
-          <h2 className="header">New Arrivals</h2>
+            <section className="products-container slider">
+              {newArrival.map((book, index) => (
+                <BookCard
+                  book={book}
+                  id={book.id}
+                  key={index}
+                  addToCart={addToCart}
+                  image={book.coverImage}
+                  category={book.primaryCollection}
+                  title={book.title}
+                  priceInKobo={book.price.hardback}
+                />
+              ))}
+            </section>
+          </article>
+        </section>
 
-          <section className="products-container slider">
-            {newArrival.map((book, index) => (
-              <BookCard
-                book={book}
-                id={book.id}
-                key={index}
-                addToCart={addToCart}
-                image={book.coverImage}
-                category={book.primaryCollection}
-                title={book.title}
-                priceInKobo={book.price.hardback}
-              />
-            ))}
-          </section>
-        </article>
-      </section>
+        <section className="slider-container">
+          <article className="top10">
+            <h2 className="header">10 Bestsellers</h2>
 
-      <section className="slider-container">
-        <article className="top10">
-          <h2 className="header">10 Bestsellers</h2>
-
-          <section className="products-container slider">
-            {top10BestSellers.map((book, index) => (
-              <BookCard
-                key={index}
-                id={book.id}
-                book={book}
-                image={book.coverImage}
-                category={book.primaryCollection}
-                title={book.title}
-                priceInKobo={book.price.paperback}
-                addToCart={addToCart}
-              />
-            ))}
-          </section>
-        </article>
-      </section>
+            <section className="products-container slider">
+              {top10BestSellers.map((book, index) => (
+                <BookCard
+                  key={index}
+                  id={book.id}
+                  book={book}
+                  image={book.coverImage}
+                  category={book.primaryCollection}
+                  title={book.title}
+                  priceInKobo={book.price.paperback}
+                  addToCart={addToCart}
+                />
+              ))}
+            </section>
+          </article>
+        </section>
+      </div>
 
       {/* FEATURE SECTION */}
       <FeatureSection
@@ -131,55 +132,68 @@ export default function HomePage({ addToCart }) {
         array={womenMonth}
       />
 
-      <section className="home-section">
-        <h2 className="children-yound-adults header">Business & Leadership</h2>
-        {<BookGrid books={first14BusinessBooks} addToCart={addToCart} />}
-      </section>
+      <div className="pages-wrapper-variation ">
+        <section className="home-section">
+          <h2 className="children-yound-adults header">
+            Business & Leadership
+          </h2>
+          {<BookGrid books={first14BusinessBooks} addToCart={addToCart} />}
+        </section>
 
-      <section className="home-section">
-        <h2 className="children-yound-adults header">Biography & Memoirs</h2>
-        <BookGrid books={first14BiographyAndMemoirs} addToCart={addToCart} />
-      </section>
+        <section className="home-section">
+          <h2 className="children-yound-adults header">Biography & Memoirs</h2>
+          <BookGrid books={first14BiographyAndMemoirs} addToCart={addToCart} />
+        </section>
 
-      <section className="home-section">
-        <h2 className="children-yound-adults header">Fiction & StoryTelling</h2>
-        <BookGrid books={first14FictionAndStoryTelling} addToCart={addToCart} />
-      </section>
+        <section className="home-section">
+          <h2 className="children-yound-adults header">
+            Fiction & StoryTelling
+          </h2>
+          <BookGrid
+            books={first14FictionAndStoryTelling}
+            addToCart={addToCart}
+          />
+        </section>
 
-      <section className="home-section">
-        <h2 className="children-yound-adults header">
-          Children & Young Adults
-        </h2>
-        <BookGrid books={first14ChildrenAndYoungAdults} addToCart={addToCart} />
-      </section>
-
+        <section className="home-section">
+          <h2 className="children-yound-adults header">
+            Children & Young Adults
+          </h2>
+          <BookGrid
+            books={first14ChildrenAndYoungAdults}
+            addToCart={addToCart}
+          />
+        </section>
+      </div>
       <section className="newsletter">
-        <h2>Join The List</h2>
-        <div className="newsletter-body">
-          <p className="newletter-text">
-            Power-packed reads and practical tools to shape the leader in you,
-            one week at a time.
-          </p>
+        <div className="pages-wrapper-variation newsletter-flex">
+          <h2>Join The List</h2>
+          <div className="newsletter-body">
+            <p className="newletter-text">
+              Power-packed reads and practical tools to shape the leader in you,
+              one week at a time.
+            </p>
 
-          <div className="news-join-field">
-            <label className="newsletter-label" htmlFor="newsletter">
-              <input
-                className="newsletter-email"
-                type="email"
-                placeholder="Email address"
-                name="newsletter"
-                id="newsletter"
-              />
-            </label>
-            <button className="subscribe-btn">Subscribe</button>
+            <div className="news-join-field">
+              <label className="newsletter-label" htmlFor="newsletter">
+                <input
+                  className="newsletter-email"
+                  type="email"
+                  placeholder="Email address"
+                  name="newsletter"
+                  id="newsletter"
+                />
+              </label>
+              <button className="subscribe-btn">Subscribe</button>
+            </div>
+            <p className="newsletter-constent">
+              By providing my email, I am consenting to recieve Lead emails.
+              <span>
+                {" "}
+                For additional information, please see our Privacy Policy.
+              </span>
+            </p>
           </div>
-          <p className="newsletter-constent">
-            By providing my email, I am consenting to recieve Lead emails.
-            <span>
-              {" "}
-              For additional information, please see our Privacy Policy.
-            </span>
-          </p>
         </div>
       </section>
     </div>

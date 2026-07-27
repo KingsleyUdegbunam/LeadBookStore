@@ -142,4 +142,8 @@ h2 {
   .filter-field {
     grid-template-columns: repeat(4, 1fr);
   }
+
+  .inner-page-padding {
+    padding-inline: 3rem;
+  }
 }

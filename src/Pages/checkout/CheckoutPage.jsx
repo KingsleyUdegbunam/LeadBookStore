@@ -11,7 +11,6 @@ import "./CheckoutPage.css";
 import { useCart } from "../../context/CartContext";
 
 export default function CheckoutPage() {
-  // Shouldn't we have the house number as well?
   const [shippingDetails, setShippingDetails] = useState({
     country: "Nigeria",
     state: "",
@@ -48,7 +47,7 @@ export default function CheckoutPage() {
   return (
     <section className="checkout-section">
       {/* A conditional based on cart should be added for empty state */}
-      <section className="main-section">
+      <section className="pages-wrapper">
         <div className="checkout-header">
           <h2>Your Order</h2>
           <Link className="checkout-links" to={"/cart"}>

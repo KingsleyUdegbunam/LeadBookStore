@@ -51,7 +51,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="main">
+      <section className="pages-wrapper">
         <article className="about-banner">
           <p className="about-header">GET IN TOUCH</p>
           <p className="about-tag">

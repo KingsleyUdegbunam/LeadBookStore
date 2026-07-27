@@ -56,7 +56,7 @@ export function Header() {
   return (
     <>
       <header className="header-wrapper">
-        <div className="header-nav">
+        <div className="header-nav pages-wrapper-variation">
           <div className="menu-toggle-n-logo">
             <HeaderMenu
               toggleMenu={toggleMenu}

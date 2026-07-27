@@ -16,10 +16,9 @@ export default function AboutPage() {
     "Lead With Imagination",
   ];
 
-  console.log(ourCollection);
   return (
     <>
-      <section className="about-main">
+      <section className="about-main pages-wrapper">
         <article className="about-banner">
           <p className="about-header our-story">OUR STORY</p>
           <p className="about-tag">

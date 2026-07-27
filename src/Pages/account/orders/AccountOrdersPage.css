@@ -6,14 +6,10 @@
   color: var(--brand-red-clr);
 }
 
-.pages-wrapper {
-  padding: 6rem 1rem;
-  min-height: 100vh;
+.orders-list-card {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  max-width: 1600px;
-  margin: 0 auto;
 }
 
 .my-order-wrapper {
@@ -243,17 +239,12 @@
     gap: 1.5rem;
   }
   .my-order-item {
-    gap: 5rem;
     padding: 1rem 1.5rem;
     border-width: 1.5px;
   }
 
-  .my-order-mini-details {
-    font-size: 1rem;
-  }
-
   .order-number {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .grid-end-col {
@@ -261,8 +252,8 @@
   }
   .order-status-indicator.desktop {
     display: flex;
-    font-size: 0.9rem;
-    width: 7rem;
+    font-size: 0.8rem;
+    width: 6rem;
   }
 
   .order-item-count {

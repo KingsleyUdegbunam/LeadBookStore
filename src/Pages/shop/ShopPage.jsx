@@ -92,6 +92,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
 
   useEffect(() => {
     // Get individaual param from URL
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setQuery(searchParams.get("search") || "");
     const collectionParam = searchParams.get("collection");
     const genreParam = searchParams.get("genre");
@@ -174,7 +175,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
 
   return (
     <div>
-      <section className="main-section">
+      <section className="pages-wrapper">
         <section className="filter">
           <h2>Product Filters</h2>
 
@@ -231,7 +232,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
         </section>
 
         {/* SHOP BOOKS */}
-        <div>
+        <div className="inner-page-padding">
           <BookGrid
             setCart={setCart}
             cart={cart}

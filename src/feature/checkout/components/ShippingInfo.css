@@ -53,14 +53,26 @@
 
 .shipping-opt-radio {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.2rem;
+  padding-block: 0.2rem;
 }
 
 .shipping-opt-radio input {
-  margin: 0;
-  margin-top: 4px;
-  width: initial;
+  width: fit-content;
+}
+
+.radio-input {
+  transform: scale(0.7);
+}
+
+.delivery-date-display {
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.delivery-date-display.desktop {
+  display: none;
 }
 
 strong,
@@ -106,7 +118,10 @@ strong,
 .user-info-div textarea {
   font-size: 0.8rem;
   border-radius: 0.2rem;
+
+  padding: 0.8rem 0.5rem;
   padding-inline: 0.5rem;
+  font-family: "Anonymous Pro", monospace;
 }
 
 @supports (-webkit-touch-callout: none) {
@@ -116,6 +131,22 @@ strong,
   }
 }
 
+.user-info-div input:hover,
+.user-info-div textarea:hover {
+  border-color: var(--brand-red-clr);
+}
+
+.user-info-div input:focus,
+.user-info-div textarea:focus {
+  outline-color: var(--brand-red-clr);
+  border-color: transparent;
+  outline: none;
+}
+
+.user-info-div input:focus-visible,
+.user-info-div textarea:focus-visible {
+  box-shadow: 0 0 0 0.5px var(--brand-red-clr);
+}
 .tel-error {
   color: red;
   font-size: 0.7rem;
@@ -156,4 +187,25 @@ strong,
 .text-right-aligned {
   text-align: right;
   font-size: 0.65rem;
+}
+
+@media screen and (min-width: 768px) {
+  .delivery-date-display.mobile-display {
+    display: none;
+  }
+
+  .strong.mobile-display {
+    display: none;
+  }
+  .delivery-date-display.desktop {
+    display: inline;
+  }
+
+  .radio-input {
+    transform: scale(0.9);
+  }
+
+  .shipping-opt-radio {
+    padding-block: 0.5rem;
+  }
 }

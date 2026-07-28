@@ -148,13 +148,15 @@ export function ShippingOptionsForm({
               />
               <div>
                 <p>
-                  <span className="strong">{option.id}:</span>{" "}
-                  <span>
-                    {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
+                  <span className="strong">{option.id}</span>
+                  <span className="delivery-date-display desktop">
+                    : {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
                   </span>
                 </p>
 
-                <p className="little-text">({option.desc})</p>
+                <p className="delivery-date-display mobile-display">
+                  {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
+                </p>
               </div>
             </div>
             <span className="strong carrier-cost">

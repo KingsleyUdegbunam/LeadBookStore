@@ -1,0 +1,9 @@
+.checkout-continue-btn {
+  margin-top: 1rem;
+  background-color: var(--brand-red-clr);
+}
+
+.btn-enabled {
+  background-color: var(--brand-red-clr);
+  color: white;
+}

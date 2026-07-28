@@ -1,0 +1,18 @@
+/* FORMS DETAILS SUMMARY */
+.forms-details-summary {
+  padding: 0;
+  font-size: 0.9rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.forms-details-summary > * {
+  padding-block-end: 0.5rem;
+  border-block-end: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.forms-details-summary .checkout-links {
+  text-decoration: underline;
+}

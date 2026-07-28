@@ -1,3 +1,5 @@
+import "./ActionBtn.css";
+
 export function ActionButton({ isReadyToPay }) {
   return (
     <button type="submit" className={`checkout-continue-btn btn-enabled}`}>

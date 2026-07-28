@@ -1,4 +1,5 @@
 import { convertToNaira } from "../../../utilities/money";
+import "./TotalCost.css";
 
 export function TotalCost({
   cartTotalPrice,

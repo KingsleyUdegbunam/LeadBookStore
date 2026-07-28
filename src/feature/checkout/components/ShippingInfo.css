@@ -1,0 +1,159 @@
+.form-section-container {
+  scroll-margin-top: 4rem;
+  padding: 0;
+  padding-block-start: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-header-container {
+  margin-block-end: 0.5rem;
+  font-weight: 600;
+}
+
+.details-subheader {
+  font-size: 0.75rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  color: gray;
+}
+
+.primary-form-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: none;
+}
+
+.primary-form-container > *:first-child {
+  margin-block-start: 0;
+}
+
+.primary-form-container > *:last-child {
+  margin-block-end: 0;
+}
+
+.important {
+  color: red;
+}
+
+.shipping-options-container > * {
+  /* margin-bottom: 0.8rem; */
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+.selected-option-highlight .carrier-cost {
+  color: var(--brand-red-clr);
+}
+
+.shipping-opt-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+.shipping-opt-radio input {
+  margin: 0;
+  margin-top: 4px;
+  width: initial;
+}
+
+strong,
+.strong {
+  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+}
+
+.little-text {
+  font-size: 0.6rem;
+  opacity: 0.45;
+}
+
+.account-action {
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.address-form > * {
+  margin-bottom: 0.5rem;
+}
+
+.user-info-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.2rem;
+  margin-block: 0.5rem;
+}
+
+.user-info-div label {
+  font-family: "Outfit", sans-serif;
+}
+
+.user-info-div input,
+.user-info-div textarea {
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  padding-inline: 0.5rem;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .user-info-div input,
+  .user-info-div textarea {
+    font-size: 1rem;
+  }
+}
+
+.tel-error {
+  color: red;
+  font-size: 0.7rem;
+}
+
+.tel-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tel-input-field-and-error-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.tel-input-field-and-error-display input {
+  width: 100%;
+}
+
+.shipping-radio-and-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shipping-option-container {
+  background-color: transparent;
+  padding: 0.6rem 0.4rem;
+  cursor: pointer;
+
+  transition: background-color 250ms ease-in-out;
+}
+
+.shipping-option-container:hover {
+  background-color: rgba(255, 247, 247, 0.679);
+}
+
+.text-right-aligned {
+  text-align: right;
+  font-size: 0.65rem;
+}

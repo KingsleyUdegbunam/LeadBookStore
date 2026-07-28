@@ -64,7 +64,7 @@ export function ShippingOptionsForm({
 
   return (
     <article id="shipping-details-form" className="primary-form-container">
-      <div className="address-form-container">
+      <div>
         <div className="address-form">
           {/* COUNTRY SELECTION */}
           <div className="form-container">

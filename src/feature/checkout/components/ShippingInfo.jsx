@@ -7,8 +7,8 @@ import { isValidNumber } from "libphonenumber-js";
 import { useNavigate } from "react-router-dom";
 import { initiatePayment } from "../utilities";
 import { isValidEmail } from "../../../lib/validation/validation";
-
 import { UseAuth } from "../../../context/AuthContext";
+import "./ShippingInfo.css";
 
 export function ShippingInfo({
   showShippingOptForm,

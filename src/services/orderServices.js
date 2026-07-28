@@ -34,16 +34,22 @@ export const getOrdersByEmail = async (email) => {
     .select("*")
     .eq("email", email)
     .order("created_at", { ascending: false });
-  if (error) throw new Error(error.message);
+
+  if (error) {
+    console.log("ERROR");
+    throw new Error(error.message);
+  }
 
   return data;
 };
 
 export const createOrder = async (orderData) => {
-  const { error, data } = await supabase.from("orders").insert([orderData]);
+  const { error } = await supabase.from("orders").insert([orderData]);
   if (error) {
-    console.log(error);
-    throw new Error(error);
+    return {
+      success: false,
+      error: error.message,
+    };
   }
-  return data;
+  return { success: true, error: null };
 };

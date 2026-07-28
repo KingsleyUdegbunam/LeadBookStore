@@ -3,6 +3,7 @@ import { createOrder } from "../../services/orderServices";
 import dayjs from "dayjs";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import { isValidEmail } from "../../lib/validation/validation";
+import { toast } from "sonner";
 
 export const isValidName = (name) => {
   const trimmed = name.trim().replace(/\s+/g, " ");
@@ -86,7 +87,8 @@ export function isFormValid(shippingDetails, selectedShipping) {
   return validity;
 }
 
-export const initiatePayment = (
+export const initiatePayment = ({
+  setLoading,
   userId,
   cartTotalPrice,
   cartInDetail,
@@ -94,7 +96,8 @@ export const initiatePayment = (
   selectedShipping,
   setCart,
   navigate,
-) => {
+}) => {
+  setLoading(true);
   const popup = new Paystack();
   const totalCost = cartTotalPrice + selectedShipping?.costInCents;
 
@@ -121,25 +124,34 @@ export const initiatePayment = (
           processing_at: new Date().toISOString(),
         };
 
-        createOrder(orderData);
-
+        const result = await createOrder(orderData);
+        if (!result.success) {
+          toast.error(
+            "Your payment was successful, but we couldn't save your order.",
+            {
+              description: `Payment reference: ${transaction.reference}. Please keep this reference and contact support.`,
+              duration: 15000,
+            },
+          );
+          return;
+        }
         setCart([]);
         sessionStorage.setItem("recentOrder", JSON.stringify(orderData));
         navigate(`/order/${orderData.reference}`);
-      } catch (error) {
-        console.error("Order processing failed:", error);
-        alert("Something went wrong while processing your order OMO.");
+      } catch {
+        toast.error("Something went wrong. Please try again in a few minutes.");
+      } finally {
+        setLoading(false);
       }
     },
-    onLoad: (response) => {
-      console.log("onLoad: ", response);
-    },
+    onLoad: () => {},
     onCancel: () => {
-      console.info("Payment cancelled by user");
+      toast.info("Payment was cancelled.");
+      setLoading(false);
     },
     onError: (error) => {
-      console.log("Error: ", error.message);
-      alert(error.message);
+      toast.error(error.message);
+      setLoading(false);
     },
   });
 };

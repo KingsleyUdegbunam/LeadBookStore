@@ -1,9 +1,9 @@
-import "./ActionBtn.css";
+import "./ActionButton.css";
 
-export function ActionButton({ isReadyToPay }) {
+export function ActionButton({ isReadyToPay, loading }) {
   return (
-    <button type="submit" className={`checkout-continue-btn btn-enabled}`}>
-      {isReadyToPay ? "PLACE ORDER" : "CONTINUE"}
+    <button disabled={loading} type="submit" className="value-btn checkout-btn">
+      {loading ? "Processing..." : isReadyToPay ? "PLACE ORDER" : "CONTINUE"}
     </button>
   );
 }

@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useState, useRef, useMemo, useEffect } from "react";
 import { filterBooks } from "../../feature/shop/filterBooks";
-import Select from "react-select";
 import { books } from "../../data/inventory";
 import { BookGrid } from "../../component/BookGrid";
 import { capitalizeWords } from "../../utilities/capitalizeWords";
@@ -12,6 +11,7 @@ import {
   SORT_BYS,
 } from "../../constants/shopPage/bookFilters";
 import "./ShopPage.css";
+import BookFilters from "../../feature/shop/BookFilters";
 
 export default function ShopPage({ cart, setCart, addToCart }) {
   const [query, setQuery] = useState("");
@@ -114,46 +114,6 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  const customStyles = {
-    control: (base, state) => ({
-      ...base,
-      cursor: "pointer",
-      fontFamily: "Anonymous Pro, monospace",
-      fontSize: "1rem",
-      borderColor: state.isFocused ? "var(--brand-red-clr)" : "#d1d5db",
-      boxShadow: "none",
-      "&:hover": {
-        borderColor: "var(--brand-red-clr)",
-      },
-      minHeight: 0,
-      borderRadius: 0,
-      borderWidth: ".2px",
-    }),
-
-    placeholder: (base) => ({ ...base, color: "lightgray" }),
-
-    valueContainer: (base) => ({
-      ...base,
-      lineHeight: 1.2,
-    }),
-    dropdownIndicator: (base) => ({ ...base, padding: ".43rem" }),
-    clearIndicator: (base) => ({ ...base, padding: ".43rem" }),
-    indicatorSeparator: () => ({
-      display: "none",
-    }),
-    option: (base, state) => ({
-      ...base,
-      fontFamily: "Anonymous Pro, monospace",
-      cursor: "pointer",
-      backgroundColor: state.isSelected
-        ? "var(--brand-red-clr)"
-        : state.isFocused
-          ? "var(--brand-red-clr-hover)"
-          : "white",
-      color: state.isSelected ? "white" : state.isFocused ? "white" : "black",
-    }),
-  };
-
   const filteredBooks = useMemo(() => {
     const filtered = filterBooks(query, collection, genre, books);
     return filtered;
@@ -166,8 +126,6 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     return booksCopy;
   }, [filteredBooks, sortBy]);
 
-  const searchRef = useRef(null);
-
   const startSearch = (event, query) => {
     if (event.key !== "Enter") return;
     handleFilter("search", query);
@@ -176,60 +134,18 @@ export default function ShopPage({ cart, setCart, addToCart }) {
   return (
     <div>
       <section className="pages-wrapper">
-        <section className="filter">
-          <h2>Product Filters</h2>
-
-          <div className="filter-field">
-            <article className="search-fields">
-              <input
-                className="search-field"
-                placeholder="Search by title or author"
-                type="text"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  const value = e.target.value;
-                  startSearch(event, value);
-                }}
-                ref={searchRef}
-              />
-            </article>
-
-            <Select
-              classNamePrefix="book-filter"
-              isClearable
-              placeholder="Filter by collection"
-              value={collection}
-              styles={customStyles}
-              options={collectionOptions}
-              onChange={(selected) => {
-                handleFilter("collection", selected);
-              }}
-            />
-
-            <Select
-              classNamePrefix="book-filter"
-              isClearable
-              placeholder="Filter by genre"
-              styles={customStyles}
-              options={genreOptions}
-              value={genre}
-              onChange={(selected) => {
-                handleFilter("genre", selected);
-              }}
-            />
-
-            <Select
-              classNamePrefix="book-filter"
-              isClearable
-              placeholder="Sort by..."
-              styles={customStyles}
-              options={sortOptions}
-              value={sortBy}
-              onChange={(selected) => handleFilter("sort", selected)}
-            />
-          </div>
-        </section>
+        <BookFilters
+          query={query}
+          setQuery={setQuery}
+          genre={genre}
+          collection={collection}
+          sortBy={sortBy}
+          sortOptions={sortOptions}
+          genreOptions={genreOptions}
+          collectionOptions={collectionOptions}
+          handleFilter={handleFilter}
+          startSearch={startSearch}
+        />
 
         {/* SHOP BOOKS */}
         <div className="inner-page-padding">

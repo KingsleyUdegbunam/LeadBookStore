@@ -102,7 +102,7 @@ export const initiatePayment = ({
   const totalCost = cartTotalPrice + selectedShipping?.costInCents;
 
   popup.checkout({
-    key: "pk_test_87b24dad8322dd4a245702d85bd6035e9af5650b",
+    key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY,
     email: shippingDetails?.email,
     amount: totalCost,
     onSuccess: async (transaction) => {

@@ -23,7 +23,8 @@ const BookFilters = ({
       cursor: "pointer",
       fontFamily: "Anonymous Pro, monospace",
       fontSize: "1rem",
-      borderColor: state.isFocused ? "var(--brand-red-clr)" : "#d1d5db",
+      borderColor: state.isFocused ? "var(--brand-red-clr)" : "lightgray",
+      borderStyle: "solid",
       boxShadow: "none",
       "&:hover": {
         borderColor: "var(--brand-red-clr)",
@@ -33,7 +34,7 @@ const BookFilters = ({
       borderWidth: ".2px",
     }),
 
-    placeholder: (base) => ({ ...base, color: "lightgray" }),
+    placeholder: (base) => ({ ...base, color: "gray" }),
 
     valueContainer: (base) => ({
       ...base,

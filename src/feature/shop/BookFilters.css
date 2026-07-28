@@ -21,14 +21,19 @@
 .query-field {
   font-size: 1rem;
   padding: 0.3rem 0.5rem;
-  /* padding: 0.5rem 1rem; */
+  font-weight: 400;
   border: 0.2px solid rgb(206, 206, 206);
-  /* width: 100%; */
+  font-family: "Anonymous Pro", monospace;
 }
 
-.query-field:focus,
-.query-field:active {
+.query-field:focus {
   outline-color: var(--brand-red-clr);
+  border-color: transparent;
+  outline: none;
+}
+
+.query-field:focus-visible {
+  box-shadow: 0 0 0 0.5px var(--brand-red-clr);
 }
 
 .query-field:hover {
@@ -42,7 +47,8 @@
 .query-field::placeholder {
   word-spacing: 0px;
   letter-spacing: 0px;
-  color: lightgray;
+  color: gray;
+  font-weight: 300;
 }
 
 @media screen and (min-width: 640px) {

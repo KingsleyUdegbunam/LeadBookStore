@@ -1,19 +1,13 @@
-import { useEffect } from "react";
 import { books } from "../../data/inventory";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./ProductPage.css";
 import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 import { useCart } from "../../context/CartContext";
 
 export default function ProductPage() {
   const { id } = useParams();
-  const { pathname } = useLocation();
 
   const { addToCart } = useCart();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   const book = books.find((book) => book.id === Number(id));
   const sameCollection = books.filter(

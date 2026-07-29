@@ -1,15 +1,15 @@
 import { useSearchParams } from "react-router-dom";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { BookGrid } from "../../component/BookGrid";
 import BookFilters from "../../feature/shop/components/BookFilters";
-import { sortBooks } from "../../feature/shop/sortBooks";
-import { filterBooks } from "../../feature/shop/filterBooks";
-import { capitalizeWords } from "../../utilities/capitalizeWords";
-import { books } from "../../data/inventory";
 import {
   SHOP_COLLECTIONS,
   SORT_BYS,
 } from "../../constants/shopPage/bookFilters";
+import { sortBooks } from "../../feature/shop/sortBooks";
+import { filterBooks } from "../../feature/shop/filterBooks";
+import { capitalizeWords } from "../../utilities/capitalizeWords";
+import { books } from "../../data/inventory";
 import "./ShopPage.css";
 
 export default function ShopPage({ cart, setCart, addToCart }) {
@@ -19,20 +19,23 @@ export default function ShopPage({ cart, setCart, addToCart }) {
   const [sortBy, setSortBy] = useState("Default");
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const updateURL = (updates) => {
-    const params = new URLSearchParams(searchParams);
+  const updateURL = useCallback(
+    (updates) => {
+      const params = new URLSearchParams(searchParams);
 
-    Object.entries(updates).forEach(([key, value]) => {
-      if (!value || value === "Default") {
-        params.delete(key);
-      } else {
-        const keyValue = value.trim();
-        params.set(key, keyValue);
-      }
-    });
+      Object.entries(updates).forEach(([key, value]) => {
+        if (!value || value === "Default") {
+          params.delete(key);
+        } else {
+          const keyValue = value.trim();
+          params.set(key, keyValue);
+        }
+      });
 
-    setSearchParams(params);
-  };
+      setSearchParams(params);
+    },
+    [searchParams, setSearchParams],
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,7 +43,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     }, 400);
 
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [query, updateURL]);
 
   function handleFilter(field, value) {
     switch (field) {

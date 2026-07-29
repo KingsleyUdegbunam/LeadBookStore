@@ -1,0 +1,81 @@
+:root {
+  /*  Brand*/
+  --font-primary: "Outfit", sans-serif;
+  --font-secondary: "Anonymous Pro", monospace;
+  --color-brand: #a61b12;
+  --color-brand-hover: #bf2a20;
+  --color-brand-active: #85150e;
+
+  /* Neutral Palette*/
+
+  --color-black: #111111;
+
+  --color-gray-900: #2a2523;
+  --color-gray-700: #6b625c;
+  --color-gray-500: #9a928d;
+  --color-gray-300: #d7d0ca;
+  --color-gray-200: #e8e2dc;
+  --color-gray-100: #f4f0ec;
+
+  --color-white: #ffffff;
+  --color-off-white: #f9f5ef;
+
+  /* ypography */
+
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-gray-700);
+  --text-muted: var(--color-gray-500);
+  --text-inverse: var(--color-off-white);
+
+  /*  Surfaces*/
+
+  --surface-page: var(--color-off-white);
+  --surface-card: var(--color-white);
+  --surface-muted: var(--color-gray-100);
+  --surface-dark: var(--color-black);
+
+  /*  Borders & Dividers*/
+
+  --border-default: #e2d9d2;
+  --border-subtle: #efe9e3;
+
+  --divider: var(--border-subtle);
+
+  /*  Buttons */
+
+  --button-primary-bg: var(--color-brand);
+  --button-primary-hover: var(--color-brand-hover);
+  --button-primary-active: var(--color-brand-active);
+  --button-primary-text: var(--text-inverse);
+
+  --button-secondary-bg: var(--color-black);
+  --button-secondary-hover: var(--color-gray-900);
+  --button-secondary-active: #000000;
+  --button-secondary-text: var(--color-white);
+
+  --button-disabled-bg: #d7d0ca;
+  --button-disabled-border: #d7d0ca;
+  --button-disabled-text: #6b625c;
+
+  /*  Form Controls */
+
+  --input-bg: var(--color-white);
+  --input-border: var(--border-default);
+  --input-border-focus: var(--color-black);
+  --input-placeholder: var(--color-gray-500);
+
+  /*  Status*/
+
+  --color-success: #2f6b47;
+  --color-warning: #a66a12;
+  --color-error: var(--color-brand);
+  --color-info: #2f5e88;
+
+  /*  Accent*/
+
+  --color-accent: #b28a4a;
+
+  /* Motion*/
+
+  --transition-fast: 250ms;
+}

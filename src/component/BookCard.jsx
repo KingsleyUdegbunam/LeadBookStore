@@ -25,7 +25,10 @@ export function BookCard({ book }) {
         </Link>
       </div>
 
-      <button className="add-to-cart" onClick={() => addToCart(book)}>
+      <button
+        className="button-primary button-full-width"
+        onClick={() => addToCart(book)}
+      >
         ADD TO CART
       </button>
     </div>

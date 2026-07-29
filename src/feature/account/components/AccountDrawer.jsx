@@ -1,4 +1,4 @@
-import { UseAuth } from "../../context/AuthContext";
+import { UseAuth } from "../../../context/AuthContext";
 import "./AccountDrawer.css";
 import { AuthenticatedAccountDrawer } from "./AuthenticatedAccountDrawer";
 import { GuestAccountDrawer } from "./GuestAccountDrawer";

@@ -2,7 +2,7 @@ import { books } from "../../data/inventory";
 import { useParams } from "react-router-dom";
 import "./ProductPage.css";
 ("../../component/BookCardRecommendationCard");
-import ProductData from "../../feature/product-page/ProductData";
+import ProductData from "../../feature/product-page/components/ProductData";
 import BookRecommendationGrid from "../../component/product/BookRecommendationGrid";
 
 export default function ProductPage() {

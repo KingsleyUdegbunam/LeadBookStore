@@ -1,12 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getOrderByRef } from "../../services/orderServices";
-import orderBox from "../../assets/order-box.png";
+import { books } from "../../data/inventory";
 import {
   OrderCostBreakDown,
   BooksPurchased,
 } from "../../component/order/OrderSummary";
-import { books } from "../../data/inventory";
 import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 import { OrderInfo } from "../../component/order/OrderInfo";
 import { toast } from "sonner";
@@ -15,7 +14,7 @@ import "./OrderPage.css";
 import {
   AuthenticatedBanner,
   GuestBanner,
-} from "../../feature/PostCheckout/Banner";
+} from "../../feature/post-checkout/components/Banner";
 export default function OrderPage() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -74,12 +73,10 @@ export default function OrderPage() {
 
   return (
     <>
-      {!session && recentOrder && (
-        <GuestBanner orderBox={orderBox} order={order} />
-      )}
+      {!session && recentOrder && <GuestBanner order={order} />}
 
       <section className="order-page-wrapper">
-        {session && <AuthenticatedBanner order={order} orderBox={orderBox} />}
+        {session && <AuthenticatedBanner order={order} />}
 
         <div className="pages-wrapper-variation order-page-body">
           <section className="shipping-billing-section">

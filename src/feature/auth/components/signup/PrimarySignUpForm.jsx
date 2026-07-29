@@ -9,7 +9,7 @@ import {
   validateEmail,
   validatePassword,
 } from "../../../lib/validation/validation";
-import { UseAuth } from "../../../context/AuthContext";
+import { UseAuth } from "../../../../context/AuthContext";
 
 export function PrimarySignUpForm({ prefilledEmail }) {
   const navigate = useNavigate();

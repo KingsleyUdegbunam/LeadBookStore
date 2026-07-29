@@ -1,11 +1,12 @@
 import React from "react";
 import { SlPrinter } from "react-icons/sl";
 import { SignUpPostCheckoutForm } from "./SignUpPostCheckout";
-import { convertToNaira } from "../../utilities/money";
+import { convertToNaira } from "../../../utilities/money";
+import orderBox from "../../../assets/order-box.png";
 import dayjs from "dayjs";
 import "./Banner.css";
 
-export function GuestBanner({ orderBox, order }) {
+export function GuestBanner({ order }) {
   return (
     <div className="banner-and-signup">
       <div className="banner-signup-wrapper pages-wrapper-variation">
@@ -76,7 +77,7 @@ export function GuestBanner({ orderBox, order }) {
   );
 }
 
-export function AuthenticatedBanner({ orderBox, order }) {
+export function AuthenticatedBanner({ order }) {
   return (
     <section className="banner-section-authenticated">
       <div className="authenticated-banner-wrapper pages-wrapper-variation">

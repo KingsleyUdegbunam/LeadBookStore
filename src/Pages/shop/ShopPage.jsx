@@ -1,17 +1,16 @@
 import { useSearchParams } from "react-router-dom";
-import { useState, useRef, useMemo, useEffect } from "react";
-import { filterBooks } from "../../feature/shop/filterBooks";
-import { books } from "../../data/inventory";
+import { useState, useMemo, useEffect } from "react";
 import { BookGrid } from "../../component/BookGrid";
-import { capitalizeWords } from "../../utilities/capitalizeWords";
-
+import BookFilters from "../../feature/shop/components/BookFilters";
 import { sortBooks } from "../../feature/shop/sortBooks";
+import { filterBooks } from "../../feature/shop/filterBooks";
+import { capitalizeWords } from "../../utilities/capitalizeWords";
+import { books } from "../../data/inventory";
 import {
   SHOP_COLLECTIONS,
   SORT_BYS,
 } from "../../constants/shopPage/bookFilters";
 import "./ShopPage.css";
-import BookFilters from "../../feature/shop/BookFilters";
 
 export default function ShopPage({ cart, setCart, addToCart }) {
   const [query, setQuery] = useState("");

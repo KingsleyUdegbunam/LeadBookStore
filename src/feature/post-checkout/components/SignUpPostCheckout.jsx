@@ -1,7 +1,7 @@
 import { HiOutlineTruck } from "react-icons/hi2";
 import { GoHistory } from "react-icons/go";
 import { IoBagCheckOutline } from "react-icons/io5";
-import { PostCheckoutSignUpForm } from "../../component/auth/PostCheckoutSignUpForm";
+import { PostCheckoutSignUpForm } from "../../../component/auth/PostCheckoutSignUpForm";
 
 export function SignUpPostCheckoutForm({ prefilledEmail, lastName }) {
   return (

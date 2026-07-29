@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { AccountDrawer } from "./feature/account/AccountDrawer";
 import { Header } from "./component/Header/Header";
 import { Footer } from "./component/Footer";
 import { useUI } from "./context/UIContext";
+import { AccountDrawer } from "./feature/account/components/AccountDrawer";
 
 export default function Layout() {
   const pathname = useLocation();

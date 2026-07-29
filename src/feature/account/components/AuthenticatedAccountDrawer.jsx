@@ -1,7 +1,7 @@
 import { BsChevronRight } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
-import Drawer from "../../component/components/Drawer/Drawer";
-import { UseAuth } from "../../context/AuthContext";
+import Drawer from "../../../component/components/Drawer/Drawer";
+import { UseAuth } from "../../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import "./AuthenticatedAccountDrawer.css";

@@ -61,7 +61,7 @@
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 1440px) {
   .filter-field {
     grid-template-columns: repeat(4, 1fr);
   }

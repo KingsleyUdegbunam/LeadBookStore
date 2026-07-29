@@ -20,7 +20,7 @@
   --color-white: #ffffff;
   --color-off-white: #f9f5ef;
 
-  /* ypography */
+  /* Typography */
 
   --text-primary: var(--color-black);
   --text-secondary: var(--color-gray-700);
@@ -33,6 +33,9 @@
   --surface-card: var(--color-white);
   --surface-muted: var(--color-gray-100);
   --surface-dark: var(--color-black);
+
+  /* MetaData */
+  --bg-metadata: #3a2f2a;
 
   /*  Borders & Dividers*/
 

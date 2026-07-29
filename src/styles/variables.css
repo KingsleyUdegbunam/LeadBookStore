@@ -41,8 +41,10 @@
 
   --border-default: #e2d9d2;
   --border-subtle: #efe9e3;
+  --border-muted: rgba(255, 255, 255, 0.2);
 
   --divider: var(--border-subtle);
+  --divider-muted: var(--border-muted);
 
   /*  Buttons */
 

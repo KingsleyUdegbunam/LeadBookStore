@@ -1,0 +1,27 @@
+.logo {
+  font-family: "outfit", sans-serif;
+  letter-spacing: -1px;
+  padding: 0.5rem;
+  padding-left: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.logo-dark {
+  color: var(--color-black);
+}
+
+.logo-dot-dark {
+  color: var(--brand-red-clr);
+}
+
+.logo-light {
+  color: var(--color-white);
+}
+
+.logo-dot-light {
+  color: var(--color-white);
+}
+
+.logo-large {
+  font-size: 28px;
+}

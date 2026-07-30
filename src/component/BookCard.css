@@ -22,14 +22,6 @@
   color: var(--text-secondary);
 }
 
-.product-rec:hover .hover-red {
-  color: var(--color-brand);
-}
-
-.product-rec:hover .author-rec {
-  color: var(--text-secondary);
-}
-
 .book-details {
   display: flex;
   flex-direction: column;
@@ -86,7 +78,7 @@
   color: var(--text-inverse);
   padding: 0.3rem 0.4rem;
 
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 400;
   text-transform: uppercase;
 }
@@ -107,83 +99,16 @@
   scale: 1.02;
 }
 
-.product .button-primary {
+.product.button-primary {
   margin-top: auto;
 }
 
-/* Recommendation section */
-.product-rec {
-  align-items: center;
-  text-align: center;
-}
-
-.book-details-rec {
-  width: 100%;
-  text-align: left;
-}
-
-.image-container-rec {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-container-rec .category {
-  display: none;
-}
-
-.image-container-rec img {
-  width: 100%;
-  aspect-ratio: 2/3;
-  object-fit: cover;
-}
-
-.title-rec,
-.author-rec {
-  max-width: 120px;
-}
-
-.title-rec {
-  min-height: 2rem;
-}
-
-.add-to-cart-rec {
-  padding: none;
-  width: 100%;
-  font-size: 0.65rem;
-  padding: 0.5rem 0rem;
-}
-
-.product-rec img,
-.hover-red,
-.category {
-  transition: all 250ms;
-}
-
-.product-rec:hover img {
-  scale: 1.02;
+.add-cart-btn {
+  margin-top: auto;
 }
 
 @media screen and (min-width: 1024px) {
   .category {
-    font-size: 11px;
-  }
-
-  .image-container-rec {
-    width: 100%;
-    aspect-ratio: 2/3;
-  }
-
-  .product-rec {
-    align-items: left;
-    text-align: left;
-    max-width: 160px;
-  }
-
-  .title-rec,
-  .author-rec {
-    max-width: 100%;
+    font-size: 9px;
   }
 }

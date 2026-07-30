@@ -7,13 +7,13 @@ button {
   align-items: center;
   justify-content: center;
 
-  min-height: 48px;
+  min-height: 46px;
   padding: 0.7rem 1.5rem;
 
   border: 1px solid transparent;
 
   font-family: "Outfit", sans-serif;
-  font-size: 14px;
+  font-size: 0.8rem;
   font-weight: 600;
   line-height: 1.2;
 

@@ -13,7 +13,7 @@ export default function ProductPage() {
 
   return (
     <>
-      <section className="pages-wrapper main-container">
+      <section className="pages-wrapper main-container product-page">
         <ProductData book={book} />
 
         <article className="recommendation">

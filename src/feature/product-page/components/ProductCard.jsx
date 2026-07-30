@@ -14,7 +14,7 @@ const ProductCard = ({ book }) => {
       </div>
 
       <button
-        className="book-to-cart"
+        className="book-to-cart button-primary"
         onClick={() => {
           addToCart(book);
         }}

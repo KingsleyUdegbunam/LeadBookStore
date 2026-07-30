@@ -6,7 +6,7 @@
 }
 
 .product-image-container {
-  width: 35%;
+  width: 38%;
   padding: 1rem;
   max-width: 250px;
   aspect-ratio: 2/3;
@@ -30,7 +30,6 @@
 .book-to-cart {
   width: fit-content;
   align-self: center;
-  padding: 0.9rem 1.2rem;
 }
 
 .book-title {
@@ -42,13 +41,12 @@
 .desc-container {
   margin-block-start: 2rem;
 }
-.desc-header,
-.desc-text-container {
-  font-family: "Outfit", sans-serif;
-}
 
 .desc-text-container > * {
   margin-block-end: 1rem;
+}
+
+.book-desc {
   text-align: justify;
 }
 
@@ -61,8 +59,7 @@
 
 h3 {
   text-transform: capitalize;
-  font-family: "Outfit", sans-serif;
-  border-block-end: 2px gray solid;
+  border-block-end: 2px var(--border-heavy) solid;
 }
 
 .row {

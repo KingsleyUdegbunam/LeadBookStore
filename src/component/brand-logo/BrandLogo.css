@@ -1,5 +1,5 @@
 .logo {
-  font-family: "outfit", sans-serif;
+  font-family: var(--font-primary);
   letter-spacing: -1px;
   padding: 0.5rem;
   padding-left: 0;
@@ -12,7 +12,7 @@
 }
 
 .logo-dot-dark {
-  color: var(--brand-red-clr);
+  color: var(--color-brand);
 }
 
 .logo-light {

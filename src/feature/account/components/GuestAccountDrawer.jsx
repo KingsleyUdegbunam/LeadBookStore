@@ -14,6 +14,12 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
     navigate("/signin");
   };
 
+  const handleNavigation = (link) => {
+    onClose();
+
+    navigate(link);
+  };
+
   const accountNav = [
     { title: "Track Order", desc: "Check your order status", link: "" },
     { title: "Addresses", desc: "Manage your saved addreses", link: "" },
@@ -39,14 +45,17 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
           </p>
 
           <div className="account-drawer-buttons-wrapper">
-            <button onClick={handleSignInNavigation} className="button-primary">
+            <button
+              onClick={handleSignInNavigation}
+              className="button-primary button-full-width"
+            >
               Sign In
             </button>
             <p className="new-here-login">
               New here?{" "}
               <button
                 onClick={handleSignUpNavigation}
-                className="account-drawer-link"
+                className="create-account-link"
               >
                 Create an account
               </button>
@@ -54,15 +63,19 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
           </div>
         </header>
         <nav>
-          <ul>
+          <ul className="drawer-links-wrapper">
             {accountNav.map((nav) => (
-              <li>
-                <div>
+              <button
+                className="drawer-nav-links button-full-width"
+                onClick={() => handleNavigation(nav.link)}
+              >
+                <div className="drawer-li-text">
                   <p>{nav.title}</p>
                   <p className="account-nav-subtext">{nav.desc}</p>
                 </div>
-                <BsChevronRight />
-              </li>
+
+                <BsChevronRight className="drawer-nav-icons" />
+              </button>
             ))}
           </ul>
         </nav>

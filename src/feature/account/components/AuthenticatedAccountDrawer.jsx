@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import "./AuthenticatedAccountDrawer.css";
 
-export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
+export function AuthenticatedAccountDrawer({ isOpen, onClose, user }) {
   const navigate = useNavigate();
   const accountNav = [
     {
@@ -50,15 +50,14 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
               <MdOutlineClose />
             </button>
           </div>
-          <p className="account-drawer-subtext">{email}</p>
         </header>
 
         <div className="authenticated-nav-footer">
           <nav>
-            <ul>
+            <ul className="drawer-links-wrapper">
               {accountNav.map((nav) => (
                 <button
-                  className="drawer-nav-links"
+                  className="drawer-nav-links button-full-width"
                   onClick={() => handleNavigation(nav.link)}
                 >
                   <div className="drawer-li-text">
@@ -73,7 +72,10 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user, email }) {
           </nav>
 
           <footer className="account-drawer-footer">
-            <button onClick={handleSignOut} className="button-secondary">
+            <button
+              onClick={handleSignOut}
+              className="button-secondary button-full-width"
+            >
               Sign Out
             </button>
           </footer>

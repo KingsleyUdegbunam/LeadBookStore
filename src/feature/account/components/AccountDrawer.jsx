@@ -3,7 +3,7 @@ import "./AccountDrawer.css";
 import { AuthenticatedAccountDrawer } from "./AuthenticatedAccountDrawer";
 import { GuestAccountDrawer } from "./GuestAccountDrawer";
 
-export function AccountDrawer({ isOpen, onClose, email }) {
+export function AccountDrawer({ isOpen, onClose }) {
   const { session } = UseAuth();
   const user = session?.user?.user_metadata.display_name || "Reader";
   const id = session?.access_token;
@@ -13,7 +13,6 @@ export function AccountDrawer({ isOpen, onClose, email }) {
         isOpen={isOpen}
         onClose={onClose}
         user={user}
-        email={email}
       />
     );
   return <GuestAccountDrawer isOpen={isOpen} onClose={onClose} />;

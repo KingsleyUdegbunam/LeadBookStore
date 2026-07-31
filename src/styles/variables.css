@@ -83,4 +83,5 @@
   /* Motion*/
 
   --transition-fast: 250ms;
+  --transition-modrate: 350ms;
 }

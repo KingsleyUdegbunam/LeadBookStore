@@ -1,6 +1,6 @@
 .account-drawer-wrapper {
   padding: 4rem 1.2rem;
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-primary);
   display: flex;
   gap: 2rem;
   flex-direction: column;
@@ -18,13 +18,15 @@
   font-size: 1.2rem;
   width: fit-content;
   background-color: transparent;
-  color: black;
+  color: var(--text-primary);
   margin: 0;
+  transition: all var(--transition-modrate) ease-in-out;
 }
 
 .close-account-drawer:hover {
   background-color: transparent;
-  color: black;
+  color: var(--color-brand-hover);
+  transform: rotate(360deg);
 }
 
 .account-drawer-wrapper header {
@@ -42,7 +44,7 @@
 .account-drawer-wrapper nav {
   padding-block: 2rem;
 
-  border-block: 1px solid #c5c5c5;
+  border-block: 1px solid var(--divider);
 }
 
 .account-drawer-wrapper ul {
@@ -72,22 +74,22 @@
 
 .new-here-login {
   font-size: 0.9rem;
-  font-weight: 300;
+  color: var(--text-secondary);
 }
 
-.account-drawer-link {
-  font-family: "Outfit", sans-serif;
+.create-account-link {
+  font-family: var(--font-primary);
+  color: var(--text-primary);
   font-weight: 500;
-  color: var(--brand-red-click);
   width: fit-content;
   padding: 0;
   background-color: transparent;
   text-transform: none;
 }
 
-.account-drawer-link:hover {
+.create-account-link:hover {
   background-color: transparent;
-  color: var(--brand-red-click);
+  color: var(--color-brand-hover);
 }
 
 .account-drawer-footer {

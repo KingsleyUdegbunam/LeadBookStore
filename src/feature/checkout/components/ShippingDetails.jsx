@@ -24,14 +24,7 @@ export function ShippingDetails({
         <p className="step1 cart-shipment">{`${showSummary ? "Edit" : "Step 2"}: Shipping Details`}</p>
         <p className="details-subheader">{`${showSummary ? "Update your shipping details" : "Tell us where to deliver your order"}`}</p>
       </div>
-      <div className="auth-cta-checkout">
-        {!showSummary && (
-          <p className="account-action">
-            Already have an account?{" "}
-            <Link className="checkout-links">Log in</Link> for a faster
-            checkout.
-          </p>
-        )}
+      <div>
         <ShippingDetailsForm
           phoneError={phoneError}
           emailError={emailError}

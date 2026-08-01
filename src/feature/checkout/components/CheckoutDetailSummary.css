@@ -8,11 +8,51 @@
   gap: 0.5rem;
 }
 
-.forms-details-summary > * {
+.forms-details-summary > *:first-child {
   padding-block-end: 0.5rem;
-  border-block-end: 1px solid rgba(128, 128, 128, 0.5);
+  border-block-end: 1px solid var(--color-gray-200);
 }
 
-.forms-details-summary .checkout-links {
+.summary-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checkout-links {
+  color: var(--color-brand);
   text-decoration: underline;
+}
+
+.checkout-links:hover {
+  color: var(--color-brand-hover);
+}
+
+.delivery-notes {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.truncate-btn:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.truncate-btn {
+  width: fit-content;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  padding-inline: 0;
+  text-transform: none;
+  background-color: transparent;
+  color: var(--color-brand);
+  font-weight: 500;
+}
+
+.user-details {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }

@@ -5,6 +5,8 @@
   --color-brand: #a61b12;
   --color-brand-hover: #bf2a20;
   --color-brand-active: #85150e;
+  --color-compulsory: rgb(217, 2, 2);
+  --color-selection-hover: rgba(255, 247, 247, 0.679);
 
   /* Neutral Palette*/
 
@@ -18,7 +20,7 @@
   --color-gray-100: #f4f0ec;
 
   --color-white: #ffffff;
-  --color-off-white: #f9f5ef;
+  --color-off-white: #eee;
 
   /* Typography */
 

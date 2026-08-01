@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-// import { DiscountField } from "../../feature/checkout/components/DiscountField";
 import { TotalCost } from "../../feature/checkout/components/TotalCost";
 import { ShippingInfo } from "../../feature/checkout/components/ShippingInfo";
 import { CartItemsSummary } from "../../feature/checkout/components/CartItemsSummary";
 import { CheckoutDetailSummary } from "../../feature/checkout/components/CheckoutDetailSummary";
 import { initiatePayment } from "../../feature/checkout/utilities";
 import { convertToNaira } from "../../utilities/money";
-import "./CheckoutPage.css";
 import { useCart } from "../../context/CartContext";
+import "./CheckoutPage.css";
 
 export default function CheckoutPage() {
   const [shippingDetails, setShippingDetails] = useState({
@@ -61,9 +60,6 @@ export default function CheckoutPage() {
         />
 
         <div className="checkout-main">
-          {/* Should we remove discount? */}
-          {/* {!isReadyToPay && <DiscountField convertToNaira={convertToNaira} />} */}
-
           {/* COST DIPSPLAY */}
           <TotalCost
             convertToNaira={convertToNaira}

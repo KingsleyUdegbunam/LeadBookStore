@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { ShippingDetailsForm } from "./ShippingDetailsForm";
 export function ShippingDetails({
   phoneError,

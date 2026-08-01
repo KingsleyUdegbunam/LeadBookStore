@@ -9,49 +9,15 @@
   gap: 0.3rem;
 }
 
+.checkout-header .checkout-links {
+  text-decoration: none;
+}
+
 /* CART REVIEW */
 .checkout-section {
-  background-color: #eeeeee;
+  background-color: var(--surface-page);
 }
 
 .checkout-links {
   font-size: 0.75rem;
-  color: var(--brand-red-clr);
-  font-family: "Outfit", sans-serif;
-  cursor: pointer;
-}
-
-.checkout-links:hover {
-  color: rgb(255, 58, 58);
-}
-
-.auth-cta-checkout {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-/* BUTTONS */
-.btn-container {
-  display: flex;
-  justify-content: flex-end;
-  padding-block: 0.5rem;
-}
-
-.checkout-page-btn-disabled {
-  background-color: lightgrey;
-  color: rgb(243, 243, 243);
-
-  padding-inline: 2rem;
-  padding: 0.8rem 1rem;
-
-  border: none;
-
-  transition: all 300ms;
-}
-
-.checkout-page-btn {
-  font-size: 0.8rem;
-  margin-top: 1rem;
-  width: 100%;
 }

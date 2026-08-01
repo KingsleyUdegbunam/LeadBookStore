@@ -27,7 +27,7 @@ export function BookCard({ book }) {
 
       <button
         className="button-primary button-full-width add-cart-btn"
-        onClick={() => addToCart(book)}
+        onClick={() => addToCart(id)}
       >
         ADD TO CART
       </button>

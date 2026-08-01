@@ -6,32 +6,35 @@ const CartContext = createContext(null);
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (book) => {
-    const inCart = cart.find((cartItem) => cartItem.id === book.id);
+  const addToCart = (bookId) => {
+    const itemId = Number(bookId);
 
-    if (inCart) {
-      setCart((prev) =>
-        prev.map((item) =>
-          item.id === book.id
+    setCart((prev) => {
+      const inCart = prev.find((cartItem) => cartItem.id === itemId);
+      if (inCart) {
+        return prev.map((item) => {
+          return item.id === itemId
             ? {
                 ...item,
                 quantity: item.quantity + 1,
                 totalPrice: item.basePrice * (item.quantity + 1),
               }
-            : item,
-        ),
-      );
-    } else {
-      setCart((prev) => [
-        ...prev,
-        {
-          id: book.id,
-          quantity: 1,
-          basePrice: book.price.paperback,
-          totalPrice: book.price.paperback,
-        },
-      ]);
-    }
+            : item;
+        });
+      } else {
+        const book = books.find((book) => book.id === itemId);
+
+        return [
+          ...prev,
+          {
+            id: book.id,
+            quantity: 1,
+            basePrice: book.price.paperback,
+            totalPrice: book.price.paperback,
+          },
+        ];
+      }
+    });
   };
 
   const cartInDetail = useMemo(

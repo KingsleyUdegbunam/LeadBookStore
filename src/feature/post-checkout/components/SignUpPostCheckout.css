@@ -1,0 +1,45 @@
+.signup-header {
+  text-transform: none;
+  font-weight: 600;
+  margin-bottom: -0.2rem;
+}
+
+.signup-checkout-subheader {
+  color: var(--text-secondary);
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 300;
+}
+
+.signup-header-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.signup-benefits * {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 300;
+}
+
+.signup-benefits p {
+  color: var(--text-primary);
+}
+
+.post-checkout-icon {
+  color: var(--color-brand);
+}
+
+@media screen and (min-width: 1300px) {
+  .signup-benefits * {
+    font-size: 0.8rem;
+  }
+}

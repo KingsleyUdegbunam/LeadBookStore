@@ -41,7 +41,7 @@ export function SignInForm() {
   };
 
   return (
-    <section className="signup-section">
+    <section>
       <form onSubmit={handleSubmit}>
         <div className="signin-form-children">
           {/* Email Field */}
@@ -93,11 +93,11 @@ export function SignInForm() {
           </div>
 
           <div className="action-btn-helper-n-text">
-            <button disabled={loading} type="submit">
+            <button className="button-primary" disabled={loading} type="submit">
               Sign In
             </button>
-            <p className="signup-login">
-              Don't have an account?{" "}
+            <p className="signup-signin">
+              <span className="redirect-text">Don't have an account?</span>{" "}
               <Link className="signup-login-link" to="/signup">
                 Sign up
               </Link>

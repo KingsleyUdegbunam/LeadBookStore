@@ -126,48 +126,50 @@ export function PrimarySignUpForm({ prefilledEmail }) {
   };
 
   return (
-    <section className="signup-section">
+    <section>
       <form className="signup-form" onSubmit={handleSubmit}>
-        <div>
+        <div className="validation-and-inputs">
           <article className="signup-input-fields-wrapper">
             {/* First Name */}
-            <div>
-              <label htmlFor="firstName">
-                <div>
-                  First Name<span className="important">*</span>
+            <div className="first-last-name-signup">
+              <div>
+                <label htmlFor="firstName">
+                  <div>
+                    First Name<span className="important">*</span>
+                  </div>
+                </label>
+                <div className="input-wrapper">
+                  <input
+                    ref={emailInputRef}
+                    type="text"
+                    id="firstName"
+                    value={formValue.firstName}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setFormValue((prev) => ({ ...prev, firstName: value }));
+                    }}
+                  />
                 </div>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={emailInputRef}
-                  type="text"
-                  id="firstName"
-                  value={formValue.firstName}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, firstName: value }));
-                  }}
-                />
               </div>
-            </div>
-            {/* Last Name */}
-            <div>
-              <label htmlFor="lastName">
-                <div>
-                  Last Name<span className="important">*</span>
+              {/* Last Name */}
+              <div>
+                <label htmlFor="lastName">
+                  <div>
+                    Last Name<span className="important">*</span>
+                  </div>
+                </label>
+                <div className="input-wrapper">
+                  <input
+                    ref={emailInputRef}
+                    type="text"
+                    id="lastName"
+                    value={formValue.lastName}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setFormValue((prev) => ({ ...prev, lastName: value }));
+                    }}
+                  />
                 </div>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={emailInputRef}
-                  type="text"
-                  id="lastName"
-                  value={formValue.lastName}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, lastName: value }));
-                  }}
-                />
               </div>
             </div>
 
@@ -302,37 +304,39 @@ export function PrimarySignUpForm({ prefilledEmail }) {
           )}
         </div>
 
-        <button
-          disabled={loading}
-          onClick={() => {
-            if (!isEmailValid) {
-              emailInputRef?.current.focus();
-              return;
-            }
+        <div className="post-checkout-actions-wrapper">
+          <button
+            disabled={loading}
+            onClick={() => {
+              if (!isEmailValid) {
+                emailInputRef?.current.focus();
+                return;
+              }
 
-            if (!isPasswordValid) {
-              passwordInputRef?.current.focus();
-              return;
-            }
+              if (!isPasswordValid) {
+                passwordInputRef?.current.focus();
+                return;
+              }
 
-            if (
-              !doesValuesMatch(formValue.password, formValue.confirmPassword)
-            ) {
-              confirmPasswordInputRef?.current.focus();
-              return;
-            }
-          }}
-          className="signup-btn"
-          type="submit"
-        >
-          {loading ? "Creating Account..." : "Create Account"}
-        </button>
-        <p className="signup-login">
-          Already have an account?{" "}
-          <Link className="signup-login-link" to="/signin">
-            Sign in
-          </Link>
-        </p>
+              if (
+                !doesValuesMatch(formValue.password, formValue.confirmPassword)
+              ) {
+                confirmPasswordInputRef?.current.focus();
+                return;
+              }
+            }}
+            className="signup-btn button-primary"
+            type="submit"
+          >
+            {loading ? "Creating Account..." : "Create Account"}
+          </button>
+          <p className="signup-signin">
+            <span className="redirect-text">Already have an account?</span>{" "}
+            <Link className="signup-login-link" to="/signin">
+              Sign in
+            </Link>
+          </p>
+        </div>
       </form>
     </section>
   );

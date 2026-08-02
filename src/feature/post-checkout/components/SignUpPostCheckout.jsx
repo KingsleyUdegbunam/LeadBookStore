@@ -2,10 +2,11 @@ import { HiOutlineTruck } from "react-icons/hi2";
 import { GoHistory } from "react-icons/go";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { PostCheckoutSignUpForm } from "../../../component/auth/PostCheckoutSignUpForm";
+import "./SignUpPostCheckout.css";
 
 export function SignUpPostCheckoutForm({ prefilledEmail, lastName }) {
   return (
-    <section className="signup-section">
+    <section className="post-checkout-signup-section">
       <div className="signup-header-wrapper">
         <div>
           <h2 className="signup-header">Create an Account</h2>
@@ -14,23 +15,22 @@ export function SignUpPostCheckoutForm({ prefilledEmail, lastName }) {
           </p>
         </div>
         <div className="signup-benefits">
-          <div className="">
-            <HiOutlineTruck />
+          <div>
+            <HiOutlineTruck className="post-checkout-icon" />
             <p>Easily Track Orders</p>
           </div>
 
-          <div className="">
-            <GoHistory />
+          <div>
+            <GoHistory className="post-checkout-icon" />
             <p>View Order History</p>
           </div>
 
-          <div className="">
-            <IoBagCheckOutline />
+          <div>
+            <IoBagCheckOutline className="post-checkout-icon" />
             <p>Faster Checkout</p>
           </div>
         </div>
       </div>
-      {/* <PrimarySignUpForm /> */}
       <PostCheckoutSignUpForm
         prefilledEmail={prefilledEmail}
         lastName={lastName}

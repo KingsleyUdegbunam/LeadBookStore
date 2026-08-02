@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import {
   validateEmail,
   validatePassword,
-} from "../../../lib/validation/validation";
+} from "../../../../lib/validation/validation";
 import { UseAuth } from "../../../../context/AuthContext";
 
 export function PrimarySignUpForm({ prefilledEmail }) {

@@ -3,6 +3,7 @@ import { router } from "./router";
 import { CartProvider } from "./context/CartContext";
 import { UIProvider } from "./context/UIContext";
 import { AuthContextProvider } from "./context/AuthContext";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
       <AuthContextProvider>
         <CartProvider>
           <UIProvider>
-            <RouterProvider router={router} />
+            <TooltipProvider>
+              <RouterProvider router={router} />
+            </TooltipProvider>
           </UIProvider>
         </CartProvider>
       </AuthContextProvider>

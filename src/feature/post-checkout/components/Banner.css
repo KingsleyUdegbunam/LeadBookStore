@@ -1,11 +1,25 @@
 .banner-section {
+  background-color: var(--surface-page);
+}
+
+.banner-section-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding-inline: 0;
   padding-top: 120px;
-  background-color: #eeeeee;
+  padding-bottom: 1.5rem;
+}
+
+.banner-signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.signup-checkout {
+  padding-bottom: 2rem;
 }
 
 .user-order-details {
@@ -16,10 +30,10 @@
 }
 
 .order-details {
-  margin-block: 32px;
+  margin-block: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 0.5rem;
   text-align: center;
 }
 
@@ -30,7 +44,7 @@
 }
 
 .header-red {
-  color: var(--brand-red-clr);
+  color: var(--color-brand);
 }
 
 .order-details-header {
@@ -58,13 +72,13 @@
   gap: 4px;
   text-transform: none;
   background-color: transparent;
-  color: black;
+  color: var(--text-primary);
   text-decoration: underline;
 }
 
 .print-btn:hover {
   background-color: transparent;
-  color: black;
+  color: var(--color-brand);
 }
 
 .banner-section > * {
@@ -86,32 +100,28 @@
 }
 
 .banner-section-authenticated {
-  background-color: #eeeeee;
+  background-color: var(--surface-page);
 }
 
 @media screen and (min-width: 1024px) {
-  .order-page-body > * {
-    padding-block: 64px;
-    border-bottom: 1px solid #eee;
-  }
-
   .banner-and-signup {
     padding-top: 0;
-    background-color: #eee;
+    background-color: var(--surface-page);
     padding-bottom: 32px;
   }
 
   .banner-signup-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1.2fr;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 0;
   }
 
   .signup-checkout {
     display: grid;
     align-items: center;
     padding-top: 120px;
-    margin-inline-end: 2rem;
-    background-color: white;
+    margin-inline-end: 1rem;
+    background-color: var(--surface-card);
     border-radius: 12px;
     box-shadow:
       0 1px 2px rgba(0, 0, 0, 0.04),
@@ -121,7 +131,7 @@
   }
 
   .banner-section {
-    padding-top: 120px;
+    /* padding-top: 120px; */
     padding-bottom: 0;
   }
 
@@ -130,7 +140,7 @@
   }
 
   .order-details-header {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .hero-msg-support {
@@ -142,7 +152,7 @@
   }
 
   .order-details-detail {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .user-order-details {
@@ -150,5 +160,12 @@
     display: flex;
     justify-content: space-between;
     gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .banner-signup-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
   }
 }

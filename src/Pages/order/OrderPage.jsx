@@ -10,11 +10,12 @@ import { BookCardRecommendationCard } from "../../component/BookCardRecommendati
 import { OrderInfo } from "../../component/order/OrderInfo";
 import { toast } from "sonner";
 import { UseAuth } from "../../context/AuthContext";
-import "./OrderPage.css";
 import {
   AuthenticatedBanner,
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
+import "./OrderPage.css";
+
 export default function OrderPage() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -73,27 +74,27 @@ export default function OrderPage() {
 
   return (
     <>
-      {!session && recentOrder && <GuestBanner order={order} />}
+      <section className="">
+        {!session && recentOrder && <GuestBanner order={order} />}
 
-      <section className="order-page-wrapper">
         {session && <AuthenticatedBanner order={order} />}
 
-        <div className="pages-wrapper-variation order-page-body">
-          <section className="shipping-billing-section">
+        <div className="order-page-body pages-wrapper-variation">
+          <section className="shipping-billing-section order-section-wrapper">
             <OrderInfo order={order} />
           </section>
 
-          <section className="order-summary">
+          <section className="order-summary order-section-wrapper">
             <h2 className="order-summary-h2">Order Summary</h2>
             <BooksPurchased order={order} />
             <OrderCostBreakDown order={order} />
             <div className="order-to-shop-btn-wrapper">
               <a href="/shop">
-                <button className="order-to-shop-btn">Browse More Books</button>
+                <button className="button-secondary">Browse More Books</button>
               </a>
             </div>
           </section>
-          <section className="recommendation-sec">
+          <section className="recommendation-sec order-section-wrapper">
             <h2 className="order-summary-h2">Inspired By Your Order</h2>
             <div className="related-reads">
               <article className="products-container special-days">

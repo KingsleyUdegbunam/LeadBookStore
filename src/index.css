@@ -87,6 +87,7 @@ button {
 
 .subheader {
   font-size: clamp(0.9rem, 4vw, 1.2rem);
+  color: var(--text-secondary);
   font-weight: 300;
 }
 

@@ -1,3 +1,5 @@
+import "./CartItemsSummary.css";
+
 export function CartItemsSummary({ cartInDetail, convertToNaira }) {
   return (
     <div className="item-cards">
@@ -6,8 +8,8 @@ export function CartItemsSummary({ cartInDetail, convertToNaira }) {
           <div className="checkout-image-container">
             <img className="img" src={item.coverImage} alt="" />
           </div>
-          <div className="item-details">
-            <p className="checkout-title">{item.title}</p>
+          <div>
+            <p className="checkout-item-title">{item.title}</p>
             <p className="checkout-author">{item.author}</p>
             <p className="checkout-price-and-quantity">
               {item.quantity} x {convertToNaira(item.price.paperback)} Paperback

@@ -64,7 +64,7 @@ export function ShippingOptionsForm({
 
   return (
     <article id="shipping-details-form" className="primary-form-container">
-      <div className="address-form-container">
+      <div>
         <div className="address-form">
           {/* COUNTRY SELECTION */}
           <div className="form-container">
@@ -148,13 +148,15 @@ export function ShippingOptionsForm({
               />
               <div>
                 <p>
-                  <span className="strong">{option.id}:</span>{" "}
-                  <span>
-                    {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
+                  <span className="strong">{option.id}</span>
+                  <span className="delivery-date-display desktop">
+                    : {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
                   </span>
                 </p>
 
-                <p className="little-text">({option.desc})</p>
+                <p className="delivery-date-display mobile-display">
+                  {`${option.minDeliveryDay} - ${option.maxDeliveryDay} `}
+                </p>
               </div>
             </div>
             <span className="strong carrier-cost">

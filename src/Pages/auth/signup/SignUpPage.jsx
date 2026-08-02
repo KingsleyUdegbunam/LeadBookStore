@@ -1,4 +1,4 @@
-import { PrimarySignUpForm } from "../../../feature/auth/signup/PrimarySignUpForm";
+import { PrimarySignUpForm } from "../../../feature/auth/components/signup/PrimarySignUpForm";
 import "./SignUpPage.css";
 
 export default function SignUpPage() {

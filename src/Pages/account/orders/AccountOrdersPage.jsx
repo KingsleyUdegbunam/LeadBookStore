@@ -55,6 +55,7 @@ const AccountOrdersPage = () => {
       <article className="my-order-wrapper">
         {orders.map((order) => (
           <Link
+            key={order.id}
             to={`/account/order-details/${order.id}`}
             className={`my-order-item ${order.status}-order`}
           >
@@ -62,7 +63,7 @@ const AccountOrdersPage = () => {
               <div className="my-order-img-wrapper">
                 {order.items.map((item, index) =>
                   index < 2 ? (
-                    <div className="my-order-img-container">
+                    <div className="my-order-img-container" key={index}>
                       {" "}
                       <img src={item.coverImage} />
                     </div>

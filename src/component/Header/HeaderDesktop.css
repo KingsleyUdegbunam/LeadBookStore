@@ -1,0 +1,45 @@
+.header-desktop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.1rem 2rem;
+}
+
+.header-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .header-mobile {
+    display: none;
+  }
+
+  .header-desktop {
+    display: flex;
+  }
+
+  .header-desktop-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    font-family: var(--font-primary);
+  }
+  .header-pages-link {
+    color: var(--text-primary);
+    transition: color var(--transition-fast) ease-in-out;
+  }
+
+  .header-pages-link {
+    color: var(--text-primary);
+  }
+
+  .header-pages-link.active-page {
+    color: var(--color-brand);
+  }
+
+  .header-pages-link:hover {
+    color: var(--color-brand-hover);
+  }
+}

@@ -1,124 +1,11 @@
-.order-page-wrapper {
-  padding: 0;
-}
-
-.banner-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-inline: 0;
-  padding-top: 120px;
-  background-color: #eeeeee;
-}
-
-.banner-section > * {
-  text-align: center;
-  font-size: 0.85rem;
-}
-
-.signup-checkout .signup-section {
-  height: 100%;
-}
-
-.orderpage-header {
-  font-size: clamp(24px, 2.5vw, 42px);
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.header-red {
-  color: var(--brand-red-clr);
-}
-
-.order-img-wrapper {
-  width: clamp(300px, 80vw, 500px);
-  height: auto;
-}
-
-.mini-support-txt {
-  font-size: 13px;
-  font-weight: 300;
-  opacity: 0.6;
-}
-
-.user-order-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.order-details {
-  margin-block: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.order-details-header {
-  font-size: 14px;
-}
-
-.order-details-detail {
-  font-size: 14.4px;
-  font-weight: 400;
-}
-
-.print-btn {
-  margin: 0;
-  font-weight: 300;
-  max-width: fit-content;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  text-transform: none;
-  background-color: transparent;
-  color: black;
-  text-decoration: underline;
-}
-
-.print-btn:hover {
-  background-color: transparent;
-  color: black;
+.order-section-wrapper {
+  padding-inline: 1rem;
 }
 
 .shipping-billing-section {
-  background-color: #eeeeee;
+  background-color: var(--surface-page);
 }
 
-.shipping-billing-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  row-gap: 2rem;
-}
-.shipping-billing-grid-cell {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.col-3 {
-  grid-column-start: 2;
-}
-
-.shipping-billing-header {
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.shipping-billing-name {
-  font-size: 1rem;
-  font-weight: 500;
-}
-
-.shipping-billing-detail-regular {
-  font-size: 14px;
-  font-weight: 300;
-  color: #454545;
-}
-/* RIGHT HEREE */
 .order-summary {
   display: flex;
   flex-direction: column;
@@ -147,83 +34,28 @@
   text-transform: capitalize;
 }
 
+.order-page-body > * {
+  padding-block: 2rem;
+  border-bottom: 1px solid var(--divider);
+}
+
+@media screen and (min--width: 768px) {
+  .order-section-wrapper {
+    padding-inline: 2.5rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
-  .order-page-body > * {
-    padding-block: 64px;
-    border-bottom: 1px solid #eee;
+  .order-section-wrapper {
+    padding-inline: 4rem;
   }
 
-  .banner-and-signup {
-    padding-top: 0;
-    background-color: #eee;
-    padding-bottom: 32px;
-  }
-
-  .banner-signup-wrapper {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-  }
-
-  .signup-checkout {
-    display: grid;
-    align-items: center;
-    padding-top: 120px;
-    margin-inline-end: 2rem;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.04),
-      0 8px 24px rgba(0, 0, 0, 0.06);
-
-    border: 1px solid rgba(0, 0, 0, 0.06);
-  }
-
-  .banner-section {
-    padding-top: 120px;
-    padding-bottom: 0;
-  }
-
-  .orderpage-header {
-    margin-top: -0.5rem;
-  }
-
-  .order-details-header {
-    font-size: 1rem;
-  }
-
-  .hero-msg-support {
-    margin-top: -0.5rem;
-  }
-
-  .mini-support-txt {
-    font-size: 15px;
-  }
-
-  .order-details-detail {
-    font-size: 1rem;
-  }
-
-  .user-order-details {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    gap: 4rem;
+  .signup-checkout.order-section-wrapper {
+    padding-inline: 2.5rem;
   }
 
   .shipping-billing-section {
-    background-color: white;
-  }
-
-  .shipping-billing-grid {
-    gap: 32px;
-  }
-
-  .shipping-billing-header {
-    font-size: 1rem;
-  }
-
-  .shipping-billing-name {
-    font-size: 18px;
+    background-color: var(--surface-card);
   }
 
   .order-summary-h2 {

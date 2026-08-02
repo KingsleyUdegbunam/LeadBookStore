@@ -1,30 +1,47 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOrderById } from "../../services/orderServices";
-import orderBox from "../../assets/order-box.png";
+import { getOrderByRef } from "../../services/orderServices";
+import { books } from "../../data/inventory";
 import {
   OrderCostBreakDown,
   BooksPurchased,
 } from "../../component/order/OrderSummary";
-import dayjs from "dayjs";
-import { convertToNaira } from "../../utilities/money";
-import { SlPrinter } from "react-icons/sl";
-import { books } from "../../data/inventory";
 import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
-import { SignUpPostCheckoutForm } from "../../feature/PostCheckout/SignUpPostCheckout";
 import { OrderInfo } from "../../component/order/OrderInfo";
 import { toast } from "sonner";
+import { UseAuth } from "../../context/AuthContext";
+import {
+  AuthenticatedBanner,
+  GuestBanner,
+} from "../../feature/post-checkout/components/Banner";
 import "./OrderPage.css";
 
 export default function OrderPage() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  const { ref } = useParams();
+
+  const { session } = UseAuth();
+  const recentOrder = useMemo(() => {
+    const stored = sessionStorage.getItem("recentOrder");
+    return stored ? JSON.parse(stored) : [];
+  }, []);
 
   useEffect(() => {
-    async function fetchOrder() {
+    async function loadOrder() {
+      if (recentOrder?.reference === ref) {
+        setOrder(recentOrder);
+        setLoading(false);
+        return;
+      }
+
+      if (!session) {
+        setLoading(false);
+        return;
+      }
+
       try {
-        const data = await getOrderById(id);
+        const data = await getOrderByRef(ref);
         setOrder(data);
       } catch {
         toast.error("Failed to fetch order");
@@ -32,9 +49,8 @@ export default function OrderPage() {
         setLoading(false);
       }
     }
-
-    if (id) fetchOrder();
-  }, [id]);
+    loadOrder();
+  }, [recentOrder, ref, session]);
 
   const collections = useMemo(() => {
     return [...new Set(order?.items.flatMap((item) => item.collections) ?? [])];
@@ -58,93 +74,27 @@ export default function OrderPage() {
 
   return (
     <>
-      <section className="order-page-wrapper">
-        <div className="banner-and-signup">
-          <div className="banner-signup-wrapper pages-wrapper-variation">
-            <section className="banner-section">
-              <div>
-                <p className="orderpage-header">
-                  Thanks you for{" "}
-                  <span className="header-red">shopping with us!</span>
-                </p>
-              </div>
+      <section className="">
+        {!session && recentOrder && <GuestBanner order={order} />}
 
-              <div className="order-img-wrapper">
-                <img src={orderBox} alt="Order box" />
-              </div>
+        {session && <AuthenticatedBanner order={order} />}
 
-              <p className="mini-support-txt hero-msg-support">
-                Your books are being carefully prepared for shipment.
-              </p>
-
-              <div className="order-details">
-                <div>
-                  <p className="order-details-header mini-support-txt">
-                    An email confirmation has been sent to
-                  </p>
-
-                  <p className="order-details-detail">
-                    {order.shipping_details.email}
-                  </p>
-                </div>
-
-                <div className="user-order-details">
-                  <div>
-                    <p className="order-details-header mini-support-txt">
-                      Order Ref.
-                    </p>
-
-                    <p className="order-details-detail">{order.reference}</p>
-                  </div>
-                  <div>
-                    <p className="order-details-header mini-support-txt">
-                      Order Date
-                    </p>
-
-                    <p className="order-details-detail">
-                      {dayjs(order.created_at).format("D, MMM YYYY h:mm A")}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="order-details-header mini-support-txt">
-                      Order Total
-                    </p>
-
-                    <p className="order-details-detail">
-                      {convertToNaira(order.total)}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <button className="print-btn">
-                <SlPrinter />
-                <p className="order-details-header">Print receipt</p>
-              </button>
-            </section>
-
-            <section className="signup-checkout">
-              <SignUpPostCheckoutForm />
-              {/* <SignupForm prefilledEmail={order.email} /> */}
-            </section>
-          </div>
-        </div>
-        <div className="pages-wrapper-variation order-page-body">
-          <section className="shipping-billing-section">
+        <div className="order-page-body pages-wrapper-variation">
+          <section className="shipping-billing-section order-section-wrapper">
             <OrderInfo order={order} />
           </section>
 
-          <section className="order-summary">
+          <section className="order-summary order-section-wrapper">
             <h2 className="order-summary-h2">Order Summary</h2>
             <BooksPurchased order={order} />
             <OrderCostBreakDown order={order} />
             <div className="order-to-shop-btn-wrapper">
               <a href="/shop">
-                <button className="order-to-shop-btn">Browse More Books</button>
+                <button className="button-secondary">Browse More Books</button>
               </a>
             </div>
           </section>
-          <section className="recommendation-sec">
+          <section className="recommendation-sec order-section-wrapper">
             <h2 className="order-summary-h2">Inspired By Your Order</h2>
             <div className="related-reads">
               <article className="products-container special-days">

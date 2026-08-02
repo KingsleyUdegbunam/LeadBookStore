@@ -1,0 +1,23 @@
+/* CART COST */
+.total-cost {
+  border-block-start: 1px solid black;
+  padding-block: 0.3rem;
+  font-size: 0.9rem;
+  font-family: "Anonymous Pro", monospace;
+}
+
+.total-cost-child {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-block-start: 1px dashed grey;
+  border-block-end: 1px solid black;
+  padding-block: 0.3rem;
+  margin-block-start: 0.2rem;
+}

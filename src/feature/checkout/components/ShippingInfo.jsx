@@ -7,8 +7,8 @@ import { isValidNumber } from "libphonenumber-js";
 import { useNavigate } from "react-router-dom";
 import { initiatePayment } from "../utilities";
 import { isValidEmail } from "../../../lib/validation/validation";
-
 import { UseAuth } from "../../../context/AuthContext";
+import "./ShippingInfo.css";
 
 export function ShippingInfo({
   showShippingOptForm,
@@ -38,6 +38,7 @@ export function ShippingInfo({
   const [lastNameError, setLastNameError] = useState(false);
   const [addressError, setAddressError] = useState(null);
   const [notesError, setNotesError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const { session } = UseAuth();
 
@@ -97,7 +98,7 @@ export function ShippingInfo({
     if (validForm) {
       const userId = session?.user?.id ?? null;
       if (isReadyToPay) {
-        await initiatePayment(
+        await initiatePayment({
           userId,
           cartTotalPrice,
           cartInDetail,
@@ -105,7 +106,8 @@ export function ShippingInfo({
           selectedShipping,
           setCart,
           navigate,
-        );
+          setLoading,
+        });
         return;
       }
       hideForms();
@@ -151,7 +153,7 @@ export function ShippingInfo({
         />
       )}
 
-      <ActionButton isReadyToPay={isReadyToPay} />
+      <ActionButton loading={loading} isReadyToPay={isReadyToPay} />
     </form>
   );
 }

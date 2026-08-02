@@ -1,12 +1,10 @@
-import { Link } from "react-router-dom";
+import { BrandLogo } from "../../component/brand-logo/BrandLogo";
 import "./AuthHeader.css";
 
 export function AuthHeader() {
   return (
-    <header className="auth-header">
-      <Link className="logo" to="/">
-        LEAD
-      </Link>
+    <header className="auth-header pages-wrapper-variation">
+      <BrandLogo variant={"dark"} />
     </header>
   );
 }

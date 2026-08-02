@@ -33,7 +33,7 @@ export function ShippingDetailsForm({
         </div>
       )}
 
-      <div className="email-container user-info-div">
+      <div className="user-info-div">
         <label htmlFor="email">
           Email<span className="important">*</span>
         </label>
@@ -147,19 +147,6 @@ export function ShippingDetailsForm({
                 const valid = isValidPhoneNumber(shippingDetails?.tel, "NG");
                 setPhoneError(!valid);
               }}
-              // onAnimationStart={(e) => {
-              //   if (e.animationName === "onAutoFillStart") {
-              //     const valid = isValidPhoneNumber(e.target.value, "NG");
-              //     setPhoneError(!valid);
-              //     setPhone(e.target.value);
-              //     if (valid) {
-              //       setShippingDetails((prev) => ({
-              //         ...prev,
-              //         tel: e.target.value,
-              //       }));
-              //     }
-              //   }
-              // }}
               type="tel"
               name="telephone"
               id="telephone"

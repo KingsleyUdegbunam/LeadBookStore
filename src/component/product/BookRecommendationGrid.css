@@ -1,0 +1,17 @@
+.recommended-book-container {
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  gap: 0.8rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+@media screen and (min-width: 1024px) {
+  .recommended-book-container {
+    gap: 2.5rem;
+  }
+}

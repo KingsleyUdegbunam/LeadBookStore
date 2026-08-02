@@ -1,7 +1,22 @@
-export function ActionButton({ isReadyToPay }) {
+import { FaLock } from "react-icons/fa";
+import "./ActionButton.css";
+
+export function ActionButton({ isReadyToPay, loading }) {
   return (
-    <button type="submit" className={`checkout-continue-btn btn-enabled}`}>
-      {isReadyToPay ? "PLACE ORDER" : "CONTINUE"}
+    <button
+      disabled={loading}
+      type="submit"
+      className="button-primary button-full-width checkout-btn"
+    >
+      {loading ? (
+        "Processing..."
+      ) : isReadyToPay ? (
+        <span className="place-order-btn button-full-width">
+          <FaLock /> PLACE ORDER
+        </span>
+      ) : (
+        "CONTINUE"
+      )}
     </button>
   );
 }

@@ -3,6 +3,7 @@ import { createOrder } from "../../services/orderServices";
 import dayjs from "dayjs";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import { isValidEmail } from "../../lib/validation/validation";
+import { toast } from "sonner";
 
 export const isValidName = (name) => {
   const trimmed = name.trim().replace(/\s+/g, " ");
@@ -86,7 +87,8 @@ export function isFormValid(shippingDetails, selectedShipping) {
   return validity;
 }
 
-export const initiatePayment = (
+export const initiatePayment = ({
+  setLoading,
   userId,
   cartTotalPrice,
   cartInDetail,
@@ -94,12 +96,13 @@ export const initiatePayment = (
   selectedShipping,
   setCart,
   navigate,
-) => {
+}) => {
+  setLoading(true);
   const popup = new Paystack();
   const totalCost = cartTotalPrice + selectedShipping?.costInCents;
 
   popup.checkout({
-    key: "pk_test_87b24dad8322dd4a245702d85bd6035e9af5650b",
+    key: import.meta.env.VITE_PAYSTACK_PUBLIC_KEY,
     email: shippingDetails?.email,
     amount: totalCost,
     onSuccess: async (transaction) => {
@@ -121,26 +124,34 @@ export const initiatePayment = (
           processing_at: new Date().toISOString(),
         };
 
-        const savedOrder = await createOrder(orderData);
-        console.log("THISSSS", savedOrder);
-
+        const result = await createOrder(orderData);
+        if (!result.success) {
+          toast.error(
+            "Your payment was successful, but we couldn't save your order.",
+            {
+              description: `Payment reference: ${transaction.reference}. Please keep this reference and contact support.`,
+              duration: 15000,
+            },
+          );
+          return;
+        }
         setCart([]);
-
-        navigate(`/order/${savedOrder.id}`);
-      } catch (error) {
-        console.error("Order processing failed:", error);
-        alert("Something went wrong while processing your order OMO.");
+        sessionStorage.setItem("recentOrder", JSON.stringify(orderData));
+        navigate(`/order/${orderData.reference}`);
+      } catch {
+        toast.error("Something went wrong. Please try again in a few minutes.");
+      } finally {
+        setLoading(false);
       }
     },
-    onLoad: (response) => {
-      console.log("onLoad: ", response);
-    },
+    onLoad: () => {},
     onCancel: () => {
-      console.info("Payment cancelled by user");
+      toast.info("Payment was cancelled.");
+      setLoading(false);
     },
     onError: (error) => {
-      console.log("Error: ", error.message);
-      alert(error.message);
+      toast.error(error.message);
+      setLoading(false);
     },
   });
 };
@@ -271,7 +282,7 @@ export const calculateDeliveryDays = (length) => {
 };
 
 export function getOrderDate(inputDate, time = false) {
-  const returnDate = dayjs(inputDate).format("MMMM D, YYYY");
+  const returnDate = dayjs(inputDate).format("MMM D, YYYY");
   const returnTime = dayjs(inputDate).format("h:mm A");
 
   if (time) {

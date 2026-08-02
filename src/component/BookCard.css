@@ -1,10 +1,9 @@
 :root {
   --product-card-width: 150px;
-  --product-rec-card-width: 150px;
 }
 
 .product {
-  max-width: 150px;
+  max-width: var(--product-card-width);
   width: 100%;
   margin: 0 auto;
   flex-shrink: 0;
@@ -16,11 +15,11 @@
 }
 
 .product:hover .title {
-  color: var(--brand-red-clr);
+  color: var(--color-brand);
 }
 
 .product:hover .author {
-  color: rgba(0, 0, 0, 0.697);
+  color: var(--text-secondary);
 }
 
 .book-details {
@@ -68,35 +67,30 @@
 }
 
 .author {
-  color: rgb(106, 106, 106);
+  color: var(--text-muted);
 }
 
 .category {
   position: absolute;
   top: 0.6rem;
   left: 0.6rem;
-  background-color: rgba(0, 0, 0, 0.612);
-  color: white;
+  background-color: var(--bg-metadata);
+  color: var(--text-inverse);
   padding: 0.3rem 0.4rem;
 
-  font-size: 9px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
   font-weight: 400;
   text-transform: uppercase;
-}
-
-.title,
-.price {
-  font-family: "Outfit", sans-serif;
 }
 
 .price {
   font-weight: bold;
   font-size: 13px;
+  color: var(--text-primary);
 }
 
 .product-link {
-  color: black;
+  color: var(--text-primary);
   transition: all, 500ms;
   text-decoration: none;
 }
@@ -105,90 +99,16 @@
   scale: 1.02;
 }
 
-.product-rec {
-  align-items: center;
-  text-align: center;
+.product.button-primary {
+  margin-top: auto;
 }
 
-.book-details-rec {
-  width: 100%;
-  text-align: left;
-}
-
-.image-container-rec {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-}
-
-.image-container-rec .category {
-  display: none;
-}
-
-.image-container-rec img {
-  width: 100%;
-  aspect-ratio: 2/3;
-  object-fit: cover;
-}
-
-.title-rec,
-.author-rec {
-  max-width: 120px;
-}
-
-.title-rec {
-  min-height: 2rem;
-}
-
-.add-to-cart-rec {
-  padding: none;
-  width: 100%;
-  font-size: 0.65rem;
-  padding: 0.5rem 0rem;
-}
-
-.product-rec img,
-.hover-red,
-.category {
-  transition: all 250ms;
-}
-
-.product-rec:hover .author-rec {
-  color: rgba(0, 0, 0, 0.697);
-}
-
-.product-rec:hover .hover-red {
-  color: var(--brand-red-clr);
-}
-
-.category:hover {
-  background-color: var(--button-hover-clr);
-}
-
-.product-rec:hover img {
-  scale: 1.02;
+.add-cart-btn {
+  margin-top: auto;
 }
 
 @media screen and (min-width: 1024px) {
   .category {
-    font-size: 11px;
-  }
-
-  .image-container-rec {
-    width: 100%;
-    aspect-ratio: 2/3;
-  }
-
-  .product-rec {
-    align-items: left;
-    text-align: left;
-    max-width: 160px;
-  }
-
-  .title-rec,
-  .author-rec {
-    max-width: 100%;
+    font-size: 9px;
   }
 }

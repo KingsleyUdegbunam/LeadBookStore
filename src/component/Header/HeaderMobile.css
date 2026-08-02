@@ -1,0 +1,47 @@
+.header-mobile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.1rem 2rem;
+}
+
+.menu-toggle-n-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hamburger-menu > * {
+  border-block-end: 1px solid black;
+  color: black;
+
+  padding: 1.5rem 2.5rem;
+}
+
+.hamburger-menu > *:hover {
+  background-color: var(--brand-red-clr);
+  color: white;
+}
+
+.display-close-icon {
+  display: initial;
+}
+
+.view-menu {
+  display: flex;
+  color: black;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .header-mobile {
+    display: none;
+  }
+}

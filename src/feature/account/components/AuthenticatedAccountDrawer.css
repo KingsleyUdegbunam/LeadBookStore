@@ -1,0 +1,48 @@
+.account-drawer-wrapper .authenticated-header {
+  gap: 0rem;
+}
+
+.authenticated-nav-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.authenticated-account-drawer-wrapper {
+  gap: 1rem;
+}
+
+.drawer-links-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.drawer-nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  padding-block: 1.5rem;
+  text-transform: none;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.drawer-nav-links .drawer-nav-icons {
+  transform: rotate(-45deg);
+  transition: transform 100ms ease-in-out;
+}
+
+.drawer-nav-links:hover {
+  color: var(--text-inverse);
+  background-color: var(--color-brand-hover);
+}
+
+.drawer-nav-links:hover .drawer-nav-icons {
+  transform: rotate(0deg);
+}
+
+.drawer-li-text {
+  text-align: left;
+}

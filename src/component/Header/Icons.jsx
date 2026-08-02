@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "./HeaderIcons.css";
 
 export function CartIcon({ cartQuantity }) {
   return (
-    <Link className="link" to={"/cart"}>
+    <Link className="cart-icon-link" to={"/cart"}>
       <div className="cartIcon">
         <div className="cart">
           <span className="cart-item-number">

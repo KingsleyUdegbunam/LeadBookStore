@@ -3,17 +3,18 @@ import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { FcCheckmark } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
-
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
   validateEmail,
   validatePassword,
 } from "../../lib/validation/validation";
-import { supabase } from "../../utilities/supabase";
-import "./SignUpForm.css";
+import { UseAuth } from "../../context/AuthContext";
+import "./PostCheckoutSignUpForm.css";
 
-export function PostCheckoutSignUpForm({ prefilledEmail }) {
+export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
+  const { signUpNewUser } = UseAuth();
+  const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState({
     password: false,
     confirmPassword: false,
@@ -26,17 +27,8 @@ export function PostCheckoutSignUpForm({ prefilledEmail }) {
     confirmPassword: "",
   });
 
-  const [emailError, setEmailError] = useState({ message: "", valid: false });
-
-  const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
   const confirmPasswordInputRef = useRef(null);
-
-  let prefilledChanged;
-  if (prefilledEmail) {
-    const result = formValue.email === prefilledEmail;
-    prefilledChanged = !result;
-  }
 
   useEffect(() => {
     if (!prefilledEmail) return;
@@ -95,87 +87,47 @@ export function PostCheckoutSignUpForm({ prefilledEmail }) {
   const isEmailValid = validateEmail(formValue.email).valid;
 
   const isValidDetails = isEmailValid && isPasswordValid;
-  console.log(isValidDetails);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!isValidDetails) return;
-    const { data, error } = await supabase.auth.signUp({
-      email: formValue.email,
-      password: formValue.password,
-    });
-
-    if (error) {
-      toast.error(error.message);
-      console.log(error.message);
-      return;
+    setLoading(true);
+    try {
+      const result = await signUpNewUser(
+        formValue.email,
+        formValue.password,
+        lastName,
+      );
+      if (result.success) {
+        setFormValue({ email: "", password: "", confirmPassword: "" });
+        toast.success("Account created successfully!");
+        return;
+      }
+      toast.error(result.error.message);
+    } catch (err) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
     }
-    toast.success("Account created successfully!");
-    console.log(data);
-    setFormValue({ email: "", password: "", confirmPassword: "" });
   };
 
   return (
-    <section className="signup-section">
+    <section>
       <form className="signup-form" onSubmit={handleSubmit}>
-        <div>
+        <div className="validation-and-inputs">
           <article className="signup-input-fields-wrapper">
             {/* Email Field */}
             <div>
-              <label htmlFor="email">
-                <div>
-                  Email<span className="important">*</span>
-                </div>
-              </label>
+              <label htmlFor="email">Email</label>
               <div className="input-wrapper">
                 <input
-                  ref={emailInputRef}
+                  disabled
+                  aria-disabled
                   type="email"
                   id="email"
                   value={formValue.email}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, email: value }));
-
-                    if (emailError.valid) {
-                      const { valid, message } = validateEmail(value);
-                      setEmailError({ ...message, valid: !valid });
-                    }
-                  }}
-                  onBlur={() => {
-                    const isValid = validateEmail(formValue.email);
-                    if (!isValid.valid) {
-                      setEmailError({
-                        ...isValid,
-                        valid: !isValid.valid,
-                      });
-                    }
-                  }}
                 />
-              </div>
-              <div className="feedback-outer">
-                {!prefilledEmail ? (
-                  <div className="feedback">
-                    {!hasStartedTyping.email ? (
-                      "-"
-                    ) : emailError.valid ? (
-                      <FcCancel />
-                    ) : (
-                      <FcCheckmark />
-                    )}
-                    <p>Valid email address</p>
-                  </div>
-                ) : (
-                  <div>
-                    {!prefilledChanged && (
-                      <p className="feedback feedback-email">
-                        This is the email used for your order. You can change it
-                        if needed.
-                      </p>
-                    )}
-                  </div>
-                )}
               </div>
             </div>
 
@@ -251,37 +203,34 @@ export function PostCheckoutSignUpForm({ prefilledEmail }) {
             </div>
           )}
         </div>
+        <div className="post-checkout-actions-wrapper">
+          <button
+            onClick={() => {
+              if (!isPasswordValid) {
+                passwordInputRef?.current.focus();
+                return;
+              }
 
-        <button
-          onClick={() => {
-            if (!isEmailValid) {
-              emailInputRef?.current.focus();
-              return;
-            }
-
-            if (!isPasswordValid) {
-              passwordInputRef?.current.focus();
-              return;
-            }
-
-            if (
-              !doesValuesMatch(formValue.password, formValue.confirmPassword)
-            ) {
-              confirmPasswordInputRef?.current.focus();
-              return;
-            }
-          }}
-          className="signup-btn"
-          type="submit"
-        >
-          Create Account
-        </button>
-        <p className="signup-login">
-          Already have an account?{" "}
-          <Link className="signup-login-link" to="">
-            Sign in
-          </Link>
-        </p>
+              if (
+                !doesValuesMatch(formValue.password, formValue.confirmPassword)
+              ) {
+                confirmPasswordInputRef?.current.focus();
+                return;
+              }
+            }}
+            disabled={loading}
+            className="signup-btn button-primary"
+            type="submit"
+          >
+            {loading ? "Creating Account..." : "Create Account"}
+          </button>
+          <p className="signup-signin">
+            <span className="redirect-text">Already have an account?</span>{" "}
+            <Link className="signup-login-link" to="/signin">
+              Sign in.
+            </Link>
+          </p>
+        </div>
       </form>
     </section>
   );

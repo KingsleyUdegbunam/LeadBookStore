@@ -1,0 +1,29 @@
+.products-container {
+  padding-block: 0rem;
+  padding-block-start: 1rem;
+  display: flex;
+  justify-content: start;
+  flex-direction: row;
+  gap: 0.8rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+
+.header {
+  font-weight: 400;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.header.grid {
+  padding: 1.5rem;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-container {
+  padding-inline: 1.5rem;
+}

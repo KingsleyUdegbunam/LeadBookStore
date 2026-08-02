@@ -1,0 +1,46 @@
+.shipping-billing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  row-gap: 2rem;
+}
+
+.shipping-billing-grid-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.col-3 {
+  grid-column-start: 2;
+}
+
+.shipping-billing-header {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.shipping-billing-name {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.shipping-billing-detail-regular {
+  font-size: 14px;
+  font-weight: 300;
+  color: #454545;
+}
+
+@media screen and (min-width: 1024px) {
+  .shipping-billing-grid {
+    gap: 32px;
+  }
+
+  .shipping-billing-header {
+    font-size: 1rem;
+  }
+
+  .shipping-billing-name {
+    font-size: 18px;
+  }
+}

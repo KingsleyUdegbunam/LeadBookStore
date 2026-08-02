@@ -1,0 +1,26 @@
+.marque:hover {
+  cursor: text;
+}
+
+@keyframes spin {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -100%;
+  }
+}
+
+.marque {
+  display: flex;
+  flex-direction: row;
+  border-block: 1px solid var(--border-heavy);
+  padding-block: 0.7rem;
+  padding-left: 0.8rem;
+  overflow-x: hidden;
+  touch-action: none;
+}
+
+.marque::-webkit-scrollbar {
+  display: none;
+}

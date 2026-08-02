@@ -1,5 +1,6 @@
 import { MenuIcon, CloseMenuIcon } from "./Icons";
 import { Link } from "react-router-dom";
+import "./HeaderMenu.css";
 
 export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
   const menuOptions = [
@@ -10,12 +11,16 @@ export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
   ];
   return (
     <>
-      <div className="menuIcon" onClick={toggleMenu}>
+      <div className="menu-icon" onClick={toggleMenu}>
         <MenuIcon ref={menuOpenRef} />
         <CloseMenuIcon ref={menuCloseRef} />
         <article ref={menuRef} className="hamburger-menu">
           {menuOptions.map((item) => (
-            <Link className={`${item.page.toLowerCase()} link`} to={item.link}>
+            <Link
+              key={item.link}
+              className={`${item.page.toLowerCase()} link`}
+              to={item.link}
+            >
               <span>{item.page}</span>
             </Link>
           ))}

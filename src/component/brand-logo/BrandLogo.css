@@ -1,0 +1,28 @@
+.logo {
+  font-family: var(--font-primary);
+  letter-spacing: -1px;
+  padding: 0.5rem;
+  padding-left: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  width: fit-content;
+}
+.logo-dark {
+  color: var(--color-black);
+}
+
+.logo-dot-dark {
+  color: var(--color-brand);
+}
+
+.logo-light {
+  color: var(--color-white);
+}
+
+.logo-dot-light {
+  color: var(--color-white);
+}
+
+.logo-large {
+  font-size: 28px;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { truncate } from "../utilities";
+import "./CheckoutDetailSummary.css";
 export function CheckoutDetailSummary({
   shippingDetailsFormRef,
   deliveryOptionsFormRef,

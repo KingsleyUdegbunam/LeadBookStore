@@ -2,37 +2,14 @@
   position: relative;
 }
 
-.menu-toggle-n-logo {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.logo {
-  font-family: "outfit", sans-serif;
-  letter-spacing: -0.5px;
-  padding: 0.5rem;
-  padding-left: 0;
-  font-size: 1rem;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.895);
-}
-
 .cart-item-number {
   font-weight: bold;
   position: absolute;
-  color: red;
+  color: var(--color-brand-hover);
   top: 0;
   right: 0;
 
   transform: translate(50%, -50%);
-}
-
-.search,
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .header-wrapper {
@@ -41,233 +18,21 @@
   z-index: 3;
   width: 100%;
 
-  background-color: rgba(255, 255, 255, 0.78);
+  background-color: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(5px);
-  border-block-end: 0.5px solid #eee;
-}
-
-.header-nav {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 1.1rem 2rem;
-}
-
-.header-search {
-  position: relative;
-  display: none;
-  background-color: white;
-  padding-inline: 0.2rem;
-}
-
-.activate-search {
-  display: flex;
-}
-
-.header-search-input {
-  border: none;
-}
-
-.search-overlay {
-  display: none;
-  position: fixed;
-  z-index: 5;
-  width: 100%;
-  height: 100vh;
-  background-color: white;
-  color: black;
-  padding: 1rem 2rem;
-
-  border-radius: 1rem 1rem 0 0;
-}
-
-.search-results {
-  position: fixed;
-
-  padding: 1rem 2rem;
-  width: 100%;
-  height: 75vh;
-  left: 0;
-
-  overflow-y: scroll;
-  z-index: 6;
-  padding-block-end: 10rem;
 }
 
 /* NEW SEARCH */
-.overlay-search-field {
-  display: flex;
-  gap: 0.2rem;
-  justify-content: space-between;
-
-  border-bottom: 1.5px solid black;
-
-  padding: 0.3rem 0.5rem;
-}
-
-.overlay-btn,
-.close-overlay-btn {
-  background-color: transparent;
-  width: initial;
-  border: none;
-  padding: 0.5rem 0.8rem;
-
-  color: black;
-}
-
-.close-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.close-overlay-btn {
-  color: red;
-  padding-inline: 1.5rem;
-}
-
-.overlay-input {
-  background-color: transparent;
-  font-size: 1rem;
-
-  border: none;
-  padding: 0;
-}
-
-.overlay-input:focus {
-  outline: none;
-}
-
-.reveal-overlay-search {
-  display: initial;
-}
-
-.header-search-input:focus {
-  outline: 1px solid var(--button-hover-clr);
-  font-size: 1rem;
-}
-
-.header-search-btn {
-  padding: 0.9rem 1rem;
-  font-size: 0.7rem;
-  display: flex;
-  gap: 0.3rem;
-  align-items: center;
-
-  border: 1px solid var(--button-hover-clr);
-  color: white;
-  background-color: var(--button-hover-clr);
-}
-
-.found-book {
-  display: flex;
-  gap: 0.3rem;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.8rem;
-
-  border-bottom: 0.5px solid black;
-
-  text-transform: capitalize;
-  padding-block: 0.3rem;
-}
-
-.overlay-image-container {
-  width: 40px;
-  padding: 0.2rem;
-  border: 1px solid rgba(0, 0, 0, 0.431);
-  aspect-ratio: 2/3;
-}
-
-.overlay-name {
-  text-align: center;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-/* svg {
-  display: block;
-  margin: 0 auto;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-} */
-
-.hamburger-menu {
-  flex-direction: column;
-  align-items: left;
-  justify-content: center;
-
-  position: fixed;
-  background-color: rgba(255, 255, 255, 0.921);
-  backdrop-filter: blur(5px);
-  left: 0;
-  right: 0;
-  top: 100%;
-
-  color: transparent;
-
-  display: none;
-  transition: all 5s;
-}
 
 .icon {
   width: 17px;
   height: 17px;
 }
 
-.menuIcon {
-  display: flex;
-  position: relative;
-}
-
-.view-menu {
-  display: flex;
-  color: black;
-}
-
-.close-menu-icon {
-  display: none;
-}
-
-.display-close-icon {
-  display: initial;
-}
-
-.hamburger-menu > * {
-  border-block-end: 1px solid black;
-  color: black;
-
-  padding: 1.5rem 2.5rem;
-}
-
-.hamburger-menu > *:hover {
-  background-color: var(--brand-red-clr);
-  color: white;
-}
-
-.link {
-  text-decoration: none;
-  color: black;
-}
-
-.account {
-  background-color: rgba(0, 0, 0, 0.594);
-  color: white;
-}
-
 .header-account {
   padding: 0.5rem;
   background-color: transparent;
-  color: black;
+  color: var(--text-primary);
   font-size: initial;
   margin: auto;
   max-width: fit-content;
@@ -275,10 +40,5 @@
 
 .header-account:hover {
   background-color: transparent;
-}
-
-@media screen and (min-width: 1024px) {
-  .logo {
-    font-size: 1.2rem;
-  }
+  color: var(--color-brand-hover);
 }

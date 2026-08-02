@@ -1,0 +1,11 @@
+.checkout-btn {
+  margin-top: 2rem;
+}
+
+.place-order-btn {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}

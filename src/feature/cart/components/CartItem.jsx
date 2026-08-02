@@ -4,7 +4,7 @@ import { updateCartItemQty, deleteItem } from "../utilities";
 import { RiSubtractLine } from "react-icons/ri";
 import { RiAddLine } from "react-icons/ri";
 import { RiDeleteBinLine } from "react-icons/ri";
-import "./cartItem.css";
+import "./CartItem.css";
 
 export function CartItem({
   cartInDetailItem,

@@ -1,0 +1,13 @@
+.book-removed-toast-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.delete-icon-wrapper {
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: var(--color-selection-hover);
+  color: var(--color-brand);
+}

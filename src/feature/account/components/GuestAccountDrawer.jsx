@@ -66,6 +66,7 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
           <ul className="drawer-links-wrapper">
             {accountNav.map((nav) => (
               <button
+                key={nav.title}
                 className="drawer-nav-links button-full-width"
                 onClick={() => handleNavigation(nav.link)}
               >

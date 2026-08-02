@@ -16,7 +16,11 @@ export function HeaderMenu({ menuRef, toggleMenu, menuOpenRef, menuCloseRef }) {
         <CloseMenuIcon ref={menuCloseRef} />
         <article ref={menuRef} className="hamburger-menu">
           {menuOptions.map((item) => (
-            <Link className={`${item.page.toLowerCase()} link`} to={item.link}>
+            <Link
+              key={item.link}
+              className={`${item.page.toLowerCase()} link`}
+              to={item.link}
+            >
               <span>{item.page}</span>
             </Link>
           ))}

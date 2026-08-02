@@ -12,7 +12,7 @@ export function CartItem({
   setQtyInputs,
   cart,
   setCart,
-  key,
+  index,
   addToCart,
 }) {
   const cartItem = cart.find((item) => item.id === cartInDetailItem.id);
@@ -44,7 +44,7 @@ export function CartItem({
     }
   };
   return (
-    <article className="cart-item-wrapper" key={key}>
+    <article className="cart-item-wrapper" key={index}>
       {/* Image */}
       <div className="cart-image-container">
         <img

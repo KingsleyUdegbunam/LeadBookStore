@@ -57,6 +57,7 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user }) {
             <ul className="drawer-links-wrapper">
               {accountNav.map((nav) => (
                 <button
+                  key={nav.link}
                   className="drawer-nav-links button-full-width"
                   onClick={() => handleNavigation(nav.link)}
                 >

@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { RiArrowLeftLongLine } from "react-icons/ri";
-
 import { useCart } from "../../context/CartContext";
 import { FaLock } from "react-icons/fa";
-
-import "./CartPage.css";
 import { CartItemsTable } from "../../feature/cart/components/CartItemsTable";
 import { CartCostSummary } from "../../feature/cart/components/CartCostSummary";
+import "./CartPage.css";
 
 export default function CartPage() {
   const [qtyInputs, setQtyInputs] = useState({});

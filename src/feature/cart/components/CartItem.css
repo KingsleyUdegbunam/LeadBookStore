@@ -22,7 +22,7 @@
 .cart-item-header {
   display: none;
   font-size: 0.9rem;
-  background-color: var(--surface-page);
+  background-color: transparent;
 }
 
 .cart-image-container img {
@@ -175,8 +175,6 @@ input[type="number"] {
 
   .cart-header-row-1-2 {
     grid-column: 1/3;
-    /* text-align: center; */
-    /* background-color: antiquewhite; */
   }
 
   .author-price-wrapper,

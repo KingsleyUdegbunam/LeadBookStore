@@ -15,7 +15,6 @@
 .navigation {
   font-size: 0.85rem;
   color: var(--color-brand);
-  text-decoration: underline;
   display: flex;
   width: fit-content;
   background-color: transparent;

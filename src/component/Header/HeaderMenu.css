@@ -1,0 +1,22 @@
+.hamburger-menu {
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.921);
+  backdrop-filter: blur(5px);
+  left: 0;
+  right: 0;
+  top: 100%;
+
+  color: transparent;
+
+  display: none;
+  transition: all 5s;
+}
+
+.menu-icon {
+  display: flex;
+  position: relative;
+}

@@ -1,0 +1,100 @@
+.search-overlay {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--surface-card);
+  color: var(--text-primary);
+  padding: 1rem 2rem;
+
+  border-radius: 1rem 1rem 0 0;
+}
+
+.close-overlay-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.overlay-placeholder-btn,
+.close-overlay-btn {
+  background-color: transparent;
+  width: initial;
+  border: none;
+  padding: 0.5rem 0.8rem;
+}
+
+.close-overlay-btn {
+  color: var(--color-brand);
+  padding-inline: 1.5rem;
+}
+
+.overlay-placeholder-btn {
+  color: var(--text-muted);
+}
+
+.overlay-search-input-field-wrapper {
+  display: flex;
+  gap: 0.2rem;
+  justify-content: space-between;
+
+  border-bottom: 1.5px solid var(--border-heavy);
+
+  padding: 0.3rem 0.5rem;
+}
+
+.overlay-input {
+  background-color: transparent;
+  font-size: 1rem;
+
+  border: none;
+  padding: 0;
+}
+
+.overlay-input:focus {
+  outline: none;
+}
+
+.search-results {
+  position: fixed;
+
+  padding: 1rem 2rem;
+  width: 100%;
+  height: 75vh;
+  left: 0;
+
+  overflow-y: scroll;
+  z-index: 6;
+  padding-block-end: 10rem;
+}
+
+.found-book {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+
+  border-bottom: 0.5px solid var(--divider);
+
+  text-transform: capitalize;
+  padding-block: 0.3rem;
+}
+
+.overlay-image-container {
+  width: 40px;
+  padding: 0.2rem;
+  border: 1px solid var(--border-subtle);
+  aspect-ratio: 2/3;
+}
+
+.overlay-name {
+  text-align: center;
+}
+
+.reveal-overlay-search {
+  display: initial;
+}

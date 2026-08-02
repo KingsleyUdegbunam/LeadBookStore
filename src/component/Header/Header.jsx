@@ -1,42 +1,22 @@
-import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { HeaderMenu } from "./HeaderMenu";
-import { SearchIcon, CartIcon } from "./Icons";
-import { useNavigate } from "react-router-dom";
-import { books } from "../../data/inventory";
-import { convertToNaira } from "../../utilities/money";
-import { FaRegUser } from "react-icons/fa6";
-import "./Header.css";
+import { useRef } from "react";
 import { useCart } from "../../context/CartContext";
-import { useUI } from "../../context/UIContext";
+import { HeaderDesktop } from "./HeaderDesktop";
+import { HeaderMobile } from "./HeaderMobile";
+import "./Header.css";
+import { HeaderSearchResult } from "../../feature/header/HeaderSearchResult";
 
 export function Header() {
-  const [headerSearchValue, setHeaderSearchValue] = useState("");
   const { cart } = useCart();
-  const { setOpenAccountDrawer } = useUI();
-
-  const navigate = useNavigate();
 
   const cartQuantity = cart.reduce(
     (total, cartItem) => total + cartItem.quantity,
     0,
   );
 
-  let searchResult = books.filter((book) => {
-    const search = headerSearchValue.toLowerCase().trim();
-    return (
-      book.author.toLowerCase().includes(search) ||
-      book.collections.includes(search) ||
-      book.title.includes(search) ||
-      book.collections.some((col) => col.includes(search))
-    );
-  });
-
   const menuRef = useRef(null);
   const menuOpenRef = useRef(null);
   const menuCloseRef = useRef(null);
   const headerSearchRef = useRef(null);
-
   const searchInputRef = useRef(null);
 
   const toggleMenu = () => {
@@ -56,110 +36,25 @@ export function Header() {
   return (
     <>
       <header className="header-wrapper">
-        <div className="header-nav pages-wrapper-variation">
-          <div className="menu-toggle-n-logo">
-            <HeaderMenu
-              toggleMenu={toggleMenu}
-              menuRef={menuRef}
-              menuOpenRef={menuOpenRef}
-              menuCloseRef={menuCloseRef}
-            />
-            <Link to="/" className="logo">
-              LEAD
-            </Link>
-          </div>
-          <div className="nav">
-            <SearchIcon
-              toggleMenu={toggleMenu}
-              toggleSearchBar={toggleSearchBar}
-              menuRef={menuRef}
-            />
-
-            <button
-              onClick={() => setOpenAccountDrawer(true)}
-              className="header-account"
-            >
-              <FaRegUser />
-            </button>
-
-            <CartIcon cartQuantity={cartQuantity} />
-          </div>
-        </div>
+        <HeaderMobile
+          menuRef={menuRef}
+          menuOpenRef={menuOpenRef}
+          menuCloseRef={menuCloseRef}
+          toggleSearchBar={toggleSearchBar}
+          toggleMenu={toggleMenu}
+          cartQuantity={cartQuantity}
+        />
+        <HeaderDesktop
+          toggleMenu={toggleMenu}
+          toggleSearchBar={toggleSearchBar}
+          menuRef={menuRef}
+          cartQuantity={cartQuantity}
+        />
       </header>
-
-      <div ref={headerSearchRef} className="search-overlay">
-        <div className="close-overlay">
-          <button
-            className="close-overlay-btn"
-            onClick={() => {
-              headerSearchRef.current.classList.remove("reveal-overlay-search");
-              document.body.style.overflow = "auto";
-            }}
-          >
-            X
-          </button>
-        </div>
-
-        <div className="overlay-search-field">
-          <label className="sr-only" htmlFor="search-input-field">
-            Search
-          </label>
-
-          <input
-            ref={searchInputRef}
-            value={headerSearchValue}
-            onChange={(e) => {
-              setHeaderSearchValue(e.target.value);
-            }}
-            className="overlay-input"
-            placeholder="Search by book name, author, or collection."
-            type="text"
-            name="search-input-field"
-            id="search-input-field"
-          />
-          <button className="overlay-btn">
-            <svg
-              className="icon search-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-            </svg>
-          </button>
-        </div>
-
-        <div className="search-results">
-          <article className="found-cards">
-            {headerSearchValue
-              ? searchResult.map((book) => (
-                  <article
-                    key={book.id}
-                    onClick={() => {
-                      navigate(`/product/${book.id}`);
-                      headerSearchRef.current.classList.remove(
-                        "reveal-overlay-search",
-                      );
-                      document.body.style.overflow = "auto";
-                      setHeaderSearchValue("");
-                    }}
-                    className="found-book"
-                  >
-                    <div className="overlay-image-container">
-                      <img src={book.coverImage} alt="" />
-                    </div>
-                    <p className="overlay-name">{book.title}</p>
-                    <p className="overlay-price">
-                      {convertToNaira(book.price.paperback)}
-                    </p>
-                  </article>
-                ))
-              : ""}
-          </article>
-        </div>
-      </div>
+      <HeaderSearchResult
+        headerSearchRef={headerSearchRef}
+        searchInputRef={searchInputRef}
+      />
     </>
   );
 }

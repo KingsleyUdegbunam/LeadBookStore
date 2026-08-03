@@ -1,10 +1,9 @@
-import { SocialIcon } from "react-social-icons/component";
-import Select from "react-select";
-import "react-social-icons/whatsapp";
-import "react-social-icons/instagram";
-import "react-social-icons/email";
-import "./ContactPage.css";
 import { useState } from "react";
+import { ContactHeader } from "../../component/contact/ContactHeader";
+import { ContactForm } from "../../component/contact/ContactForm";
+import { FaRegClock } from "react-icons/fa6";
+import { TbMail } from "react-icons/tb";
+import "./ContactPage.css";
 
 export default function ContactPage() {
   const [contactInfo, setContactInfo] = useState({
@@ -13,22 +12,6 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
-  const options = [
-    "Select a subject",
-    "Order Issue",
-    "Shipping Query",
-    "Return / Refund",
-    "Payment Problem",
-    "Book Recommendation",
-    "General Inquiry",
-  ];
-
-  const PLACEHOLDER = "Select a subject";
-  const selectOptions = options.map((opt) =>
-    opt === PLACEHOLDER
-      ? { label: opt, value: "" }
-      : { value: opt.toLowerCase(), label: opt },
-  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,113 +34,48 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="pages-wrapper">
-        <article className="about-banner">
-          <p className="about-header">GET IN TOUCH</p>
-          <p className="about-tag">
-            We'd love to <span>hear from you.</span>
-          </p>
-          <p className="about-tag-detail">
-            Order issue, general question, or book reading guide.
-          </p>
-        </article>
+      <section className="pages-container">
+        <ContactHeader />
+        <div className="contact-body-wrapper pages-wrapper-variation">
+          <section className="contact-body-section contact-mobile">
+            <h2 className="contact-h2-body">Get in touch</h2>
 
-        <article className="what-we-stand-for">
-          <p className="about-header">REACH US DIRECTLY</p>
-          <div className="contact-cards-wrapper">
-            <article className="contact-card">
-              <div className="contact-icon-container">
-                <SocialIcon
-                  bgColor="transparent"
-                  fgColor="white"
-                  url="www.email.com"
-                />
-              </div>
-              <div className="contact-card-text">
-                <p className="contact-card-head">EMAIL</p>
-                <p className="contact-card-lead">hello@leadbookstore.ng</p>
-                <p className="contact-card-rule">We reply within 24 hours</p>
+            <article className="email-contact">
+              <p className="contact-label">Email</p>
+              <div className="response-content-flex">
+                <TbMail className="contact-icon" size={28} />
+                <p className="contact-email-address get-in-touch-card-text">
+                  hello@leadbookstore.ng
+                </p>
               </div>
             </article>
 
-            <article className="contact-card">
-              <div className="contact-icon-container">
-                <SocialIcon
-                  bgColor="transparent"
-                  fgColor="#25D366"
-                  url="www.whatsapp.com"
-                />
-              </div>
-              <div className="contact-card-text">
-                <p className="contact-card-head">WHATSAPP</p>
-                <p className="contact-card-lead">+234 777 777 7777</p>
-                <p className="contact-card-rule">Mon-Fri, 9am-6pm</p>
+            <article className="email-contact">
+              <p className="contact-label">Response time</p>
+              <div className="response-content-flex">
+                <FaRegClock className="contact-icon" size={28} />
+
+                <p className="contact-response-text get-in-touch-card-text">
+                  We usually reply within one business day
+                </p>
               </div>
             </article>
+          </section>
 
-            <article className="contact-card">
-              <div className="contact-icon-container">
-                <SocialIcon
-                  bgColor="transparent"
-                  fgColor="#E94475"
-                  url="www.instagram.com"
-                />
-              </div>
-              <div className="contact-card-text">
-                <p className="contact-card-head">INSTAGRAM</p>
-                <p className="contact-card-lead">@leadbookstore</p>
-                <p className="contact-card-rule">Our DMs are open</p>
-              </div>
-            </article>
-          </div>
-        </article>
+          <section className="contact-body-section contact-desktop">
+            <h2 className="contact-message-header-desktop">
+              Send us a message
+            </h2>
+            <p className="contact-message-desktop-context">
+              Fill out the form and we'll get back to you as soon as possible.
+            </p>
+          </section>
 
-        <article className="contact-form-article">
-          <p className="about-header">SEND A MESSAGE</p>
-          <form className="contact-form">
-            <div className="contact-form-detail">
-              <label htmlFor="name">Name</label>
-              <input
-                onChange={handleChange}
-                type="text"
-                name="name"
-                id="name"
-                className="contact-field"
-              />
-            </div>
-
-            <div className="contact-form-detail">
-              <label htmlFor="email">Email</label>
-              <input
-                onChange={handleChange}
-                required
-                placeholder="Email Address"
-                type="email"
-                name="email"
-                id="email"
-              />
-            </div>
-
-            <Select
-              onChange={handleSelect}
-              placeholder="Subject"
-              options={selectOptions}
-            />
-
-            <div className="contact-form-detail textarea">
-              <label htmlFor="message">Message</label>
-              <textarea
-                onChange={handleChange}
-                name="message"
-                id="message"
-              ></textarea>
-            </div>
-
-            <button type="submit" onClick={handleSubmision}>
-              Send Message
-            </button>
-          </form>
-        </article>
+          <section className="contact-body-section">
+            <h2 className="contact-h2-body contact-mobile">Send a message</h2>
+            <ContactForm />
+          </section>
+        </div>
       </section>
     </>
   );

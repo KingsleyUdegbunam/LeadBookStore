@@ -1,0 +1,116 @@
+.contact-header {
+  overflow: hidden;
+  padding-top: 8rem;
+  padding-inline: 1rem;
+  padding-block-end: 2rem;
+
+  background-color: var(--surface-page);
+  display: flex;
+  flex-direction: column;
+}
+.contact-header-wrapper {
+  display: flex;
+  gap: 2.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.contact-page-desc {
+  font-family: var(--font-secondary);
+  font-size: 0.95rem;
+  max-width: 35ch;
+}
+
+.image-wrapper {
+  display: flex;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-wrapper img {
+  object-fit: contain;
+}
+
+.contact-subheader {
+  line-height: 1;
+  font-size: 2rem;
+}
+
+.card-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .contact-header-wrapper {
+    padding-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contact-header {
+    padding-block-end: 0rem;
+    gap: 2rem;
+  }
+
+  .desktop-card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .desktop-card:first-of-type {
+    border-inline-end: 1px solid var(--divider);
+  }
+
+  .contact-header-wrapper {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: start;
+    padding-inline: 3rem;
+  }
+
+  .contact-subheader {
+    font-size: 4rem;
+    font-weight: 500;
+  }
+
+  .contact-page-desc {
+    font-size: 1rem;
+    max-width: 45ch;
+  }
+
+  .header-text {
+    gap: 1.5rem;
+    height: 100%;
+    padding-top: 5rem;
+    max-width: 50%;
+  }
+
+  .image-wrapper {
+    width: initial;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+  }
+
+  .card-desktop {
+    display: flex;
+    background-color: var(--color-selection-hover);
+  }
+}

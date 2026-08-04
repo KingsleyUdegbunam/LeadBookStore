@@ -1,0 +1,9 @@
+.collections-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.collections-wrapper a:last-child {
+  grid-column: span 2;
+}

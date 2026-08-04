@@ -103,7 +103,16 @@ textarea {
   font-family: var(--font-secondary);
 }
 
+@media screen and (min-width: 768px) {
+  .contact-body-section {
+    padding-inline: 2.5rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
+  .contact-body-section {
+    padding-inline: 2.5rem;
+  }
   .contact-mobile {
     display: none;
   }
@@ -134,10 +143,15 @@ textarea {
     font-family: var(--font-secondary);
   }
 
-  .contact-body-wrapper {
+  .desktop-about-contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    align-content: center;
+    grid-template-columns: 1fr 1.8fr;
+  }
+
+  .desktop-about-contact-grid > :first-child {
+    text-wrap: pretty;
+    word-wrap: pretty;
+    max-width: 80%;
   }
 
   .contact-form-name-email {

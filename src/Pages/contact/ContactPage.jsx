@@ -36,7 +36,7 @@ export default function ContactPage() {
     <>
       <section className="pages-container">
         <ContactHeader />
-        <div className="contact-body-wrapper pages-wrapper-variation">
+        <div className="desktop-about-contact-grid pages-wrapper-variation">
           <section className="contact-body-section contact-mobile">
             <h2 className="contact-h2-body">Get in touch</h2>
 

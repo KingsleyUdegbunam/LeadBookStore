@@ -1,0 +1,30 @@
+.about-collection-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  padding: clamp(1rem, 1.2vw, 8rem);
+  border: 1px solid var(--divider);
+  border-radius: 0.3rem;
+  font-family: var(--font-secondary);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: background-color var(--transition-fast) ease;
+}
+
+.collection-icon {
+  transition:
+    transform var(--transition-fast) ease,
+    transform var(--transition-fast) ease;
+}
+
+.about-collection-card:hover {
+  color: var(--text-primary);
+  background-color: var(--color-selection-hover);
+}
+
+.about-collection-card:hover .collection-icon {
+  transform: rotate(-45deg);
+  color: var(--color-brand-hover);
+}

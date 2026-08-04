@@ -119,9 +119,20 @@ button {
 }
 
 .pages-wrapper {
-  padding: 6rem 1rem 3rem 1rem;
+  padding: 8.2rem 1rem 3rem 1rem;
   max-width: 1600px;
   margin: 0 auto;
+}
+
+.pages-inline-wrapper {
+  padding-inline: 1rem;
+}
+
+.pages-wrapper-seperator {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .pages-wrapper-variation {
@@ -159,6 +170,16 @@ button {
   .pages-wrapper {
     padding-inline: 2.5rem;
   }
+
+  .pages-inline-wrapper {
+    padding-inline: 2.5rem;
+  }
+
+  .pages-wrapper-seperator {
+    padding-top: 2.5rem;
+    gap: 2.5rem;
+  }
+
   .main-container {
     gap: 2.5rem;
   }
@@ -169,11 +190,28 @@ button {
     padding-bottom: 5rem;
   }
 
+  .pages-inline-wrapper {
+    padding-inline: 4rem;
+  }
+  .pages-wrapper-seperator {
+    padding-top: 3rem;
+
+    gap: 3rem;
+  }
+
   .pages-wrapper {
     padding-inline: 4rem;
   }
 
   .main-container {
     gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .pages-wrapper-seperator {
+    padding-top: 4rem;
+
+    gap: 4rem;
   }
 }

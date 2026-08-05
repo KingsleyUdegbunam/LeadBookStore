@@ -1,6 +1,6 @@
 import React from "react";
 import { WeStandCard } from "../../component/about/WeStandCard";
-import "./WestandFor.css";
+import "./WeStandFor.css";
 
 export const WeStandFor = () => {
   const cardContent = [

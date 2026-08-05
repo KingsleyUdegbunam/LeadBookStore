@@ -1,0 +1,35 @@
+.about-hero-header {
+  max-height: 85vh;
+  padding-bottom: 0;
+}
+
+.about-hero-header .image-wrapper img {
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1024px) {
+  .about-hero-header .about-hero-wrapper {
+    gap: 2rem;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .about-hero-header .image-wrapper {
+    width: 45%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .about-hero-header .image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+  }
+
+  .about-hero-header .header-text {
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+}

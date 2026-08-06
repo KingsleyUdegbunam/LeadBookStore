@@ -101,18 +101,16 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     const sortParam = searchParams.get("sort");
 
     const selectedCollection = collectionOptions.find(
-      (option) => option.value === collectionParam || null,
+      (option) => option.value === collectionParam,
     );
     const selectedGenre = genreOptions.find(
-      (genre) => genre.value === genreParam || null,
+      (genre) => genre.value === genreParam,
     );
-    const selectedSort = sortOptions.find(
-      (sort) => sort.value === sortParam || null,
-    );
+    const selectedSort = sortOptions.find((sort) => sort.value === sortParam);
 
-    setCollection(selectedCollection);
-    setGenre(selectedGenre);
-    setSortBy(selectedSort);
+    setCollection(selectedCollection ?? null);
+    setGenre(selectedGenre ?? null);
+    setSortBy(selectedSort ?? null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 

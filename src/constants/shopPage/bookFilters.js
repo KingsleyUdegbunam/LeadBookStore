@@ -12,7 +12,7 @@ export const SHOP_COLLECTIONS = [
   "lead with imagination",
 ];
 export const SORT_BYS = [
-  "Default",
+  "default",
   "popularity",
   "price:low to high",
   "price:high to low",

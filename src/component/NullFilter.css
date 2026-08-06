@@ -1,0 +1,28 @@
+.null-filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.null-filter-image-wrapper {
+  width: 65%;
+  max-width: 350px;
+}
+
+.null-filter-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.null-header {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.null-description {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+}

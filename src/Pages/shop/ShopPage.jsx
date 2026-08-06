@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { BookGrid } from "../../component/BookGrid";
 import BookFilters from "../../feature/shop/components/BookFilters";
+import { NullFilter } from "../../component/NullFilter";
 import {
   SHOP_COLLECTIONS,
   SORT_BYS,
@@ -10,13 +11,14 @@ import { sortBooks } from "../../feature/shop/sortBooks";
 import { filterBooks } from "../../feature/shop/filterBooks";
 import { capitalizeWords } from "../../utilities/capitalizeWords";
 import { books } from "../../data/inventory";
+
 import "./ShopPage.css";
 
 export default function ShopPage({ cart, setCart, addToCart }) {
   const [query, setQuery] = useState("");
-  const [collection, setCollection] = useState("");
+  const [collection, setCollection] = useState(null);
   const [genre, setGenre] = useState(null);
-  const [sortBy, setSortBy] = useState("Default");
+  const [sortBy, setSortBy] = useState({ label: "Default", value: "default" });
   const [searchParams, setSearchParams] = useSearchParams();
 
   const updateURL = useCallback(
@@ -110,7 +112,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
 
     setCollection(selectedCollection ?? null);
     setGenre(selectedGenre ?? null);
-    setSortBy(selectedSort ?? null);
+    setSortBy(selectedSort ?? { label: "Default", value: "default" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
@@ -131,6 +133,10 @@ export default function ShopPage({ cart, setCart, addToCart }) {
     handleFilter("search", query);
   };
 
+  const clearFilters = () => {
+    setSearchParams({});
+  };
+
   return (
     <div>
       <section className="pages-wrapper">
@@ -148,14 +154,18 @@ export default function ShopPage({ cart, setCart, addToCart }) {
         />
 
         {/* SHOP BOOKS */}
-        <div className="inner-page-padding">
-          <BookGrid
-            setCart={setCart}
-            cart={cart}
-            addToCart={addToCart}
-            books={sortedBooks}
-          />
-        </div>
+        {sortedBooks.length > 0 ? (
+          <div className="inner-page-padding">
+            <BookGrid
+              setCart={setCart}
+              cart={cart}
+              addToCart={addToCart}
+              books={sortedBooks}
+            />
+          </div>
+        ) : (
+          <NullFilter clearFilters={clearFilters} />
+        )}
       </section>
     </div>
   );

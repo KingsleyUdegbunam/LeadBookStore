@@ -15,6 +15,7 @@ import AuthLayout from "./AuthLayout";
 import AccountOrdersPage from "./Pages/account/orders/AccountOrdersPage";
 import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
 import { Settings } from "./Pages/account/setting/Settings";
+import { NotFound } from "./Pages/not-found/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
         path: "/account/account-settings",
         element: <Settings />,
       },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
     ],
   },
   {
@@ -43,20 +48,6 @@ export const router = createBrowserRouter([
     children: [
       { path: "/signup", element: <SignUpPage /> },
       { path: "/signin", element: <SignInPage /> },
-    ],
-  },
-]);
-
-export const routs = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      { path: "/shop", element: <ShopPage /> },
     ],
   },
 ]);

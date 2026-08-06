@@ -3,6 +3,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { convertToNaira } from "../../utilities/money";
 import { books } from "../../data/inventory";
+import { EmptyState } from "../../component/EmptyState";
+import { EMPTY_STATES } from "../../constants/emptyStatesCopies";
 import "./HeaderSearchResult.css";
 
 export const HeaderSearchResult = ({ headerSearchRef, searchInputRef }) => {
@@ -63,34 +65,48 @@ export const HeaderSearchResult = ({ headerSearchRef, searchInputRef }) => {
         </button>
       </div>
 
-      <div className="search-results">
-        <article>
-          {headerSearchValue
-            ? searchResult.map((book) => (
-                <article
-                  key={book.id}
-                  onClick={() => {
-                    navigate(`/product/${book.id}`);
-                    headerSearchRef.current.classList.remove(
-                      "reveal-overlay-search",
-                    );
-                    document.body.style.overflow = "auto";
-                    setHeaderSearchValue("");
-                  }}
-                  className="found-book"
-                >
-                  <div className="overlay-image-container">
-                    <img src={book.coverImage} alt="" />
-                  </div>
-                  <p className="overlay-name">{book.title}</p>
-                  <p className="overlay-price">
-                    {convertToNaira(book.price.paperback)}
-                  </p>
-                </article>
-              ))
-            : ""}
-        </article>
-      </div>
+      {searchResult.length > 0 ? (
+        <div className="search-results">
+          <article>
+            {headerSearchValue
+              ? searchResult.map((book) => (
+                  <article
+                    key={book.id}
+                    onClick={() => {
+                      navigate(`/product/${book.id}`);
+                      headerSearchRef.current.classList.remove(
+                        "reveal-overlay-search",
+                      );
+                      document.body.style.overflow = "auto";
+                      setHeaderSearchValue("");
+                    }}
+                    className="found-book"
+                  >
+                    <div className="overlay-image-container">
+                      <img src={book.coverImage} alt="" />
+                    </div>
+                    <p className="overlay-name">{book.title}</p>
+                    <p className="overlay-price">
+                      {convertToNaira(book.price.paperback)}
+                    </p>
+                  </article>
+                ))
+              : ""}
+          </article>
+        </div>
+      ) : (
+        <div className="empty-search">
+          <EmptyState
+            {...EMPTY_STATES.search}
+            onAction={() => {
+              navigate("/shop");
+              headerSearchRef.current.classList.remove("reveal-overlay-search");
+              document.body.style.overflow = "auto";
+              setHeaderSearchValue("");
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };

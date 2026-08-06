@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { convertToNaira } from "../../../utilities/money";
-import { Link } from "react-router-dom";
-import { toast } from "sonner";
 import { UseAuth } from "../../../context/AuthContext";
+import { EmptyState } from "../../../component/EmptyState";
+import { EMPTY_STATES } from "../../../constants/emptyStatesCopies";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
+import { convertToNaira } from "../../../utilities/money";
 import { getOrderDate } from "../../../feature/checkout/utilities";
+import { getUserOrders } from "../../../lib/validation/orders";
 import { BsChevronRight } from "react-icons/bs";
 import { LuDot } from "react-icons/lu";
 import { FaCircleDot } from "react-icons/fa6";
-import { getUserOrders } from "../../../lib/validation/orders";
-
 import "./AccountOrdersPage.css";
 
 const AccountOrdersPage = () => {
@@ -19,12 +20,15 @@ const AccountOrdersPage = () => {
   const { session } = UseAuth();
   const user = session?.user;
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!user) return;
     const fetchOrders = async () => {
       const result = await getUserOrders(user);
       if (result.success) {
-        setOrders(result.data);
+        setOrders([]);
+        // setOrders(result.data);
       } else {
         toast.error("Couldn't load your orders. Please try again.");
       }
@@ -37,9 +41,12 @@ const AccountOrdersPage = () => {
   if (orders.length === 0)
     return (
       <div className="pages-wrapper">
-        <p className="redirect">
-          No orders yet — <a href="/shop">browse the shop</a>.
-        </p>
+        <EmptyState
+          {...EMPTY_STATES.orders}
+          onAction={() => {
+            navigate("/shop");
+          }}
+        />
       </div>
     );
 

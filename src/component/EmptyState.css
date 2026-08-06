@@ -1,4 +1,4 @@
-.null-filter-wrapper {
+.empty-state-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,23 +6,23 @@
   gap: 1rem;
 }
 
-.null-filter-image-wrapper {
+.empty-state-image-wrapper {
   width: 65%;
   max-width: 350px;
 }
 
-.null-filter-text {
+.empty-state-text {
   text-align: center;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.null-header {
+.empty-state-header {
   font-size: 1rem;
   font-weight: 500;
 }
-.null-description {
+.empty-state-description {
   font-family: var(--font-secondary);
   font-size: 0.9rem;
 }

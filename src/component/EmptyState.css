@@ -20,7 +20,8 @@
 
 .empty-state-header {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
+  text-transform: none;
 }
 .empty-state-description {
   font-family: var(--font-secondary);

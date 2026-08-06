@@ -2,7 +2,8 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { BookGrid } from "../../component/BookGrid";
 import BookFilters from "../../feature/shop/components/BookFilters";
-import { NullFilter } from "../../component/NullFilter";
+import { EmptyState } from "../../component/EmptyState";
+import { EMPTY_STATES } from "../../constants/emptyStatesCopies";
 import {
   SHOP_COLLECTIONS,
   SORT_BYS,
@@ -11,7 +12,6 @@ import { sortBooks } from "../../feature/shop/sortBooks";
 import { filterBooks } from "../../feature/shop/filterBooks";
 import { capitalizeWords } from "../../utilities/capitalizeWords";
 import { books } from "../../data/inventory";
-
 import "./ShopPage.css";
 
 export default function ShopPage({ cart, setCart, addToCart }) {
@@ -164,7 +164,7 @@ export default function ShopPage({ cart, setCart, addToCart }) {
             />
           </div>
         ) : (
-          <NullFilter clearFilters={clearFilters} />
+          <EmptyState {...EMPTY_STATES.shop} onAction={clearFilters} />
         )}
       </section>
     </div>

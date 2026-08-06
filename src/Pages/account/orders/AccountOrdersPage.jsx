@@ -27,8 +27,7 @@ const AccountOrdersPage = () => {
     const fetchOrders = async () => {
       const result = await getUserOrders(user);
       if (result.success) {
-        setOrders([]);
-        // setOrders(result.data);
+        setOrders(result.data);
       } else {
         toast.error("Couldn't load your orders. Please try again.");
       }

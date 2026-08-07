@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { FcCheckmark } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
 import "./PostCheckoutSignUpForm.css";
+import { TextInput } from "../general/inputs/TextInput";
 
 export function PostCheckoutSignUpForm({
   prefilledEmail,
@@ -102,21 +103,14 @@ export function PostCheckoutSignUpForm({
       <form className="signup-form" onSubmit={handleSubmit}>
         <div className="validation-and-inputs">
           <article className="signup-input-fields-wrapper">
-            {/* Email Field */}
             <div>
-              <label htmlFor="email">Email</label>
-              <div className="input-wrapper">
-                <input
-                  disabled
-                  aria-disabled
-                  type="email"
-                  id="email"
-                  value={formValue.email}
-                />
-              </div>
+              <TextInput
+                id="email"
+                label="Email"
+                value={formValue.email}
+                disabled={true}
+              />
             </div>
-
-            {/* Password field */}
 
             <PasswordInput
               id="set-password"

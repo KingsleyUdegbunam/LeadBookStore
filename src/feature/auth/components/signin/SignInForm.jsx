@@ -4,6 +4,7 @@ import { UseAuth } from "../../../../context/AuthContext";
 import { PasswordInput } from "../../../../component/general/inputs/PasswordInput";
 import { toast } from "sonner";
 import "./SignInForm.css";
+import { TextInput } from "../../../../component/general/inputs/TextInput";
 
 export function SignInForm() {
   const [formValue, setFormValue] = useState({
@@ -43,22 +44,16 @@ export function SignInForm() {
         <div className="signin-form-children">
           {/* Email Field */}
           <div>
-            <label htmlFor="email">
-              <div>
-                Email<span className="important">*</span>
-              </div>
-            </label>
-            <div className="input-wrapper">
-              <input
-                type="email"
-                id="email"
-                value={formValue.email}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setFormValue((prev) => ({ ...prev, email: value }));
-                }}
-              />
-            </div>
+            <TextInput
+              id="email"
+              label="Email"
+              important={true}
+              value={formValue.email}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormValue((prev) => ({ ...prev, email: value }));
+              }}
+            />
           </div>
 
           {/* Password field */}

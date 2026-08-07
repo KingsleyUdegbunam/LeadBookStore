@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UseAuth } from "../../../../context/AuthContext";
 import { PasswordInput } from "../../../../component/general/inputs/PasswordInput";
+import { TextInput } from "../../../../component/general/inputs/TextInput";
 import { toast } from "sonner";
 import {
   validateEmail,
@@ -113,79 +114,59 @@ export function PrimarySignUpForm({ prefilledEmail }) {
             {/* First Name */}
             <div className="first-last-name-signup">
               <div>
-                <label htmlFor="firstName">
-                  <div>
-                    First Name<span className="important">*</span>
-                  </div>
-                </label>
-                <div className="input-wrapper">
-                  <input
-                    ref={emailInputRef}
-                    type="text"
-                    id="firstName"
-                    value={formValue.firstName}
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      setFormValue((prev) => ({ ...prev, firstName: value }));
-                    }}
-                  />
-                </div>
+                <TextInput
+                  id="firstName"
+                  label="First Name"
+                  value={formValue.firstName}
+                  important={true}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setFormValue((prev) => ({ ...prev, firstName: value }));
+                  }}
+                />
               </div>
               {/* Last Name */}
               <div>
-                <label htmlFor="lastName">
-                  <div>
-                    Last Name<span className="important">*</span>
-                  </div>
-                </label>
-                <div className="input-wrapper">
-                  <input
-                    ref={emailInputRef}
-                    type="text"
-                    id="lastName"
-                    value={formValue.lastName}
-                    onChange={(e) => {
-                      const value = e.target.value;
-                      setFormValue((prev) => ({ ...prev, lastName: value }));
-                    }}
-                  />
-                </div>
+                <TextInput
+                  id="lastName"
+                  label="Last Name"
+                  value={formValue.lastName}
+                  important={true}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    setFormValue((prev) => ({ ...prev, lastName: value }));
+                  }}
+                />
               </div>
             </div>
 
             {/* Email Field */}
             <div>
-              <label htmlFor="email">
-                <div>
-                  Email<span className="important">*</span>
-                </div>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={emailInputRef}
-                  type="email"
-                  id="email"
-                  value={formValue.email}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, email: value }));
+              <TextInput
+                id="email"
+                label="Email"
+                value={formValue.email}
+                important={true}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setFormValue((prev) => ({ ...prev, email: value }));
 
-                    if (emailError.valid) {
-                      const { valid, message } = validateEmail(value);
-                      setEmailError({ ...message, valid: !valid });
-                    }
-                  }}
-                  onBlur={() => {
-                    const isValid = validateEmail(formValue.email);
-                    if (!isValid.valid) {
-                      setEmailError({
-                        ...isValid,
-                        valid: !isValid.valid,
-                      });
-                    }
-                  }}
-                />
-              </div>
+                  if (emailError.valid) {
+                    const { valid, message } = validateEmail(value);
+                    setEmailError({ ...message, valid: !valid });
+                  }
+                }}
+                onBlur={() => {
+                  const isValid = validateEmail(formValue.email);
+                  if (!isValid.valid) {
+                    setEmailError({
+                      ...isValid,
+                      valid: !isValid.valid,
+                    });
+                  }
+                }}
+              />
+
               <div className="feedback-outer">
                 {!prefilledEmail ? (
                   <div className="feedback">

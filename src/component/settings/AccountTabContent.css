@@ -1,0 +1,60 @@
+.account-content-block-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.account-action-btn {
+  width: fit-content;
+  text-transform: none;
+  min-height: auto;
+  padding: 0.8rem 1.5rem;
+}
+
+.account-log-out-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.deletion-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 0.8rem;
+  border-radius: 1rem;
+  background-color: var(--surface-cream);
+}
+
+.delete-header {
+  text-transform: none;
+}
+
+.deletion-text-wrapper,
+.delete-desc-text {
+  color: var(--color-brand-active);
+}
+
+.log-out-btn {
+  background-color: transparent;
+  border: 1px solid var(--divider);
+  font-weight: 400;
+}
+
+.log-out-btn:hover {
+  background-color: var(--surface-page);
+}
+
+.account-delete-btn {
+  color: var(--text-inverse);
+  justify-self: right;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .deletion-wrapper,
+  .account-log-out-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+}

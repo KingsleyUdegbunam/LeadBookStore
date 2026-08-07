@@ -72,6 +72,7 @@ export function GuestBanner({ order }) {
           <SignUpPostCheckoutForm
             prefilledEmail={order?.email}
             lastName={order?.shipping_details?.lastName}
+            firstName={order?.shipping_details?.firstName}
           />
         </section>
       </div>

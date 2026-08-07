@@ -111,6 +111,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
         formValue.email,
         formValue.password,
         formValue.firstName,
+        formValue.lastName,
       );
       if (result.success) {
         toast.success("Account created successfully!");

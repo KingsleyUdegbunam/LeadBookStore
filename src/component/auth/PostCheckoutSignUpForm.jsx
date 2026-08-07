@@ -12,7 +12,11 @@ import {
 import { UseAuth } from "../../context/AuthContext";
 import "./PostCheckoutSignUpForm.css";
 
-export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
+export function PostCheckoutSignUpForm({
+  prefilledEmail,
+  firstName,
+  lastName,
+}) {
   const { signUpNewUser } = UseAuth();
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState({
@@ -98,6 +102,7 @@ export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
         formValue.email,
         formValue.password,
         lastName,
+        firstName,
       );
       if (result.success) {
         setFormValue({ email: "", password: "", confirmPassword: "" });

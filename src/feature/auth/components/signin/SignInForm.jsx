@@ -1,10 +1,8 @@
 import { useState } from "react";
-import { toast } from "sonner";
-import { Link } from "react-router-dom";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UseAuth } from "../../../../context/AuthContext";
+import { PasswordInput } from "../../../../component/general/inputs/PasswordInput";
+import { toast } from "sonner";
 import "./SignInForm.css";
 
 export function SignInForm() {
@@ -14,7 +12,6 @@ export function SignInForm() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
   const { signInUser } = UseAuth();
 
@@ -67,28 +64,15 @@ export function SignInForm() {
           {/* Password field */}
           <div className="password-n-forgot">
             <div>
-              <label htmlFor="set-password">
-                Password<span className="important">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type={isVisible ? "text" : "password"}
-                  id="set-password"
-                  value={formValue.password}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, password: value }));
-                  }}
-                />
-
-                <button
-                  className="eye-btn"
-                  type="button"
-                  onClick={() => setIsVisible(!isVisible)}
-                >
-                  {isVisible ? <LuEye /> : <LuEyeOff />}
-                </button>
-              </div>
+              <PasswordInput
+                id="set-password"
+                label="Password"
+                value={formValue.password}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setFormValue((prev) => ({ ...prev, password: value }));
+                }}
+              />
             </div>
           </div>
 

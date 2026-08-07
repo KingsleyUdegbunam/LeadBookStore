@@ -1,25 +1,19 @@
 import { useState, useRef, useEffect } from "react";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
-import { FcCheckmark } from "react-icons/fc";
-import { FcCancel } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
+import { UseAuth } from "../../../../context/AuthContext";
+import { PasswordInput } from "../../../../component/general/inputs/PasswordInput";
 import { toast } from "sonner";
 import {
   validateEmail,
   validatePassword,
 } from "../../../../lib/validation/validation";
-import { UseAuth } from "../../../../context/AuthContext";
+import { FcCheckmark } from "react-icons/fc";
+import { FcCancel } from "react-icons/fc";
 
 export function PrimarySignUpForm({ prefilledEmail }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const { signUpNewUser } = UseAuth();
-
-  const [isVisible, setIsVisible] = useState({
-    password: false,
-    confirmPassword: false,
-  });
 
   //Save form details
   const [formValue, setFormValue] = useState({
@@ -47,21 +41,6 @@ export function PrimarySignUpForm({ prefilledEmail }) {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormValue((prev) => ({ ...prev, email: prefilledEmail }));
   }, [prefilledEmail]);
-
-  //Toggle password visibility
-  const togglePasswordVisibility = (which) => {
-    switch (which) {
-      case "password":
-        setIsVisible((prev) => ({ ...prev, password: !prev.password }));
-        break;
-      case "confirmPassword":
-        setIsVisible((prev) => ({
-          ...prev,
-          confirmPassword: !prev.confirmPassword,
-        }));
-        break;
-    }
-  };
 
   //Check if both password field match
   const doesValuesMatch = (value1, value2) => value1 === value2;
@@ -233,59 +212,31 @@ export function PrimarySignUpForm({ prefilledEmail }) {
             </div>
 
             {/* Password field */}
-            <div>
-              <label htmlFor="set-password">
-                Password<span className="important">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={passwordInputRef}
-                  type={isVisible.password ? "text" : "password"}
-                  id="set-password"
-                  value={formValue.password}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, password: value }));
-                  }}
-                />
+            <PasswordInput
+              id="set-password"
+              label="Password"
+              value={formValue.password}
+              ref={passwordInputRef}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormValue((prev) => ({ ...prev, password: value }));
+              }}
+            />
 
-                <button
-                  className="eye-btn"
-                  type="button"
-                  onClick={() => togglePasswordVisibility("password")}
-                >
-                  {isVisible.password ? <LuEye /> : <LuEyeOff />}
-                </button>
-              </div>
-            </div>
-            <div>
-              <label htmlFor="confirm-password">
-                Confirm Password<span className="important">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={confirmPasswordInputRef}
-                  type={isVisible.confirmPassword ? "text" : "password"}
-                  id="confirm-password"
-                  value={formValue.confirmPassword}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({
-                      ...prev,
-                      confirmPassword: value,
-                    }));
-                    doesValuesMatch(formValue.password, value);
-                  }}
-                />
-                <button
-                  className="eye-btn"
-                  type="button"
-                  onClick={() => togglePasswordVisibility("confirmPassword")}
-                >
-                  {isVisible.confirmPassword ? <LuEye /> : <LuEyeOff />}
-                </button>
-              </div>
-            </div>
+            <PasswordInput
+              id="confirm-password"
+              label="Confirm Password"
+              value={formValue.confirmPassword}
+              ref={confirmPasswordInputRef}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormValue((prev) => ({
+                  ...prev,
+                  confirmPassword: value,
+                }));
+                doesValuesMatch(formValue.password, value);
+              }}
+            />
           </article>
           {hasStartedTyping.password && (
             <div className="feedback-container">

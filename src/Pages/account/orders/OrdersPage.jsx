@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { UseAuth } from "../../../context/AuthContext";
-import { EmptyState } from "../../../component/EmptyState";
+import { EmptyState } from "../../../component/general/states/EmptyState";
 import { EMPTY_STATES } from "../../../constants/emptyStatesCopies";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -11,9 +11,9 @@ import { getUserOrders } from "../../../lib/validation/orders";
 import { BsChevronRight } from "react-icons/bs";
 import { LuDot } from "react-icons/lu";
 import { FaCircleDot } from "react-icons/fa6";
-import "./AccountOrdersPage.css";
+import "./OrdersPage.css";
 
-const AccountOrdersPage = () => {
+const OrdersPage = () => {
   const [loading, setLoading] = useState(true);
   const [orders, setOrders] = useState([]);
 
@@ -124,4 +124,4 @@ const AccountOrdersPage = () => {
   );
 };
 
-export default AccountOrdersPage;
+export default OrdersPage;

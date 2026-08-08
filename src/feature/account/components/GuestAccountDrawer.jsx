@@ -25,7 +25,7 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
     {
       title: "Account Settings",
       desc: "Sign in to manage your account",
-      link: "",
+      link: "/account/settings",
     },
   ];
 

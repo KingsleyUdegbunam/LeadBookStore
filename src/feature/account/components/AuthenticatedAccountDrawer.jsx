@@ -17,7 +17,7 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user }) {
     {
       title: "Settings",
       desc: "Manage your account details",
-      link: "/account/account-settings",
+      link: "/account/settings",
     },
   ];
   const { signOut } = UseAuth();

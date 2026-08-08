@@ -3,7 +3,7 @@ import { useCart } from "../../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 import { CartItemsTable } from "../../feature/cart/components/CartItemsTable";
 import { CartCostSummary } from "../../feature/cart/components/CartCostSummary";
-import { EmptyState } from "../../component/EmptyState";
+import { EmptyState } from "../../component/general/states/EmptyState";
 import { EMPTY_STATES } from "../../constants/emptyStatesCopies";
 import { FaLock } from "react-icons/fa";
 import { RiArrowLeftLongLine } from "react-icons/ri";

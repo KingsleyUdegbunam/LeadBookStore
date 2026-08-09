@@ -61,9 +61,29 @@ export const AuthContextProvider = ({ children }) => {
     }
     return { success: true };
   };
+
+  //Change password
+  const changePassword = async (currentPassword, newPassword) => {
+    const { error } = await supabase.auth.updateUser({
+      current_password: currentPassword,
+      password: newPassword,
+    });
+    if (error) {
+      return { error: error, success: false };
+    }
+    return { error: false, success: true };
+  };
+
   return (
     <AuthContext.Provider
-      value={{ session, loading, signUpNewUser, signInUser, signOut }}
+      value={{
+        session,
+        loading,
+        signUpNewUser,
+        signInUser,
+        signOut,
+        changePassword,
+      }}
     >
       {children}
     </AuthContext.Provider>

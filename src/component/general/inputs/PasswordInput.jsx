@@ -12,33 +12,37 @@ export const PasswordInput = ({
   onChange,
   inputClassName,
   labelClassName,
+  error,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <div>
-      <label className={labelClassName} htmlFor={id}>
-        {label}
-        <span className="important">*</span>
-      </label>
-      <div className="input-wrapper">
-        <input
-          className={inputClassName}
-          placeholder="********"
-          ref={ref}
-          type={isVisible ? "text" : "password"}
-          id={id}
-          value={value}
-          onChange={onChange}
-        />
+      <div>
+        <label className={labelClassName} htmlFor={id}>
+          {label}
+          <span className="important">*</span>
+        </label>
+        <div className="input-wrapper">
+          <input
+            className={inputClassName}
+            placeholder="********"
+            ref={ref}
+            type={isVisible ? "text" : "password"}
+            id={id}
+            value={value}
+            onChange={onChange}
+          />
 
-        <button
-          className="eye-btn"
-          type="button"
-          onClick={() => setIsVisible(!isVisible)}
-        >
-          {isVisible ? <LuEye /> : <LuEyeOff />}
-        </button>
+          <button
+            className="eye-btn"
+            type="button"
+            onClick={() => setIsVisible(!isVisible)}
+          >
+            {isVisible ? <LuEye /> : <LuEyeOff />}
+          </button>
+        </div>
       </div>
+      {error && <span className="password-input-error-msg">{error}</span>}
     </div>
   );
 };

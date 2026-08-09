@@ -1,8 +1,27 @@
-import React from "react";
+import { useState } from "react";
+import { UseAuth } from "../../context/AuthContext";
+import { toast } from "sonner";
 import { Divider } from "../general/divider/Divider";
 import "./AccountTabContent.css";
 
 export const AccountTabContent = () => {
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const { signOut } = UseAuth();
+
+  const handleLogOut = async () => {
+    setIsLoggingOut(true);
+    try {
+      const result = await signOut();
+      if (!result) {
+        throw new Error("Cannot log out. Please try again.");
+      }
+    } catch (e) {
+      toast.error(e.message);
+    } finally {
+      setIsLoggingOut(false);
+    }
+  };
+
   return (
     <div className="tab-content-details">
       <div className="tab-content-fields-wrapper">
@@ -13,7 +32,14 @@ export const AccountTabContent = () => {
               Log out of this device. You can sign back in at any time
             </p>
           </div>
-          <button className="account-action-btn log-out-btn">Log out</button>
+          <button
+            disabled={isLoggingOut}
+            type="button"
+            onClick={handleLogOut}
+            className="account-action-btn log-out-btn"
+          >
+            {isLoggingOut ? "Logging out" : "Log out"}
+          </button>
         </div>
         <Divider />
 
@@ -37,7 +63,10 @@ export const AccountTabContent = () => {
                 <p>This action cannot be undone.</p>
               </div>
             </div>
-            <button className="account-delete-btn button-primary account-action-btn">
+            <button
+              type="button"
+              className="account-delete-btn button-primary account-action-btn"
+            >
               Delete account
             </button>
           </div>

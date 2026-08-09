@@ -4,50 +4,117 @@ import ShopPage from "./Pages/shop/ShopPage";
 import CartPage from "./Pages/cart/CartPage";
 import ProductPage from "./Pages/product/ProductPage";
 import CheckoutPage from "./Pages/checkout/CheckoutPage";
-import OrderPage from "./Pages/order/OrderPage";
+import PostCheckout from "./Pages/post-checkout/PostCheckout";
 import AboutPage from "./Pages/about/AboutPage";
 import ContactPage from "./Pages/contact/ContactPage";
-import TrackingPage from "./Pages/tracking/TrackingPage";
 import SignInPage from "./Pages/auth/signin/SignInPage";
 import SignUpPage from "./Pages/auth/signup/SignUpPage";
 import Layout from "./Layout";
 import AuthLayout from "./AuthLayout";
-import AccountOrdersPage from "./Pages/account/orders/AccountOrdersPage";
+import OrdersPage from "./Pages/account/orders/OrdersPage";
 import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
 import { Settings } from "./Pages/account/setting/Settings";
 import { NotFound } from "./Pages/not-found/NotFound";
+import { AuthGuard } from "./routes/AuthGuard";
 
 export const router = createBrowserRouter([
+  //Public pages
   {
     path: "/",
     element: <Layout />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: "/shop", element: <ShopPage /> },
-      { path: "/cart", element: <CartPage /> },
-      { path: "/checkout", element: <CheckoutPage /> },
-      { path: "/product/:id", element: <ProductPage /> },
-      { path: "/order/:ref", element: <OrderPage /> },
-      { path: "/about", element: <AboutPage /> },
-      { path: "/contact", element: <ContactPage /> },
-      { path: "/tracking", element: <TrackingPage /> },
-      { path: "/account/orders", element: <AccountOrdersPage /> },
-      { path: "/account/order-details/:id", element: <OrderDetail /> },
       {
-        path: "/account/account-settings",
-        element: <Settings />,
+        index: true,
+        element: <HomePage />,
       },
       {
-        path: "*",
-        element: <NotFound />,
+        path: "shop",
+        element: <ShopPage />,
+      },
+      { path: "product/:id", element: <ProductPage /> },
+      {
+        path: "about",
+        element: <AboutPage />,
+      },
+      {
+        path: "contact",
+        element: <ContactPage />,
+      },
+      {
+        path: "cart",
+        element: <CartPage />,
+      },
+      { path: "checkout", element: <CheckoutPage /> },
+      { path: "order/:ref", element: <PostCheckout /> },
+    ],
+  },
+  // Authentication pages. Reducing visual distraction
+  {
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "signup",
+        element: <SignUpPage />,
+      },
+      { path: "signin", element: <SignInPage /> },
+    ],
+  },
+
+  // Authenticateed User
+  {
+    element: <AuthGuard />,
+
+    children: [
+      {
+        element: <Layout />,
+        path: "account",
+        children: [
+          {
+            path: "settings",
+            element: <Settings />,
+          },
+          { path: "orders", element: <OrdersPage /> },
+          { path: "order-details/:id", element: <OrderDetail /> },
+        ],
       },
     ],
   },
   {
-    element: <AuthLayout />,
-    children: [
-      { path: "/signup", element: <SignUpPage /> },
-      { path: "/signin", element: <SignInPage /> },
-    ],
+    path: "*",
+    element: <NotFound />,
   },
 ]);
+
+// {
+//   path: "/",
+//   element: <Layout />,
+//   children: [
+//     { index: true, element: <HomePage /> },
+//     { path: "/shop", element: <ShopPage /> },
+//     { path: "/cart", element: <CartPage /> },
+//     { path: "/checkout", element: <CheckoutPage /> },
+//     { path: "/product/:id", element: <ProductPage /> },
+//     { path: "/order/:ref", element: <OrderPage /> },
+//     { path: "/about", element: <AboutPage /> },
+//     { path: "/contact", element: <ContactPage /> },
+//     { path: "/tracking", element: <TrackingPage /> },
+//     { path: "/account/orders", element: <AccountOrdersPage /> },
+//     { path: "/account/order-details/:id", element: <OrderDetail /> },
+//     {
+//       path: "/account/account-settings",
+//       element: <Settings />,
+//     },
+//     {
+//       path: "*",
+//       element: <NotFound />,
+//     },
+//   ],
+// },
+
+// {
+//   element: <AuthLayout />,
+//   children: [
+//     { path: "/signup", element: <SignUpPage /> },
+//     { path: "/signin", element: <SignInPage /> },
+//   ],
+// },

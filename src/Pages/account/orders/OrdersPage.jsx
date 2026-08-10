@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { UseAuth } from "../../../context/AuthContext";
 import { EmptyState } from "../../../component/general/states/EmptyState";
+import { LoadingState } from "../../../component/general/states/LoadingState";
 import { EMPTY_STATES } from "../../../constants/emptyStatesCopies";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -36,7 +37,7 @@ const OrdersPage = () => {
     fetchOrders();
   }, [user]);
 
-  if (loading) return <p className="pages-wrapper">Loading your orders...</p>;
+  if (loading) return <LoadingState />;
   if (orders.length === 0)
     return (
       <div className="pages-wrapper">

@@ -10,6 +10,7 @@ export const SecurityContent = () => {
     newPassword: "",
     confirmPassword: "",
   });
+  const [shouldValidate, setShouldValidate] = useState(false);
   const [errors, setErrors] = useState({});
   const [isSaving, setIsSaving] = useState(false);
 
@@ -17,15 +18,17 @@ export const SecurityContent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const result = passwordSchema.safeParse(password);
+
+    if (!result.success) {
+      const fieldErrors = result.error.flatten().fieldErrors;
+      setErrors(fieldErrors);
+      setShouldValidate(true);
+      return;
+    }
     setIsSaving(true);
     try {
-      const result = passwordSchema.safeParse(password);
-
-      if (!result.success) {
-        const fieldErrors = result.error.flatten().fieldErrors;
-        setErrors(fieldErrors);
-        return;
-      }
       const feedback = await changePassword(
         password.currentPassword,
         password.newPassword,
@@ -34,6 +37,7 @@ export const SecurityContent = () => {
         throw feedback.error;
       }
       setErrors({});
+      setShouldValidate(false);
       setPassword({
         currentPassword: "",
         newPassword: "",
@@ -50,9 +54,6 @@ export const SecurityContent = () => {
   const handleChange = (key, value) => {
     const updatedPassword = { ...password, [key]: value };
     setPassword(updatedPassword);
-
-    const shouldValidate =
-      errors[key] || key === "newPassword" || key === "confirmPassword";
 
     if (!shouldValidate) return;
 

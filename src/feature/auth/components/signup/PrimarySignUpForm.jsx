@@ -13,7 +13,7 @@ import { FcCancel } from "react-icons/fc";
 
 export function PrimarySignUpForm({ prefilledEmail }) {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
   const { signUpNewUser } = UseAuth();
 
   //Save form details
@@ -85,7 +85,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
     e.preventDefault();
 
     if (!isValidDetails) return;
-    setLoading(true);
+    setIsSigningUp(true);
     try {
       const result = await signUpNewUser(
         formValue.email,
@@ -102,7 +102,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
     } catch (err) {
       toast.error(err.message);
     } finally {
-      setLoading(false);
+      setIsSigningUp(false);
     }
   };
 
@@ -239,7 +239,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
 
         <div className="post-checkout-actions-wrapper">
           <button
-            disabled={loading}
+            disabled={isSigningUp}
             onClick={() => {
               if (!isEmailValid) {
                 emailInputRef?.current.focus();
@@ -261,7 +261,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
             className="signup-btn button-primary"
             type="submit"
           >
-            {loading ? "Creating Account..." : "Create Account"}
+            {isSigningUp ? "Creating Account..." : "Create Account"}
           </button>
           <p className="signup-signin">
             <span className="redirect-text">Already have an account?</span>{" "}

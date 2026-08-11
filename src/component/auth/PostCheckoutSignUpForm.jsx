@@ -18,7 +18,7 @@ export function PostCheckoutSignUpForm({
   lastName,
 }) {
   const { signUpNewUser } = UseAuth();
-  const [loading, setLoading] = useState(false);
+  const [isSigningUp, setIsSigningUp] = useState(false);
 
   //Save form details
   const [formValue, setFormValue] = useState({
@@ -77,7 +77,7 @@ export function PostCheckoutSignUpForm({
     e.preventDefault();
 
     if (!isValidDetails) return;
-    setLoading(true);
+    setIsSigningUp(true);
     try {
       const result = await signUpNewUser(
         formValue.email,
@@ -94,7 +94,7 @@ export function PostCheckoutSignUpForm({
     } catch (err) {
       toast.error(err.message);
     } finally {
-      setLoading(false);
+      setIsSigningUp(false);
     }
   };
 
@@ -170,11 +170,11 @@ export function PostCheckoutSignUpForm({
                 return;
               }
             }}
-            disabled={loading}
+            disabled={isSigningUp}
             className="signup-btn button-primary"
             type="submit"
           >
-            {loading ? "Creating Account..." : "Create Account"}
+            {isSigningUp ? "Creating Account..." : "Create Account"}
           </button>
           <p className="signup-signin">
             <span className="redirect-text">Already have an account?</span>{" "}

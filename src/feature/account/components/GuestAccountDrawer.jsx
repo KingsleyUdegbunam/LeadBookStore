@@ -22,11 +22,6 @@ export function GuestAccountDrawer({ isOpen, onClose }) {
 
   const accountNav = [
     { title: "Track Order", desc: "Check your order status", link: "" },
-    {
-      title: "Account Settings",
-      desc: "Sign in to manage your account",
-      link: "/account/settings",
-    },
   ];
 
   return (

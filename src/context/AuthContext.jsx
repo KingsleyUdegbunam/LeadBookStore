@@ -55,7 +55,7 @@ export const AuthContextProvider = ({ children }) => {
 
   //Sign Out
   const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut({ scope: "local" });
     if (error) {
       return { success: false };
     }

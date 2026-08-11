@@ -8,25 +8,29 @@ export const TextInput = ({
   value,
   onChange,
   onBlur,
+  error,
   disabled,
 }) => {
   return (
-    <>
-      <label htmlFor={id}>
-        {label}
-        {important && <span className="important">*</span>}
-      </label>
-      <input
-        ref={ref}
-        id={id}
-        type="text"
-        disabled={disabled}
-        aria-disabled={disabled}
-        readOnly={disabled}
-        value={value}
-        onChange={onChange}
-        onBlur={onBlur}
-      />
-    </>
+    <div>
+      <div>
+        <label htmlFor={id}>
+          {label}
+          {important && <span className="important">*</span>}
+        </label>
+        <input
+          ref={ref}
+          id={id}
+          type="text"
+          disabled={disabled}
+          aria-disabled={disabled}
+          readOnly={disabled}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+      </div>
+      {error && <span className="input-error-msg">{error}</span>}
+    </div>
   );
 };

@@ -42,7 +42,7 @@ export const PasswordInput = ({
           </button>
         </div>
       </div>
-      {error && <span className="password-input-error-msg">{error}</span>}
+      {error && <span className="input-error-msg">{error}</span>}
     </div>
   );
 };

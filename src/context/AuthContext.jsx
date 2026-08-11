@@ -84,6 +84,27 @@ export const AuthContextProvider = ({ children }) => {
     return data;
   };
 
+  const updateProfile = async ({ firstName, lastName }) => {
+    const { data, error } = await supabase.auth.updateUser({
+      data: {
+        first_name: firstName,
+        last_name: lastName,
+      },
+    });
+
+    if (error) {
+      return {
+        error: error,
+        success: false,
+      };
+    }
+    return {
+      error: false,
+      success: true,
+      data: data,
+    };
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -94,6 +115,7 @@ export const AuthContextProvider = ({ children }) => {
         signOut,
         changePassword,
         deleteAccount,
+        updateProfile,
       }}
     >
       {children}

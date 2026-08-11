@@ -3,8 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { UseAuth } from "../../../../context/AuthContext";
 import { PasswordInput } from "../../../../component/general/inputs/PasswordInput";
 import { toast } from "sonner";
-import "./SignInForm.css";
 import { TextInput } from "../../../../component/general/inputs/TextInput";
+import "./SignInForm.css";
 
 export function SignInForm() {
   const [formValue, setFormValue] = useState({
@@ -12,7 +12,7 @@ export function SignInForm() {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
+  const [isSigningIn, setIsSigningIn] = useState(false);
   const navigate = useNavigate();
   const { signInUser } = UseAuth();
 
@@ -22,6 +22,7 @@ export function SignInForm() {
       toast.warning("Enter your email and password to continue");
       return;
     }
+    setIsSigningIn(true);
     try {
       const result = await signInUser(formValue.email, formValue.password);
       if (!result.success) {
@@ -34,7 +35,7 @@ export function SignInForm() {
     } catch (err) {
       toast.error(err.message);
     } finally {
-      setLoading(false);
+      setIsSigningIn(false);
     }
   };
 
@@ -72,8 +73,12 @@ export function SignInForm() {
           </div>
 
           <div className="action-btn-helper-n-text">
-            <button className="button-primary" disabled={loading} type="submit">
-              Sign In
+            <button
+              className="button-primary"
+              disabled={isSigningIn}
+              type="submit"
+            >
+              {isSigningIn ? "Signing in..." : "Sign in"}
             </button>
             <p className="signup-signin">
               <span className="redirect-text">Don't have an account?</span>{" "}

@@ -1,5 +1,4 @@
-import React from "react";
-import { SETTINGS_TABS } from "../../constants/settings";
+import { SETTINGS_TABS } from "../../../constants/settings";
 
 export const SettingsTabs = ({ activeTab, setActiveTab }) => {
   return (

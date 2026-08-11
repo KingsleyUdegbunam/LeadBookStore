@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { SettingsTabs } from "../../../feature/settings/SettingsTabs";
+import { useState } from "react";
+import { SettingsTabs } from "../../../feature/settings/components/SettingsTabs";
 import { AccountTab } from "../../../feature/settings/components/AccountTab";
 import { SecurityTab } from "../../../feature/settings/components/SecurityTab";
 import { ProfileTab } from "../../../feature/settings/components/ProfileTab";

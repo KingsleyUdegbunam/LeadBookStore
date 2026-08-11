@@ -74,6 +74,16 @@ export const AuthContextProvider = ({ children }) => {
     return { error: false, success: true };
   };
 
+  // Account deletion
+  const deleteAccount = async () => {
+    const { data, error } = await supabase.functions.invoke("delete-account");
+
+    if (error) {
+      throw error;
+    }
+    return data;
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -83,6 +93,7 @@ export const AuthContextProvider = ({ children }) => {
         signInUser,
         signOut,
         changePassword,
+        deleteAccount,
       }}
     >
       {children}

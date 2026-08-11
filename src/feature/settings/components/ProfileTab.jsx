@@ -1,4 +1,3 @@
-import React from "react";
 import { TabContentHeader } from "../../../component/settings/TabContentHeader";
 import { ProfileTabContent } from "../../../component/settings/ProfileTabContent";
 import { SETTINGS_SECTIONS } from "../../../constants/settings";
@@ -6,8 +5,7 @@ import { FiUser } from "react-icons/fi";
 import { UseAuth } from "../../../context/AuthContext";
 
 export const ProfileTab = () => {
-  const { session, loading } = UseAuth();
-  if (loading || !session.user) return <p>Loading</p>;
+  const { session } = UseAuth();
 
   return (
     <section className="settings-tab-content">

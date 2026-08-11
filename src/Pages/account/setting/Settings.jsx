@@ -10,7 +10,7 @@ export const Settings = () => {
 
   return (
     <section className="pages-wrapper settings-page-wrapper">
-      <h1>Settings</h1>
+      <h2>Settings</h2>
       <SettingsTabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {activeTab === "profile" && <ProfileTab />}

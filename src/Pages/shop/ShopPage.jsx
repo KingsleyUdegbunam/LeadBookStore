@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { useState, useMemo, useEffect, useCallback } from "react";
 import { BookGrid } from "../../component/BookGrid";
 import BookFilters from "../../feature/shop/components/BookFilters";
-import { EmptyState } from "../../component/EmptyState";
+import { EmptyState } from "../../component/general/states/EmptyState";
 import { EMPTY_STATES } from "../../constants/emptyStatesCopies";
 import {
   SHOP_COLLECTIONS,

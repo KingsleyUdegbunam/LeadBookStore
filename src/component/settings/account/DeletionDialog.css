@@ -1,0 +1,65 @@
+.deletion-dialog-wrapper {
+  position: fixed;
+  z-index: 9999999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.271);
+  padding: 1rem;
+}
+
+.account-deletion-dialog {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  align-items: center;
+  border: 1px solid var(--divider);
+  padding: 1.5rem 1rem;
+  border-radius: 1rem;
+  text-align: center;
+  background-color: var(--surface-card);
+}
+
+.account-deletion-dialog h2 {
+  text-transform: none;
+}
+
+.deletion-dialog-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.deletion-dialog-btns {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.deletion-dialog-icon {
+  background-color: var(--color-tab-selection);
+  color: var(--color-brand);
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+}
+
+.deletion-dialog-btns button {
+  flex: 1;
+  text-transform: none;
+}
+
+.emphasize-text {
+  font-weight: 550;
+  color: var(--color-brand-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .account-deletion-dialog {
+    padding: 1.5rem 2rem;
+  }
+}

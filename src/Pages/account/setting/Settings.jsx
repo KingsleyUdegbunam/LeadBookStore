@@ -1,5 +1,21 @@
-import React from "react";
+import { useState } from "react";
+import { SettingsTabs } from "../../../feature/settings/components/SettingsTabs";
+import { AccountTab } from "../../../feature/settings/components/AccountTab";
+import { SecurityTab } from "../../../feature/settings/components/SecurityTab";
+import { ProfileTab } from "../../../feature/settings/components/ProfileTab";
+import "./Settings.css";
 
 export const Settings = () => {
-  return <section className="pages-wrapper">Settings Page</section>;
+  const [activeTab, setActiveTab] = useState("profile");
+
+  return (
+    <section className="pages-wrapper settings-page-wrapper">
+      <h2>Settings</h2>
+      <SettingsTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      {activeTab === "profile" && <ProfileTab />}
+      {activeTab === "security" && <SecurityTab />}
+      {activeTab === "account" && <AccountTab />}
+    </section>
+  );
 };

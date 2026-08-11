@@ -1,24 +1,24 @@
 import { useState, useRef, useEffect } from "react";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
-import { FcCheckmark } from "react-icons/fc";
-import { FcCancel } from "react-icons/fc";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
+import { UseAuth } from "../../context/AuthContext";
+import { PasswordInput } from "../general/inputs/PasswordInput";
 import {
   validateEmail,
   validatePassword,
 } from "../../lib/validation/validation";
-import { UseAuth } from "../../context/AuthContext";
+import { toast } from "sonner";
+import { FcCheckmark } from "react-icons/fc";
+import { FcCancel } from "react-icons/fc";
 import "./PostCheckoutSignUpForm.css";
+import { TextInput } from "../general/inputs/TextInput";
 
-export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
+export function PostCheckoutSignUpForm({
+  prefilledEmail,
+  firstName,
+  lastName,
+}) {
   const { signUpNewUser } = UseAuth();
-  const [loading, setLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState({
-    password: false,
-    confirmPassword: false,
-  });
+  const [isSigningUp, setIsSigningUp] = useState(false);
 
   //Save form details
   const [formValue, setFormValue] = useState({
@@ -35,21 +35,6 @@ export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setFormValue((prev) => ({ ...prev, email: prefilledEmail }));
   }, [prefilledEmail]);
-
-  //Toggle password visibility
-  const togglePasswordVisibility = (which) => {
-    switch (which) {
-      case "password":
-        setIsVisible((prev) => ({ ...prev, password: !prev.password }));
-        break;
-      case "confirmPassword":
-        setIsVisible((prev) => ({
-          ...prev,
-          confirmPassword: !prev.confirmPassword,
-        }));
-        break;
-    }
-  };
 
   //Check if both password field match
   const doesValuesMatch = (value1, value2) => value1 === value2;
@@ -92,12 +77,13 @@ export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
     e.preventDefault();
 
     if (!isValidDetails) return;
-    setLoading(true);
+    setIsSigningUp(true);
     try {
       const result = await signUpNewUser(
         formValue.email,
         formValue.password,
         lastName,
+        firstName,
       );
       if (result.success) {
         setFormValue({ email: "", password: "", confirmPassword: "" });
@@ -108,7 +94,7 @@ export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
     } catch (err) {
       toast.error(err.message);
     } finally {
-      setLoading(false);
+      setIsSigningUp(false);
     }
   };
 
@@ -117,74 +103,40 @@ export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
       <form className="signup-form" onSubmit={handleSubmit}>
         <div className="validation-and-inputs">
           <article className="signup-input-fields-wrapper">
-            {/* Email Field */}
             <div>
-              <label htmlFor="email">Email</label>
-              <div className="input-wrapper">
-                <input
-                  disabled
-                  aria-disabled
-                  type="email"
-                  id="email"
-                  value={formValue.email}
-                />
-              </div>
+              <TextInput
+                id="email"
+                label="Email"
+                value={formValue.email}
+                disabled={true}
+              />
             </div>
 
-            {/* Password field */}
-            <div>
-              <label htmlFor="set-password">
-                Password<span className="important">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={passwordInputRef}
-                  type={isVisible.password ? "text" : "password"}
-                  id="set-password"
-                  value={formValue.password}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, password: value }));
-                  }}
-                />
+            <PasswordInput
+              id="set-password"
+              label="Password"
+              value={formValue.password}
+              ref={passwordInputRef}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormValue((prev) => ({ ...prev, password: value }));
+              }}
+            />
 
-                <button
-                  className="eye-btn"
-                  type="button"
-                  onClick={() => togglePasswordVisibility("password")}
-                >
-                  {isVisible.password ? <LuEye /> : <LuEyeOff />}
-                </button>
-              </div>
-            </div>
-            <div>
-              <label htmlFor="confirm-password">
-                Confirm Password<span className="important">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  ref={confirmPasswordInputRef}
-                  type={isVisible.confirmPassword ? "text" : "password"}
-                  id="confirm-password"
-                  value={formValue.confirmPassword}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({
-                      ...prev,
-                      confirmPassword: value,
-                    }));
-                    doesValuesMatch(formValue.password, value);
-                  }}
-                />
-                <button
-                  className="eye-btn"
-                  type="button"
-                  onClick={() => togglePasswordVisibility("confirmPassword")}
-                >
-                  {isVisible.confirmPassword ? <LuEye /> : <LuEyeOff />}
-                </button>
-              </div>
-            </div>
+            <PasswordInput
+              id="confirm-password"
+              label="Confirm Password"
+              value={formValue.confirmPassword}
+              ref={confirmPasswordInputRef}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormValue((prev) => ({
+                  ...prev,
+                  confirmPassword: value,
+                }));
+                doesValuesMatch(formValue.password, value);
+              }}
+            />
           </article>
           {hasStartedTyping.password && (
             <div className="feedback-container">
@@ -218,11 +170,11 @@ export function PostCheckoutSignUpForm({ prefilledEmail, lastName }) {
                 return;
               }
             }}
-            disabled={loading}
+            disabled={isSigningUp}
             className="signup-btn button-primary"
             type="submit"
           >
-            {loading ? "Creating Account..." : "Create Account"}
+            {isSigningUp ? "Creating Account..." : "Create Account"}
           </button>
           <p className="signup-signin">
             <span className="redirect-text">Already have an account?</span>{" "}

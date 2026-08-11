@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 export const Hero = () => {
@@ -13,7 +14,9 @@ export const Hero = () => {
           </p>
         </div>
         <div className="quick-action-btns">
-          <button className="button-primary">Shop Now</button>
+          <Link to="/shop" className="button-primary button-link">
+            Shop Now
+          </Link>
         </div>
       </section>
     </section>

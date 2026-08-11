@@ -5,6 +5,7 @@ const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [session, setSession] = useState(undefined);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     supabase.auth
@@ -15,19 +16,21 @@ export const AuthContextProvider = ({ children }) => {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
   //Sign up
-  const signUpNewUser = async (email, password, firstName) => {
+  const signUpNewUser = async (email, password, firstName, lastName) => {
     const { data, error } = await supabase.auth.signUp({
       email: email,
       password: password,
       options: {
         data: {
-          display_name: firstName,
+          first_name: firstName,
+          last_name: lastName,
         },
       },
     });
@@ -52,15 +55,68 @@ export const AuthContextProvider = ({ children }) => {
 
   //Sign Out
   const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut({ scope: "local" });
     if (error) {
       return { success: false };
     }
     return { success: true };
   };
+
+  //Change password
+  const changePassword = async (currentPassword, newPassword) => {
+    const { error } = await supabase.auth.updateUser({
+      current_password: currentPassword,
+      password: newPassword,
+    });
+    if (error) {
+      return { error: error, success: false };
+    }
+    return { error: false, success: true };
+  };
+
+  // Account deletion
+  const deleteAccount = async () => {
+    const { data, error } = await supabase.functions.invoke("delete-account");
+
+    if (error) {
+      throw error;
+    }
+    return data;
+  };
+
+  const updateProfile = async ({ firstName, lastName }) => {
+    const { data, error } = await supabase.auth.updateUser({
+      data: {
+        first_name: firstName,
+        last_name: lastName,
+      },
+    });
+
+    if (error) {
+      return {
+        error: error,
+        success: false,
+      };
+    }
+    return {
+      error: false,
+      success: true,
+      data: data,
+    };
+  };
+
   return (
     <AuthContext.Provider
-      value={{ session, signUpNewUser, signInUser, signOut }}
+      value={{
+        session,
+        loading,
+        signUpNewUser,
+        signInUser,
+        signOut,
+        changePassword,
+        deleteAccount,
+        updateProfile,
+      }}
     >
       {children}
     </AuthContext.Provider>

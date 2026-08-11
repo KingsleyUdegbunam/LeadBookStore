@@ -14,9 +14,9 @@ import {
   AuthenticatedBanner,
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
-import "./OrderPage.css";
+import "./PostCheckout.css";
 
-export default function OrderPage() {
+export default function PostCheckout() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const { ref } = useParams();

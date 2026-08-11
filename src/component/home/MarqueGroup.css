@@ -2,7 +2,16 @@
   cursor: text;
 }
 
-@keyframes spin {
+.marque-group {
+  display: flex;
+  gap: 1.2rem;
+  animation: overflow 70s infinite linear;
+  padding-right: 1.2rem;
+  font-size: 0.85rem;
+  touch-action: none;
+}
+
+@keyframes overflow {
   from {
     translate: 0;
   }

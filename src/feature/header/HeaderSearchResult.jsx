@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { convertToNaira } from "../../utilities/money";
 import { books } from "../../data/inventory";
-import { EmptyState } from "../../component/EmptyState";
+import { EmptyState } from "../../component/general/states/EmptyState";
 import { EMPTY_STATES } from "../../constants/emptyStatesCopies";
 import "./HeaderSearchResult.css";
 

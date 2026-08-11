@@ -6,7 +6,8 @@
   --color-brand-hover: #bf2a20;
   --color-brand-active: #85150e;
   --color-compulsory: rgb(217, 2, 2);
-  --color-selection-hover: rgba(255, 247, 247, 0.679);
+  --color-selection-hover: #fff7f7ad;
+  --color-tab-selection: rgba(255, 230, 230, 0.909);
 
   /* Neutral Palette*/
 
@@ -22,6 +23,8 @@
   --color-white: #ffffff;
   --color-off-white: #eee;
 
+  --cream-bg: #fff3e5;
+
   /* Typography */
 
   --text-primary: var(--color-black);
@@ -35,6 +38,7 @@
   --surface-card: var(--color-white);
   --surface-muted: var(--color-gray-100);
   --surface-dark: var(--color-black);
+  --surface-cream: var(--cream-bg);
 
   /* MetaData */
   --bg-metadata: #3a2f2a;

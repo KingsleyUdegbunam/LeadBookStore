@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { toast } from "sonner";
-import { Link } from "react-router-dom";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { UseAuth } from "../../../../context/AuthContext";
+import { PasswordInput } from "../../../../component/general/inputs/PasswordInput";
+import { toast } from "sonner";
+import { TextInput } from "../../../../component/general/inputs/TextInput";
 import "./SignInForm.css";
 
 export function SignInForm() {
@@ -13,8 +12,7 @@ export function SignInForm() {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isSigningIn, setIsSigningIn] = useState(false);
   const navigate = useNavigate();
   const { signInUser } = UseAuth();
 
@@ -24,6 +22,7 @@ export function SignInForm() {
       toast.warning("Enter your email and password to continue");
       return;
     }
+    setIsSigningIn(true);
     try {
       const result = await signInUser(formValue.email, formValue.password);
       if (!result.success) {
@@ -36,7 +35,7 @@ export function SignInForm() {
     } catch (err) {
       toast.error(err.message);
     } finally {
-      setLoading(false);
+      setIsSigningIn(false);
     }
   };
 
@@ -46,55 +45,40 @@ export function SignInForm() {
         <div className="signin-form-children">
           {/* Email Field */}
           <div>
-            <label htmlFor="email">
-              <div>
-                Email<span className="important">*</span>
-              </div>
-            </label>
-            <div className="input-wrapper">
-              <input
-                type="email"
-                id="email"
-                value={formValue.email}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  setFormValue((prev) => ({ ...prev, email: value }));
-                }}
-              />
-            </div>
+            <TextInput
+              id="email"
+              label="Email"
+              important={true}
+              value={formValue.email}
+              onChange={(e) => {
+                const value = e.target.value;
+                setFormValue((prev) => ({ ...prev, email: value }));
+              }}
+            />
           </div>
 
           {/* Password field */}
           <div className="password-n-forgot">
             <div>
-              <label htmlFor="set-password">
-                Password<span className="important">*</span>
-              </label>
-              <div className="input-wrapper">
-                <input
-                  type={isVisible ? "text" : "password"}
-                  id="set-password"
-                  value={formValue.password}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    setFormValue((prev) => ({ ...prev, password: value }));
-                  }}
-                />
-
-                <button
-                  className="eye-btn"
-                  type="button"
-                  onClick={() => setIsVisible(!isVisible)}
-                >
-                  {isVisible ? <LuEye /> : <LuEyeOff />}
-                </button>
-              </div>
+              <PasswordInput
+                id="set-password"
+                label="Password"
+                value={formValue.password}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setFormValue((prev) => ({ ...prev, password: value }));
+                }}
+              />
             </div>
           </div>
 
           <div className="action-btn-helper-n-text">
-            <button className="button-primary" disabled={loading} type="submit">
-              Sign In
+            <button
+              className="button-primary"
+              disabled={isSigningIn}
+              type="submit"
+            >
+              {isSigningIn ? "Signing in..." : "Sign in"}
             </button>
             <p className="signup-signin">
               <span className="redirect-text">Don't have an account?</span>{" "}

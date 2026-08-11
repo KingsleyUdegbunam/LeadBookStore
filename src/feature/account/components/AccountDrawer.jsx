@@ -5,7 +5,7 @@ import { GuestAccountDrawer } from "./GuestAccountDrawer";
 
 export function AccountDrawer({ isOpen, onClose }) {
   const { session } = UseAuth();
-  const user = session?.user?.user_metadata.display_name || "Reader";
+  const user = session?.user?.user_metadata.first_name || "Reader";
   const id = session?.access_token;
   if (id)
     return (

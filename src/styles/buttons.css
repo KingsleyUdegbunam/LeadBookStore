@@ -2,7 +2,8 @@
    Base
 ========================================================== */
 
-button {
+button,
+.button-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -105,11 +106,12 @@ button {
 .button-ghost {
   background-color: transparent;
   color: var(--text-primary);
-  border-color: transparent;
+  border-color: var(--divider);
+  font-weight: 400;
 }
 
 .button-ghost:hover:not(:disabled) {
-  color: var(--color-brand);
+  background-color: var(--surface-page);
 }
 
 .button-ghost:focus-visible {

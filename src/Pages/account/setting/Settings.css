@@ -1,0 +1,117 @@
+.settings-page-wrapper {
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.settings-tabs {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--divider);
+}
+
+.settings-tabs button {
+  padding: 0.5rem 1rem;
+  flex: 1;
+  border-radius: 16px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.settings-tabs button:hover {
+  flex: 1;
+  border-radius: 16px;
+  background-color: var(--surface-page);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.settings-tabs button.active-setting {
+  background-color: var(--color-tab-selection);
+  color: var(--color-brand);
+}
+
+.settings-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid var(--divider);
+  padding-block: 1rem;
+
+  border-radius: 1rem;
+}
+
+.profile-icon-wrapper {
+  background-color: var(--bg-metadata);
+  color: var(--text-inverse);
+  height: 38px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 0.8rem;
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 1rem;
+}
+
+.profile-title {
+  font-size: 0.95rem;
+  font-weight: 550;
+}
+
+.profile-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.tab-content-details {
+  padding-inline: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.tab-content-fields-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.settings-input label,
+.settings-label {
+  font-size: 0.95rem;
+}
+.settings-input input,
+.settings-password {
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+  font-family: var(--font-primary);
+}
+
+.profile-email-info {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.settings-profile-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media screen and (min-width: 1024px) {
+  .settings-page-wrapper {
+    min-height: 500px;
+  }
+}

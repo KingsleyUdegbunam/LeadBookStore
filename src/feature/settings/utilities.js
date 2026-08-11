@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 
-export const handleLogOut = async (signOut, setIsLoggingOut) => {
-  setIsLoggingOut(true);
+export const handleSignOut = async (signOut, setIsSigningOut) => {
+  setIsSigningOut(true);
   try {
     const result = await signOut();
     if (!result.success) {
@@ -11,7 +11,7 @@ export const handleLogOut = async (signOut, setIsLoggingOut) => {
   } catch (e) {
     toast.error(e.message);
   } finally {
-    setIsLoggingOut(false);
+    setIsSigningOut(false);
   }
 };
 

@@ -4,12 +4,12 @@ import { DeletionDialog } from "./DeletionDialog";
 import { Divider } from "../../general/divider/Divider";
 import {
   handleDeletion,
-  handleLogOut,
+  handleSignOut,
 } from "../../../feature/settings/utilities";
 import "./AccountTabContent.css";
 
 export const AccountTabContent = () => {
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isDeletionDialogOpen, setIsDeletionDialogOpen] = useState(false);
   const { signOut, deleteAccount } = UseAuth();
@@ -43,20 +43,20 @@ export const AccountTabContent = () => {
         <div className="tab-content-fields-wrapper">
           <div className="account-log-out-wrapper account-content-block-wrapper">
             <div className="log-out-text">
-              <h2 className="profile-title">Log out</h2>
+              <h2 className="profile-title">Sign out</h2>
               <p className="profile-desc">
-                Log out of this device. You can sign back in at any time
+                Sign out of this device. You can sign back in at any time
               </p>
             </div>
             <button
-              disabled={isLoggingOut}
+              disabled={isSigningOut}
               type="button"
               onClick={() => {
-                handleLogOut(signOut, setIsLoggingOut);
+                handleSignOut(signOut, setIsSigningOut);
               }}
               className="account-action-btn log-out-btn"
             >
-              {isLoggingOut ? "Logging out" : "Log out"}
+              {isSigningOut ? "Signing out..." : "Sign out"}
             </button>
           </div>
           <Divider />

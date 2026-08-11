@@ -1,13 +1,15 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UseAuth } from "../../../context/AuthContext";
+import Drawer from "../../../component/components/Drawer/Drawer";
+import { handleSignOut } from "../../settings/utilities";
 import { BsChevronRight } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
-import Drawer from "../../../component/components/Drawer/Drawer";
-import { UseAuth } from "../../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import { toast } from "sonner";
 import "./AuthenticatedAccountDrawer.css";
 
 export function AuthenticatedAccountDrawer({ isOpen, onClose, user }) {
   const navigate = useNavigate();
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const accountNav = [
     {
       title: "Orders",
@@ -25,19 +27,6 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user }) {
     onClose();
 
     navigate(link);
-  };
-
-  const handleSignOut = async () => {
-    try {
-      const result = await signOut();
-      if (!result.success) {
-        toast.error("Sign out failed. Try  again.");
-        return;
-      }
-      toast.success("Signed out successfully!");
-    } catch (err) {
-      toast.error(err.message);
-    }
   };
 
   return (
@@ -74,10 +63,11 @@ export function AuthenticatedAccountDrawer({ isOpen, onClose, user }) {
 
           <footer className="account-drawer-footer">
             <button
-              onClick={handleSignOut}
-              className="button-secondary button-full-width"
+              onClick={() => handleSignOut(signOut, setIsSigningOut)}
+              disabled={isSigningOut}
+              className="button-ghost button-full-width"
             >
-              Sign Out
+              {isSigningOut ? "Sign out..." : " Sign out"}
             </button>
           </footer>
         </div>

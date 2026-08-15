@@ -107,6 +107,18 @@
   margin-top: auto;
 }
 
+.added-to-cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.product button.button-primary.is-added {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}
+
 @media screen and (min-width: 1024px) {
   .category {
     font-size: 9px;

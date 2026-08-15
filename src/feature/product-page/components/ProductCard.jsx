@@ -1,8 +1,24 @@
-import React from "react";
 import { useCart } from "../../../context/CartContext";
+import { useState, useEffect, useRef } from "react";
+import { IoMdCheckmark } from "react-icons/io";
 
 const ProductCard = ({ book }) => {
   const { addToCart } = useCart();
+
+  const [isAdded, setIsAdded] = useState(false);
+  const timeoutRef = useRef(null);
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
+  const handleAddToCart = (id) => {
+    addToCart(id);
+    setIsAdded(true);
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
+  };
   return (
     <div className="product-card">
       <div className="product-image-container">
@@ -14,12 +30,18 @@ const ProductCard = ({ book }) => {
       </div>
 
       <button
-        className="book-to-cart button-primary"
+        className={`book-to-cart button-primary ${isAdded ? "is-added" : ""}`}
         onClick={() => {
-          addToCart(book);
+          handleAddToCart(book.id);
         }}
       >
-        ADD TO CART
+        {isAdded ? (
+          <span className="added-to-cart">
+            <IoMdCheckmark /> Added
+          </span>
+        ) : (
+          "Add to Cart"
+        )}
       </button>
     </div>
   );

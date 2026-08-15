@@ -1,10 +1,17 @@
-import { createContext, useContext, useState, useMemo } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 import { books } from "../data/inventory";
 
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (bookId) => {
     const itemId = Number(bookId);

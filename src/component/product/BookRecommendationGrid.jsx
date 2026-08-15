@@ -1,6 +1,5 @@
-import React from "react";
 import { books } from "../../data/inventory";
-import { BookCardRecommendationCard } from "../BookCardRecommendationCard";
+import { BookCard } from "../BookCard";
 import "./BookRecommendationGrid.css";
 
 const BookRecommendationGrid = ({ id, selectedBook }) => {
@@ -21,7 +20,7 @@ const BookRecommendationGrid = ({ id, selectedBook }) => {
     <div className="related-reads">
       <article className="recommended-book-container special-days">
         {recommendedBooks.map((book, index) => (
-          <BookCardRecommendationCard key={index} book={book} />
+          <BookCard book={book} index={index} />
         ))}
       </article>
     </div>

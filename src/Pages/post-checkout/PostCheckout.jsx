@@ -6,7 +6,6 @@ import {
   OrderCostBreakDown,
   BooksPurchased,
 } from "../../component/order/OrderSummary";
-import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 import { OrderInfo } from "../../component/order/OrderInfo";
 import { toast } from "sonner";
 import { UseAuth } from "../../context/AuthContext";
@@ -14,6 +13,7 @@ import {
   AuthenticatedBanner,
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
+import { BookCard } from "../../component/BookCard";
 import "./PostCheckout.css";
 
 export default function PostCheckout() {
@@ -99,7 +99,7 @@ export default function PostCheckout() {
             <div className="related-reads">
               <article className="products-container special-days">
                 {recommendedBooks.map((book, index) => (
-                  <BookCardRecommendationCard key={index} book={book} />
+                  <BookCard index={index} book={book} />
                 ))}
               </article>
             </div>

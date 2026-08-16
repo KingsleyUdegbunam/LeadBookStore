@@ -1,30 +1,6 @@
-export const reactSelectStyles = {
-  control: (base, state) => ({
-    ...base,
-    minHeight: "unset",
-    padding: "0.5rem",
-    backgroundColor: "var(--input-bg)",
-    border: `1px solid ${
-      state.isFocused ? "var(--color-brand)" : "var(--border-default)"
-    }`,
-    borderRadius: 0,
-    boxShadow: "none",
-    fontFamily: "var(--font-secondary)",
-    fontSize: "1rem",
-    fontWeight: 500,
-    transition:
-      "border-color var(--transition-fast) ease, background-color var(--transition-fast) ease",
-
-    "&:hover": {
-      borderColor: state.isFocused
-        ? "var(--color-brand)"
-        : "var(--border-default)",
-    },
-  }),
-
+export const defaultStyles = {
   valueContainer: (base) => ({
     ...base,
-    padding: 0,
   }),
 
   input: (base) => ({
@@ -82,7 +58,7 @@ export const reactSelectStyles = {
   option: (base, state) => ({
     ...base,
     fontFamily: "var(--font-secondary)",
-    fontSize: "1rem",
+    fontSize: ".95rem",
     fontWeight: 500,
     backgroundColor: state.isSelected
       ? "var(--color-brand)"
@@ -92,4 +68,59 @@ export const reactSelectStyles = {
     color: state.isSelected ? "white" : "var(--text-primary)",
     cursor: "pointer",
   }),
+};
+
+export const reactSelectStyles = {
+  control: (base, state) => ({
+    ...base,
+    minHeight: "unset",
+    padding: "0.5rem",
+    backgroundColor: "var(--input-bg)",
+    border: `1px solid ${
+      state.isFocused ? "var(--color-brand)" : "var(--border-default)"
+    }`,
+    borderRadius: 0,
+    boxShadow: "none",
+    fontFamily: "var(--font-secondary)",
+    fontSize: "1rem",
+    fontWeight: 500,
+    transition:
+      "border-color var(--transition-fast) ease, background-color var(--transition-fast) ease",
+
+    "&:hover": {
+      borderColor: state.isFocused
+        ? "var(--color-brand)"
+        : "var(--border-default)",
+    },
+  }),
+  ...defaultStyles,
+};
+
+export const filterStyles = {
+  control: (base, state) => ({
+    ...base,
+    cursor: "pointer",
+    backgroundColor: "var(--input-bg)",
+
+    borderColor: state.isFocused ? "var(--brand-red-clr)" : "lightgray",
+    border: `1px solid ${
+      state.isFocused ? "var(--color-brand)" : "var(--border-default)"
+    }`,
+    borderRadius: 0,
+    boxShadow: "none",
+    fontFamily: "var(--font-secondary)",
+    fontSize: "1rem",
+    fontWeight: 500,
+    transition:
+      "border-color var(--transition-fast) ease, background-color var(--transition-fast) ease",
+
+    "&:hover": {
+      borderColor: state.isFocused
+        ? "var(--color-brand)"
+        : "var(--border-default)",
+    },
+    minHeight: 0,
+    borderWidth: ".2px",
+  }),
+  ...defaultStyles,
 };

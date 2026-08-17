@@ -7,8 +7,8 @@
 }
 
 .empty-state-image-wrapper {
-  width: 65%;
-  max-width: 350px;
+  width: min(70%, 300px);
+  aspect-ratio: 1/1;
 }
 
 .empty-state-text {

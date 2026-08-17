@@ -13,9 +13,11 @@ export const Settings = () => {
       <h2>Settings</h2>
       <SettingsTabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {activeTab === "profile" && <ProfileTab />}
-      {activeTab === "security" && <SecurityTab />}
-      {activeTab === "account" && <AccountTab />}
+      <div className="settings-content">
+        {activeTab === "profile" && <ProfileTab />}
+        {activeTab === "security" && <SecurityTab />}
+        {activeTab === "account" && <AccountTab />}
+      </div>
     </section>
   );
 };

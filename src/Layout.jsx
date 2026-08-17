@@ -4,6 +4,7 @@ import { Header } from "./component/Header/Header";
 import { Footer } from "./component/Footer";
 import { useUI } from "./context/UIContext";
 import { AccountDrawer } from "./feature/account/components/AccountDrawer";
+import "./Layout.css";
 
 export default function Layout() {
   const pathname = useLocation();
@@ -31,9 +32,13 @@ export default function Layout() {
           setOpenAccountDrawer(false);
         }}
       />
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className="app-layout-wrapper">
+        <Header />
+        <main className="app-content">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 }

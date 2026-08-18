@@ -2,7 +2,7 @@ import React from "react";
 import { SlPrinter } from "react-icons/sl";
 import { SignUpPostCheckoutForm } from "./SignUpPostCheckout";
 import { convertToNaira } from "../../../utilities/money";
-import orderBox from "../../../assets/order-box.png";
+import orderBox from "../../../assets/order-box.webp";
 import dayjs from "dayjs";
 import "./Banner.css";
 
@@ -20,7 +20,14 @@ export function GuestBanner({ order }) {
             </div>
 
             <div className="order-img-wrapper">
-              <img src={orderBox} alt="Order box" />
+              <img
+                loading="eager"
+                className="post-checkout-hero-img"
+                width={3692}
+                height={2649}
+                src={orderBox}
+                alt="Order box"
+              />
             </div>
 
             <p className="order-details-header hero-msg-support">
@@ -91,7 +98,14 @@ export function AuthenticatedBanner({ order }) {
         </div>
 
         <div className="order-img-wrapper">
-          <img src={orderBox} alt="Order box" />
+          <img
+            loading="eager"
+            className="post-checkout-hero-img"
+            width={3692}
+            height={2649}
+            src={orderBox}
+            alt="Order box"
+          />
         </div>
 
         <p className="order-details-header hero-msg-support">

@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../assets/about-header.jpg";
+import image from "../../assets/about-header.webp";
 import "./AboutHeader.css";
 
 export const AboutHeader = () => {
@@ -19,8 +19,14 @@ export const AboutHeader = () => {
             better, and grow into who they&#39;re meant to be.
           </p>
         </div>
-        <div className="image-wrapper">
-          <img src={image} alt="The team hands together" />
+        <div className="image-wrapper about-hero-image-wrapper">
+          <img
+            className="about-image"
+            loading="eager"
+            height={5520}
+            width={3680}
+            src={image}
+          />
         </div>
       </div>
     </header>

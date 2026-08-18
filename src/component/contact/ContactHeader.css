@@ -28,11 +28,14 @@
 .image-wrapper {
   display: flex;
   width: 85%;
+  aspect-ratio: 5520 / 3680;
   align-items: center;
   justify-content: center;
 }
 
-.image-wrapper img {
+.contact-hero-image {
+  height: auto;
+  width: 100%;
   object-fit: contain;
 }
 
@@ -84,16 +87,12 @@
   }
 
   .image-wrapper {
-    width: initial;
-    height: inherit;
     justify-content: center;
     align-items: center;
   }
 
   .image-wrapper img {
-    width: 100%;
     max-width: 380px;
-    height: auto;
   }
 
   .card-desktop {

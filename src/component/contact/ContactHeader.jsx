@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../assets/contact-bg.png";
+import image from "../../assets/contact-bg.webp";
 import { FaRegClock } from "react-icons/fa6";
 import { TbMail } from "react-icons/tb";
 import "./ContactHeader.css";
@@ -19,7 +19,13 @@ export const ContactHeader = () => {
           </p>
         </div>
         <div className="image-wrapper">
-          <img src={image} alt="" />
+          <img
+            className="contact-hero-image"
+            width={380}
+            height={600}
+            src={image}
+            loading="eager"
+          />
         </div>
       </div>
       <div className="card-desktop">

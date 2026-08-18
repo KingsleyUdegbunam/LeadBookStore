@@ -12,17 +12,16 @@
   justify-content: center;
   width: 100%;
   max-height: clamp(350px, 90vw, 450px);
+  aspect-ratio: 4160 / 6240;
 }
 
 .our-story-subcontent-2 img {
-  height: 100%;
+  height: auto;
   width: 100%;
   object-fit: cover;
-}
-
-.our-story-subcontent-2 img {
   transition: scale 380ms ease;
 }
+
 .our-story-subcontent-2 img:hover {
   scale: 1.01;
 }

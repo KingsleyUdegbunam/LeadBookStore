@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import errorImage from "../../assets/error-image.png";
+import errorImage from "../../assets/error-image.webp";
 import "./NotFound.css";
 
 export const NotFound = () => {

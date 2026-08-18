@@ -15,6 +15,7 @@ import {
 } from "../../feature/post-checkout/components/Banner";
 import { BookCard } from "../../component/BookCard";
 import "./PostCheckout.css";
+import { LoadingState } from "../../component/general/states/LoadingState";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
@@ -69,7 +70,7 @@ export default function PostCheckout() {
     .sort((a, b) => b.score - a.score)
     .slice(0, 6);
 
-  if (loading) return <p style={{ marginBlock: "5rem" }}>Loading...</p>;
+  if (loading) return <LoadingState />;
   if (!order) return <p style={{ marginBlock: "5rem" }}>Order not found</p>;
 
   return (

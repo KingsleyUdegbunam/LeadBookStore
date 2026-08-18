@@ -20,6 +20,7 @@ import BookRecommendations from "../../../component/order/BookRecommendations";
 import { toast } from "sonner";
 
 import "./OrderDetail.css";
+import { LoadingState } from "../../../component/general/states/LoadingState";
 
 const OrderDetail = () => {
   const [order, setOrder] = useState(null);
@@ -53,7 +54,7 @@ const OrderDetail = () => {
     (step) => step.key === order?.status,
   );
 
-  if (loading) return <p className="pages-wrapper">Loading...</p>;
+  if (loading) return <LoadingState />;
   if (!order) return;
   return (
     <section className="pages-wrapper order-details-page-wrapper">

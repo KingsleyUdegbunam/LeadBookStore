@@ -23,6 +23,11 @@
   transform: translateX(100%);
 }
 
+.drawer--top {
+  width: 100vw;
+  transform: translateY(-100%);
+}
+
 .drawer-backdrop {
   background: rgb(0 0 0 / 0.45);
   position: fixed;
@@ -39,6 +44,10 @@
 
 .drawer--open {
   transform: translateX(0);
+}
+
+.drawer--open.drawer--top {
+  transform: translateY(0);
 }
 
 .drawer-backdrop--open {

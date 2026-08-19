@@ -46,6 +46,10 @@ export const router = createBrowserRouter([
       },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "order/:ref", element: <PostCheckout /> },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
     ],
   },
   // Authentication pages. Reducing visual distraction
@@ -79,42 +83,4 @@ export const router = createBrowserRouter([
       },
     ],
   },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
 ]);
-
-// {
-//   path: "/",
-//   element: <Layout />,
-//   children: [
-//     { index: true, element: <HomePage /> },
-//     { path: "/shop", element: <ShopPage /> },
-//     { path: "/cart", element: <CartPage /> },
-//     { path: "/checkout", element: <CheckoutPage /> },
-//     { path: "/product/:id", element: <ProductPage /> },
-//     { path: "/order/:ref", element: <OrderPage /> },
-//     { path: "/about", element: <AboutPage /> },
-//     { path: "/contact", element: <ContactPage /> },
-//     { path: "/tracking", element: <TrackingPage /> },
-//     { path: "/account/orders", element: <AccountOrdersPage /> },
-//     { path: "/account/order-details/:id", element: <OrderDetail /> },
-//     {
-//       path: "/account/account-settings",
-//       element: <Settings />,
-//     },
-//     {
-//       path: "*",
-//       element: <NotFound />,
-//     },
-//   ],
-// },
-
-// {
-//   element: <AuthLayout />,
-//   children: [
-//     { path: "/signup", element: <SignUpPage /> },
-//     { path: "/signin", element: <SignInPage /> },
-//   ],
-// },

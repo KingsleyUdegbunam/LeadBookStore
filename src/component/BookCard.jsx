@@ -27,7 +27,7 @@ export function BookCard({ book, index }) {
       <div className="book-details">
         <Link className="product-link" to={`/product/${id}`}>
           <div className="image-container">
-            <img src={coverImage} alt="Book image" />
+            <img loading="lazy" src={coverImage} alt="Book image" />
             {/* <p className="category">{primaryCollection.replace("lead ", "")}</p> */}
           </div>
         </Link>

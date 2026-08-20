@@ -59,7 +59,7 @@ export const TrackOrder = () => {
           <div className="track-order-icon-wrapper">
             <LuPackageSearch />
           </div>
-          <div className="header-text">
+          <div className="guest-header-text">
             <h2>Track Order</h2>
             <p className="text-secondary">
               Enter your email and order reference to track your order status in

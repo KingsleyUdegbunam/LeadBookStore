@@ -31,7 +31,7 @@
 }
 
 header.track-order,
-.header-text,
+.guest-header-text,
 .track-order-help {
   text-align: center;
   display: flex;

@@ -1,0 +1,78 @@
+.guest-tracking-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.guest-track-button-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.guest-track-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 2rem 1rem;
+  border: 1px solid #eee;
+  border-radius: 0.4rem;
+}
+
+.track-order-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-tab-selection);
+  color: var(--color-brand);
+  border-radius: 50%;
+  width: 4.2rem;
+  aspect-ratio: 1;
+  font-size: 1.8rem;
+}
+
+header.track-order,
+.header-text,
+.track-order-help {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header-text {
+  gap: 0.2rem;
+}
+
+.track-order-help {
+  font-size: 14px;
+  gap: 0rem;
+  color: var(--text-secondary);
+}
+
+.track-order p {
+  color: var(--text-secondary);
+  max-width: 80%;
+}
+
+.emphasize-little {
+  color: var(--color-brand);
+}
+
+.track-conditional-txt {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.guest-tracking-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .guest-track-form {
+    padding: 3rem 2rem;
+  }
+}

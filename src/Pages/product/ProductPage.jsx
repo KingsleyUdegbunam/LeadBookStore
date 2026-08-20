@@ -1,9 +1,8 @@
 import { books } from "../../data/inventory";
 import { useParams } from "react-router-dom";
-import "./ProductPage.css";
-("../../component/BookCardRecommendationCard");
 import ProductData from "../../feature/product-page/components/ProductData";
 import BookRecommendationGrid from "../../component/product/BookRecommendationGrid";
+import "./ProductPage.css";
 
 export default function ProductPage() {
   const { id } = useParams();

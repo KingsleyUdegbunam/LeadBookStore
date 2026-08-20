@@ -6,6 +6,7 @@ export const TextInput = ({
   important,
   ref,
   value,
+  placeholder,
   onChange,
   onBlur,
   error,
@@ -19,6 +20,7 @@ export const TextInput = ({
           {important && <span className="important">*</span>}
         </label>
         <input
+          placeholder={placeholder}
           ref={ref}
           id={id}
           type="text"

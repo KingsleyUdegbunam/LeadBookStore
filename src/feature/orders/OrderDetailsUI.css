@@ -1,3 +1,19 @@
+.order-details-navigation {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: "Outfit", sans-serif;
+  color: black;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  padding-inline-start: 0;
+  transition: color 150ms ease;
+}
+
+.order-details-navigation:hover {
+  color: var(--brand-red-clr);
+}
+
 .order-progress-header {
   margin-bottom: 1rem;
 }
@@ -97,22 +113,6 @@
 
 .order-details-page-wrapper {
   gap: 1rem;
-}
-
-.order-details-navigation {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  font-family: "Outfit", sans-serif;
-  color: black;
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  padding-inline-start: 0;
-  transition: color 150ms ease;
-}
-
-.order-details-navigation:hover {
-  color: var(--brand-red-clr);
 }
 
 .order-details-page-header {

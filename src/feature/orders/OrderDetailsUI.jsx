@@ -1,49 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getOrderByRef } from "../../../services/orderServices";
-import { Link } from "react-router-dom";
-import { BooksPurchased } from "../../../component/order/OrderSummary";
-import { getOrderDate } from "../../../feature/checkout/utilities";
-import { RiArrowLeftLongLine } from "react-icons/ri";
-import { FaCircleDot } from "react-icons/fa6";
-import { TbTruckDelivery } from "react-icons/tb";
-import { MdPayment } from "react-icons/md";
 import { LuClipboardList } from "react-icons/lu";
+import { BooksPurchased } from "../../component/order/OrderSummary";
+import { convertToNaira } from "../../utilities/money";
+import { getOrderDate } from "../checkout/utilities";
 import { GrNotes } from "react-icons/gr";
-
-import { PiPackageDuotone } from "react-icons/pi";
-import { HiOutlineTruck } from "react-icons/hi2";
-
+import { MdPayment } from "react-icons/md";
+import { TbTruckDelivery } from "react-icons/tb";
 import { IoCheckmarkOutline } from "react-icons/io5";
-import { convertToNaira } from "../../../utilities/money";
-import BookRecommendations from "../../../component/order/BookRecommendations";
-import { toast } from "sonner";
+import { HiOutlineTruck } from "react-icons/hi2";
+import { PiPackageDuotone } from "react-icons/pi";
+import { FaCircleDot } from "react-icons/fa6";
+import BookRecommendations from "../../component/order/BookRecommendations";
+import { RiArrowLeftLongLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
+import "./OrderDetailsUI.css";
 
-import "./OrderDetail.css";
-import { LoadingState } from "../../../component/general/states/LoadingState";
-
-const OrderDetail = () => {
-  const [order, setOrder] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const { ref } = useParams();
-
-  useEffect(() => {
-    if (!ref) return;
-    async function fetchOrder() {
-      setLoading(true);
-      try {
-        const data = await getOrderByRef(ref);
-        setOrder(data);
-      } catch {
-        toast.error("Oops, we've got some book worms in this page");
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    if (ref) fetchOrder();
-  }, [ref]);
-
+export const OrderDetailsUI = ({ order, backTo, path }) => {
   const ORDER_TIMELINE = [
     { key: "processing", title: "Processing" },
     { key: "shipped", title: "Shipped" },
@@ -54,14 +25,12 @@ const OrderDetail = () => {
     (step) => step.key === order?.status,
   );
 
-  if (loading) return <LoadingState />;
-  if (!order) return;
   return (
-    <section className="pages-wrapper order-details-page-wrapper">
+    <section>
       <nav>
-        <Link className="order-details-navigation" to="/account/orders">
+        <Link className="order-details-navigation" to={path}>
           <RiArrowLeftLongLine />
-          Back to orders
+          {backTo}
         </Link>
       </nav>
       <div className="page-content-wrapper">
@@ -70,7 +39,6 @@ const OrderDetail = () => {
             <div className="order-number-and-status">
               <h2>Order #LB-{order.id}</h2>
               <div className={`order-status-indicator  ${order?.status}`}>
-                {" "}
                 <FaCircleDot />
                 <p> {order?.status}</p>
               </div>
@@ -280,5 +248,3 @@ const OrderDetail = () => {
     </section>
   );
 };
-
-export default OrderDetail;

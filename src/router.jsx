@@ -16,6 +16,7 @@ import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
 import { Settings } from "./Pages/account/setting/Settings";
 import { NotFound } from "./Pages/not-found/NotFound";
 import { AuthGuard } from "./routes/AuthGuard";
+import { TrackOrder } from "./Pages/track-order/TrackOrder";
 
 export const router = createBrowserRouter([
   //Public pages
@@ -50,6 +51,8 @@ export const router = createBrowserRouter([
         path: "*",
         element: <NotFound />,
       },
+
+      { path: "track-order", element: <TrackOrder /> },
     ],
   },
   // Authentication pages. Reducing visual distraction
@@ -78,7 +81,7 @@ export const router = createBrowserRouter([
             element: <Settings />,
           },
           { path: "orders", element: <OrdersPage /> },
-          { path: "order-details/:id", element: <OrderDetail /> },
+          { path: "order-details/:ref", element: <OrderDetail /> },
         ],
       },
     ],

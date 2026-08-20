@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getOrderById } from "../../../services/orderServices";
+import { getOrderByRef } from "../../../services/orderServices";
 import { Link } from "react-router-dom";
 import { BooksPurchased } from "../../../component/order/OrderSummary";
 import { getOrderDate } from "../../../feature/checkout/utilities";
@@ -25,14 +25,14 @@ import { LoadingState } from "../../../component/general/states/LoadingState";
 const OrderDetail = () => {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { id } = useParams();
+  const { ref } = useParams();
 
   useEffect(() => {
-    if (!id) return;
+    if (!ref) return;
     async function fetchOrder() {
       setLoading(true);
       try {
-        const data = await getOrderById(id);
+        const data = await getOrderByRef(ref);
         setOrder(data);
       } catch {
         toast.error("Oops, we've got some book worms in this page");
@@ -41,8 +41,8 @@ const OrderDetail = () => {
       }
     }
 
-    if (id) fetchOrder();
-  }, [id]);
+    if (ref) fetchOrder();
+  }, [ref]);
 
   const ORDER_TIMELINE = [
     { key: "processing", title: "Processing" },
@@ -68,7 +68,7 @@ const OrderDetail = () => {
         <header className="order-details-page-header section">
           <div className="order-detail-number-date">
             <div className="order-number-and-status">
-              <h2>Order #LB-{id}</h2>
+              <h2>Order #LB-{order.id}</h2>
               <div className={`order-status-indicator  ${order?.status}`}>
                 {" "}
                 <FaCircleDot />

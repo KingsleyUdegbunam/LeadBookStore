@@ -63,7 +63,7 @@ const OrdersPage = () => {
         {orders.map((order) => (
           <Link
             key={order.id}
-            to={`/account/order-details/${order.id}`}
+            to={`/account/order-details/${order.reference}`}
             className={`my-order-item ${order.status}-order`}
           >
             <div className="my-order-items-wrapper">

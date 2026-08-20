@@ -11,12 +11,13 @@ import SignInPage from "./Pages/auth/signin/SignInPage";
 import SignUpPage from "./Pages/auth/signup/SignUpPage";
 import Layout from "./Layout";
 import AuthLayout from "./AuthLayout";
-import OrdersPage from "./Pages/account/orders/OrdersPage";
-import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
-import { Settings } from "./Pages/account/setting/Settings";
+import OrdersPage from "./Pages/account/authenticated/orders/OrdersPage";
+import OrderDetail from "./Pages/account/authenticated/orderDetail/OrderDetail";
+import { Settings } from "./Pages/account/authenticated/setting/Settings";
 import { NotFound } from "./Pages/not-found/NotFound";
 import { AuthGuard } from "./routes/AuthGuard";
-import { TrackOrder } from "./Pages/track-order/TrackOrder";
+import { TrackOrder } from "./Pages/account/guest/track-order/TrackOrder";
+import { GuestOrder } from "./Pages/account/guest/track-order/GuestOrder";
 
 export const router = createBrowserRouter([
   //Public pages
@@ -53,6 +54,10 @@ export const router = createBrowserRouter([
       },
 
       { path: "track-order", element: <TrackOrder /> },
+      {
+        path: "order-tracking/:ref",
+        element: <GuestOrder />,
+      },
     ],
   },
   // Authentication pages. Reducing visual distraction

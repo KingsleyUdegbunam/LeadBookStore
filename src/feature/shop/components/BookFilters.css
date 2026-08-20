@@ -22,22 +22,18 @@
   font-size: 1rem;
   padding: 0.3rem 0.5rem;
   font-weight: 400;
-  border: 0.2px solid rgb(206, 206, 206);
+  border: 0.2px solid var(--border-default);
   font-family: "Anonymous Pro", monospace;
 }
 
 .query-field:focus {
-  outline-color: var(--brand-red-clr);
+  outline-color: var(--color-brand);
   border-color: transparent;
   outline: none;
 }
 
 .query-field:focus-visible {
-  box-shadow: 0 0 0 0.5px var(--brand-red-clr);
-}
-
-.query-field:hover {
-  border-color: var(--brand-red-clr);
+  box-shadow: 0 0 0 0.5px var(--color-brand);
 }
 
 .sort-field {

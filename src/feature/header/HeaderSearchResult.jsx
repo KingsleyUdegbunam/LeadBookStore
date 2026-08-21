@@ -2,12 +2,18 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { convertToNaira } from "../../utilities/money";
+
+import { MdOutlineClose } from "react-icons/md";
 import { books } from "../../data/inventory";
 import { EmptyState } from "../../component/general/states/EmptyState";
 import { EMPTY_STATES } from "../../constants/emptyStatesCopies";
 import "./HeaderSearchResult.css";
 
-export const HeaderSearchResult = ({ headerSearchRef, searchInputRef }) => {
+export const HeaderSearchResult = ({
+  headerSearchRef,
+  searchInputRef,
+  onClose,
+}) => {
   const [headerSearchValue, setHeaderSearchValue] = useState("");
   const navigate = useNavigate();
 
@@ -24,45 +30,40 @@ export const HeaderSearchResult = ({ headerSearchRef, searchInputRef }) => {
     <div ref={headerSearchRef} className="search-overlay">
       <div className="close-overlay-wrapper">
         <button
-          className="close-overlay-btn"
-          onClick={() => {
-            headerSearchRef.current.classList.remove("reveal-overlay-search");
-            document.body.style.overflow = "auto";
-          }}
+          onClick={onClose}
+          className="close-overlay-btn close-account-drawer"
         >
-          X
+          <MdOutlineClose />
         </button>
       </div>
 
       <div className="overlay-search-input-field-wrapper">
-        <label className="sr-only" htmlFor="search-input-field">
-          Search
+        <label className="search-input-container" htmlFor="search-input-field">
+          <input
+            ref={searchInputRef}
+            value={headerSearchValue}
+            onChange={(e) => {
+              setHeaderSearchValue(e.target.value);
+            }}
+            className="overlay-input"
+            placeholder="Search by book name, author, or collection."
+            type="text"
+            name="search-input-field"
+            id="search-input-field"
+          />
+          <div className="overlay-placeholder-btn">
+            <svg
+              className="icon search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+            </svg>
+          </div>
         </label>
-
-        <input
-          ref={searchInputRef}
-          value={headerSearchValue}
-          onChange={(e) => {
-            setHeaderSearchValue(e.target.value);
-          }}
-          className="overlay-input"
-          placeholder="Search by book name, author, or collection."
-          type="text"
-          name="search-input-field"
-          id="search-input-field"
-        />
-        <button className="overlay-placeholder-btn">
-          <svg
-            className="icon search-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-          >
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-          </svg>
-        </button>
       </div>
 
       {searchResult.length > 0 ? (

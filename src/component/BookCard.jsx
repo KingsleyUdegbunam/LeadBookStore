@@ -1,18 +1,34 @@
 import { convertToNaira } from "../utilities/money";
 import { Link } from "react-router-dom";
-import "./BookCard.css";
 import { useCart } from "../context/CartContext";
+import { useEffect, useState, useRef } from "react";
+import { IoMdCheckmark } from "react-icons/io";
+import "./BookCard.css";
 
-export function BookCard({ book }) {
-  const { id, coverImage, primaryCollection, price, title, author } = book;
+export function BookCard({ book, index }) {
+  const { id, coverImage, price, title, author } = book;
+  const [isAdded, setIsAdded] = useState(false);
+  const timeoutRef = useRef(null);
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
+
+  const handleAddToCart = (id) => {
+    addToCart(id);
+    setIsAdded(true);
+    clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
+  };
   const { addToCart } = useCart();
   return (
-    <div className="product product-grid">
+    <div key={index} className="product product-grid">
       <div className="book-details">
         <Link className="product-link" to={`/product/${id}`}>
           <div className="image-container">
-            <img src={coverImage} alt="Book image" />
-            <p className="category">{primaryCollection.replace("lead ", "")}</p>
+            <img loading="lazy" src={coverImage} alt="Book image" />
+            {/* <p className="category">{primaryCollection.replace("lead ", "")}</p> */}
           </div>
         </Link>
 
@@ -26,10 +42,16 @@ export function BookCard({ book }) {
       </div>
 
       <button
-        className="button-primary button-full-width add-cart-btn"
-        onClick={() => addToCart(id)}
+        className={`button-primary button-full-width add-cart-btn ${isAdded ? "is-added" : ""}`}
+        onClick={() => handleAddToCart(id)}
       >
-        ADD TO CART
+        {isAdded ? (
+          <span className="added-to-cart">
+            <IoMdCheckmark /> Added
+          </span>
+        ) : (
+          "Add to Cart"
+        )}
       </button>
     </div>
   );

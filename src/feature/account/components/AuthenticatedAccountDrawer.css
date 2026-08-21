@@ -2,6 +2,10 @@
   gap: 0rem;
 }
 
+.drawer-h1 {
+  font-size: 1.7rem;
+}
+
 .authenticated-nav-footer {
   display: flex;
   flex-direction: column;
@@ -10,6 +14,7 @@
 
 .authenticated-account-drawer-wrapper {
   gap: 1rem;
+  height: 100%;
 }
 
 .drawer-links-wrapper {
@@ -26,6 +31,7 @@
   padding-block: 1.5rem;
   text-transform: none;
   font-weight: 500;
+  font-size: 15px;
   color: var(--text-primary);
   transition: transform 100ms ease-in-out;
 }
@@ -44,6 +50,65 @@
   color: var(--color-brand);
 }
 
+.active-page .drawer-nav-icons {
+  transform: rotate(0deg);
+}
+
 .drawer-li-text {
   text-align: left;
+
+  font-size: 15px;
+}
+
+.drawer-mobile {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--text-primary) !important;
+}
+
+.nav-mobile a {
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.account-mobile-navigations {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.account-drawer-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
+.nav-drawer {
+  padding: 0.8rem;
+}
+
+.drawer-desktop {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .drawer-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .drawer-mobile {
+    display: none;
+  }
 }

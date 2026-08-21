@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { isValidPhoneNumber } from "libphonenumber-js";
 import { isValidEmail } from "../../lib/validation/validation";
 import { toast } from "sonner";
+import { defaultStyles } from "../../styles/components/reactSelect";
 
 export const isValidName = (name) => {
   const trimmed = name.trim().replace(/\s+/g, " ");
@@ -162,50 +163,22 @@ export function dropDownStyles(variant, error = false, isDisabled) {
         control: (base, state) => ({
           ...base,
           cursor: "pointer",
-          fontFamily: "Anonymous Pro, monospace",
+          fontFamily: "var(--font-secondary)",
           borderColor: isDisabled
             ? "lightgray"
             : error
-              ? "red"
+              ? "var(--color-brand)"
               : state.isFocused
-                ? "black"
-                : "#d1d5db",
+                ? "var(--color-brand)"
+                : "var(--border-default)",
           boxShadow: "none",
           "&:hover": {
-            borderColor: "var(--brand-red-clr)",
+            borderColor: state.isFocused
+              ? "var(--color-brand)"
+              : "var(--border-default)",
           },
         }),
-
-        placeholder: (base) => ({ ...base, color: "lightgray" }),
-
-        valueContainer: (base) => ({
-          ...base,
-          lineHeight: 1.2,
-        }),
-        dropdownIndicator: (base) => ({
-          ...base,
-          padding: ".43rem",
-          display: isDisabled ? "none" : undefined,
-        }),
-        clearIndicator: (base) => ({ ...base, padding: ".43rem" }),
-        indicatorSeparator: () => ({
-          display: "none",
-        }),
-        option: (base, state) => ({
-          ...base,
-          fontFamily: "Anonymous Pro, monospace",
-          cursor: "pointer",
-          backgroundColor: state.isSelected
-            ? "var(--brand-red-clr)"
-            : state.isFocused
-              ? "var(--brand-red-clr-hover)"
-              : "white",
-          color: state.isSelected
-            ? "white"
-            : state.isFocused
-              ? "white"
-              : "black",
-        }),
+        ...defaultStyles,
       }
     : {
         control: (base) => ({

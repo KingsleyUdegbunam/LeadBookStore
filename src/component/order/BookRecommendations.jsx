@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { books } from "../../data/inventory";
-import { BookCardRecommendationCard } from "../BookCardRecommendationCard";
+import { BookCard } from "../BookCard";
 
 const BookRecommendations = ({ order }) => {
   const collections = useMemo(() => {
@@ -23,7 +23,7 @@ const BookRecommendations = ({ order }) => {
     <div className="related-reads">
       <article className="products-container special-days">
         {recommendedBooks.map((book, index) => (
-          <BookCardRecommendationCard key={index} book={book} />
+          <BookCard key={index} book={book} />
         ))}
       </article>
     </div>

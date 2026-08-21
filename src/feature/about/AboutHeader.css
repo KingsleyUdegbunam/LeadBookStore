@@ -3,6 +3,10 @@
   padding-bottom: 0;
 }
 
+.about-image {
+  width: 100%;
+  height: auto;
+}
 .about-hero-header .image-wrapper img {
   object-fit: cover;
 }
@@ -10,7 +14,7 @@
 @media screen and (min-width: 1024px) {
   .about-hero-header .about-hero-wrapper {
     gap: 2rem;
-    align-items: stretch;
+    /* align-items: stretch; */
     justify-content: center;
   }
 
@@ -18,10 +22,13 @@
     width: 45%;
     height: 100%;
     overflow: hidden;
+    aspect-ratio: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .about-hero-header .image-wrapper img {
-    display: block;
     width: 100%;
     height: 100%;
     max-width: none;

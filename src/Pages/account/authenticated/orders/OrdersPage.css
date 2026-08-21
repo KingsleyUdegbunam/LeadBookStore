@@ -124,6 +124,10 @@
   display: none;
 }
 
+.ordered-date.mobile {
+  border-bottom: none;
+}
+
 .order-status-indicator.desktop {
   display: none;
 }

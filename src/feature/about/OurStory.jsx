@@ -1,5 +1,5 @@
 import React from "react";
-import story from "../../assets/about-story.jpg";
+import story from "../../assets/about-story.webp";
 import "./OurStory.css";
 
 export const OurStory = () => {
@@ -22,7 +22,14 @@ export const OurStory = () => {
         </div>
       </div>
       <div className="our-story-img-wrapper our-story-subcontent-2">
-        <img src={story} alt="A man looking at a bookshelf" />
+        <img
+          className="our-story-image"
+          width={4160}
+          height={6240}
+          src={story}
+          alt="A man looking at a bookshelf"
+          loading="lazy"
+        />
       </div>
     </section>
   );

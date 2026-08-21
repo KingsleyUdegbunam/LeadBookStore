@@ -1,24 +1,15 @@
 import React from "react";
 import { BrandLogo } from "../brand-logo/BrandLogo";
-import { SearchIcon, CartIcon } from "./Icons";
 import { FaRegUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
-import { useUI } from "../../context/UIContext";
+import { UseUI } from "../../context/UIContext";
+import { PRIMARY_NAV } from "../../feature/account/constant";
+import { TiShoppingCart } from "react-icons/ti";
+import { ImSearch } from "react-icons/im";
 import "./HeaderDesktop.css";
 
-export const HeaderDesktop = ({
-  toggleMenu,
-  toggleSearchBar,
-  menuRef,
-  cartQuantity,
-}) => {
-  const { setOpenAccountDrawer } = useUI();
-  const headerMenuOptions = [
-    { title: "Home", link: "/" },
-    { title: "Shop", link: "/shop" },
-    { title: "About", link: "/about" },
-    { title: "Contact", link: "/contact" },
-  ];
+export const HeaderDesktop = ({ cartQuantity }) => {
+  const { setOpenAccountDrawer, setOpenSearchDrawer } = UseUI();
 
   return (
     <div className="header-desktop pages-wrapper-variation">
@@ -28,7 +19,7 @@ export const HeaderDesktop = ({
 
       <nav>
         <ul className="header-desktop-links">
-          {headerMenuOptions.map((item) => {
+          {PRIMARY_NAV.map((item) => {
             return (
               <li className="header-links" key={item.link}>
                 <NavLink
@@ -49,20 +40,37 @@ export const HeaderDesktop = ({
         </ul>
       </nav>
       <div className="nav">
-        <SearchIcon
-          toggleMenu={toggleMenu}
-          toggleSearchBar={toggleSearchBar}
-          menuRef={menuRef}
-        />
-
+        <button
+          onClick={() => setOpenSearchDrawer(true)}
+          className="header-account"
+        >
+          <ImSearch size={19} />
+        </button>
         <button
           onClick={() => setOpenAccountDrawer(true)}
           className="header-account"
         >
-          <FaRegUser />
+          <FaRegUser size={18} />
         </button>
 
-        <CartIcon cartQuantity={cartQuantity} />
+        <NavLink
+          to={"/cart"}
+          className={({ isActive }) =>
+            `header-account ${
+              isActive ? "header-pages-link active-page" : "header-pages-link"
+            }`
+          }
+        >
+          <div className="cartIcon">
+            <div className="cart">
+              <span className="cart-item-number">
+                {cartQuantity > 0 ? cartQuantity : ""}
+              </span>
+
+              <TiShoppingCart size={20} />
+            </div>
+          </div>
+        </NavLink>
       </div>
     </div>
   );

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { UseAuth } from "../../../context/AuthContext";
-import { EmptyState } from "../../../component/general/states/EmptyState";
-import { LoadingState } from "../../../component/general/states/LoadingState";
-import { EMPTY_STATES } from "../../../constants/emptyStatesCopies";
+import { UseAuth } from "../../../../context/AuthContext";
+import { EmptyState } from "../../../../component/general/states/EmptyState";
+import { LoadingState } from "../../../../component/general/states/LoadingState";
+import { EMPTY_STATES } from "../../../../constants/emptyStatesCopies";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { convertToNaira } from "../../../utilities/money";
-import { getOrderDate } from "../../../feature/checkout/utilities";
-import { getUserOrders } from "../../../lib/validation/orders";
+import { convertToNaira } from "../../../../utilities/money";
+import { getOrderDate } from "../../../../feature/checkout/utilities";
+import { getUserOrders } from "../../../../lib/validation/orders";
 import { BsChevronRight } from "react-icons/bs";
 import { LuDot } from "react-icons/lu";
 import { FaCircleDot } from "react-icons/fa6";
@@ -63,7 +63,7 @@ const OrdersPage = () => {
         {orders.map((order) => (
           <Link
             key={order.id}
-            to={`/account/order-details/${order.id}`}
+            to={`/account/order-details/${order.reference}`}
             className={`my-order-item ${order.status}-order`}
           >
             <div className="my-order-items-wrapper">

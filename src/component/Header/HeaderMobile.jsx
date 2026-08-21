@@ -1,49 +1,53 @@
-import React from "react";
-import { HeaderMenu } from "./HeaderMenu";
-import { SearchIcon, CartIcon } from "./Icons";
-import { FaRegUser } from "react-icons/fa6";
 import { BrandLogo } from "../brand-logo/BrandLogo";
-import { useUI } from "../../context/UIContext";
+import { UseUI } from "../../context/UIContext";
+import { RiMenuLine } from "react-icons/ri";
+import { TiShoppingCart } from "react-icons/ti";
+import { ImSearch } from "react-icons/im";
+import { NavLink } from "react-router-dom";
 import "./HeaderMobile.css";
 
-export const HeaderMobile = ({
-  menuRef,
-  menuOpenRef,
-  menuCloseRef,
-  toggleSearchBar,
-  cartQuantity,
-  toggleMenu,
-}) => {
-  const { setOpenAccountDrawer } = useUI();
+export const HeaderMobile = ({ cartQuantity }) => {
+  const { setOpenAccountDrawer, setOpenSearchDrawer } = UseUI();
   return (
     <div className="header-mobile pages-wrapper-variation">
       {/* Logo */}
       <div className="menu-toggle-n-logo">
-        <HeaderMenu
-          toggleMenu={toggleMenu}
-          menuRef={menuRef}
-          menuOpenRef={menuOpenRef}
-          menuCloseRef={menuCloseRef}
-        />
         <BrandLogo variant={"dark"} />
       </div>
 
       {/* Header right */}
       <div className="nav">
-        <SearchIcon
-          toggleMenu={toggleMenu}
-          toggleSearchBar={toggleSearchBar}
-          menuRef={menuRef}
-        />
+        <button
+          onClick={() => setOpenSearchDrawer(true)}
+          className="header-account"
+        >
+          <ImSearch size={19} />
+        </button>
+        <NavLink
+          to={"/cart"}
+          className={({ isActive }) =>
+            `header-account ${
+              isActive ? "header-pages-link active-page" : "header-pages-link"
+            }`
+          }
+        >
+          <div className="cartIcon">
+            <div className="cart">
+              <span className="cart-item-number">
+                {cartQuantity > 0 ? cartQuantity : ""}
+              </span>
+
+              <TiShoppingCart size={22} />
+            </div>
+          </div>
+        </NavLink>
 
         <button
           onClick={() => setOpenAccountDrawer(true)}
           className="header-account"
         >
-          <FaRegUser />
+          <RiMenuLine size={20} />
         </button>
-
-        <CartIcon cartQuantity={cartQuantity} />
       </div>
     </div>
   );

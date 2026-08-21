@@ -24,21 +24,21 @@
 
 /* NEW SEARCH */
 
-.icon {
-  width: 17px;
-  height: 17px;
-}
-
 .header-account {
-  padding: 0.5rem;
+  padding: 0.3rem;
   background-color: transparent;
   color: var(--text-primary);
   font-size: initial;
-  margin: auto;
   max-width: fit-content;
 }
 
 .header-account:hover {
   background-color: transparent;
   color: var(--color-brand-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .header-account {
+    padding: 0.45rem;
+  }
 }

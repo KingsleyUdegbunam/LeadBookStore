@@ -11,11 +11,13 @@ import SignInPage from "./Pages/auth/signin/SignInPage";
 import SignUpPage from "./Pages/auth/signup/SignUpPage";
 import Layout from "./Layout";
 import AuthLayout from "./AuthLayout";
-import OrdersPage from "./Pages/account/orders/OrdersPage";
-import OrderDetail from "./Pages/account/orderDetails/OrderDetail";
-import { Settings } from "./Pages/account/setting/Settings";
+import OrdersPage from "./Pages/account/authenticated/orders/OrdersPage";
+import OrderDetail from "./Pages/account/authenticated/orderDetail/OrderDetail";
+import { Settings } from "./Pages/account/authenticated/setting/Settings";
 import { NotFound } from "./Pages/not-found/NotFound";
 import { AuthGuard } from "./routes/AuthGuard";
+import { TrackOrder } from "./Pages/account/guest/track-order/TrackOrder";
+import { GuestOrder } from "./Pages/account/guest/track-order/GuestOrder";
 
 export const router = createBrowserRouter([
   //Public pages
@@ -46,6 +48,16 @@ export const router = createBrowserRouter([
       },
       { path: "checkout", element: <CheckoutPage /> },
       { path: "order/:ref", element: <PostCheckout /> },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+
+      { path: "track-order", element: <TrackOrder /> },
+      {
+        path: "order-tracking/:ref",
+        element: <GuestOrder />,
+      },
     ],
   },
   // Authentication pages. Reducing visual distraction
@@ -74,47 +86,9 @@ export const router = createBrowserRouter([
             element: <Settings />,
           },
           { path: "orders", element: <OrdersPage /> },
-          { path: "order-details/:id", element: <OrderDetail /> },
+          { path: "order-details/:ref", element: <OrderDetail /> },
         ],
       },
     ],
   },
-  {
-    path: "*",
-    element: <NotFound />,
-  },
 ]);
-
-// {
-//   path: "/",
-//   element: <Layout />,
-//   children: [
-//     { index: true, element: <HomePage /> },
-//     { path: "/shop", element: <ShopPage /> },
-//     { path: "/cart", element: <CartPage /> },
-//     { path: "/checkout", element: <CheckoutPage /> },
-//     { path: "/product/:id", element: <ProductPage /> },
-//     { path: "/order/:ref", element: <OrderPage /> },
-//     { path: "/about", element: <AboutPage /> },
-//     { path: "/contact", element: <ContactPage /> },
-//     { path: "/tracking", element: <TrackingPage /> },
-//     { path: "/account/orders", element: <AccountOrdersPage /> },
-//     { path: "/account/order-details/:id", element: <OrderDetail /> },
-//     {
-//       path: "/account/account-settings",
-//       element: <Settings />,
-//     },
-//     {
-//       path: "*",
-//       element: <NotFound />,
-//     },
-//   ],
-// },
-
-// {
-//   element: <AuthLayout />,
-//   children: [
-//     { path: "/signup", element: <SignUpPage /> },
-//     { path: "/signin", element: <SignInPage /> },
-//   ],
-// },

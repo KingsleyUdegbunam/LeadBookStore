@@ -10,11 +10,11 @@ export default function AuthLayout() {
   }, [pathname]);
 
   return (
-    <>
+    <div className="app-layout-wrapper">
       <AuthHeader />
-      <main className="auth-layout">
+      <main className="app-content">
         <Outlet />
       </main>
-    </>
+    </div>
   );
 }

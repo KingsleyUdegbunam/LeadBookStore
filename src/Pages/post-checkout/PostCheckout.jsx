@@ -6,7 +6,6 @@ import {
   OrderCostBreakDown,
   BooksPurchased,
 } from "../../component/order/OrderSummary";
-import { BookCardRecommendationCard } from "../../component/BookCardRecommendationCard";
 import { OrderInfo } from "../../component/order/OrderInfo";
 import { toast } from "sonner";
 import { UseAuth } from "../../context/AuthContext";
@@ -14,7 +13,9 @@ import {
   AuthenticatedBanner,
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
+import { BookCard } from "../../component/BookCard";
 import "./PostCheckout.css";
+import { LoadingState } from "../../component/general/states/LoadingState";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
@@ -69,7 +70,7 @@ export default function PostCheckout() {
     .sort((a, b) => b.score - a.score)
     .slice(0, 6);
 
-  if (loading) return <p style={{ marginBlock: "5rem" }}>Loading...</p>;
+  if (loading) return <LoadingState />;
   if (!order) return <p style={{ marginBlock: "5rem" }}>Order not found</p>;
 
   return (
@@ -99,7 +100,7 @@ export default function PostCheckout() {
             <div className="related-reads">
               <article className="products-container special-days">
                 {recommendedBooks.map((book, index) => (
-                  <BookCardRecommendationCard key={index} book={book} />
+                  <BookCard index={index} book={book} />
                 ))}
               </article>
             </div>

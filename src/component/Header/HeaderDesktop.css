@@ -11,6 +11,19 @@
   display: none;
 }
 
+.header-pages-link {
+  color: var(--text-primary);
+  transition: color var(--transition-fast) ease-in-out;
+}
+
+.header-pages-link {
+  color: var(--text-primary);
+}
+
+.header-pages-link.active-page {
+  color: var(--color-brand);
+}
+
 @media screen and (min-width: 1024px) {
   .header-mobile {
     display: none;
@@ -25,18 +38,6 @@
     gap: 2.5rem;
     list-style: none;
     font-family: var(--font-primary);
-  }
-  .header-pages-link {
-    color: var(--text-primary);
-    transition: color var(--transition-fast) ease-in-out;
-  }
-
-  .header-pages-link {
-    color: var(--text-primary);
-  }
-
-  .header-pages-link.active-page {
-    color: var(--color-brand);
   }
 
   .header-pages-link:hover {

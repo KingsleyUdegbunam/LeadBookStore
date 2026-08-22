@@ -2,6 +2,7 @@ import React from "react";
 
 export const TextInput = ({
   id,
+  name,
   label,
   important,
   ref,
@@ -11,6 +12,7 @@ export const TextInput = ({
   onBlur,
   error,
   disabled,
+  required,
 }) => {
   return (
     <div>
@@ -20,9 +22,11 @@ export const TextInput = ({
           {important && <span className="important">*</span>}
         </label>
         <input
+          required={required}
           placeholder={placeholder}
           ref={ref}
           id={id}
+          name={name}
           type="text"
           disabled={disabled}
           aria-disabled={disabled}

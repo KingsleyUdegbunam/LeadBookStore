@@ -1,0 +1,17 @@
+.carousel-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.embla__button {
+  min-height: 0rem;
+
+  padding: 0.5rem 0.8em;
+}
+
+.embla__prev:disabled,
+.embla__next:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}

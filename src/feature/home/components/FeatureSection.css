@@ -1,5 +1,5 @@
 .highlight.section {
-  padding-block: 2.5rem 0;
+  padding-block: 2rem 0;
 
   background-color: var(--surface-page);
   justify-content: space-between;
@@ -8,11 +8,6 @@
 .feature-section-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.feature-header .header {
-  padding: 0;
 }
 
 .feature-header {
@@ -26,13 +21,13 @@
   mix-blend-mode: darken;
   /* opacity: 0.95; */
   width: 100%;
-  max-width: 450px;
+  max-width: 400px;
   margin: 0 auto;
   display: grid;
   place-items: center;
 
-  margin-top: 1.5rem;
-  padding-bottom: 01px;
+  margin-top: 2.5rem;
+  padding-bottom: 1px;
 }
 
 .highlightImg-container img {

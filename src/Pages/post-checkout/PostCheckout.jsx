@@ -16,17 +16,35 @@ import {
 import { BookCard } from "../../component/BookCard";
 import "./PostCheckout.css";
 import { LoadingState } from "../../component/general/states/LoadingState";
+import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
+import useEmblaCarousel from "embla-carousel-react";
+import { CarouselButton } from "../../feature/carousel/CarouselButton";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const { ref } = useParams();
-
   const { session } = UseAuth();
+
   const recentOrder = useMemo(() => {
     const stored = sessionStorage.getItem("recentOrder");
     return stored ? JSON.parse(stored) : [];
   }, []);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    dragFree: true,
+    slidesToScroll: 1,
+
+    breakpoints: {
+      "(min-width: 768px)": {
+        slidesToScroll: 3,
+      },
+      "(min-width: 1024px)": {
+        slidesToScroll: 5,
+      },
+    },
+  });
 
   useEffect(() => {
     async function loadOrder() {
@@ -68,7 +86,7 @@ export default function PostCheckout() {
     }))
     .filter((book) => book.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 6);
+    .slice(0, 10);
 
   if (loading) return <LoadingState />;
   if (!order) return <p style={{ marginBlock: "5rem" }}>Order not found</p>;
@@ -96,13 +114,14 @@ export default function PostCheckout() {
             </div>
           </section>
           <section className="recommendation-sec order-section-wrapper">
-            <h2 className="order-summary-h2">Inspired By Your Order</h2>
+            <div className="carousel-section-header">
+              <h2 className="order-summary-h2">Inspired By Your Order</h2>
+              <CarouselButton emblaApi={emblaApi} />
+            </div>
             <div className="related-reads">
-              <article className="products-container special-days">
-                {recommendedBooks.map((book, index) => (
-                  <BookCard index={index} book={book} />
-                ))}
-              </article>
+              <CarouselWrapper array={recommendedBooks} emblaRef={emblaRef}>
+                {(book) => <BookCard book={book} />}
+              </CarouselWrapper>
             </div>
           </section>
         </div>

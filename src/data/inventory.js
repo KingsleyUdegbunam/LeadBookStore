@@ -1396,7 +1396,7 @@ export const books = [
     price: { paperback: 2200000, hardback: 3500000 },
     rating: 4.8,
     reviews: 1800,
-    tag: ["bestseller"],
+    tag: ["bestseller", "new arrival"],
     details: {
       publisher: "Crown Publishing Group",
       isbn: "9781524763169",
@@ -1491,7 +1491,7 @@ export const books = [
     price: { paperback: 1500000, hardback: 2400000 },
     rating: 4.8,
     reviews: 2890,
-    tag: ["top rated", "bestseller"],
+    tag: ["top rated", "bestseller", "new arrival"],
     details: {
       publisher: "Little, Brown and Company",
       isbn: "9780316322409",

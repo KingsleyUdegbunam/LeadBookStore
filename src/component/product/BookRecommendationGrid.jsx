@@ -1,8 +1,9 @@
 import { books } from "../../data/inventory";
 import { BookCard } from "../BookCard";
+import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
 import "./BookRecommendationGrid.css";
 
-const BookRecommendationGrid = ({ id, selectedBook }) => {
+const BookRecommendationGrid = ({ id, selectedBook, emblaRef }) => {
   const collections = selectedBook.collections;
   const recommendedBooks = books
     .filter((book) => book.id !== id)
@@ -19,9 +20,9 @@ const BookRecommendationGrid = ({ id, selectedBook }) => {
   return (
     <div className="related-reads">
       <article className="recommended-book-container special-days">
-        {recommendedBooks.map((book, index) => (
-          <BookCard book={book} index={index} />
-        ))}
+        <CarouselWrapper array={recommendedBooks} emblaRef={emblaRef}>
+          {(book) => <BookCard book={book} />}
+        </CarouselWrapper>
       </article>
     </div>
   );

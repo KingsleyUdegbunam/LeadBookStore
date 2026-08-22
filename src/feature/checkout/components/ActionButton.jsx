@@ -12,10 +12,10 @@ export function ActionButton({ isReadyToPay, loading }) {
         "Processing..."
       ) : isReadyToPay ? (
         <span className="place-order-btn button-full-width">
-          <FaLock /> PLACE ORDER
+          <FaLock /> Place Order
         </span>
       ) : (
-        "CONTINUE"
+        "Continue"
       )}
     </button>
   );

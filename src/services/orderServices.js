@@ -36,7 +36,6 @@ export const getOrdersByEmail = async (email) => {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.log("ERROR");
     throw new Error(error.message);
   }
 

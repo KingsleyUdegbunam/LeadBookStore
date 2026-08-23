@@ -98,7 +98,7 @@ export function ShippingInfo({
     if (validForm) {
       const userId = session?.user?.id ?? null;
       if (isReadyToPay) {
-        await initiatePayment({
+        initiatePayment({
           userId,
           cartTotalPrice,
           cartInDetail,

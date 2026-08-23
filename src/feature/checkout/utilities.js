@@ -203,7 +203,6 @@ export function dropDownStyles(variant, error = false, isDisabled) {
 
 export function getShippingOptions(state) {
   const isAbuja = state === "FCT (Abuja)";
-  const today = dayjs();
 
   return [
     {

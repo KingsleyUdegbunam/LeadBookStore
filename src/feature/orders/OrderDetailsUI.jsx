@@ -1,5 +1,9 @@
-import { LuClipboardList } from "react-icons/lu";
+import { Link } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
+import BookRecommendations from "../../component/order/BookRecommendations";
 import { BooksPurchased } from "../../component/order/OrderSummary";
+import { CarouselButton } from "../carousel/CarouselButton";
+
 import { convertToNaira } from "../../utilities/money";
 import { getOrderDate } from "../checkout/utilities";
 import { GrNotes } from "react-icons/gr";
@@ -9,9 +13,8 @@ import { IoCheckmarkOutline } from "react-icons/io5";
 import { HiOutlineTruck } from "react-icons/hi2";
 import { PiPackageDuotone } from "react-icons/pi";
 import { FaCircleDot } from "react-icons/fa6";
-import BookRecommendations from "../../component/order/BookRecommendations";
+import { LuClipboardList } from "react-icons/lu";
 import { RiArrowLeftLongLine } from "react-icons/ri";
-import { Link } from "react-router-dom";
 import "./OrderDetailsUI.css";
 
 export const OrderDetailsUI = ({ order, backTo, path }) => {
@@ -20,6 +23,21 @@ export const OrderDetailsUI = ({ order, backTo, path }) => {
     { key: "shipped", title: "Shipped" },
     { key: "delivered", title: "Delivered" },
   ];
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    dragFree: true,
+    slidesToScroll: 1,
+
+    breakpoints: {
+      "(min-width: 768px)": {
+        slidesToScroll: 3,
+      },
+      "(min-width: 1024px)": {
+        slidesToScroll: 5,
+      },
+    },
+  });
 
   const currentIndex = ORDER_TIMELINE.findIndex(
     (step) => step.key === order?.status,
@@ -240,9 +258,12 @@ export const OrderDetailsUI = ({ order, backTo, path }) => {
             </div>
           </article>
         </div>
-        <article className="border recommendation">
-          <p className="details-card-header">You May Also Like</p>
-          <BookRecommendations order={order} />
+        <article className="recommendation">
+          <div className="carousel-section-header">
+            <p className="details-card-header">You May Also Like</p>
+            <CarouselButton emblaApi={emblaApi} />
+          </div>
+          <BookRecommendations emblaRef={emblaRef} order={order} />
         </article>
       </div>
     </section>

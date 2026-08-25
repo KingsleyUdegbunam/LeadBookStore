@@ -1,8 +1,9 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { books } from "../../data/inventory";
 import { BookCard } from "../BookCard";
+import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
 
-const BookRecommendations = ({ order }) => {
+const BookRecommendations = ({ order, emblaRef }) => {
   const collections = useMemo(() => {
     return [...new Set(order?.items.flatMap((item) => item.collections) ?? [])];
   }, [order]);
@@ -18,13 +19,13 @@ const BookRecommendations = ({ order }) => {
     }))
     .filter((book) => book.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 6);
+    .slice(0, 12);
   return (
     <div className="related-reads">
-      <article className="products-container special-days">
-        {recommendedBooks.map((book, index) => (
-          <BookCard key={index} book={book} />
-        ))}
+      <article className="recommended-book-container">
+        <CarouselWrapper array={recommendedBooks} emblaRef={emblaRef}>
+          {(book) => <BookCard book={book} />}
+        </CarouselWrapper>
       </article>
     </div>
   );

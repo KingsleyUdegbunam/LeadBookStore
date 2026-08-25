@@ -150,8 +150,8 @@ export const initiatePayment = ({
       toast.info("Payment was cancelled.");
       setLoading(false);
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("We couldn’t start your payment. Please try again.");
       setLoading(false);
     },
   });
@@ -228,7 +228,7 @@ export function getShippingOptions(state) {
     },
   ];
 }
-//check if tomorroq falls in weekend
+//check if tomorrow falls in weekend
 //if yes, skip
 //if no, substract from countdown
 //loop again

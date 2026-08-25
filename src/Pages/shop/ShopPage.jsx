@@ -154,18 +154,20 @@ export default function ShopPage({ cart, setCart, addToCart }) {
         />
 
         {/* SHOP BOOKS */}
-        {sortedBooks.length > 0 ? (
-          <div className="inner-page-padding">
-            <BookGrid
-              setCart={setCart}
-              cart={cart}
-              addToCart={addToCart}
-              books={sortedBooks}
-            />
-          </div>
-        ) : (
-          <EmptyState {...EMPTY_STATES.shop} onAction={clearFilters} />
-        )}
+        <div className="shop-content-wrapper">
+          {sortedBooks.length > 0 ? (
+            <div>
+              <BookGrid
+                setCart={setCart}
+                cart={cart}
+                addToCart={addToCart}
+                books={sortedBooks}
+              />
+            </div>
+          ) : (
+            <EmptyState {...EMPTY_STATES.shop} onAction={clearFilters} />
+          )}
+        </div>
       </section>
     </div>
   );

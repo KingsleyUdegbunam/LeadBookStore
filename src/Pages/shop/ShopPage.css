@@ -2,8 +2,12 @@ h2 {
   font-family: "Outfit", sans-serif;
 }
 
+.shop-content-wrapper {
+  min-height: 450px;
+}
+
 @media screen and (min-width: 1024px) {
-  .inner-page-padding {
+  .shop-content-wrapper {
     padding-inline: 3rem;
   }
 }

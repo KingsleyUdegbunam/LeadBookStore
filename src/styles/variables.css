@@ -82,6 +82,15 @@
   --color-error: var(--color-brand);
   --color-info: #2f5e88;
 
+  /* Status Order */
+  --color-processing: rgb(3, 106, 161);
+  --color-shipped: rgb(238, 159, 0);
+  --color-delivered: rgb(0, 177, 53);
+
+  --bg-processing: rgba(3, 106, 161, 0.15);
+  --bg-shipped: rgba(238, 159, 0, 0.15);
+  --bg-delivered: rgba(0, 177, 53, 0.15);
+
   /*  Accent*/
 
   --color-accent: #b28a4a;

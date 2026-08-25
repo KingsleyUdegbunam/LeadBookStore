@@ -262,3 +262,7 @@ export function getOrderDate(inputDate, time = false) {
   }
   return returnDate;
 }
+
+export const handlePrint = () => {
+  window.print();
+};

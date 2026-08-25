@@ -1,0 +1,37 @@
+.receipt-wrapper {
+  display: none;
+  max-width: 800px;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-block: 0rem;
+  margin-block: 0;
+}
+
+.receipt-wrapper .authenticated-banner-wrapper {
+  padding-top: 1rem;
+}
+
+.receipt-wrapper .print-btn {
+  display: none;
+}
+
+.receipt-wrapper .bannser-section-wrapper {
+  padding: 0 !important;
+}
+
+#receipt .order-img-wrapper {
+  max-width: 280px;
+}
+
+#receipt .shipping-billing-grid {
+  row-gap: 0.5rem;
+}
+
+#receipt .order-item-grid-desktop {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+#receipt .shipping-billing-grid-cell {
+  gap: 0.5rem;
+}

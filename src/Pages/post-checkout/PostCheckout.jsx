@@ -19,6 +19,7 @@ import { LoadingState } from "../../component/general/states/LoadingState";
 import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
 import useEmblaCarousel from "embla-carousel-react";
 import { CarouselButton } from "../../feature/carousel/CarouselButton";
+import { Receipt } from "./Receipt";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
@@ -93,7 +94,7 @@ export default function PostCheckout() {
 
   return (
     <>
-      <section className="">
+      <section className="no-print">
         {!session && recentOrder && <GuestBanner order={order} />}
 
         {session && <AuthenticatedBanner order={order} />}
@@ -126,6 +127,10 @@ export default function PostCheckout() {
           </section>
         </div>
       </section>
+
+      <div id="receipt">
+        <Receipt order={order} />
+      </div>
     </>
   );
 }

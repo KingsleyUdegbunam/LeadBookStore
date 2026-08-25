@@ -148,10 +148,6 @@
     font-size: 0.95rem;
   }
 
-  .hero-msg-support {
-    margin-top: -0.5rem;
-  }
-
   .mini-support-txt {
     font-size: 15px;
   }
@@ -172,5 +168,26 @@
   .banner-signup-wrapper {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
+  }
+}
+
+@media print {
+  .drawer-backdrop,
+  .search-overlay,
+  .header-wrapper,
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  #receipt {
+    width: 100%;
+    display: flex !important;
+    z-index: 500;
+  }
+
+  body {
+    print-color-adjust: exact;
+    --webkit-print-color-adjust: exact;
   }
 }

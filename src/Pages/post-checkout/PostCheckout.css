@@ -39,6 +39,10 @@
   border-bottom: 1px solid var(--divider);
 }
 
+.hero-msg-support {
+  margin-top: -1.5rem;
+}
+
 @media screen and (min--width: 768px) {
   .order-section-wrapper {
     padding-inline: 2.5rem;

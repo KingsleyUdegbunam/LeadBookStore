@@ -84,3 +84,8 @@
 .product-award {
   text-align: end;
 }
+
+.product-card button.button-primary.is-added {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
+}

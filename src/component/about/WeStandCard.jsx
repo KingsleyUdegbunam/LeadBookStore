@@ -1,4 +1,3 @@
-import React from "react";
 import "./WeStandCard.css";
 
 export const WeStandCard = ({ digit, title, body }) => {

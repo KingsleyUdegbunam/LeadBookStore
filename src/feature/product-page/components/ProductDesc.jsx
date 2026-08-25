@@ -1,5 +1,3 @@
-import React from "react";
-
 const ProductDesc = ({ book }) => {
   return (
     <article className="desc-container">

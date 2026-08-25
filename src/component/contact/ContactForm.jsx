@@ -1,7 +1,7 @@
+import { useState } from "react";
 import Select from "react-select";
 import { reactSelectStyles } from "../../styles/components/reactSelect";
 import { TextInput } from "../general/inputs/TextInput";
-import { useState } from "react";
 import "./ContactForm.css";
 export const ContactForm = ({ state, handleSubmit, ValidationError }) => {
   const [messageCount, setMessageCount] = useState(0);

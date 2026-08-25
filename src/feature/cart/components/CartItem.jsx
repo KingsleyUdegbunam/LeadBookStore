@@ -1,4 +1,3 @@
-import React from "react";
 import { convertToNaira } from "../../../utilities/money";
 import { updateCartItemQty, deleteItem } from "../utilities";
 import { RiSubtractLine } from "react-icons/ri";

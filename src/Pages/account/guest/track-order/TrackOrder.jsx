@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { TextInput } from "../../../../component/general/inputs/TextInput";
 import { useNavigate } from "react-router-dom";
-import "./TrackOrder.css";
 import { supabase } from "../../../../utilities/supabase";
 import { toast } from "sonner";
 import { FunctionsHttpError } from "@supabase/supabase-js";
 import { LuPackageSearch } from "react-icons/lu";
 import { FaArrowRight } from "react-icons/fa";
+import "./TrackOrder.css";
 
 export const TrackOrder = () => {
   const [trackingDetails, setTrackingDetails] = useState({

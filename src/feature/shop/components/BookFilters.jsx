@@ -1,8 +1,7 @@
-import React from "react";
 import Select from "react-select";
 import { useRef } from "react";
-import "./BookFilters.css";
 import { filterStyles } from "../../../styles/components/reactSelect";
+import "./BookFilters.css";
 
 const BookFilters = ({
   query,

@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import "./CarouselButton.css";
-import { useEffect, useState } from "react";
 
 export const CarouselButton = ({ emblaApi }) => {
   const [prevButtonDisabled, setPrevButtonDisabled] = useState(true);

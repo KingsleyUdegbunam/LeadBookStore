@@ -1,4 +1,3 @@
-import React from "react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { useCart } from "../../../context/CartContext";
 import { convertToNaira } from "../../../utilities/money";

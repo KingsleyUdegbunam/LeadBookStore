@@ -1,4 +1,3 @@
-import React from "react";
 import { BrandLogo } from "../brand-logo/BrandLogo";
 import { FaRegUser } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";

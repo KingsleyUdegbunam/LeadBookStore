@@ -3,7 +3,7 @@
   align-items: center;
   gap: 0.2rem;
   font-family: "Outfit", sans-serif;
-  color: black;
+  color: var(--text-primary);
   width: fit-content;
   padding: 0.5rem 1rem;
   padding-inline-start: 0;
@@ -11,7 +11,7 @@
 }
 
 .order-details-navigation:hover {
-  color: var(--brand-red-clr);
+  color: var(--color-brand);
 }
 
 .order-progress-header {
@@ -75,12 +75,12 @@
 }
 
 .timeline-icon {
-  color: #bebebe;
+  color: var(--border-heavy);
   padding: 0.2rem;
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-default);
 
   display: grid;
   place-content: center;
@@ -88,15 +88,15 @@
 
 /* completed */
 .timeline-icon.completed {
-  background-color: rgb(0, 177, 53);
-  color: white;
+  background-color: var(--color-delivered);
+  color: var(--surface-card);
   border: none;
 }
 
 /* Current */
 .timeline-icon.current {
-  color: white;
-  background-color: rgb(238, 159, 0);
+  color: var(--color-white);
+  background-color: var(--color-shipped);
   border: none;
 }
 
@@ -104,11 +104,11 @@
   min-height: 2.5rem;
   width: 2px;
   flex: 1;
-  background: #ddd;
+  background: var(--border-default);
 }
 
 .timeline-line.completed {
-  background-color: rgb(0, 177, 53);
+  background-color: var(--color-delivered);
 }
 
 .order-details-page-wrapper {
@@ -136,7 +136,7 @@
 
 .order-details-card {
   padding: 0.5rem 0.6rem;
-  border: 1px solid #eee;
+  border: 1px solid var(--surface-page);
   border-radius: 0.4rem;
   display: flex;
   justify-content: space-between;
@@ -145,7 +145,7 @@
 
 .border {
   padding: 0.5rem 1rem;
-  border: 1px solid #eee;
+  border: 1px solid var(--surface-page);
   border-radius: 0.4rem;
 }
 
@@ -157,16 +157,12 @@
 }
 
 .detail-card-pill.green {
-  color: rgb(0, 177, 53);
-  background-color: rgba(0, 177, 53, 0.15);
-}
-
-.detail-card-pill.red-text {
-  color: var(--brand-red-clr);
+  color: var(--color-delivered);
+  background-color: var(--bg-delivered);
 }
 
 .detail-card-pill.green-text {
-  color: rgb(0, 177, 53);
+  color: var(--color-delivered);
 }
 
 .details-card-icon-wrapper {
@@ -197,13 +193,13 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: rgb(27, 27, 27);
+  color: var(--text-primary);
 }
 
 .card-text-body {
   font-size: clamp(14px, 3vw, 0.9rem);
   font-weight: 300;
-  color: #454545;
+  color: var(--text-secondary);
 }
 
 .flex {
@@ -222,7 +218,7 @@
 .order-total-cost {
   font-size: 13px;
   font-weight: 500;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--surface-page);
   padding-block: 0.3rem;
 }
 
@@ -236,7 +232,7 @@
 
 .order-details-page-wrapper .order-detail-info {
   padding-block: 0.5rem;
-  background-color: #eee;
+  background-color: var(--surface-page);
   padding: 1rem;
 }
 
@@ -256,6 +252,7 @@
 @media screen and (min-width: 1024px) {
   .page-content-wrapper {
     padding-inline: 2rem;
+    gap: 2rem;
   }
   .order-details-wrapper {
     grid-template-columns: 1fr 1fr;

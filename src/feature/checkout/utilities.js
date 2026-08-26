@@ -112,6 +112,7 @@ export const initiatePayment = ({
           throw new Error("Invalid transaction reference");
         }
 
+        const now = new Date().toISOString();
         const orderData = {
           reference: transaction.reference,
           user_id: userId,
@@ -122,7 +123,8 @@ export const initiatePayment = ({
           email: shippingDetails?.email,
           courier_details: selectedShipping,
           status: "processing",
-          processing_at: new Date().toISOString(),
+          processing_at: now,
+          created_at: now,
         };
 
         const result = await createOrder(orderData);
@@ -137,7 +139,11 @@ export const initiatePayment = ({
           return;
         }
         setCart([]);
-        sessionStorage.setItem("recentOrder", JSON.stringify(orderData));
+
+        sessionStorage.setItem(
+          `order:${orderData.reference}`,
+          JSON.stringify(orderData),
+        );
         navigate(`/order/${orderData.reference}`);
       } catch {
         toast.error("Something went wrong. Please try again in a few minutes.");

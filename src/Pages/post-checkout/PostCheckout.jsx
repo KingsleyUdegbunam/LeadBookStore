@@ -14,12 +14,12 @@ import {
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
 import { BookCard } from "../../component/BookCard";
-import "./PostCheckout.css";
 import { LoadingState } from "../../component/general/states/LoadingState";
 import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
 import useEmblaCarousel from "embla-carousel-react";
 import { CarouselButton } from "../../feature/carousel/CarouselButton";
 import { Receipt } from "./Receipt";
+import "./PostCheckout.css";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
@@ -28,9 +28,9 @@ export default function PostCheckout() {
   const { session } = UseAuth();
 
   const recentOrder = useMemo(() => {
-    const stored = sessionStorage.getItem("recentOrder");
+    const stored = sessionStorage.getItem(`order:${ref}`);
     return stored ? JSON.parse(stored) : [];
-  }, []);
+  }, [ref]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -49,7 +49,7 @@ export default function PostCheckout() {
 
   useEffect(() => {
     async function loadOrder() {
-      if (recentOrder?.reference === ref) {
+      if (recentOrder) {
         setOrder(recentOrder);
         setLoading(false);
         return;
@@ -63,6 +63,7 @@ export default function PostCheckout() {
       try {
         const data = await getOrderByRef(ref);
         setOrder(data);
+        sessionStorage.setItem(`order:${ref}`, JSON.stringify(data));
       } catch {
         toast.error("Failed to fetch order");
       } finally {

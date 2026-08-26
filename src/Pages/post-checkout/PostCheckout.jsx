@@ -7,21 +7,20 @@ import {
   BooksPurchased,
 } from "../../component/order/OrderSummary";
 import { OrderInfo } from "../../component/order/OrderInfo";
-import { toast } from "sonner";
 import { UseAuth } from "../../context/AuthContext";
 import {
   AuthenticatedBanner,
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
-import { BookCard } from "../../component/BookCard";
 import { LoadingState } from "../../component/general/states/LoadingState";
+import { EmptyState } from "../../component/general/states/EmptyState";
+import image from "../../assets/empty-states/orders.svg";
+import { BookCard } from "../../component/BookCard";
 import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
 import useEmblaCarousel from "embla-carousel-react";
 import { CarouselButton } from "../../feature/carousel/CarouselButton";
 import { Receipt } from "./Receipt";
 import "./PostCheckout.css";
-import { EmptyState } from "../../component/general/states/EmptyState";
-import image from "../../assets/empty-states/orders.svg";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);

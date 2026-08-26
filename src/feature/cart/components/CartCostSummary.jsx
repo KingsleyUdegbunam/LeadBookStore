@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { useCart } from "../../../context/CartContext";
 import { convertToNaira } from "../../../utilities/money";
@@ -7,6 +8,7 @@ import "./CartCostSummary.css";
 
 export const CartCostSummary = () => {
   const { cartTotalPrice, cart } = useCart();
+  const [open, setOpen] = useState(false);
   return (
     <div className="cart-cost-wrapper">
       <div className="cart-item-summary">
@@ -18,10 +20,17 @@ export const CartCostSummary = () => {
         <div className="estimated-delivery cart-cost-summary-flex">
           <div className="subtotal-text-icon-wrapper">
             <p className="">Delivery</p>{" "}
-            <Tooltip.Root>
+            <Tooltip.Root open={open}>
               <Tooltip.Trigger asChild>
-                <button className="delivery-info-icon">
-                  <IoMdInformationCircleOutline />
+                <button
+                  className="delivery-info-icon"
+                  aria-label="Delivery information"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setOpen((prev) => !prev);
+                  }}
+                >
+                  <IoMdInformationCircleOutline size={16} />
                 </button>
               </Tooltip.Trigger>
 

@@ -50,6 +50,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .order-details {
+    gap: 1rem;
+  }
   .order-section-wrapper {
     padding-inline: 4rem;
   }

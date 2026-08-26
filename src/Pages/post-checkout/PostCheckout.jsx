@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getOrderByRef } from "../../services/orderServices";
 import { books } from "../../data/inventory";
 import {
@@ -20,12 +20,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import { CarouselButton } from "../../feature/carousel/CarouselButton";
 import { Receipt } from "./Receipt";
 import "./PostCheckout.css";
+import { EmptyState } from "../../component/general/states/EmptyState";
+import image from "../../assets/empty-states/orders.svg";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const { ref } = useParams();
   const { session } = UseAuth();
+  const navigate = useNavigate();
 
   const recentOrder = useMemo(() => {
     const stored = sessionStorage.getItem(`order:${ref}`);
@@ -49,28 +52,25 @@ export default function PostCheckout() {
 
   useEffect(() => {
     async function loadOrder() {
-      if (recentOrder) {
+      if (recentOrder?.ref === ref) {
         setOrder(recentOrder);
-        setLoading(false);
         return;
       }
 
       if (!session) {
-        setLoading(false);
         return;
       }
-
-      try {
-        const data = await getOrderByRef(ref);
-        setOrder(data);
-        sessionStorage.setItem(`order:${ref}`, JSON.stringify(data));
-      } catch {
-        toast.error("Failed to fetch order");
-      } finally {
-        setLoading(false);
+      const { data, error } = await getOrderByRef(ref);
+      if (error) {
+        return;
       }
+      setOrder(data);
+      sessionStorage.setItem(`order:${ref}`, JSON.stringify(data));
     }
-    loadOrder();
+
+    loadOrder().finally(() => {
+      setLoading(false);
+    });
   }, [recentOrder, ref, session]);
 
   const collections = useMemo(() => {
@@ -91,7 +91,20 @@ export default function PostCheckout() {
     .slice(0, 10);
 
   if (loading) return <LoadingState />;
-  if (!order) return <p style={{ marginBlock: "5rem" }}>Order not found</p>;
+  if (!order && !loading)
+    return (
+      <div className="pages-wrapper">
+        <EmptyState
+          image={image}
+          title="We couldn't retrieve your order details"
+          body="You can still track your order using your order reference."
+          actionText="Track My Order"
+          onAction={() =>
+            navigate(session ? `/account/orders` : "/track-order")
+          }
+        />
+      </div>
+    );
 
   return (
     <>

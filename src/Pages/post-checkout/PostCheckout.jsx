@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getOrderByRef } from "../../services/orderServices";
 import { books } from "../../data/inventory";
 import {
@@ -7,50 +7,69 @@ import {
   BooksPurchased,
 } from "../../component/order/OrderSummary";
 import { OrderInfo } from "../../component/order/OrderInfo";
-import { toast } from "sonner";
 import { UseAuth } from "../../context/AuthContext";
 import {
   AuthenticatedBanner,
   GuestBanner,
 } from "../../feature/post-checkout/components/Banner";
-import { BookCard } from "../../component/BookCard";
-import "./PostCheckout.css";
 import { LoadingState } from "../../component/general/states/LoadingState";
+import { EmptyState } from "../../component/general/states/EmptyState";
+import image from "../../assets/empty-states/orders.svg";
+import { BookCard } from "../../component/BookCard";
+import { CarouselWrapper } from "../../feature/carousel/CarouselWrapper";
+import useEmblaCarousel from "embla-carousel-react";
+import { CarouselButton } from "../../feature/carousel/CarouselButton";
+import { Receipt } from "./Receipt";
+import "./PostCheckout.css";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const { ref } = useParams();
-
   const { session } = UseAuth();
+  const navigate = useNavigate();
+
   const recentOrder = useMemo(() => {
-    const stored = sessionStorage.getItem("recentOrder");
+    const stored = sessionStorage.getItem(`order:${ref}`);
     return stored ? JSON.parse(stored) : [];
-  }, []);
+  }, [ref]);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    dragFree: true,
+    slidesToScroll: 1,
+
+    breakpoints: {
+      "(min-width: 768px)": {
+        slidesToScroll: 3,
+      },
+      "(min-width: 1024px)": {
+        slidesToScroll: 5,
+      },
+    },
+  });
 
   useEffect(() => {
     async function loadOrder() {
-      if (recentOrder?.reference === ref) {
+      if (recentOrder?.ref === ref) {
         setOrder(recentOrder);
-        setLoading(false);
         return;
       }
 
       if (!session) {
-        setLoading(false);
         return;
       }
-
-      try {
-        const data = await getOrderByRef(ref);
-        setOrder(data);
-      } catch {
-        toast.error("Failed to fetch order");
-      } finally {
-        setLoading(false);
+      const { data, error } = await getOrderByRef(ref);
+      if (error) {
+        return;
       }
+      setOrder(data);
+      sessionStorage.setItem(`order:${ref}`, JSON.stringify(data));
     }
-    loadOrder();
+
+    loadOrder().finally(() => {
+      setLoading(false);
+    });
   }, [recentOrder, ref, session]);
 
   const collections = useMemo(() => {
@@ -68,14 +87,27 @@ export default function PostCheckout() {
     }))
     .filter((book) => book.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 6);
+    .slice(0, 10);
 
   if (loading) return <LoadingState />;
-  if (!order) return <p style={{ marginBlock: "5rem" }}>Order not found</p>;
+  if (!order && !loading)
+    return (
+      <div className="pages-wrapper">
+        <EmptyState
+          image={image}
+          title="We couldn't retrieve your order details"
+          body="You can still track your order using your order reference."
+          actionText="Track My Order"
+          onAction={() =>
+            navigate(session ? `/account/orders` : "/track-order")
+          }
+        />
+      </div>
+    );
 
   return (
     <>
-      <section className="">
+      <section className="no-print">
         {!session && recentOrder && <GuestBanner order={order} />}
 
         {session && <AuthenticatedBanner order={order} />}
@@ -96,17 +128,22 @@ export default function PostCheckout() {
             </div>
           </section>
           <section className="recommendation-sec order-section-wrapper">
-            <h2 className="order-summary-h2">Inspired By Your Order</h2>
+            <div className="carousel-section-header">
+              <h2 className="order-summary-h2">Inspired By Your Order</h2>
+              <CarouselButton emblaApi={emblaApi} />
+            </div>
             <div className="related-reads">
-              <article className="products-container special-days">
-                {recommendedBooks.map((book, index) => (
-                  <BookCard index={index} book={book} />
-                ))}
-              </article>
+              <CarouselWrapper array={recommendedBooks} emblaRef={emblaRef}>
+                {(book) => <BookCard book={book} />}
+              </CarouselWrapper>
             </div>
           </section>
         </div>
       </section>
+
+      <div id="receipt">
+        <Receipt order={order} />
+      </div>
     </>
   );
 }

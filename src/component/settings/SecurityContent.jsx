@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { UseAuth } from "../../context/AuthContext";
 import { PasswordInput } from "../general/inputs/PasswordInput";
 import { passwordSchema } from "../../schemas/paswordSchema";

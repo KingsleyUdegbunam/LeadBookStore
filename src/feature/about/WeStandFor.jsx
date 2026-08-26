@@ -1,4 +1,3 @@
-import React from "react";
 import { WeStandCard } from "../../component/about/WeStandCard";
 import "./WeStandFor.css";
 

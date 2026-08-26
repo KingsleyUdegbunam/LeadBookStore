@@ -17,7 +17,7 @@ export const restoreItem = (item, index, setCart) => {
 };
 
 // update the quantity of an item in cart
-export const updateCartItemQty = (newQty, item, setCart, addToCart, index) => {
+export const updateCartItemQty = (newQty, item, setCart, index) => {
   const itemId = item.id;
   if (newQty === 0) {
     deleteItem(itemId, setCart);

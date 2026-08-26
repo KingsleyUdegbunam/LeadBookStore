@@ -1,4 +1,3 @@
-import React from "react";
 import { OrderInfoCard } from "./OrderInfoCard";
 import { capitalizeWords } from "../../utilities/capitalizeWords";
 import "./OrderInfo.css";

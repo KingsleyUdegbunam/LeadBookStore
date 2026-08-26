@@ -14,8 +14,8 @@ export function filterBooks(end = 10, filterBy = "genre", query1, query2) {
 
   if (filterBy === "primaryCollection") {
     return books
-      .filter((book) => book.primaryCollection === "lead her")
-      .slice(0, 10);
+      .filter((book) => book.collections.includes("lead her"))
+      .slice(0, end);
   }
 
   if (filterBy === "tag") {

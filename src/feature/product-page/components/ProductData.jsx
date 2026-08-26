@@ -1,4 +1,3 @@
-import React from "react";
 import ProductCard from "./ProductCard";
 import ProductDesc from "./ProductDesc";
 import ProductDetails from "./ProductDetails";

@@ -1,4 +1,3 @@
-import React from "react";
 import "./EmptyState.css";
 
 export const EmptyState = ({ image, title, body, actionText, onAction }) => {

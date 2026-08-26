@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UseAuth } from "../../context/AuthContext";
 import { PasswordInput } from "../general/inputs/PasswordInput";
+import { TextInput } from "../general/inputs/TextInput";
 import {
   validateEmail,
   validatePassword,
@@ -10,7 +11,6 @@ import { toast } from "sonner";
 import { FcCheckmark } from "react-icons/fc";
 import { FcCancel } from "react-icons/fc";
 import "./PostCheckoutSignUpForm.css";
-import { TextInput } from "../general/inputs/TextInput";
 
 export function PostCheckoutSignUpForm({
   prefilledEmail,
@@ -138,22 +138,23 @@ export function PostCheckoutSignUpForm({
               }}
             />
           </article>
-          {hasStartedTyping.password && (
-            <div className="feedback-container">
-              {passwordFeedback.map(({ valid, text }) => (
-                <div className="feedback">
-                  {!hasStartedTyping.password ? (
-                    "-"
-                  ) : valid ? (
-                    <FcCheckmark />
-                  ) : (
-                    <FcCancel />
-                  )}
-                  <p>{text}</p>
-                </div>
-              ))}
-            </div>
-          )}
+
+          <div
+            className={`feedback-container ${hasStartedTyping.password ? "visible" : ""}`}
+          >
+            {passwordFeedback.map(({ valid, text }) => (
+              <div className="feedback">
+                {!hasStartedTyping.password ? (
+                  "-"
+                ) : valid ? (
+                  <FcCheckmark />
+                ) : (
+                  <FcCancel />
+                )}
+                <p>{text}</p>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="post-checkout-actions-wrapper">
           <button

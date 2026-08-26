@@ -1,4 +1,3 @@
-import React from "react";
 import image from "../../assets/contact-bg.webp";
 import { FaRegClock } from "react-icons/fa6";
 import { TbMail } from "react-icons/tb";

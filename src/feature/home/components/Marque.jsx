@@ -1,4 +1,3 @@
-import React from "react";
 import MarqueGroup from "../../../component/home/MarqueGroup";
 
 export const Marque = () => {

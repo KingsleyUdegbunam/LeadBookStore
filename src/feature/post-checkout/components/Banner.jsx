@@ -1,16 +1,16 @@
-import React from "react";
 import { SlPrinter } from "react-icons/sl";
 import { SignUpPostCheckoutForm } from "./SignUpPostCheckout";
 import { convertToNaira } from "../../../utilities/money";
 import orderBox from "../../../assets/order-box.webp";
 import dayjs from "dayjs";
 import "./Banner.css";
+import { handlePrint } from "../../checkout/utilities";
 
 export function GuestBanner({ order }) {
   return (
     <div className="banner-and-signup">
       <div className="banner-signup-wrapper pages-wrapper-variation">
-        <section className="banner-section">
+        <section className="banner-section" id="receipt-card">
           <div className="banner-section-wrapper order-section-wrapper">
             <div>
               <p className="orderpage-header">
@@ -68,7 +68,7 @@ export function GuestBanner({ order }) {
               </div>
             </div>
 
-            <button className="print-btn">
+            <button onClick={handlePrint} className="print-btn">
               <SlPrinter />
               <p className="order-details-header">Print receipt</p>
             </button>
@@ -89,7 +89,7 @@ export function GuestBanner({ order }) {
 
 export function AuthenticatedBanner({ order }) {
   return (
-    <section className="banner-section-authenticated">
+    <section className="banner-section-authenticated" id="receipt-card">
       <div className="authenticated-banner-wrapper pages-wrapper-variation">
         <div>
           <p className="orderpage-header">
@@ -146,7 +146,7 @@ export function AuthenticatedBanner({ order }) {
           </div>
         </div>
 
-        <button className="print-btn">
+        <button onClick={handlePrint} className="print-btn">
           <SlPrinter />
           <p className="order-details-header">Print receipt</p>
         </button>

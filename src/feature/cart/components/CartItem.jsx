@@ -1,4 +1,3 @@
-import React from "react";
 import { convertToNaira } from "../../../utilities/money";
 import { updateCartItemQty, deleteItem } from "../utilities";
 import { RiSubtractLine } from "react-icons/ri";
@@ -12,8 +11,6 @@ export function CartItem({
   setQtyInputs,
   cart,
   setCart,
-  index,
-  addToCart,
 }) {
   const cartItem = cart.find((item) => item.id === cartInDetailItem.id);
 
@@ -29,22 +26,23 @@ export function CartItem({
       return;
     }
 
-    updateCartItemQty(Number(value), cartItem, setCart, addToCart, index);
+    updateCartItemQty(Number(value), cartItem, setCart, index);
   };
 
   const quantityStepper = (operation) => {
     const value = Number(qtyInputs[cartItem.id]);
+    const index = cart.findIndex((item) => item.id === cartItem.id);
 
     if (operation === "minus") {
       const newValue = value - 1;
-      updateCartItemQty(newValue, cartItem, setCart);
+      updateCartItemQty(newValue, cartItem, setCart, index);
     } else if (operation === "add") {
       const newValue = value + 1;
-      updateCartItemQty(newValue, cartItem, setCart);
+      updateCartItemQty(newValue, cartItem, setCart, index);
     }
   };
   return (
-    <article className="cart-item-wrapper" key={index}>
+    <article className="cart-item-wrapper">
       {/* Image */}
       <div className="cart-image-container">
         <img
@@ -78,6 +76,7 @@ export function CartItem({
               <RiSubtractLine />
             </button>
             <input
+              id={cartItem.id}
               className="qty-input"
               value={qtyInputs[cartItem.id] ?? cartItem.quantity}
               onKeyDown={(e) => {

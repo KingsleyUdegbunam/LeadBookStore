@@ -4,7 +4,7 @@
   width: min(85vw, 400px);
   height: 100dvh;
   background-color: var(--surface-card);
-  z-index: 200;
+  z-index: 100;
 
   box-shadow: -8px 0 24px rgb(0 0 0 / 0.08);
 
@@ -25,7 +25,7 @@
 
 .drawer--top {
   width: 100vw;
-  transform: translateY(-100%);
+  transform: translateY(calc(-118%));
 }
 
 .drawer-backdrop {

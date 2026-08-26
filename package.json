@@ -10,10 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "@paystack/inline-js": "^2.22.8",
     "@radix-ui/react-tooltip": "^1.2.16",
     "@supabase/supabase-js": "^2.100.0",
     "dayjs": "^1.11.20",
+    "embla-carousel-react": "^8.6.0",
+    "embla-carousel-wheel-gestures": "^8.1.0",
     "firebase": "^12.11.0",
     "libphonenumber-js": "^1.12.40",
     "nigerian-states-lgas-cities-towns": "^1.0.1",

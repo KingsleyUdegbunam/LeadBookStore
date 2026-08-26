@@ -1,4 +1,3 @@
-import React from "react";
 import { LeadCarousel } from "../LeadCarousel";
 import "./MarqueGroup.css";
 

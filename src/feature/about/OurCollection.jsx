@@ -1,6 +1,5 @@
-import React from "react";
-import { CollectionCard } from "../../component/about/CollectionCard";
 import { Link } from "react-router-dom";
+import { CollectionCard } from "../../component/about/CollectionCard";
 import "./OurCollection.css";
 
 export const OurCollection = () => {

@@ -1,4 +1,3 @@
-import React from "react";
 import image from "../../assets/about-header.webp";
 import "./AboutHeader.css";
 

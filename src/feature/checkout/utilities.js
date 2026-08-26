@@ -112,6 +112,7 @@ export const initiatePayment = ({
           throw new Error("Invalid transaction reference");
         }
 
+        const now = new Date().toISOString();
         const orderData = {
           reference: transaction.reference,
           user_id: userId,
@@ -122,7 +123,8 @@ export const initiatePayment = ({
           email: shippingDetails?.email,
           courier_details: selectedShipping,
           status: "processing",
-          processing_at: new Date().toISOString(),
+          processing_at: now,
+          created_at: now,
         };
 
         const result = await createOrder(orderData);
@@ -137,7 +139,11 @@ export const initiatePayment = ({
           return;
         }
         setCart([]);
-        sessionStorage.setItem("recentOrder", JSON.stringify(orderData));
+
+        sessionStorage.setItem(
+          `order:${orderData.reference}`,
+          JSON.stringify(orderData),
+        );
         navigate(`/order/${orderData.reference}`);
       } catch {
         toast.error("Something went wrong. Please try again in a few minutes.");
@@ -150,8 +156,8 @@ export const initiatePayment = ({
       toast.info("Payment was cancelled.");
       setLoading(false);
     },
-    onError: (error) => {
-      toast.error(error.message);
+    onError: () => {
+      toast.error("We couldn’t start your payment. Please try again.");
       setLoading(false);
     },
   });
@@ -203,7 +209,6 @@ export function dropDownStyles(variant, error = false, isDisabled) {
 
 export function getShippingOptions(state) {
   const isAbuja = state === "FCT (Abuja)";
-  const today = dayjs();
 
   return [
     {
@@ -229,7 +234,7 @@ export function getShippingOptions(state) {
     },
   ];
 }
-//check if tomorroq falls in weekend
+//check if tomorrow falls in weekend
 //if yes, skip
 //if no, substract from countdown
 //loop again
@@ -263,3 +268,7 @@ export function getOrderDate(inputDate, time = false) {
   }
   return returnDate;
 }
+
+export const handlePrint = () => {
+  window.print();
+};

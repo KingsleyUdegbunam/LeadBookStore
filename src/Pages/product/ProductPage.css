@@ -1,3 +1,11 @@
 .product-page {
   font-family: var(--font-primary);
 }
+
+.recommendation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: 1px solid var(--border-default);
+  padding-block-end: 0.5rem;
+}

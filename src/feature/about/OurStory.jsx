@@ -1,4 +1,3 @@
-import React from "react";
 import story from "../../assets/about-story.webp";
 import "./OurStory.css";
 

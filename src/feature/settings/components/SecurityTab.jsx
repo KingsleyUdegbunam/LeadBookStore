@@ -1,4 +1,3 @@
-import React from "react";
 import { TabContentHeader } from "../../../component/settings/TabContentHeader";
 import { SecurityContent } from "../../../component/settings/SecurityContent";
 import { MdSecurity } from "react-icons/md";

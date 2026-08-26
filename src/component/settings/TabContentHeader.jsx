@@ -1,5 +1,3 @@
-import React from "react";
-
 export const TabContentHeader = ({ title, desc, icon }) => {
   return (
     <header className="profile-header">

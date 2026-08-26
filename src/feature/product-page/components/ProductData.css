@@ -57,9 +57,15 @@
   gap: 0.5rem;
 }
 
-h3 {
+.product-details-header {
   text-transform: capitalize;
-  border-block-end: 2px var(--border-heavy) solid;
+  border-block-end: 2px var(--border-default) solid;
+  font-weight: 600;
+}
+
+.product-header,
+.product-subheader {
+  font-weight: 550;
 }
 
 .row {
@@ -77,4 +83,9 @@ h3 {
 
 .product-award {
   text-align: end;
+}
+
+.product-card button.button-primary.is-added {
+  background-color: var(--color-success);
+  border-color: var(--color-success);
 }

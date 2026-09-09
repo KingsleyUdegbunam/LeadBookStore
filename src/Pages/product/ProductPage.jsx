@@ -29,21 +29,23 @@ export default function ProductPage() {
 
   return (
     <>
-      <section className="pages-wrapper main-container product-page">
+      <div className=" main-container product-page">
         <ProductData book={book} />
 
         <article className="recommendation">
-          <div className="recommendation-header">
+          <div className="recommendation-header pages-wrapper">
             <h3 className="product-header">Related Reads</h3>
             <CarouselButton emblaApi={emblaApi} />
           </div>
-          <BookRecommendationGrid
-            id={bookId}
-            selectedBook={book}
-            emblaRef={emblaRef}
-          />
+          <div className="pages-wrapper-variation ">
+            <BookRecommendationGrid
+              id={bookId}
+              selectedBook={book}
+              emblaRef={emblaRef}
+            />
+          </div>
         </article>
-      </section>
+      </div>
     </>
   );
 }

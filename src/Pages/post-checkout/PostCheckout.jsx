@@ -133,10 +133,12 @@ export default function PostCheckout() {
               </a>
             </div>
           </section>
-          <section className="recommendation-sec order-section-wrapper">
-            <div className="carousel-section-header">
-              <h2 className="order-summary-h2">Inspired By Your Order</h2>
-              <CarouselButton emblaApi={emblaApi} />
+          <section className="recommendation-sec ">
+            <div className="order-section-wrapper">
+              <div className="carousel-section-header">
+                <h2 className="order-summary-h2">Inspired By Your Order</h2>
+                <CarouselButton emblaApi={emblaApi} />
+              </div>
             </div>
             <div className="related-reads">
               <CarouselWrapper array={recommendedBooks} emblaRef={emblaRef}>

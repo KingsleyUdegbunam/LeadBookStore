@@ -64,6 +64,16 @@
   opacity: 1;
 }
 
+.primary-form {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--transition-fast) ease-in-out;
+}
+
+.primary-form.visible {
+  height: fit-content;
+}
+
 .feedback.center {
   text-align: center;
   justify-content: center;

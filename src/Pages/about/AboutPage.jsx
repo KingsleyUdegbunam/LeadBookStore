@@ -7,10 +7,10 @@ import "./AboutPage.css";
 export default function AboutPage() {
   return (
     <>
-      <section className="pages-container">
+      <section className="pages-container ">
         <AboutHeader />
 
-        <div className="pages-wrapper-variation pages-inline-wrapper pages-wrapper-seperator">
+        <div className="pages-wrapper-variation pages-wrapper-seperator ">
           <OurStory />
 
           <WeStandFor />

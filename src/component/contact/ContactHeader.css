@@ -12,6 +12,7 @@
   gap: 2.5rem;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 .header-text {
   display: flex;
@@ -27,16 +28,16 @@
 
 .image-wrapper {
   display: flex;
-  width: 85%;
-  aspect-ratio: 5520 / 3680;
   align-items: center;
   justify-content: center;
+
+  height: 500px;
 }
 
 .contact-hero-image {
   height: auto;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .contact-subheader {
@@ -46,6 +47,22 @@
 
 .card-desktop {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  .contact-header-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    align-items: start;
+    padding-inline: 1.5rem;
+  }
+
+  .image-wrapper {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -66,12 +83,6 @@
     border-inline-end: 1px solid var(--divider);
   }
 
-  .contact-header-wrapper {
-    flex-direction: row;
-    gap: 1rem;
-    align-items: start;
-  }
-
   .contact-subheader {
     font-size: 2.5rem;
   }
@@ -85,15 +96,6 @@
     height: 100%;
     max-width: 60ch;
     padding-top: 2rem;
-  }
-
-  .image-wrapper {
-    justify-content: center;
-    align-items: center;
-  }
-
-  .image-wrapper img {
-    max-width: 380px;
   }
 
   .card-desktop {

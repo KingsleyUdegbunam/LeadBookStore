@@ -3,8 +3,8 @@ import "./OurStory.css";
 
 export const OurStory = () => {
   return (
-    <section className="about-sections our-story-section desktop-about-contact-grid">
-      <div className="about-subheader">
+    <section className="about-sections  our-story-section">
+      <div className="about-subheader sticky about-page-paragraph">
         <h2 className="about-section-header">Our story</h2>
         <div className="our-story-subcontent-1">
           <p className="about-sections-subheader">

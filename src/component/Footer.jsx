@@ -75,12 +75,19 @@ export function Footer() {
         </div>
 
         <div className="footer-foot">
-          <p className="copyright">&copy; 2026 LEAD Inc. </p>
-          <div>
-            <p className="copyright">
-              Proudly Nigerian <span>🇳🇬</span>
-            </p>
-          </div>
+          <p className="copyright">
+            &copy; 2026 LEAD Inc. |{" "}
+            <a href="https://kingsleyudegbunam.netlify.app" target="_blank">
+              Built by Kay
+            </a>
+          </p>
+          <a
+            href="https://storyset.com"
+            target="_blank"
+            className="copyright attribution"
+          >
+            Illustrations by FreePik
+          </a>
         </div>
       </div>
     </footer>

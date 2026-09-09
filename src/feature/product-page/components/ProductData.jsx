@@ -5,11 +5,11 @@ import "./ProductData.css";
 
 const ProductData = ({ book }) => {
   return (
-    <>
+    <div className="pages-wrapper">
       <ProductCard book={book} />
       <ProductDesc book={book} />
       <ProductDetails book={book} />
-    </>
+    </div>
   );
 };
 

@@ -1,7 +1,15 @@
 .collections-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+}
+.about-grid-gap {
+  gap: 0.3rem;
+}
+
+@media screen and (min-width: 630px) {
+  .about-grid-gap {
+    gap: 1.5rem;
+  }
 }
 
 .collections-wrapper a:last-child {

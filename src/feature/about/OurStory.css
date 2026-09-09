@@ -5,6 +5,10 @@
   gap: 1rem;
 }
 
+.our-story-section {
+  position: relative !important;
+}
+
 .our-story-subcontent-2 {
   overflow: hidden;
   display: flex;
@@ -16,10 +20,12 @@
 }
 
 .our-story-subcontent-2 img {
-  height: auto;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   transition: scale 380ms ease;
+  object-position: 0 -130px;
+  object-fit: cover;
 }
 
 .our-story-subcontent-2 img:hover {
@@ -28,23 +34,33 @@
 
 @media screen and (min-width: 768px) {
   .our-story-subcontent-2 {
+    max-height: none;
     overflow: hidden;
-    max-height: 400px;
+    height: 500px;
+    margin-inline-end: 1.5rem;
   }
 
   .our-story-subcontent-2 img {
-    object-position: center 30%;
+    object-position: 0 0;
+  }
+
+  .sticky {
+    position: sticky;
+    top: 5.5rem;
+    height: fit-content;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .our-story-subcontent-2 {
-    max-height: 459px;
+  .our-story-subcontent-2 img {
+    object-position: 0 -150px;
+    object-fit: cover;
   }
-}
 
-@media screen and (min-width: 1440px) {
-  .our-story-subcontent-2 {
-    max-height: 500px;
+  @media screen and (min-width: 1550px) {
+    .our-story-subcontent-2 img {
+      object-position: 0 -200px;
+      object-fit: cover;
+    }
   }
 }

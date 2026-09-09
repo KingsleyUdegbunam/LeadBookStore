@@ -1,5 +1,6 @@
 .about-collection-card {
   display: flex;
+  height: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -11,6 +12,12 @@
   cursor: pointer;
   color: var(--text-secondary);
   transition: background-color var(--transition-fast) ease;
+}
+
+@media screen and (max-width: 410px) {
+  .collection-icon {
+    display: none;
+  }
 }
 
 .collection-icon {

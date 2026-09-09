@@ -13,7 +13,7 @@ export const books = [
     description:
       "James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. If you're having trouble changing your habits, the problem isn't you — the problem is your system. You do not rise to the level of your goals. You fall to the level of your systems.",
     coverImage:
-      "http://books.google.com/books/content?id=fFCjDQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=fFCjDQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead him", "lead her"],
     genre: "self development",
@@ -80,7 +80,7 @@ export const books = [
     description:
       "After decades of research, world-renowned Stanford University psychologist Carol S. Dweck discovered a simple but groundbreaking idea: the power of mindset. In this book, she shows how success in school, work, sports, the arts, and almost every area of human endeavor can be dramatically influenced by how we think about our talents and abilities.",
     coverImage:
-      "http://books.google.com/books/content?id=rAyNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=rAyNEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead her"],
     genre: "self development",
@@ -112,7 +112,7 @@ export const books = [
     description:
       "Think and Grow Rich has been called the granddaddy of all motivational literature. It was the first book to boldly ask, what makes a winner? Napoleon Hill studied more than 500 of America's most successful individuals and discovered that great wealth begins with a state of mind — not with money, education, or luck.",
     coverImage:
-      "http://books.google.com/books/content?id=6TaGbwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=6TaGbwAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead him", "lead with money"],
     genre: "self development",
@@ -145,7 +145,7 @@ export const books = [
     description:
       "For decades we've been told that positive thinking is the key to a happy, rich life. Mark Manson says this is nonsense. He makes the argument, backed by both academic research and well-timed humor, that improving our lives hinges not on turning lemons into lemonade, but on learning to stomach lemons better. The key to a good life is not giving a f*ck about more — it's giving a f*ck about less.",
     coverImage:
-      "http://books.google.com/books/content?id=-kmXswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=-kmXswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead him"],
     genre: "self development",
@@ -176,7 +176,7 @@ export const books = [
     description:
       "Originally published in 1936, Dale Carnegie's rock-solid, time-tested advice has carried countless people up the ladder of success in their professional and personal lives. This book teaches you how to communicate effectively, make people like you, get others to see your side, become a more effective leader, and successfully navigate almost any social situation.",
     coverImage:
-      "http://books.google.com/books/content?id=hCf-DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=hCf-DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead them"],
     genre: "self development",
@@ -207,7 +207,7 @@ export const books = [
     description:
       "For David Goggins, childhood was a nightmare — poverty, prejudice, and physical abuse colored his days and haunted his nights. But through self-discipline, mental toughness, and hard work, Goggins transformed himself from a depressed, overweight young man into a US Armed Forces icon and one of the world's top endurance athletes. His story shows that most of us only tap into 40% of our capabilities.",
     coverImage:
-      "http://books.google.com/books/content?id=IeYmEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=IeYmEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead him",
     collections: ["lead him", "lead me"],
     genre: "self development",
@@ -238,7 +238,7 @@ export const books = [
     description:
       "Deep work is the ability to focus without distraction on cognitively demanding tasks. Cal Newport argues that this skill is becoming increasingly rare at exactly the same time it is becoming increasingly valuable. The few who cultivate this skill and make it the core of their work life will thrive.",
     coverImage:
-      "http://books.google.com/books/content?id=lZpFCgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=lZpFCgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead them"],
     genre: "self development",
@@ -269,7 +269,7 @@ export const books = [
     description:
       "Pulitzer Prize-winning journalist Charles Duhigg takes us to the thrilling edge of scientific discoveries that explain why habits exist and how they can be changed. With penetrating intelligence, Duhigg brings to life a whole new understanding of human nature and its potential for transformation.",
     coverImage:
-      "http://books.google.com/books/content?id=oFYNngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=oFYNngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead them"],
     genre: "self development",
@@ -300,7 +300,7 @@ export const books = [
     description:
       "Psychiatrist Viktor Frankl survived the Nazi concentration camps and emerged with a profound insight: even in the most extreme suffering, humans can find meaning. His experiences led him to develop logotherapy — the belief that the primary human motivation is the search for meaning in life. This book is both a memoir of survival and a guide to discovering your own purpose.",
     coverImage:
-      "http://books.google.com/books/content?id=umJ8DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=umJ8DgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me"],
     genre: "self development",
@@ -334,7 +334,7 @@ export const books = [
     description:
       "With a professional career spanning over two decades in banking and private wealth management, Nimi Akinkugbe provides important practical information and useful tips on all matters concerning you and your money. Whether you are just starting out, approaching retirement, or somewhere in between, this book will help you take control of your financial future — written specifically with the Nigerian context in mind.",
     coverImage:
-      "http://books.google.com/books/content?id=Mzr-rQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=Mzr-rQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
     collections: ["lead with money", "lead me"],
     genre: "self development",
@@ -365,7 +365,7 @@ export const books = [
     description:
       "Sam Egube, one of Nigeria's foremost economists and financial experts, shares his insights on wealth creation, financial planning, and the mindset required to build lasting prosperity in the Nigerian context. A practical and inspiring guide for anyone ready to take their finances seriously.",
     coverImage:
-      "http://books.google.com/books/content?id=6NyJDAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=6NyJDAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
     collections: ["lead with money", "lead me"],
     genre: "self development",
@@ -396,7 +396,7 @@ export const books = [
     description:
       "In The Four Agreements, Don Miguel Ruiz reveals the source of self-limiting beliefs that rob us of joy and create needless suffering. Based on ancient Toltec wisdom, the four agreements offer a powerful code of conduct that can rapidly transform our lives to a new experience of freedom, true happiness, and love.",
     coverImage:
-      "http://books.google.com/books/content?id=mU76DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=mU76DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me"],
     genre: "self development",
@@ -427,7 +427,7 @@ export const books = [
     description:
       "For more than twenty years, the time-tested methods of David Allen's Getting Things Done have helped countless professionals around the world manage the ever-increasing demands of their workplaces. Allen reveals how to capture everything that needs to get done into a logical and trusted system, so you always have a plan for next actions.",
     coverImage:
-      "http://books.google.com/books/content?id=7xClQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=7xClQgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me"],
     genre: "self development",
@@ -458,7 +458,7 @@ export const books = [
     description:
       "In this work, Nobel Prize-winning economist Daniel Kahneman takes us on a groundbreaking tour of the mind, explaining the two systems that drive the way we think. System 1 is fast, intuitive, and emotional; System 2 is slower, more deliberative, and more logical. Kahneman exposes the extraordinary capabilities and faults and biases of fast thinking.",
     coverImage:
-      "http://books.google.com/books/content?id=hOmtuQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=hOmtuQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead me",
     collections: ["lead me", "lead them"],
     genre: "self development",
@@ -494,7 +494,7 @@ export const books = [
     description:
       "Jim Ovia, founder of Zenith Bank — one of Africa's most successful financial institutions — shares his extraordinary story of building a world-class bank from scratch in Nigeria. From humble beginnings to becoming one of Africa's most influential business leaders, Ovia shares hard-won lessons about entrepreneurship, perseverance, and nation-building in emerging markets.",
     coverImage:
-      "http://books.google.com/books/content?id=xD_CuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=xD_CuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead with money", "lead with legacy"],
     genre: "business & leadership",
@@ -558,7 +558,7 @@ export const books = [
     description:
       "Ibukun Awosika, one of Africa's most celebrated business leaders and former Chairperson of First Bank of Nigeria, shares her remarkable journey and the lessons she has learned from decades at the top of corporate Nigeria. A powerful guide for every woman who dares to lead.",
     coverImage:
-      "http://books.google.com/books/content?id=yb70EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=yb70EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead her",
     collections: ["lead her", "lead them", "lead with legacy"],
     genre: "business & leadership",
@@ -590,7 +590,7 @@ export const books = [
     description:
       "Frank Nneji, founder of ABC Transport, shares the story of how he built one of Nigeria's most successful transport companies from almost nothing. This honest and inspiring memoir is a blueprint for entrepreneurs across Africa who dare to dream big and refuse to accept that success is out of reach.",
     coverImage:
-      "http://books.google.com/books/content?id=fXv1zQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=fXv1zQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead me"],
     genre: "business & leadership",
@@ -621,7 +621,7 @@ export const books = [
     description:
       "Africa is the world's next great growth market, and business leaders who understand it stand to gain enormously. Acha Leke and his co-authors draw on decades of research and fieldwork across the continent to reveal how Africa's most successful companies are built — and provide a practical roadmap for any business looking to invest, grow, and lead in Africa.",
     coverImage:
-      "http://books.google.com/books/content?id=OcnRtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=OcnRtAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead the world"],
     genre: "business & leadership",
@@ -683,7 +683,7 @@ export const books = [
     description:
       "Why are some people and organizations more innovative, more influential, and more profitable than others? Simon Sinek shows that the leaders who have had the greatest influence in the world all think, act and communicate the same way — starting with why. It's the key to inspiring those around you.",
     coverImage:
-      "http://books.google.com/books/content?id=xjqQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=xjqQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead me"],
     genre: "business & leadership",
@@ -714,7 +714,7 @@ export const books = [
     description:
       "Simon Sinek investigates the cultures of the best organizations in the world and finds a common thread: the leaders create environments in which people naturally work together to do remarkable things. Drawing on examples from the US Marines to Wall Street, Sinek shows that the best leaders sacrifice their own comfort for the good of those in their care.",
     coverImage:
-      "http://books.google.com/books/content?id=3SliAgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=3SliAgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead him"],
     genre: "business & leadership",
@@ -745,7 +745,7 @@ export const books = [
     description:
       "Peter Thiel, co-founder of PayPal and Palantir, shares his unconventional wisdom on building companies that create something genuinely new. Every moment in business happens only once — the next Bill Gates will not build an operating system, the next Mark Zuckerberg won't create a social network. Creating something truly new takes it from 0 to 1.",
     coverImage:
-      "http://books.google.com/books/content?id=xw-PEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=xw-PEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
     collections: ["lead with money", "lead them"],
     genre: "business & leadership",
@@ -776,7 +776,7 @@ export const books = [
     description:
       "Ben Horowitz, co-founder of Andreessen Horowitz, draws on his decades of experience as a CEO and investor to offer essential advice on building and running a startup. In this honest account, he describes the challenges that come with founding, building, managing, and selling a business — and explains why there's no formula for success.",
     coverImage:
-      "http://books.google.com/books/content?id=620pAgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=620pAgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them"],
     genre: "business & leadership",
@@ -807,7 +807,7 @@ export const books = [
     description:
       "Akin Alabi, one of Nigeria's most successful digital marketers and entrepreneurs, reveals the unique psychology of the Nigerian consumer and how to craft messages that convert. Packed with practical examples and real-world strategies tested in the Nigerian market, this is essential reading for anyone selling in Nigeria.",
     coverImage:
-      "http://books.google.com/books/content?id=DMNyzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=DMNyzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
     collections: ["lead with money", "lead them"],
     genre: "business & leadership",
@@ -838,7 +838,7 @@ export const books = [
     description:
       "Leadership is not about titles, status, and wielding power. A leader is anyone who takes responsibility for recognizing the potential in people and ideas, and has the courage to develop that potential. Brené Brown shows that the most transformational leaders are those who have the courage to be vulnerable.",
     coverImage:
-      "http://books.google.com/books/content?id=jGmTEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=jGmTEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead her",
     collections: ["lead her", "lead them", "lead me"],
     genre: "business & leadership",
@@ -870,7 +870,7 @@ export const books = [
     description:
       "Eric Ries introduces the Lean Startup method, a scientific approach to creating and managing startups that gets the desired product to customers' hands faster. By validating assumptions and adapting based on feedback, entrepreneurs can reduce market risks and sidestep the need for large amounts of initial funding.",
     coverImage:
-      "http://books.google.com/books/content?id=tvfyz-4JILwC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=tvfyz-4JILwC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead with money"],
     genre: "business & leadership",
@@ -933,7 +933,7 @@ export const books = [
     description:
       "You're either a Purple Cow or you're not. You're either remarkable or invisible. In Purple Cow, Seth Godin urges you to put a Purple Cow into everything you build and everything you do — to create something truly noticeable. The old Ps of marketing are no longer sufficient. Standing out is the only option.",
     coverImage:
-      "http://books.google.com/books/content?id=hdHXAc030p4C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=hdHXAc030p4C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead them",
     collections: ["lead them", "lead with money"],
     genre: "business & leadership",
@@ -999,7 +999,7 @@ export const books = [
     description:
       "Walter Isaacson's riveting biography of Elon Musk explores how his turbulent upbringing in South Africa shaped the drive, vision, and uncompromising personality that has made him both one of the most influential people alive and one of the most controversial. It covers his work at Tesla, SpaceX, Twitter, and beyond.",
     coverImage:
-      "http://books.google.com/books/content?id=6_mzEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=6_mzEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead with money"],
     genre: "biography",
@@ -1030,7 +1030,7 @@ export const books = [
     description:
       "The autobiography of Nelson Mandela — the statesman who emerged from 27 years in prison to lead his country out of apartheid and become its first democratically elected president. Mandela's story is one of the most inspiring of our time — a story of integrity, courage, and determination in the face of overwhelming injustice.",
     coverImage:
-      "http://books.google.com/books/content?id=jc41AQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=jc41AQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead the world"],
     genre: "biography",
@@ -1061,7 +1061,7 @@ export const books = [
     description:
       "Jim Ovia chronicles the building of Zenith Bank into one of the most successful financial institutions in Africa. This biography reads as both a personal success story and a blueprint for building enduring institutions in Africa's challenging but high-growth environment.",
     coverImage:
-      "http://books.google.com/books/content?id=xD_CuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=xD_CuAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead them"],
     genre: "biography",
@@ -1127,7 +1127,7 @@ export const books = [
     description:
       "Based on thousands of pages from Leonardo's astonishing notebooks and on new discoveries about his life and work, Walter Isaacson weaves a narrative that connects his art to his science. He shows how Leonardo's genius was based on skills we can improve in ourselves — insatiable curiosity, careful observation, and a playful imagination.",
     coverImage:
-      "http://books.google.com/books/content?id=vkA5DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=vkA5DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy"],
     genre: "biography",
@@ -1159,7 +1159,7 @@ export const books = [
     description:
       "Andrew Roberts's Napoleon is the first one-volume biography to take advantage of the recently discovered 33,000 letters Napoleon wrote throughout his life. His portrait demolishes the myths — revealing a brilliant general, a pragmatic statesman, and in many ways a visionary man of his era.",
     coverImage:
-      "http://books.google.com/books/content?id=rjVBAwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=rjVBAwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead the world"],
     genre: "biography",
@@ -1193,7 +1193,7 @@ export const books = [
     description:
       "Drawing on newly released personal letters and previously classified files, Walter Isaacson unlocks the mystery of Einstein's genius and illuminates an inspirational story of creativity and courage. It is the story of a rebellious spirit who discovered the theory of relativity and became the iconic genius of the twentieth century.",
     coverImage:
-      "http://books.google.com/books/content?id=d2WZDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=d2WZDgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy"],
     genre: "biography",
@@ -1224,7 +1224,7 @@ export const books = [
     description:
       "A compelling collection of stories from entrepreneurs across the African continent who defied the odds to build successful businesses. From Lagos to Nairobi, Accra to Johannesburg, these stories reveal the grit, creativity, and resilience that define the new generation of African business leaders.",
     coverImage:
-      "http://books.google.com/books/content?id=8tAnDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=8tAnDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead them"],
     genre: "biography",
@@ -1256,7 +1256,7 @@ export const books = [
     description:
       "Roy Jenkins — himself one of the most distinguished politicians of the twentieth century — wrote this acclaimed biography after coming to know many of the people who had known Churchill personally. It is a brilliantly written portrait of one of history's most complex, flawed, and ultimately heroic leaders.",
     coverImage:
-      "http://books.google.com/books/content?id=QQTYWavUky8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=QQTYWavUky8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead the world"],
     genre: "biography",
@@ -1292,7 +1292,7 @@ export const books = [
     description:
       "In a life filled with meaning and accomplishment, Michelle Obama has emerged as one of the most iconic and compelling women of our era. As the first African American First Lady of the United States, she helped create the most welcoming White House in history while establishing herself as a powerful advocate for women and girls around the world.",
     coverImage:
-      "http://books.google.com/books/content?id=HriPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=HriPEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead her",
     collections: ["lead her", "lead with legacy"],
     genre: "memoir",
@@ -1326,7 +1326,7 @@ export const books = [
     description:
       "In this candid and riveting memoir, Nike founder Phil Knight shares the inside story of the company's early days as an idea and then a fledgling business, and how it grew to become one of the world's most iconic and profitable brands. It is an honest account of near-bankruptcy, betrayal, perseverance, and the courage it takes to build something from nothing.",
     coverImage:
-      "http://books.google.com/books/content?id=PXvtCgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=PXvtCgAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
     collections: ["lead with money", "lead him", "lead with legacy"],
     genre: "memoir",
@@ -1389,7 +1389,7 @@ export const books = [
     description:
       "In the stirring first volume of his presidential memoirs, Barack Obama tells the story of his improbable odyssey from young man searching for his identity to leader of the free world. Describing in striking personal detail both his political education and the landmark moments of the first term of his historic presidency.",
     coverImage:
-      "http://books.google.com/books/content?id=ypb9DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=ypb9DwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead the world"],
     genre: "memoir",
@@ -1421,7 +1421,7 @@ export const books = [
     description:
       "Howard Schultz tells the story of how he turned a commodity into a cultural phenomenon. This memoir traces the growth of Starbucks from a single Seattle coffee shop into a global empire — revealing the principles that guided Schultz in building the company and how he put passion above the pressure of immediate profits.",
     coverImage:
-      "http://books.google.com/books/content?id=XALK1Bv_hZMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=XALK1Bv_hZMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with money",
     collections: ["lead with money", "lead with legacy"],
     genre: "memoir",
@@ -1453,7 +1453,7 @@ export const books = [
     description:
       "Arnold Schwarzenegger tells the story of his three great careers: as a bodybuilding champion, as a box-office star, and as a powerful politician. He shares his unique approach to life and how he turned his dreams into reality — from immigrating to America with nothing to becoming one of the most recognizable people on the planet.",
     coverImage:
-      "http://books.google.com/books/content?id=qYijfgz4acgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=qYijfgz4acgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead him",
     collections: ["lead him", "lead with legacy"],
     genre: "memoir",
@@ -1484,7 +1484,7 @@ export const books = [
     description:
       "When the Taliban took control of the Swat Valley in Pakistan, one girl spoke out. Malala Yousafzai refused to be silenced and fought for her right to an education. On October 9, 2012, she almost paid the ultimate price — shot in the head at point-blank range. This memoir is her extraordinary story of survival, resilience, and her mission to educate girls around the world.",
     coverImage:
-      "http://books.google.com/books/content?id=pGbpnQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=pGbpnQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead her",
     collections: ["lead her", "lead the young", "lead the world"],
     genre: "memoir",
@@ -1548,7 +1548,7 @@ export const books = [
     description:
       "Emmeline Pankhurst's memoir tells the story of her leadership of the suffragette movement — the campaign to win women the right to vote in Britain. It is a firsthand account of the hunger strikes, imprisonment, and the fierce determination that ultimately changed the law and the world.",
     coverImage:
-      "http://books.google.com/books/content?id=TCucEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=TCucEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead her",
     collections: ["lead her", "lead with legacy"],
     genre: "memoir",
@@ -1579,7 +1579,7 @@ export const books = [
     description:
       "Gandhi's autobiography traces his moral and spiritual development from childhood through the years he spent in South Africa, where he developed his philosophy of nonviolent resistance. He describes his inner struggles as well as his public campaigns, offering a deeply personal account of a life dedicated to truth, justice, and service to humanity.",
     coverImage:
-      "http://books.google.com/books/content?id=UtJhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=UtJhEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with legacy",
     collections: ["lead with legacy", "lead me"],
     genre: "memoir",
@@ -1648,7 +1648,7 @@ export const books = [
     description:
       "Ifemelu and Obinze are young and in love when they depart military-ruled Nigeria for the West. Beautiful, self-assured Ifemelu heads for America, where despite her academic success, she is forced to grapple with what it means to be black for the first time. A powerful, funny, and tender story about race, gender, and identity.",
     coverImage:
-      "http://books.google.com/books/content?id=siSlP9JOj2YC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=siSlP9JOj2YC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead her", "lead the world"],
     genre: "fiction & storytelling",
@@ -1682,7 +1682,7 @@ export const books = [
     description:
       "Fifteen-year-old Kambili and her older brother Jaja lead a privileged life in Enugu, Nigeria — beautiful house, prestigious schools, wealthy father. But their comfortable existence is nothing but a facade. Their father rules his home with terror. This searing novel asks: what does it cost to stay silent?",
     coverImage:
-      "http://books.google.com/books/content?id=3St6maxt2YIC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=3St6maxt2YIC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead her"],
     genre: "fiction & storytelling",
@@ -1748,7 +1748,7 @@ export const books = [
     description:
       "Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of worldly treasure. His quest will lead him to riches far different — and far more satisfying — than he ever imagined. Santiago's journey teaches us about the essential wisdom of listening to our hearts.",
     coverImage:
-      "http://books.google.com/books/content?id=ZI3gAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=ZI3gAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead me"],
     genre: "fiction & storytelling",
@@ -1810,7 +1810,7 @@ export const books = [
     description:
       "This simple parable about four characters looking for cheese in a maze has become one of the most read business books in the world. Cheese is a metaphor for what you want to have in life — and the story reveals profound truths about how to deal with change, let go of fear, and move forward when everything you depend on is taken away.",
     coverImage:
-      "http://books.google.com/books/content?id=SnymwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=SnymwgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead me", "lead them"],
     genre: "fiction & storytelling",
@@ -1873,7 +1873,7 @@ export const books = [
     description:
       "Set in Kenya during the Mau Mau uprising of the 1950s, Weep Not, Child traces the devastating effects of colonial rule on a family and a community. Through the eyes of Njoroge — a young boy desperate for education and a brighter future — Ngũgĩ wa Thiong'o chronicles the dispossession and heartbreak of a people fighting for their land and freedom.",
     coverImage:
-      "http://books.google.com/books/content?id=STdvWoodW24C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=STdvWoodW24C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead the world"],
     genre: "fiction & storytelling",
@@ -1904,7 +1904,7 @@ export const books = [
     description:
       "In this remarkable book, Patrick Lencioni offers a leadership fable that is as enthralling and instructive as his previous bestsellers. He turns his storytelling power to the fascinating, complex world of teams — asking why some teams fail to work together, and how leaders and team members can overcome these all-too-human tendencies.",
     coverImage:
-      "http://books.google.com/books/content?id=dsN3CgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=dsN3CgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead them"],
     genre: "fiction & storytelling",
@@ -1935,7 +1935,7 @@ export const books = [
     description:
       "Siddhartha is the story of a young Brahmin's search for ultimate enlightenment after meeting with the Buddha. This deeply spiritual and luminous tale follows its hero as he travels from pleasure to asceticism, from love to solitude, from wealth to poverty, in his quest for wisdom and self-knowledge.",
     coverImage:
-      "http://books.google.com/books/content?id=Ax6yEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=Ax6yEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead me"],
     genre: "fiction & storytelling",
@@ -1966,7 +1966,7 @@ export const books = [
     description:
       "George Orwell's haunting prophecy about the future has become one of the most influential books ever written. In the year 1984, Winston Smith lives under a totalitarian government that controls every aspect of life, even thought. It remains the most powerful warning against the dangers of totalitarianism and the destruction of truth ever written.",
     coverImage:
-      "http://books.google.com/books/content?id=6u2QEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=6u2QEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead the world"],
     genre: "fiction & storytelling",
@@ -1998,7 +1998,7 @@ export const books = [
     description:
       "Unravelling against the social and political turbulence of 1980s Nigeria, Stay With Me tells the story of Yejide and Akin — a couple whose marriage buckles under the weight of family pressure and the desperate need to have a child. Ayọ̀bámi Adébáyọ̀ weaves a devastating story of married love, grief, and the bonds of motherhood.",
     coverImage:
-      "http://books.google.com/books/content?id=6IouDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=6IouDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead her"],
     genre: "fiction & storytelling",
@@ -2032,7 +2032,7 @@ export const books = [
     description:
       "A Sudanese man returns home after years of studying in Europe, only to find a stranger has settled in his village: Mustafa Sa'eed, a man with a mysterious past and a disturbing relationship to the West. This slim novel unpacks the legacy of colonialism on both the colonizer and the colonized, exploring identity, power, and belonging.",
     coverImage:
-      "http://books.google.com/books/content?id=zBBshCdGbVwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=zBBshCdGbVwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead the world"],
     genre: "fiction & storytelling",
@@ -2065,7 +2065,7 @@ export const books = [
     description:
       "When Isola Bello — known as Baba Segi — takes a fourth wife, the fragile peace of his household is shattered. Lola Shoneyin's debut is a fierce and funny novel about power, womanhood, and survival in contemporary Nigeria.",
     coverImage:
-      "http://books.google.com/books/content?id=sDnNIdRTWlcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=sDnNIdRTWlcC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead with imagination",
     collections: ["lead with imagination", "lead her"],
     genre: "fiction & storytelling",
@@ -2100,7 +2100,7 @@ export const books = [
     description:
       "In this joyful ode to life, Dr. Seuss addresses life's ups and downs with his signature good humor. A beloved gift for graduations and new beginnings, it reminds readers that they have brains in their head and feet in their shoes — and they can steer themselves any direction they choose.",
     coverImage:
-      "http://books.google.com/books/content?id=VM5imgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=VM5imgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead me"],
     genre: "children's books",
@@ -2131,7 +2131,7 @@ export const books = [
     description:
       "A little engine is asked to pull a long train over a mountain after several larger engines refuse. The little engine agrees to try, repeating the encouraging mantra 'I think I can'. This American classic has been used for generations to teach children the value of optimism, persistence, and hard work.",
     coverImage:
-      "http://books.google.com/books/content?id=HXR_eBwKaTEC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=HXR_eBwKaTEC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead me"],
     genre: "children's books",
@@ -2163,7 +2163,7 @@ export const books = [
     description:
       "Matilda is a little girl who is far too good to be true. At age five-and-a-half she's knocking off double-digit multiplication problems and has read every book in the library. Her parents think she's a nuisance. But Matilda is a delight — the story of a small, extraordinary girl who fights back against the forces of ignorance and cruelty.",
     coverImage:
-      "http://books.google.com/books/content?id=pMeMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=pMeMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead her"],
     genre: "children's books",
@@ -2194,7 +2194,7 @@ export const books = [
     description:
       "Once there was a tree who loved a little boy. And every day the boy would come and the tree would give him everything she had — her apples, her branches, her trunk — and the tree was happy. A simple but profound story about giving, generosity, and the true meaning of love.",
     coverImage:
-      "http://books.google.com/books/content?id=K1cIAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=K1cIAAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead us"],
     genre: "children's books",
@@ -2225,7 +2225,7 @@ export const books = [
     description:
       "This is the story of a little girl named Fern who loved a little pig named Wilbur — and of Wilbur's devoted friend, a spider named Charlotte. E.B. White's timeless tale of friendship, loyalty, and love is considered one of the finest books ever written for children.",
     coverImage:
-      "http://books.google.com/books/content?id=lx0zwmrKjusC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=lx0zwmrKjusC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones"],
     genre: "children's books",
@@ -2259,7 +2259,7 @@ export const books = [
     description:
       "In this Caldecott Honor Book, Gerald McDermott brings the traditional West African tale of Anansi the Spider to vivid life with bold, striking artwork. Anansi is the great spider of Ashanti tradition — a clever trickster whose adventures have been told across generations throughout West Africa and the Caribbean.",
     coverImage:
-      "http://books.google.com/books/content?id=Wn-SY_M28WAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=Wn-SY_M28WAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead the world"],
     genre: "children's books",
@@ -2290,7 +2290,7 @@ export const books = [
     description:
       "Sulwe has skin the color of midnight. She is darker than everyone in her family. Darker than anyone in her school. Sulwe just wants to be beautiful and bright, like her mother and sister. Then a magical journey in the night sky opens her eyes and changes everything. A powerful story about colorism, self-acceptance, and the true meaning of beauty.",
     coverImage:
-      "http://books.google.com/books/content?id=xx-wDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=xx-wDwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead her"],
     genre: "children's books",
@@ -2355,7 +2355,7 @@ export const books = [
     description:
       "The Very Hungry Caterpillar has delighted a generation of readers. Eric Carle's iconic tale follows a tiny caterpillar as he eats through a variety of foods before transforming into a butterfly — teaching young children about counting, the days of the week, and the wonder of metamorphosis.",
     coverImage:
-      "http://books.google.com/books/content?id=IyXhAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=IyXhAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones"],
     genre: "children's books",
@@ -2387,7 +2387,7 @@ export const books = [
     description:
       "In this award-winning picture book set in Tanzania, a young boy named Saruni saves every coin he earns to buy a bicycle so he can help his mother carry goods to market. This gentle, beautifully illustrated story teaches children about the value of money, savings, hard work, and the joy of reaching your goals.",
     coverImage:
-      "http://books.google.com/books/content?id=JFjOicNSApIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "https://books.google.com/books/content?id=JFjOicNSApIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
     primaryCollection: "lead little ones",
     collections: ["lead little ones", "lead with money"],
     genre: "children's books",
@@ -2423,7 +2423,7 @@ export const books = [
     description:
       "Anne Frank's diary, written while she was hiding with her family from the Nazis in Amsterdam, is one of the most moving documents of the twentieth century. In it she writes about her fears, her hopes, her first love, and her dreams — all while living in constant danger of discovery.",
     coverImage:
-      "http://books.google.com/books/content?id=kRE8xxCmUcMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=kRE8xxCmUcMC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead her"],
     genre: "young adult",
@@ -2455,7 +2455,7 @@ export const books = [
     description:
       "Harper Lee's Pulitzer Prize-winning masterwork of honor and injustice in the Deep South — and the heroism of one man in the face of blind and violent hatred. Through the innocent eyes of Scout and Jem Finch, we see their father Atticus Finch challenge a racist society and defend an innocent Black man against an unjust charge.",
     coverImage:
-      "http://books.google.com/books/content?id=M9lKHhLy1y0C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=M9lKHhLy1y0C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead the world"],
     genre: "young adult",
@@ -2524,7 +2524,7 @@ export const books = [
     description:
       "Maybe it was a sportswriter's farewell to his old professor who was dying. Or maybe it was a book about the most important things in life — love, work, community, family, aging, forgiveness, and, finally, death. Mitch Albom's memoir of his weekly visits with Morrie Schwartz has become one of the most beloved books of our time.",
     coverImage:
-      "http://books.google.com/books/content?id=q6afAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=q6afAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead me"],
     genre: "young adult",
@@ -2592,7 +2592,7 @@ export const books = [
     description:
       "Tomi Adeyemi conjures a stunning world of dark magic and danger in her West African-inspired fantasy. Zélie Adebola remembers when the soil of Orïsha hummed with magic — before the king's soldiers slaughtered all the maji and stripped magic from the land. Now Zélie has one chance to bring magic back and reclaim her people's power.",
     coverImage:
-      "http://books.google.com/books/content?id=vuguDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=vuguDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead with imagination", "lead the world"],
     genre: "young adult",
@@ -2627,7 +2627,7 @@ export const books = [
     description:
       "Twelve-year-old Sunny lives in Nigeria but was born in New York. She is an albino and an outsider. But when she discovers she has supernatural abilities, she is initiated into the Leopard Society — a secret world of magic that has existed in Africa for thousands of years. Nnedi Okofor's award-winning fantasy draws on Yoruba mythology and African folklore.",
     coverImage:
-      "http://books.google.com/books/content?id=nl_cnAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=nl_cnAAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead with imagination"],
     genre: "young adult",
@@ -2658,7 +2658,7 @@ export const books = [
     description:
       "So Spoke the Earth is a rich anthology of short fiction from across the African continent, celebrating the diversity and depth of the African experience. From the savannahs of East Africa to the megacities of West Africa, these stories explore identity, belonging, family, and what it means to be young and African in the modern world.",
     coverImage:
-      "http://books.google.com/books/content?id=7QNaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=7QNaAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead the world"],
     genre: "young adult",
@@ -2691,7 +2691,7 @@ export const books = [
     description:
       "Ponyboy Curtis knows he can count on his brothers and his friends — true friends who would do anything for him. But not on much else besides trouble with the Socs, a vicious gang of rich kids whose idea of a good time is beating up on greasers like Ponyboy. When the conflict between the groups results in death, Ponyboy must choose between his loyalty and his sense of right and wrong.",
     coverImage:
-      "http://books.google.com/books/content?id=aRfhAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "https://books.google.com/books/content?id=aRfhAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
     primaryCollection: "lead the young",
     collections: ["lead the young", "lead me"],
     genre: "young adult",

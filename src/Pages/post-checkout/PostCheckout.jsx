@@ -24,6 +24,7 @@ import "./PostCheckout.css";
 
 export default function PostCheckout() {
   const [order, setOrder] = useState(null);
+
   const [loading, setLoading] = useState(true);
   const { ref } = useParams();
   const { session } = UseAuth();
@@ -31,7 +32,8 @@ export default function PostCheckout() {
 
   const recentOrder = useMemo(() => {
     const stored = sessionStorage.getItem(`order:${ref}`);
-    return stored ? JSON.parse(stored) : [];
+    // console.log(stored);
+    return stored !== undefined ? JSON.parse(stored) : [];
   }, [ref]);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -51,7 +53,7 @@ export default function PostCheckout() {
 
   useEffect(() => {
     async function loadOrder() {
-      if (recentOrder?.ref === ref) {
+      if (recentOrder?.reference === ref) {
         setOrder(recentOrder);
         return;
       }
@@ -60,11 +62,15 @@ export default function PostCheckout() {
         return;
       }
       const { data, error } = await getOrderByRef(ref);
+
       if (error) {
         return;
       }
       setOrder(data);
-      sessionStorage.setItem(`order:${ref}`, JSON.stringify(data));
+
+      if (data !== undefined) {
+        sessionStorage.setItem(`order:${ref}`, JSON.stringify(data));
+      }
     }
 
     loadOrder().finally(() => {
@@ -127,10 +133,12 @@ export default function PostCheckout() {
               </a>
             </div>
           </section>
-          <section className="recommendation-sec order-section-wrapper">
-            <div className="carousel-section-header">
-              <h2 className="order-summary-h2">Inspired By Your Order</h2>
-              <CarouselButton emblaApi={emblaApi} />
+          <section className="recommendation-sec ">
+            <div className="order-section-wrapper">
+              <div className="carousel-section-header">
+                <h2 className="order-summary-h2">Inspired By Your Order</h2>
+                <CarouselButton emblaApi={emblaApi} />
+              </div>
             </div>
             <div className="related-reads">
               <CarouselWrapper array={recommendedBooks} emblaRef={emblaRef}>

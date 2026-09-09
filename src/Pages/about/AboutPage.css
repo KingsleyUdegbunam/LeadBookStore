@@ -35,4 +35,34 @@
   .about-header {
     font-size: 1.1rem;
   }
+
+  .about-sections {
+    flex-direction: row;
+  }
+
+  .about-sections > * {
+    flex: 1 !important;
+    min-width: auto !important;
+  }
+
+  .about-sections > *:first-of-type {
+    flex: 0.8 !important;
+
+    height: fit-content;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .about-sections {
+    flex-direction: row;
+  }
+
+  .about-sections > * {
+    flex: 1 !important;
+    min-width: auto !important;
+  }
+
+  .about-sections > *:first-of-type {
+    flex: 0.8 !important;
+  }
 }

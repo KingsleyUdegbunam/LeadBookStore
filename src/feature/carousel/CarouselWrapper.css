@@ -1,6 +1,16 @@
 .embla {
   --slide-spacing: 2rem;
+  --slide-spacing-lg: 4rem;
 }
+
+@media screen and (min-width: 1024px) {
+  .embla {
+    --slide-spacing: 4rem;
+    padding-block-start: calc(var(--slide-spacing) / 2);
+    padding-block-end: var(--slide-spacing);
+  }
+}
+
 .embla__viewport {
   overflow: hidden;
   touch-action: pan-y pinch-zoom;
@@ -11,8 +21,20 @@
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
   margin-left: 0;
+  margin-right: var(--slide-spacing);
 }
 
 .embla__slide {
   padding-left: var(--slide-spacing);
+}
+
+@media screen and (min-width: 1024px) {
+  .slider .embla__container {
+    margin-left: calc(var(--slide-spacing-lg) * -1);
+    margin-right: var(--slide-spacing-lg);
+  }
+
+  .slider .embla__slide {
+    padding-left: var(--slide-spacing-lg);
+  }
 }

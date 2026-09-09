@@ -62,7 +62,9 @@ export function CheckoutDetailSummary({
 
           {shippingDetails?.deliveryNotes && (
             <div>
-              <strong>Delivery Instructions:</strong>
+              <p>
+                <strong>Delivery Instructions:</strong>
+              </p>
               <p className="delivery-notes">
                 {showFullNotes ? notes : truncateText}
               </p>

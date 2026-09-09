@@ -1,21 +1,68 @@
-.about-hero-header {
-  max-height: 85vh;
+header.about-hero-header {
   padding-bottom: 0;
+}
+
+.about-header-wrapper {
+  justify-content: space-between !important;
+  height: 100%;
 }
 
 .about-image {
   width: 100%;
-  height: auto;
-}
-.about-hero-header .image-wrapper img {
+  height: 100%;
+  object-position: 65% 0;
   object-fit: cover;
+}
+
+.about-page-paragraph {
+  padding-inline: 1.5rem;
+}
+
+.about-hero-image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  header.about-hero-header {
+    display: flex;
+  }
+
+  .about-hero-header .header-text {
+    max-width: max-content;
+  }
+
+  .about-hero-header > * {
+    flex: 1 !important;
+    min-width: none;
+  }
+
+  .about-hero-image-wrapper {
+    height: 500px;
+    width: 100%;
+  }
+  .about-header-n-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr !important;
+    gap: 0 !important;
+  }
+
+  .about-header-n-wrapper > * {
+    flex: 1 !important;
+  }
+
+  .about-header-n-wrapper > *:first-of-type {
+    flex: 2 !important;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .about-hero-header .about-hero-wrapper {
     gap: 2rem;
-    /* align-items: stretch; */
-    justify-content: center;
+
+    justify-content: space-between;
   }
 
   .about-hero-header .image-wrapper {

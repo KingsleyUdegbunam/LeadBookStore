@@ -26,15 +26,15 @@ export const WeStandFor = () => {
   ];
 
   return (
-    <section className="about-sections desktop-about-contact-grid">
-      <div className="stand-for-header our-story-subcontent-1">
+    <section className="about-sections  about-page-paragraph">
+      <div className="stand-for-header our-story-subcontent-1 sticky">
         <h2 className="about-section-header">What we stand for</h2>
 
         <p className="about-body-text">
           Every book we choose reflects these principles.
         </p>
       </div>
-      <div className="cards-wrapper">
+      <div className="cards-wrapper about-grid-gap">
         {cardContent.map((card, index) => (
           <WeStandCard
             key={index}

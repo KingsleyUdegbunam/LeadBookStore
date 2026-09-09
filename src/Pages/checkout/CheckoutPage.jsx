@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import { TotalCost } from "../../feature/checkout/components/TotalCost";
 import { ShippingInfo } from "../../feature/checkout/components/ShippingInfo";
@@ -8,6 +8,8 @@ import { initiatePayment } from "../../feature/checkout/utilities";
 import { convertToNaira } from "../../utilities/money";
 import { useCart } from "../../context/CartContext";
 import "./CheckoutPage.css";
+import { EmptyState } from "../../component/general/states/EmptyState";
+import image from "../../assets/empty-states/checkout.svg";
 
 export default function CheckoutPage() {
   const [shippingDetails, setShippingDetails] = useState({
@@ -23,6 +25,7 @@ export default function CheckoutPage() {
   });
 
   const { setCart, cartInDetail, cartTotalPrice } = useCart();
+  const navigate = useNavigate();
 
   const [selectedShipping, setSelectedShipping] = useState({});
   const [showShippingDetailsForm, setShowShippingDetailsForm] = useState(true);
@@ -42,6 +45,20 @@ export default function CheckoutPage() {
         behavior: "smooth",
       });
   }, [showShippingDetailsForm, showShippingOptForm]);
+
+  if (cartInDetail.length === 0) {
+    return (
+      <div className="pages-wrapper">
+        <EmptyState
+          title="No books to checkout"
+          body="Your cart is empty. Add some books before heading to checkout."
+          actionText="Back to Shop"
+          onAction={() => navigate("/shop")}
+          image={image}
+        />
+      </div>
+    );
+  }
 
   return (
     <section className="checkout-section">

@@ -219,10 +219,12 @@ export function PrimarySignUpForm({ prefilledEmail }) {
               }}
             />
           </article>
-          {hasStartedTyping.password && (
-            <div className="feedback-container">
+          {
+            <div
+              className={`feedback-container primary-form ${hasStartedTyping.password ? "visible" : ""}`}
+            >
               {passwordFeedback.map(({ valid, text }) => (
-                <div className="feedback">
+                <div className="feedback" key={text}>
                   {!hasStartedTyping.password ? (
                     "-"
                   ) : valid ? (
@@ -234,7 +236,7 @@ export function PrimarySignUpForm({ prefilledEmail }) {
                 </div>
               ))}
             </div>
-          )}
+          }
         </div>
 
         <div className="post-checkout-actions-wrapper">

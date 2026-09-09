@@ -21,15 +21,15 @@ export const OurCollection = () => {
   ];
 
   return (
-    <section className="about-sections about-subheader desktop-about-contact-grid">
-      <div className="our-story-subcontent-1">
+    <section className="about-sections about-subheader about-page-paragraph">
+      <div className="our-story-subcontent-1 sticky">
         <h2 className="about-header color-brand ">Our collections</h2>
         <p className="about-body-text">
           Leadership looks different for everyone. We've built collections
           around different journeys—not different people.
         </p>
       </div>
-      <div className="collections-wrapper">
+      <div className="collections-wrapper about-grid-gap">
         {STORE_COLLECTION.map((col, index) => (
           <Link key={index} to={col.link}>
             <CollectionCard collection={col.title} />
